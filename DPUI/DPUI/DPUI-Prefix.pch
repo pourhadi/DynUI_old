@@ -1,8 +1,0 @@
-//
-// Prefix header for all source files of the 'DPUI' target in the 'DPUI' project
-//
-
-#ifdef __OBJC__
-    #import <Foundation/Foundation.h>
-#import "DPUI.h"
-#endif
