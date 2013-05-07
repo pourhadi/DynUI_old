@@ -100,7 +100,7 @@
 		D763FD9117397D1400F983CE /* libDPUI.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libDPUI.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D763FD9417397D1400F983CE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D763FD9817397D1400F983CE /* DPUI-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DPUI-Prefix.pch"; sourceTree = "<group>"; };
-		D763FD9917397D1400F983CE /* DPUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DPUI.h; sourceTree = "<group>"; };
+		D763FD9917397D1400F983CE /* DPUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DPUI.h; path = DPUI/DPUI.h; sourceTree = SOURCE_ROOT; };
 		D763FDA417397D2400F983CE /* NSString+DPUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+DPUI.h"; sourceTree = "<group>"; };
 		D763FDA517397D2400F983CE /* NSString+DPUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+DPUI.m"; sourceTree = "<group>"; };
 		D763FDA617397D2400F983CE /* UIColor+DPUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+DPUI.h"; sourceTree = "<group>"; };
@@ -164,7 +164,8 @@
 		D763FD8817397D1400F983CE = {
 			isa = PBXGroup;
 			children = (
-				D763FD9617397D1400F983CE /* DPUI */,
+				D763FDA217397D2400F983CE /* DPUI */,
+				D763FD9617397D1400F983CE /* DPUIProject */,
 				D763FD9317397D1400F983CE /* Frameworks */,
 				D763FD9217397D1400F983CE /* Products */,
 			);
@@ -190,14 +191,12 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		D763FD9617397D1400F983CE /* DPUI */ = {
+		D763FD9617397D1400F983CE /* DPUIProject */ = {
 			isa = PBXGroup;
 			children = (
-				D763FDE617397E1C00F983CE /* External */,
-				D763FDA217397D2400F983CE /* DPUI */,
-				D763FD9917397D1400F983CE /* DPUI.h */,
 				D763FD9717397D1400F983CE /* Supporting Files */,
 			);
+			name = DPUIProject;
 			path = DPUI;
 			sourceTree = "<group>";
 		};
@@ -212,6 +211,7 @@
 		D763FDA217397D2400F983CE /* DPUI */ = {
 			isa = PBXGroup;
 			children = (
+				D763FDE617397E1C00F983CE /* External */,
 				D763FDB817397D2400F983CE /* Styles */,
 				D763FDA317397D2400F983CE /* Categories */,
 				D763FDB217397D2400F983CE /* DPStyle.h */,
@@ -220,8 +220,10 @@
 				D763FDB517397D2400F983CE /* DPUIManager.m */,
 				D763FDB617397D2400F983CE /* DPUIRenderer.h */,
 				D763FDB717397D2400F983CE /* DPUIRenderer.m */,
+				D763FD9917397D1400F983CE /* DPUI.h */,
 			);
-			path = DPUI;
+			name = DPUI;
+			path = DPUI/DPUI;
 			sourceTree = "<group>";
 		};
 		D763FDA317397D2400F983CE /* Categories */ = {
@@ -274,6 +276,7 @@
 				D763FDE717397E2100F983CE /* JRSwizzle */,
 			);
 			name = External;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		D763FDE717397E2100F983CE /* JRSwizzle */ = {
