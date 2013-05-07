@@ -7,11 +7,6 @@
 //
 
 #import "DPUIManager.h"
-#import "UIView+DPUI.h"
-#import "DPUIManager.h"
-#import "DPUIColor.h"
-#import "UINavigationBar+DPUI.h"
-#import "DPUITextStyle.h"
 #import "DPUIDefines.h"
 @implementation DPUIManager
 

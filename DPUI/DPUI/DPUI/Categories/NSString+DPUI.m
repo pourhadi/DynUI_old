@@ -7,8 +7,7 @@
 //
 
 #import "NSString+DPUI.h"
-#import "DPUIManager.h"
-#import "DPUITextStyle.h"
+
 @implementation NSString (DPUI)
 
 - (void)dpui_drawAtPoint:(CGPoint)point forWidth:(CGFloat)width lineBreakMode:(NSLineBreakMode)lineBreakMode withStyle:(NSString*)dpuiTextStyle

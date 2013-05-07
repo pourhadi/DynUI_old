@@ -7,7 +7,6 @@
 //
 
 #import "DPUIColor.h"
-#import "UIColor+DPUI.h"
 @implementation DPUIColor
 
 - (id)initWithDictionary:(NSDictionary*)dictionary

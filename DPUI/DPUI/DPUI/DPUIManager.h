@@ -7,13 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "DPUIImageStyle.h"
-#import "DPUIViewStyle.h"
-#import "DPUIBackgroundStyle.h"
-#import "DPUIShadowStyle.h"
-#import "UIView+DPUI.h"
-#import "DPUITextStyle.h"
+
 @class DPUIStyle;
+@class DPUITextStyle;
+@class DPUIViewStyle;
 @interface DPUIManager : NSObject
 
 + (DPUIManager*)sharedInstance;

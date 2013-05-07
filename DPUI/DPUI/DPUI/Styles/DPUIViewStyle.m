@@ -7,9 +7,7 @@
 //
 
 #import "DPUIViewStyle.h"
-#import "UIImage+DPUI.h"
-#import <QuartzCore/QuartzCore.h>
-#import "UIColor+DPUI.h"
+
 @implementation DPUIViewStyle
 
 - (id)init

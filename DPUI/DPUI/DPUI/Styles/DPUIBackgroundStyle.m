@@ -7,8 +7,7 @@
 //
 
 #import "DPUIBackgroundStyle.h"
-#import "UIColor+DPUI.h"
-#import "DPUIColor.h"
+
 @implementation DPUIBackgroundStyle
 
 - (id)init

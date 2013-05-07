@@ -7,8 +7,7 @@
 //
 
 #import "UINavigationBar+DPUI.h"
-#import "DPUIRenderer.h"
-#import "UIView+DPUI.h"
+
 @implementation UINavigationBar (DPUI)
 
 

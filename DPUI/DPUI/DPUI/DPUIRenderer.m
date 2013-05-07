@@ -7,8 +7,7 @@
 //
 
 #import "DPUIRenderer.h"
-#import "DPUIViewStyle.h"
-#import "DPUIManager.h"
+
 @implementation DPUIRenderer
 + (void)renderView:(UIView*)view withStyleNamed:(NSString*)styleName
 {

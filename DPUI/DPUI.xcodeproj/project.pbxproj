@@ -6,10 +6,22 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		D763FEBA1739A20600F983CE /* DPUICombined */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = D763FEBB1739A20600F983CE /* Build configuration list for PBXAggregateTarget "DPUICombined" */;
+			buildPhases = (
+				D763FEBE1739A21C00F983CE /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = DPUICombined;
+			productName = DPUICombined;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		D763FD9517397D1400F983CE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D763FD9417397D1400F983CE /* Foundation.framework */; };
-		D763FD9A17397D1400F983CE /* DPUI.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D763FD9917397D1400F983CE /* DPUI.h */; };
-		D763FD9C17397D1400F983CE /* DPUI.m in Sources */ = {isa = PBXBuildFile; fileRef = D763FD9B17397D1400F983CE /* DPUI.m */; };
 		D763FDC917397D2400F983CE /* NSString+DPUI.m in Sources */ = {isa = PBXBuildFile; fileRef = D763FDA517397D2400F983CE /* NSString+DPUI.m */; };
 		D763FDCA17397D2400F983CE /* UIColor+DPUI.m in Sources */ = {isa = PBXBuildFile; fileRef = D763FDA717397D2400F983CE /* UIColor+DPUI.m */; };
 		D763FDCB17397D2400F983CE /* UIImage+DPUI.m in Sources */ = {isa = PBXBuildFile; fileRef = D763FDA917397D2400F983CE /* UIImage+DPUI.m */; };
@@ -27,6 +39,30 @@
 		D763FDD717397D2400F983CE /* DPUIStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = D763FDC417397D2400F983CE /* DPUIStyle.m */; };
 		D763FDD817397D2400F983CE /* DPUITextStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = D763FDC617397D2400F983CE /* DPUITextStyle.m */; };
 		D763FDD917397D2400F983CE /* DPUIViewStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = D763FDC817397D2400F983CE /* DPUIViewStyle.m */; };
+		D763FDDE17397D7600F983CE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D763FDDC17397D6900F983CE /* UIKit.framework */; };
+		D763FDDF17397D7600F983CE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D763FDDA17397D5900F983CE /* CoreGraphics.framework */; };
+		D763FDE417397D9200F983CE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D763FDE217397D8800F983CE /* QuartzCore.framework */; };
+		D763FDE517397D9200F983CE /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D763FDE017397D8200F983CE /* CoreImage.framework */; };
+		D763FDEA17397E2C00F983CE /* JRSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = D763FDE917397E2C00F983CE /* JRSwizzle.m */; };
+		D763FE2817399B1300F983CE /* DPUI.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D763FD9917397D1400F983CE /* DPUI.h */; };
+		D763FE2917399C7100F983CE /* DPUIBackgroundStyle.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D763FDB917397D2400F983CE /* DPUIBackgroundStyle.h */; };
+		D763FE2A17399C7100F983CE /* DPUIColor.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D763FDBB17397D2400F983CE /* DPUIColor.h */; };
+		D763FE2B17399C7100F983CE /* DPUIImageStyle.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D763FDBD17397D2400F983CE /* DPUIImageStyle.h */; };
+		D763FE2C17399C7100F983CE /* DPUIInnerBorderStyle.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D763FDBF17397D2400F983CE /* DPUIInnerBorderStyle.h */; };
+		D763FE2D17399C7100F983CE /* DPUIShadowStyle.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D763FDC117397D2400F983CE /* DPUIShadowStyle.h */; };
+		D763FE2E17399C7100F983CE /* DPUIStyle.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D763FDC317397D2400F983CE /* DPUIStyle.h */; };
+		D763FE2F17399C7100F983CE /* DPUITextStyle.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D763FDC517397D2400F983CE /* DPUITextStyle.h */; };
+		D763FE3017399C7100F983CE /* DPUIViewStyle.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D763FDC717397D2400F983CE /* DPUIViewStyle.h */; };
+		D763FE3117399C7100F983CE /* NSString+DPUI.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D763FDA417397D2400F983CE /* NSString+DPUI.h */; };
+		D763FE3217399C7100F983CE /* UIColor+DPUI.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D763FDA617397D2400F983CE /* UIColor+DPUI.h */; };
+		D763FE3317399C7100F983CE /* UIImage+DPUI.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D763FDA817397D2400F983CE /* UIImage+DPUI.h */; };
+		D763FE3417399C7100F983CE /* UILabel+DPUI.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D763FDAA17397D2400F983CE /* UILabel+DPUI.h */; };
+		D763FE3517399C7100F983CE /* UINavigationBar+DPUI.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D763FDAC17397D2400F983CE /* UINavigationBar+DPUI.h */; };
+		D763FE3617399C7100F983CE /* UITableViewCell+DPUI.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D763FDAE17397D2400F983CE /* UITableViewCell+DPUI.h */; };
+		D763FE3717399C7100F983CE /* UIView+DPUI.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D763FDB017397D2400F983CE /* UIView+DPUI.h */; };
+		D763FE3817399C7100F983CE /* DPStyle.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D763FDB217397D2400F983CE /* DPStyle.h */; };
+		D763FE3A17399C7100F983CE /* DPUIManager.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D763FDB417397D2400F983CE /* DPUIManager.h */; };
+		D763FE3B17399C7100F983CE /* DPUIRenderer.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D763FDB617397D2400F983CE /* DPUIRenderer.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -36,7 +72,25 @@
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
-				D763FD9A17397D1400F983CE /* DPUI.h in CopyFiles */,
+				D763FE2917399C7100F983CE /* DPUIBackgroundStyle.h in CopyFiles */,
+				D763FE2A17399C7100F983CE /* DPUIColor.h in CopyFiles */,
+				D763FE2B17399C7100F983CE /* DPUIImageStyle.h in CopyFiles */,
+				D763FE2C17399C7100F983CE /* DPUIInnerBorderStyle.h in CopyFiles */,
+				D763FE2D17399C7100F983CE /* DPUIShadowStyle.h in CopyFiles */,
+				D763FE2E17399C7100F983CE /* DPUIStyle.h in CopyFiles */,
+				D763FE2F17399C7100F983CE /* DPUITextStyle.h in CopyFiles */,
+				D763FE3017399C7100F983CE /* DPUIViewStyle.h in CopyFiles */,
+				D763FE3117399C7100F983CE /* NSString+DPUI.h in CopyFiles */,
+				D763FE3217399C7100F983CE /* UIColor+DPUI.h in CopyFiles */,
+				D763FE3317399C7100F983CE /* UIImage+DPUI.h in CopyFiles */,
+				D763FE3417399C7100F983CE /* UILabel+DPUI.h in CopyFiles */,
+				D763FE3517399C7100F983CE /* UINavigationBar+DPUI.h in CopyFiles */,
+				D763FE3617399C7100F983CE /* UITableViewCell+DPUI.h in CopyFiles */,
+				D763FE3717399C7100F983CE /* UIView+DPUI.h in CopyFiles */,
+				D763FE3817399C7100F983CE /* DPStyle.h in CopyFiles */,
+				D763FE3A17399C7100F983CE /* DPUIManager.h in CopyFiles */,
+				D763FE3B17399C7100F983CE /* DPUIRenderer.h in CopyFiles */,
+				D763FE2817399B1300F983CE /* DPUI.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -47,7 +101,6 @@
 		D763FD9417397D1400F983CE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D763FD9817397D1400F983CE /* DPUI-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DPUI-Prefix.pch"; sourceTree = "<group>"; };
 		D763FD9917397D1400F983CE /* DPUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DPUI.h; sourceTree = "<group>"; };
-		D763FD9B17397D1400F983CE /* DPUI.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DPUI.m; sourceTree = "<group>"; };
 		D763FDA417397D2400F983CE /* NSString+DPUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+DPUI.h"; sourceTree = "<group>"; };
 		D763FDA517397D2400F983CE /* NSString+DPUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+DPUI.m"; sourceTree = "<group>"; };
 		D763FDA617397D2400F983CE /* UIColor+DPUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+DPUI.h"; sourceTree = "<group>"; };
@@ -84,6 +137,12 @@
 		D763FDC617397D2400F983CE /* DPUITextStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPUITextStyle.m; sourceTree = "<group>"; };
 		D763FDC717397D2400F983CE /* DPUIViewStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPUIViewStyle.h; sourceTree = "<group>"; };
 		D763FDC817397D2400F983CE /* DPUIViewStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPUIViewStyle.m; sourceTree = "<group>"; };
+		D763FDDA17397D5900F983CE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		D763FDDC17397D6900F983CE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		D763FDE017397D8200F983CE /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		D763FDE217397D8800F983CE /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		D763FDE817397E2C00F983CE /* JRSwizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRSwizzle.h; sourceTree = "<group>"; };
+		D763FDE917397E2C00F983CE /* JRSwizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRSwizzle.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,7 +150,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D763FDE417397D9200F983CE /* QuartzCore.framework in Frameworks */,
+				D763FDE517397D9200F983CE /* CoreImage.framework in Frameworks */,
 				D763FD9517397D1400F983CE /* Foundation.framework in Frameworks */,
+				D763FDDE17397D7600F983CE /* UIKit.framework in Frameworks */,
+				D763FDDF17397D7600F983CE /* CoreGraphics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,6 +181,10 @@
 		D763FD9317397D1400F983CE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D763FDE217397D8800F983CE /* QuartzCore.framework */,
+				D763FDE017397D8200F983CE /* CoreImage.framework */,
+				D763FDDC17397D6900F983CE /* UIKit.framework */,
+				D763FDDA17397D5900F983CE /* CoreGraphics.framework */,
 				D763FD9417397D1400F983CE /* Foundation.framework */,
 			);
 			name = Frameworks;
@@ -126,9 +193,9 @@
 		D763FD9617397D1400F983CE /* DPUI */ = {
 			isa = PBXGroup;
 			children = (
+				D763FDE617397E1C00F983CE /* External */,
 				D763FDA217397D2400F983CE /* DPUI */,
 				D763FD9917397D1400F983CE /* DPUI.h */,
-				D763FD9B17397D1400F983CE /* DPUI.m */,
 				D763FD9717397D1400F983CE /* Supporting Files */,
 			);
 			path = DPUI;
@@ -145,6 +212,7 @@
 		D763FDA217397D2400F983CE /* DPUI */ = {
 			isa = PBXGroup;
 			children = (
+				D763FDB817397D2400F983CE /* Styles */,
 				D763FDA317397D2400F983CE /* Categories */,
 				D763FDB217397D2400F983CE /* DPStyle.h */,
 				D763FDB317397D2400F983CE /* DPUIDefines.h */,
@@ -152,7 +220,6 @@
 				D763FDB517397D2400F983CE /* DPUIManager.m */,
 				D763FDB617397D2400F983CE /* DPUIRenderer.h */,
 				D763FDB717397D2400F983CE /* DPUIRenderer.m */,
-				D763FDB817397D2400F983CE /* Styles */,
 			);
 			path = DPUI;
 			sourceTree = "<group>";
@@ -201,6 +268,23 @@
 			path = Styles;
 			sourceTree = "<group>";
 		};
+		D763FDE617397E1C00F983CE /* External */ = {
+			isa = PBXGroup;
+			children = (
+				D763FDE717397E2100F983CE /* JRSwizzle */,
+			);
+			name = External;
+			sourceTree = "<group>";
+		};
+		D763FDE717397E2100F983CE /* JRSwizzle */ = {
+			isa = PBXGroup;
+			children = (
+				D763FDE817397E2C00F983CE /* JRSwizzle.h */,
+				D763FDE917397E2C00F983CE /* JRSwizzle.m */,
+			);
+			name = JRSwizzle;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -243,16 +327,32 @@
 			projectRoot = "";
 			targets = (
 				D763FD9017397D1400F983CE /* DPUI */,
+				D763FEBA1739A20600F983CE /* DPUICombined */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D763FEBE1739A21C00F983CE /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "XCODEBUILD_PATH=/Applications/Xcode.app/Contents/Developer/usr/bin\nXCODEBUILD=$XCODEBUILD_PATH/xcodebuild\n\n$XCODEBUILD -project DPUI.xcodeproj -target \"DPUI\" -sdk \"iphonesimulator\" -configuration \"Release\" clean build\n$XCODEBUILD -project DPUI.xcodeproj -target \"DPUI\" -sdk \"iphoneos\" -configuration \"Release\" clean build\n\nlipo -create -output \"build/libDPUI-Combined.a\" \"build/Release-iphoneos/libDPUI.a\" \"build/Release-iphonesimulator/libDPUI.a\"";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D763FD8D17397D1400F983CE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D763FD9C17397D1400F983CE /* DPUI.m in Sources */,
 				D763FDC917397D2400F983CE /* NSString+DPUI.m in Sources */,
 				D763FDCA17397D2400F983CE /* UIColor+DPUI.m in Sources */,
 				D763FDCB17397D2400F983CE /* UIImage+DPUI.m in Sources */,
@@ -270,6 +370,7 @@
 				D763FDD717397D2400F983CE /* DPUIStyle.m in Sources */,
 				D763FDD817397D2400F983CE /* DPUITextStyle.m in Sources */,
 				D763FDD917397D2400F983CE /* DPUIViewStyle.m in Sources */,
+				D763FDEA17397E2C00F983CE /* JRSwizzle.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -353,6 +454,20 @@
 			};
 			name = Release;
 		};
+		D763FEBC1739A20600F983CE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		D763FEBD1739A20600F983CE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -370,6 +485,14 @@
 			buildConfigurations = (
 				D763FDA017397D1400F983CE /* Debug */,
 				D763FDA117397D1400F983CE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		D763FEBB1739A20600F983CE /* Build configuration list for PBXAggregateTarget "DPUICombined" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D763FEBC1739A20600F983CE /* Debug */,
+				D763FEBD1739A20600F983CE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};

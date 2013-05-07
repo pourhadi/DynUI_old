@@ -7,8 +7,7 @@
 //
 
 #import "UITableViewCell+DPUI.h"
-#import "DPUIRenderer.h"
-#import "UIView+DPUI.h"
+
 @implementation UITableViewCell (DPUI)
 
 - (void)dpui_layoutSubviews

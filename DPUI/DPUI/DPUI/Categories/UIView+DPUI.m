@@ -7,11 +7,9 @@
 //
 
 #import "UIView+DPUI.h"
-#import <objc/runtime.h>
-#import "DPUIManager.h"
 #import "JRSwizzle.h"
-#import "DPUIRenderer.h"
 #import "DPUIDefines.h"
+#import <objc/runtime.h>
 @implementation UIView (DPUI)
 
 - (void)setDpui_style:(NSString *)viewStyle
@@ -86,12 +84,12 @@
 
 + (BOOL)dpui_layoutSubviewsSwizzled
 {
-	return objc_getAssociatedObject([self class], kDPUILayoutSubviewsSwizzled);
+	return [objc_getAssociatedObject([self class], kDPUILayoutSubviewsSwizzled) boolValue];
 }
 
 + (BOOL)dpui_deallocSwizzled
 {
-	return objc_getAssociatedObject([self class], kDPUIDeallocSwizzled);
+	return [objc_getAssociatedObject([self class], kDPUIDeallocSwizzled) boolValue];
 }
 
 + (void)dpui_swizzleLayoutSubviews

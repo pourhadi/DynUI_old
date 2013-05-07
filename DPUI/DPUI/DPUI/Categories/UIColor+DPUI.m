@@ -7,7 +7,6 @@
 //
 
 #import "UIColor+DPUI.h"
-#import "DPUIManager.h"
 
 @implementation UIColor (DPUI)
 

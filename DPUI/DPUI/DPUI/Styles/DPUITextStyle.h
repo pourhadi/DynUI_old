@@ -7,7 +7,7 @@
 //
 
 #import "DPUIStyle.h"
-#import "DPUIColor.h"
+@class DPUIColor;
 @interface DPUITextStyle : DPUIStyle
 
 - (id)initWithDictionary:(NSDictionary*)dictionary;

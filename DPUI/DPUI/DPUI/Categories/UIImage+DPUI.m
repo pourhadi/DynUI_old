@@ -7,9 +7,7 @@
 //
 
 #import "UIImage+DPUI.h"
-#import "DPUIImageStyle.h"
-#import "DPUIManager.h"
-#import <CoreImage/CoreImage.h>
+
 @implementation UIImage (DPUI)
 
 + (UIImage*)imageWithSize:(CGSize)size drawnWithBlock:(DPUIDrawImageBlock)block

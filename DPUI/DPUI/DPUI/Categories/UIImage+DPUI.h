@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <QuartzCore/QuartzCore.h>
 typedef void (^DPUIDrawImageBlock)(CGContextRef context, CGSize size);
 @interface UIImage (DPUI)
 

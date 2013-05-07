@@ -7,8 +7,8 @@
 //
 
 #import "DPUITextStyle.h"
-#import "UILabel+DPUI.h"
 #import "DPUIDefines.h"
+#import <objc/runtime.h>
 @implementation DPUITextStyle
 - (id)initWithDictionary:(NSDictionary*)dict
 {

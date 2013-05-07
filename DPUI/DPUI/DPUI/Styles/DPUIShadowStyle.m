@@ -7,8 +7,7 @@
 //
 
 #import "DPUIShadowStyle.h"
-#import "UIColor+DPUI.h"
-#import <QuartzCore/QuartzCore.h>
+
 @implementation DPUIShadowStyle
 
 - (id)init

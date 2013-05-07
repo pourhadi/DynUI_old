@@ -8,10 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "DPUIStyle.h"
-#import "DPUIBackgroundStyle.h"
-#import "DPUIInnerBorderStyle.h"
-#import "DPUIShadowStyle.h"
-#import "DPUITextStyle.h"
+@class DPUIShadowStyle;
+@class DPUITextStyle;
+@class DPUIBackgroundStyle;
 @interface DPUIViewStyle : DPUIStyle
 
 @property (nonatomic, strong) DPUIBackgroundStyle *background;

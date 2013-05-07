@@ -7,8 +7,7 @@
 //
 
 #import "DPUIInnerBorderStyle.h"
-#import "UIColor+DPUI.h"
-#import "DPUIColor.h"
+
 @implementation DPUIInnerBorderStyle
 - (id)jsonValue
 {

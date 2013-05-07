@@ -8,8 +8,7 @@
 
 #import "UILabel+DPUI.h"
 #import "DPUIDefines.h"
-#import "DPUITextStyle.h"
-#import "DPUIManager.h"
+#import <objc/runtime.h>
 @implementation UILabel (DPUI)
 
 - (void)setDpui_textStyle:(NSString *)dpuiTextStyle

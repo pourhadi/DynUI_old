@@ -8,8 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "DPUIStyle.h"
-#import "DPUIBackgroundStyle.h"
-#import "DPUIShadowStyle.h"
+@class DPUIShadowStyle;
+@class DPUIBackgroundStyle;
 @interface DPUIImageStyle : DPUIStyle
 
 @property (nonatomic, strong) DPUIBackgroundStyle *overlay;
