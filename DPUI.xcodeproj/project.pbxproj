@@ -60,7 +60,6 @@
 		D763FE3517399C7100F983CE /* UINavigationBar+DPUI.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D763FDAC17397D2400F983CE /* UINavigationBar+DPUI.h */; };
 		D763FE3617399C7100F983CE /* UITableViewCell+DPUI.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D763FDAE17397D2400F983CE /* UITableViewCell+DPUI.h */; };
 		D763FE3717399C7100F983CE /* UIView+DPUI.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D763FDB017397D2400F983CE /* UIView+DPUI.h */; };
-		D763FE3817399C7100F983CE /* DPStyle.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D763FDB217397D2400F983CE /* DPStyle.h */; };
 		D763FE3A17399C7100F983CE /* DPUIManager.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D763FDB417397D2400F983CE /* DPUIManager.h */; };
 		D763FE3B17399C7100F983CE /* DPUIRenderer.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D763FDB617397D2400F983CE /* DPUIRenderer.h */; };
 /* End PBXBuildFile section */
@@ -87,7 +86,6 @@
 				D763FE3517399C7100F983CE /* UINavigationBar+DPUI.h in CopyFiles */,
 				D763FE3617399C7100F983CE /* UITableViewCell+DPUI.h in CopyFiles */,
 				D763FE3717399C7100F983CE /* UIView+DPUI.h in CopyFiles */,
-				D763FE3817399C7100F983CE /* DPStyle.h in CopyFiles */,
 				D763FE3A17399C7100F983CE /* DPUIManager.h in CopyFiles */,
 				D763FE3B17399C7100F983CE /* DPUIRenderer.h in CopyFiles */,
 				D763FE2817399B1300F983CE /* DPUI.h in CopyFiles */,
@@ -115,7 +113,6 @@
 		D763FDAF17397D2400F983CE /* UITableViewCell+DPUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+DPUI.m"; sourceTree = "<group>"; };
 		D763FDB017397D2400F983CE /* UIView+DPUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+DPUI.h"; sourceTree = "<group>"; };
 		D763FDB117397D2400F983CE /* UIView+DPUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+DPUI.m"; sourceTree = "<group>"; };
-		D763FDB217397D2400F983CE /* DPStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPStyle.h; sourceTree = "<group>"; };
 		D763FDB317397D2400F983CE /* DPUIDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPUIDefines.h; sourceTree = "<group>"; };
 		D763FDB417397D2400F983CE /* DPUIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPUIManager.h; sourceTree = "<group>"; };
 		D763FDB517397D2400F983CE /* DPUIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPUIManager.m; sourceTree = "<group>"; };
@@ -214,7 +211,6 @@
 				D763FDE617397E1C00F983CE /* External */,
 				D763FDB817397D2400F983CE /* Styles */,
 				D763FDA317397D2400F983CE /* Categories */,
-				D763FDB217397D2400F983CE /* DPStyle.h */,
 				D763FDB317397D2400F983CE /* DPUIDefines.h */,
 				D763FDB417397D2400F983CE /* DPUIManager.h */,
 				D763FDB517397D2400F983CE /* DPUIManager.m */,
