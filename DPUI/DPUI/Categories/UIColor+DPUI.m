@@ -61,6 +61,13 @@
     return [UIColor colorWithRed: red green: green blue: blue alpha: alpha];
 }
 
++ (CIColor*)uiColorToCIColor:(UIColor*)color
+{
+    CGFloat red = 0.0, green = 0.0, blue = 0.0, alpha = 0.0;
+    [color getRed:&red green:&green blue:&blue alpha:&alpha];
+    return [CIColor colorWithRed:red green:green blue:blue];
+}
+
 + (CGFloat) colorComponentFrom: (NSString *) string start: (NSUInteger) start length: (NSUInteger) length {
     NSString *substring = [string substringWithRange: NSMakeRange(start, length)];
     NSString *fullHex = length == 2 ? substring : [NSString stringWithFormat: @"%@%@", substring, substring];

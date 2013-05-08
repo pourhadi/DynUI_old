@@ -13,6 +13,9 @@ typedef void (^DPUIDrawImageBlock)(CGContextRef context, CGSize size);
 + (UIImage*)imageWithSize:(CGSize)size drawnWithBlock:(DPUIDrawImageBlock)block;;
 
 + (UIImage*)tintImage:(UIImage*)uiImage withColor:(CIColor*)color;
+- (UIImage*)imageTintedWithGradientTopColor:(UIColor*)topColor bottomColor:(UIColor*)bottomColor fraction:(CGFloat)fraction;
+- (UIImage*)imageTintedWithGradientTopColor:(UIColor*)topColor bottomColor:(UIColor*)bottomColor innerShadowColor:(UIColor*)innerShadow fraction:(CGFloat)fraction;
+
 + (CAGradientLayer*)gradientLayerWithTop:(id)topColor bottom:(id)bottomColor frame:(CGRect)frame;
 + (UIImage*)gradientImageWithTop:(id)topColor bottom:(id)bottomColor frame:(CGRect)frame;
 
