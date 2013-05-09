@@ -185,4 +185,15 @@
 	return [self resizableImageWithCapInsets:UIEdgeInsetsMake(size.height/2, size.width/2, (size.height/2)-1, (size.width/2)-1)];
 }
 
+- (UIImage*)imageWithOpacity:(CGFloat)opacity
+{
+    UIImage *img = [UIImage imageWithSize:self.size drawnWithBlock:^(CGContextRef context, CGSize size) {
+        
+        [self drawInRect:CGRectMake(0, 0, size.width, size.height) blendMode:kCGBlendModeNormal alpha:opacity];
+        
+    }];
+    
+    return img;
+}
+
 @end

@@ -74,9 +74,52 @@
     return nil;
 }
 
+- (void)registerView:(id)view
+{
+    if (!self.registeredViews) {
+        self.registeredViews = [NSArray array];
+    }
+    
+    
+    if (![self.registeredViews containsObject:view])  {
+        NSMutableArray *mutable = [self.registeredViews mutableCopy];
+        [mutable addObject:view];
+        [view addObserver:self forKeyPath:@"frame" options:0 context:nil];
+        self.registeredViews = mutable;
+    }
+}
+
+- (void)unregisterView:(id)view
+{
+    if (self.registeredViews) {
+        if ([self.registeredViews containsObject:view]) {
+            [view removeObserver:self forKeyPath:@"frame"];
+            NSMutableArray *mutable = [self.registeredViews mutableCopy];
+            [mutable removeObject:view];
+            self.registeredViews = mutable;
+        }
+    }
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    if ([object respondsToSelector:@selector(dpui_frameChanged)]) {
+        [object dpui_frameChanged];
+    }
+}
+
 - (void)loadStylesFromFile:(NSString *)fileName replaceExisting:(BOOL)replaceExisting liveUpdate:(BOOL)liveUpdate {
+    @synchronized(self) {
+
+    
     NSError *error;
-    NSData *data = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:fileName ofType:nil]];
+    NSData *data;
+    
+    if (liveUpdate) {
+        data = [NSData dataWithContentsOfFile:fileName];
+    } else {
+        data = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:fileName ofType:nil]];
+    }
     NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
     if (error) {
         NSLog(@"%@", error);
@@ -114,19 +157,24 @@
         }
     }
     
-    [self sendUpdateNotification];
-    
-    if (liveUpdate) {
-        if (!self.liveUpdating) {
-            _liveUpdating = YES;
-            
+        [CATransaction flush];
+    if (liveUpdate && !self.liveUpdating) {
+        _liveUpdating = YES;
             [self watch:fileName withCallback:^{
-                [self loadStylesFromFile:fileName replaceExisting:replaceExisting liveUpdate:_liveUpdating];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self loadStylesFromFile:fileName replaceExisting:replaceExisting liveUpdate:liveUpdate];
+
+                });
             }];
-        }
     } else {
         _liveUpdating = NO;
     }
+    }
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self sendUpdateNotification];
+
+    });
+
 }
 
 - (void)watch:(NSString *)path withCallback:(void (^)())callback {
@@ -153,7 +201,11 @@
 }
 
 - (void)sendUpdateNotification {
-    [[NSNotificationCenter defaultCenter] postNotificationName:kDPUIThemeChangedNotification object:nil];
+    //[[NSNotificationCenter defaultCenter] postNotificationName:kDPUIThemeChangedNotification object:nil];
+
+    for (id obj in self.registeredViews) {
+        [obj dpui_refreshStyle];
+    }
 }
 
 @end

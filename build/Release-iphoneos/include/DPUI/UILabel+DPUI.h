@@ -10,5 +10,4 @@
 
 @interface UILabel (DPUI)
 @property (nonatomic, strong) NSString *dpui_textStyle;
-
 @end

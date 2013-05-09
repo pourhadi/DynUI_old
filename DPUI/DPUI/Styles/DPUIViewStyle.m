@@ -70,11 +70,7 @@
         if ([dictionary objectForKey:kDPUINavBarTitleTextStyle]) {
             self.navBarTitleTextStyle = [[DPUITextStyle alloc] initWithDictionary:[dictionary objectForKey:kDPUINavBarTitleTextStyle]];
         }
-        
-        if ([dictionary objectForKey:kDPUIBarButtonItemTextStyle]) {
-            self.barButtonItemTextStyle     = [[DPUITextStyle alloc] initWithDictionary:[dictionary objectForKey:kDPUIBarButtonItemTextStyle]];
-        }
-        
+    
         if ([dictionary objectForKey:kDPUIBarButtonItemStyleName]) {
             self.barButtonItemStyleName = [dictionary objectForKey:kDPUIBarButtonItemStyleName];
         }
@@ -83,34 +79,41 @@
 			self.strokeColor = [[DPUIColor alloc] initWithDictionary:[dictionary objectForKey:kDPUIStrokeColor]];
 			self.strokeWidth = [[dictionary objectForKey:kDPUIStrokeWidth] floatValue];
 		}
+        
+        if ([dictionary objectForKey:kDPUIControlStyle]) {
+            self.controlStyle = [[DPUIControlStyle alloc] initWithDictionary:[dictionary objectForKey:kDPUIControlStyle]];
+        }
+        if ([dictionary objectForKey:kDPUIMaskToCornersKey]) {
+            self.maskToCorners = [[dictionary objectForKey:kDPUIMaskToCornersKey] boolValue];
+        }
     }
     return self;
 }
 
 - (UIImage *)imageForStyleWithSize:(CGSize)size
 {
-	UIBezierPath *path;
-    if (!CGSizeEqualToSize(self.cornerRadii, CGSizeZero)) {
-        path = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0, 0, size.width, size.height) byRoundingCorners:self.roundedCorners cornerRadii:self.cornerRadii];
-    } else {
-        path = [UIBezierPath bezierPathWithRect:CGRectMake(0, 0, size.width, size.height)];
-    }
-    
-    UIImage *image = [self imageForStyleWithSize:size path:path withOuterShadow:NO];
+   
+    UIImage *image = [self imageForStyleWithSize:size withOuterShadow:NO];
 	return image;
 }
 
 
 - (UIImage *)imageForStyleWithSize:(CGSize)size withOuterShadow:(BOOL)withOuterShadow
 {
-	UIBezierPath *path;
+    UIImage *image = [self imageForStyleWithSize:size withOuterShadow:withOuterShadow flippedGradient:NO];
+    return image;
+}
+
+- (UIImage *)imageForStyleWithSize:(CGSize)size withOuterShadow:(BOOL)withOuterShadow flippedGradient:(BOOL)flippedGradient
+{
+    UIBezierPath *path;
     if (!CGSizeEqualToSize(self.cornerRadii, CGSizeZero)) {
         path = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0, 0, size.width, size.height) byRoundingCorners:self.roundedCorners cornerRadii:self.cornerRadii];
     } else {
         path = [UIBezierPath bezierPathWithRect:CGRectMake(0, 0, size.width, size.height)];
     }
     
-    UIImage *image = [self imageForStyleWithSize:size path:path withOuterShadow:withOuterShadow];
+    UIImage *image = [self imageForStyleWithSize:size path:path withOuterShadow:withOuterShadow flippedGradient:flippedGradient];
 	return image;
 }
 
@@ -133,7 +136,7 @@
         [self.shadow addShadowToView:view];
     }
     
-    if (self.clipCorners) {
+    if (self.maskToCorners) {
         UIImage *mask = [UIImage imageWithSize:size drawnWithBlock:^(CGContextRef context, CGSize size) {
             [path addClip];
             [[UIColor blackColor] setFill];
@@ -146,24 +149,41 @@
         view.layer.mask = layerMask;
     }
 }
-
-- (UIImage *)imageForStyleWithSize:(CGSize)size path:(UIBezierPath*)path withOuterShadow:(BOOL)withOuterShadow {
+- (UIImage *)imageForStyleWithSize:(CGSize)size path:(UIBezierPath*)path withOuterShadow:(BOOL)withOuterShadow flippedGradient:(BOOL)flippedGradient
+{
     UIImage *image = [UIImage imageWithSize:size drawnWithBlock:^(CGContextRef context, CGSize size) {
         [self.canvasBackgroundColor setFill];
         UIRectFill(CGRectMake(0, 0, size.width, size.height));
         
-//        UIBezierPath *path;
-//        
-//        if (!CGSizeEqualToSize(self.cornerRadii, CGSizeZero)) {
-//            path = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0, 0, size.width, size.height) byRoundingCorners:self.roundedCorners cornerRadii:self.cornerRadii];
-//        } else {
-//            path = [UIBezierPath bezierPathWithRect:CGRectMake(0, 0, size.width, size.height)];
-//        }
+        //        UIBezierPath *path;
+        //
+        //        if (!CGSizeEqualToSize(self.cornerRadii, CGSizeZero)) {
+        //            path = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0, 0, size.width, size.height) byRoundingCorners:self.roundedCorners cornerRadii:self.cornerRadii];
+        //        } else {
+        //            path = [UIBezierPath bezierPathWithRect:CGRectMake(0, 0, size.width, size.height)];
+        //        }
 		
 		CGContextSaveGState(context);
         [path addClip];
         
         if (self.background.colors.count > 1) {
+            
+      //      NSArray *theColors = self.background.colors;
+            
+            CGPoint startPoint = self.background.startPoint;
+            CGPoint endPoint = self.background.endPoint;
+            
+            if (flippedGradient) {
+//                NSMutableArray *tmp = [NSMutableArray new];
+//                for (int x = theColors.count-1; x >= 0; x--) {
+//                    [tmp addObject:theColors[x]];
+//                }
+            
+                startPoint = self.background.endPoint;
+                endPoint = self.background.startPoint;
+            }
+            
+            
             CGGradientRef gradient;
             
             NSMutableArray *colors = [NSMutableArray new];
@@ -191,7 +211,7 @@
             CFArrayRef components = (__bridge CFArrayRef)colors;
             gradient = CGGradientCreateWithColors(myColorspace, components, locArray);
             
-            CGContextDrawLinearGradient(context, gradient, CGPointMake(self.background.startPoint.x * size.width, self.background.startPoint.y * size.height), CGPointMake(self.background.endPoint.x * size.width, self.background.endPoint.y * size.height), 0);
+            CGContextDrawLinearGradient(context, gradient, CGPointMake(startPoint.x * size.width, startPoint.y * size.height), CGPointMake(endPoint.x * size.width, endPoint.y * size.height), 0);
         } else {
             UIColor *fill = self.background.colors[0];
             [fill setFill];
@@ -203,7 +223,7 @@
         if (self.innerShadow) {
             //// Shadow Declarations
             UIColor *shadow = [self.innerShadow.color colorWithAlphaComponent:self.innerShadow.opacity];
-            CGSize shadowOffset = self.innerShadow.offset;
+            CGSize shadowOffset = CGSizeMake(self.innerShadow.offset.width, oppositeSign(self.innerShadow.offset.height));
             CGFloat shadowBlurRadius = self.innerShadow.radius;
             
             ////// Polygon Inner Shadow
@@ -256,7 +276,7 @@
             CGContextSaveGState(context);
             {
 				CGContextSetBlendMode(context, innerBorder.blendMode);
-
+                
                 CGFloat xOffset = shadowOffset.width + round(polygonBorderRect.size.width);
                 CGFloat yOffset = shadowOffset.height;
                 CGContextSetShadowWithColor(context,
@@ -271,7 +291,7 @@
                 [polygonNegativePath fill];
             }
             CGContextRestoreGState(context);
-
+            
             currentY += innerBorder.height;
         }
         
@@ -296,7 +316,7 @@
 				CGContextSaveGState(context);
 				{
 					CGContextSetBlendMode(context, innerBorder.blendMode);
-
+                    
 					CGFloat xOffset = shadowOffset.width + round(rectangle2BorderRect.size.width);
 					CGFloat yOffset = shadowOffset.height;
 					CGContextSetShadowWithColor(context,
@@ -311,8 +331,8 @@
 					[rectangle2NegativePath fill];
 				}
 				CGContextRestoreGState(context);
-
-
+                
+                
             }
         }
 		
@@ -336,8 +356,15 @@
 			CGContextDrawImage(context, CGRectMake(floorf((size.width - image.size.width) / 2), floorf((size.height - image.size.height) / 2), image.size.width, image.size.height), image.CGImage);
 		}];
 	}
-
+    
     return image;
+
+}
+
+
+- (UIImage *)imageForStyleWithSize:(CGSize)size path:(UIBezierPath*)path withOuterShadow:(BOOL)withOuterShadow {
+
+    return [self imageForStyleWithSize:size path:path withOuterShadow:withOuterShadow flippedGradient:NO];
 }
 
 @end

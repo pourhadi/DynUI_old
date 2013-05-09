@@ -42,4 +42,13 @@
               UITextAttributeTextShadowOffset: [NSValue valueWithCGSize:self.shadowOffset] };
 }
 
+- (void)applyToButton:(UIButton*)button forState:(UIControlState)controlState
+{
+    [button setTitleColor:self.textColor.color forState:controlState];
+    button.titleLabel.font = self.font;
+    button.titleLabel.shadowColor = self.shadowColor.color;
+    button.titleLabel.shadowOffset = self.shadowOffset;
+    button.titleLabel.textAlignment = self.alignment;
+}
+
 @end

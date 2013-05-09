@@ -28,6 +28,8 @@ typedef void (^DPUIDrawImageBlock)(CGContextRef context, CGSize size);
 
 - (UIImage *)imageTintedWithGradientTopColor:(UIColor *)topColor bottomColor:(UIColor *)bottomColor innerShadowColor:(UIColor *)innerShadow fraction:(CGFloat)fraction;
 
+- (UIImage*)imageWithOpacity:(CGFloat)opacity;
+
 - (UIImage*)imageWithBlackMasked;
 - (UIImage*)dpui_resizableImage;
 

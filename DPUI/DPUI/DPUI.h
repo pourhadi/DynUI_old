@@ -11,8 +11,6 @@
 #import "UIColor+DPUI.h"
 #import "UIImage+DPUI.h"
 #import "UILabel+DPUI.h"
-#import "UINavigationBar+DPUI.h"
-#import "UITableViewCell+DPUI.h"
 #import "UIView+DPUI.h"
 
 #import "DPUIBackgroundStyle.h"
@@ -23,5 +21,6 @@
 #import "DPUIStyle.h"
 #import "DPUITextStyle.h"
 #import "DPUIViewStyle.h"
+#import "DPUIControlStyle.h"
 
 #endif

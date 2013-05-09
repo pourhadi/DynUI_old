@@ -11,4 +11,9 @@
 #import "DPUI.h"
 @implementation DPUIStyle
 
+- (BOOL)isEqual:(id)object
+{
+    return ([self.name isEqualToString:[object name]]);
+}
+
 @end

@@ -12,10 +12,11 @@ typedef void (^DPUIAppearanceBlock)(DPUIManager *styleManager, UIView *view);
 
 @interface UIView (DPUI)
 @property (nonatomic, strong) NSString *dpui_style; // set this property to assign a style
-@property (nonatomic) BOOL dpui_refreshStyle;       // set this to YES to refresh the style during the next draw cycle
 
 @property (nonatomic) BOOL dpui_viewStyleApplied;
 @property (nonatomic) CGSize dpui_styleSizeApplied;
+
+- (void)dpui_refreshStyle;
 
 /*!
 @method dpui_addStyleObserverWithBlock:
@@ -26,10 +27,10 @@ typedef void (^DPUIAppearanceBlock)(DPUIManager *styleManager, UIView *view);
 
 - (void)dpui_removeStyleObserver;
 
+- (void)dpui_frameChanged;
+
 // swizzle methods for the library. do not call
-+ (BOOL)dpui_layoutSubviewsSwizzled;
 + (BOOL)dpui_deallocSwizzled;
-+ (void)dpui_swizzleLayoutSubviews;
 + (void)dpui_swizzleDealloc;
 //////////////
 
