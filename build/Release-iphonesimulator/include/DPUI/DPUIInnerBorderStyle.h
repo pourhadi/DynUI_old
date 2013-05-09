@@ -14,6 +14,6 @@
 @property (nonatomic) CGBlendMode blendMode;
 @property (nonatomic) CGFloat height;
 
-- (id)initWithDictionary:(NSDictionary*)dictionary;
+- (id)initWithDictionary:(NSDictionary *)dictionary;
 
 @end

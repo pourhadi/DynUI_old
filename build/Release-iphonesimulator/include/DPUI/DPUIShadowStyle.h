@@ -15,8 +15,8 @@
 @property (nonatomic) CGSize offset;
 @property (nonatomic) CGFloat opacity;
 
-- (void)addShadowToView:(UIView*)view;
+- (void)addShadowToView:(UIView *)view;
 
-- (id)initWithDictionary:(NSDictionary*)dictionary;
+- (id)initWithDictionary:(NSDictionary *)dictionary;
 
 @end

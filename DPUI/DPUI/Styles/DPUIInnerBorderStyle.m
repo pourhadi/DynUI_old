@@ -7,26 +7,26 @@
 //
 
 #import "DPUIInnerBorderStyle.h"
-
+#import "DPUIDefines.h"
+#import "DPUI.h"
 @implementation DPUIInnerBorderStyle
-- (id)jsonValue
-{
-	NSMutableDictionary *dict = [NSMutableDictionary new];
-	[dict setObject:@(self.blendMode) forKey:@"blendMode"];
-	[dict setObject:@(self.height) forKey:@"height"];
-	
-	return dict;
+- (id)jsonValue {
+    NSMutableDictionary *dict = [NSMutableDictionary new];
+    [dict setObject:@(self.blendMode) forKey:kDPUIBlendModeKey];
+    [dict setObject:@(self.height) forKey:kDPUIHeightKey];
+    
+    return dict;
 }
 
-- (id)initWithDictionary:(NSDictionary*)dictionary
-{
-	self = [super init];
-	if (self) {
-		self.blendMode = [[dictionary objectForKey:@"blendMode"] intValue];
-		self.height = [[dictionary objectForKey:@"height"] floatValue];
-		DPUIColor *dpColor = [[DPUIColor alloc] initWithDictionary:[dictionary objectForKey:@"color"]];
-		self.color = dpColor.color;
-	}
-	return self;
+- (id)initWithDictionary:(NSDictionary *)dictionary {
+    self = [super init];
+    if (self) {
+        self.blendMode = [[dictionary objectForKey:kDPUIBlendModeKey] intValue];
+        self.height = [[dictionary objectForKey:kDPUIHeightKey] floatValue];
+        DPUIColor *dpColor = [[DPUIColor alloc] initWithDictionary:[dictionary objectForKey:kDPUIColorKey]];
+        self.color = dpColor.color;
+    }
+    return self;
 }
+
 @end

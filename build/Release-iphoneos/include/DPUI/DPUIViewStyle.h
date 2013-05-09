@@ -11,6 +11,7 @@
 @class DPUIShadowStyle;
 @class DPUITextStyle;
 @class DPUIBackgroundStyle;
+@class DPUIColor;
 @interface DPUIViewStyle : DPUIStyle
 
 @property (nonatomic, strong) DPUIBackgroundStyle *background;
@@ -24,6 +25,9 @@
 @property (nonatomic) CGSize cornerRadii;
 @property (nonatomic) UIRectCorner roundedCorners;
 @property (nonatomic) BOOL clipCorners; // clip the view's contents to the rounded corners
+
+@property (nonatomic, strong) DPUIColor *strokeColor;
+@property (nonatomic) CGFloat strokeWidth;
 
 @property (nonatomic, strong) UIColor *canvasBackgroundColor;
 
@@ -40,9 +44,10 @@
 @property (nonatomic, strong) DPUITextStyle *barButtonItemTextStyle;
 @property (nonatomic, strong) NSString *barButtonItemStyleName;
 
-- (void)applyStyleToView:(UIView*)view;
+- (void)applyStyleToView:(UIView *)view;
 
-- (id)initWithDictionary:(NSDictionary*)dictionary;
-
-- (UIImage*)imageForStyleWithSize:(CGSize)size;
+- (id)initWithDictionary:(NSDictionary *)dictionary;
+- (UIImage *)imageForStyleWithSize:(CGSize)size;
+- (UIImage *)imageForStyleWithSize:(CGSize)size withOuterShadow:(BOOL)withOuterShadow;
+- (UIImage *)imageForStyleWithSize:(CGSize)size path:(UIBezierPath*)path withOuterShadow:(BOOL)withOuterShadow;
 @end

@@ -16,6 +16,6 @@
 @property (nonatomic) CGPoint startPoint;
 @property (nonatomic) CGPoint endPoint;
 
-- (id)initWithDictionary:(NSDictionary*)dictionary;
+- (id)initWithDictionary:(NSDictionary *)dictionary;
 
 @end

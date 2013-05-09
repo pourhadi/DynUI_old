@@ -7,7 +7,8 @@
 //
 
 #import "DPUIStyle.h"
-
+#import "DPUIDefines.h"
+#import "DPUI.h"
 @implementation DPUIStyle
 
 @end

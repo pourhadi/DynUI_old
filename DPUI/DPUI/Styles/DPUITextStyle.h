@@ -10,7 +10,7 @@
 @class DPUIColor;
 @interface DPUITextStyle : DPUIStyle
 
-- (id)initWithDictionary:(NSDictionary*)dictionary;
+- (id)initWithDictionary:(NSDictionary *)dictionary;
 
 @property (nonatomic, strong) DPUIColor *textColor;
 @property (nonatomic, strong) UIFont *font;
@@ -18,7 +18,7 @@
 @property (nonatomic, strong) DPUIColor *shadowColor;
 @property (nonatomic) NSTextAlignment alignment;
 
-- (void)applyToLabel:(UILabel*)label;
-- (NSDictionary*)titleTextAttributes;
+- (void)applyToLabel:(UILabel *)label;
+- (NSDictionary *)titleTextAttributes;
 
 @end

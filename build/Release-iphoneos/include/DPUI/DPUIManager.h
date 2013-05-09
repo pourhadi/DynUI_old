@@ -13,7 +13,7 @@
 @class DPUIViewStyle;
 @interface DPUIManager : NSObject
 
-+ (DPUIManager*)sharedInstance;
++ (DPUIManager *)sharedInstance;
 
 @property (nonatomic, strong) NSMutableArray *styles;
 @property (nonatomic, strong) NSMutableArray *colorVariables;
@@ -21,10 +21,18 @@
 
 @property (nonatomic, readonly) BOOL liveUpdating; // doesn't work yet
 
-- (DPUIStyle*)styleForName:(NSString*)name;
-- (UIColor*)colorForVariableName:(NSString*)variableName;
-- (DPUITextStyle*)textStyleForName:(NSString*)name;
+- (DPUIViewStyle *)styleForName:(NSString *)name;
 
-- (void)loadStylesFromFile:(NSString*)fileName replaceExisting:(BOOL)replaceExisting liveUpdate:(BOOL)liveUpdate; // live updating doens't work yet!
+- (UIColor *)colorForVariableName:(NSString *)variableName;
+
+- (DPUITextStyle *)textStyleForName:(NSString *)name;
+
+/*!
+@method -loadStylesFromFile:replaceExisting:liveUpdate:
+@abstract Loads a .dpui style file from the main bundle
+@param fileName The name, with extension, of the style file. (i.e., "Style.dpui")
+@param replaceExisting Replace the existing styles or append to them. Adding duplicate styles results in undefine behavior
+*/
+- (void)loadStylesFromFile:(NSString *)fileName replaceExisting:(BOOL)replaceExisting liveUpdate:(BOOL)liveUpdate; // live updating doens't work yet!
 
 @end

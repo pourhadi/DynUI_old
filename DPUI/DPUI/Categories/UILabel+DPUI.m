@@ -7,19 +7,18 @@
 //
 
 #import "UILabel+DPUI.h"
-#import "DPUIDefines.h"
 #import <objc/runtime.h>
+#import "DPUIDefines.h"
+#import "DPUI.h"
 @implementation UILabel (DPUI)
 
-- (void)setDpui_textStyle:(NSString *)dpuiTextStyle
-{	
-	DPUITextStyle *textStyle = [[DPUIManager sharedInstance] textStyleForName:dpuiTextStyle];
-	[textStyle applyToLabel:self];
+- (void)setDpui_textStyle:(NSString *)dpuiTextStyle {
+    DPUITextStyle *textStyle = [[DPUIManager sharedInstance] textStyleForName:dpuiTextStyle];
+    [textStyle applyToLabel:self];
 }
 
-- (NSString*)dpui_textStyle
-{
-	return objc_getAssociatedObject(self, kDPTextStyleKey);
+- (NSString *)dpui_textStyle {
+    return objc_getAssociatedObject(self, kDPTextStyleKey);
 }
 
 @end
