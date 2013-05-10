@@ -18,7 +18,7 @@
         self.font = [UIFont fontWithName:[dict objectForKey:kDPUIFontNameKey] size:[[dict objectForKey:kDPUIFontSizeKey] floatValue]];
         self.textColor = [[DPUIColor alloc] initWithDictionary:[dict objectForKey:kDPUITextColorKey]];
         self.shadowColor = [[DPUIColor alloc] initWithDictionary:[dict objectForKey:kDPUIShadowColorKey]];
-        self.shadowOffset = CGSizeMake([[dict objectForKey:kDPUIShadowXOffsetKey] floatValue], [[dict objectForKey:kDPUIShadowYOffsetKey] floatValue]);
+        self.shadowOffset = CGSizeMake([[dict objectForKey:kDPUIShadowXOffsetKey] floatValue], oppositeSign([[dict objectForKey:kDPUIShadowYOffsetKey] floatValue]));
         self.alignment = [[dict objectForKey:kDPUIAlignmentKey] intValue];
     }
     

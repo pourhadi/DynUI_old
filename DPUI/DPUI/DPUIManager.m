@@ -125,35 +125,37 @@
         NSLog(@"%@", error);
     }
     if (json) {
+		NSArray *colors = [json objectForKey:@"colors"];
+        NSMutableArray *colorTmp = [NSMutableArray arrayWithCapacity:1];
+        for (NSDictionary *dict in colors) {
+            [colorTmp addObject:[[DPUIColor alloc] initWithDictionary:dict]];
+        }
+		if (replaceExisting) {
+            self.colorVariables = colorTmp;
+        } else {
+            [self.colorVariables addObjectsFromArray:colorTmp];
+        }
+		
+		NSArray *textStyles = [json objectForKey:@"textStyles"];
+        NSMutableArray *textStylesTmp = [NSMutableArray arrayWithCapacity:1];
+        for (NSDictionary *dict in textStyles) {
+            [textStylesTmp addObject:[[DPUITextStyle alloc] initWithDictionary:dict]];
+        }
+		if (replaceExisting) {
+            self.textStyles = textStylesTmp;
+        } else {
+            [self.textStyles addObjectsFromArray:textStylesTmp];
+        }
         NSArray *styles = [json objectForKey:@"styles"];
         NSMutableArray *viewStyleTmp = [NSMutableArray arrayWithCapacity:1];
         for (NSDictionary *style in styles) {
             DPUIViewStyle *new = [[DPUIViewStyle alloc] initWithDictionary:style];
             [viewStyleTmp addObject:new];
         }
-        
-        
-        NSArray *colors = [json objectForKey:@"colors"];
-        NSMutableArray *colorTmp = [NSMutableArray arrayWithCapacity:1];
-        for (NSDictionary *dict in colors) {
-            [colorTmp addObject:[[DPUIColor alloc] initWithDictionary:dict]];
-        }
-        
-        
-        NSArray *textStyles = [json objectForKey:@"textStyles"];
-        NSMutableArray *textStylesTmp = [NSMutableArray arrayWithCapacity:1];
-        for (NSDictionary *dict in textStyles) {
-            [textStylesTmp addObject:[[DPUITextStyle alloc] initWithDictionary:dict]];
-        }
-        
-        if (replaceExisting) {
+		if (replaceExisting) {
             self.styles = viewStyleTmp;
-            self.colorVariables = colorTmp;
-            self.textStyles = textStylesTmp;
         } else {
             [self.styles addObjectsFromArray:viewStyleTmp];
-            [self.colorVariables addObjectsFromArray:colorTmp];
-            [self.textStyles addObjectsFromArray:textStylesTmp];
         }
     }
     

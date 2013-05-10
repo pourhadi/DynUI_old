@@ -16,16 +16,16 @@
     self = [super init];
     if (self) {
         if ([dictionary objectForKey:kDPUINormalTextStyle]) {
-            self.normalTextStyle = [[DPUITextStyle alloc] initWithDictionary:[dictionary objectForKey:kDPUINormalTextStyle]];
+            self.normalTextStyle = [[DPUIManager sharedInstance] textStyleForName:[dictionary objectForKey:kDPUINormalTextStyle]];
         }
         if ([dictionary objectForKey:kDPUIHighlightedTextStyle]) {
-            self.highlightedTextStyle = [[DPUITextStyle alloc] initWithDictionary:[dictionary objectForKey:kDPUIHighlightedTextStyle]];
+            self.highlightedTextStyle = [[DPUIManager sharedInstance] textStyleForName:[dictionary objectForKey:kDPUIHighlightedTextStyle]];
         }
         if ([dictionary objectForKey:kDPUISelectedTextStyle]) {
-            self.selectedTextStyle = [[DPUITextStyle alloc] initWithDictionary:[dictionary objectForKey:kDPUISelectedTextStyle]];
+            self.selectedTextStyle = [[DPUIManager sharedInstance] textStyleForName:[dictionary objectForKey:kDPUISelectedTextStyle]];
         }
         if ([dictionary objectForKey:kDPUIDisabledTextStyle]) {
-            self.disabledTextStyle = [[DPUITextStyle alloc] initWithDictionary:[dictionary objectForKey:kDPUIDisabledTextStyle]];
+            self.disabledTextStyle = [[DPUIManager sharedInstance] textStyleForName:[dictionary objectForKey:kDPUIDisabledTextStyle]];
         }
         
         if ([dictionary objectForKey:kDPUIHighlightedStyleName]) {
