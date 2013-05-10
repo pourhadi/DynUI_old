@@ -17,9 +17,9 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
 	// load styles
-	NSString *stylePath = [[[NSBundle mainBundle] resourcePath]
-							   stringByAppendingPathComponent:@"Style.dpui"];
-	[[DPUIManager sharedInstance] loadStylesFromFile:stylePath replaceExisting:YES liveUpdate:YES];
+	//NSString *stylePath = [[[NSBundle mainBundle] bundlePath]
+	//						   stringByAppendingPathComponent:@"Style.dpui"];
+	[[DPUIManager sharedInstance] loadStylesFromFile:@"/Users/dpourhad/DPUI/DynUI-Example/DynUI-Example/Style.dpui" replaceExisting:YES liveUpdate:YES];
 	
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.

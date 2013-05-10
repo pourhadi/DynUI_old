@@ -13,15 +13,20 @@ static const void * const kDPUILayoutSubviewsSwizzled = "_DPUILayoutSubviewsSwiz
 static const void * const kDPUIDeallocSwizzled = "_DPUIDeallocSwizzled";
 static const void * const kDPUISetFrameSwizzled = "_DPUISetFrameSwizzled";
 static const void * const kDPUIDidMoveToSuperviewSwizzled = "_DPUIDidMoveToSuperview";
+static const void * const kDPUIStyleParameterKey = @"_DPUIStyleParameterKey";
+
 static NSString * const kDPUIThemeChangedNotification = @"_DPUIThemeChangedNotification";
 
 
 // key strings for dpui files
 
+
 // DPUIColor
 static NSString * const kDPUIColorKey = @"color";
 static NSString * const kDPUIColorNameKey = @"colorName";
 static NSString * const kDPUIColorStringKey = @"colorString";
+static NSString * const kDPUIColorVarKey = @"colorVar";
+static NSString * const kDPUIDefinedAtRuntime = @"definedAtRuntime";
 
 // DPUIInnerBorderStyle
 static NSString * const kDPUIBlendModeKey = @"blendMode";
@@ -74,3 +79,5 @@ static NSString * const kDPUIDisabledStyleName = @"disabledStyleName";
 static NSString * const kDPUIDisabledTextStyle = @"disabledTextStyle";
 static NSString * const kDPUIFlippedGradientKey = @"Current - Flipped Gradient";
 static NSString * const kDPUIHalfOpacityKey = @"Current - 50% Opacity";
+static NSString * const kDPUIMakeDarkerKey = @"Current - Make Darker";
+static NSString * const kDPUIMakeLigherKey = @"Current - Make Lighter";

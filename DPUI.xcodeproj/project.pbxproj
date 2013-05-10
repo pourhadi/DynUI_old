@@ -59,6 +59,7 @@
 		D763FE3A17399C7100F983CE /* DPUIManager.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D763FDB417397D2400F983CE /* DPUIManager.h */; };
 		D763FE3B17399C7100F983CE /* DPUIRenderer.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D763FDB617397D2400F983CE /* DPUIRenderer.h */; };
 		D78A6147173C2760003F8CA8 /* DPUIControlStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = D78A6146173C2760003F8CA8 /* DPUIControlStyle.m */; };
+		D7F8AABA173D8A5B004ABF7E /* DPUIStyleParameters.m in Sources */ = {isa = PBXBuildFile; fileRef = D7F8AAB9173D8A5B004ABF7E /* DPUIStyleParameters.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -133,6 +134,8 @@
 		D763FDE917397E2C00F983CE /* JRSwizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JRSwizzle.m; path = DPUI/External/JRSwizzle.m; sourceTree = "<group>"; };
 		D78A6145173C2760003F8CA8 /* DPUIControlStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPUIControlStyle.h; sourceTree = "<group>"; };
 		D78A6146173C2760003F8CA8 /* DPUIControlStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPUIControlStyle.m; sourceTree = "<group>"; };
+		D7F8AAB8173D8A5B004ABF7E /* DPUIStyleParameters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPUIStyleParameters.h; sourceTree = "<group>"; };
+		D7F8AAB9173D8A5B004ABF7E /* DPUIStyleParameters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPUIStyleParameters.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -253,6 +256,8 @@
 				D763FDC817397D2400F983CE /* DPUIViewStyle.m */,
 				D78A6145173C2760003F8CA8 /* DPUIControlStyle.h */,
 				D78A6146173C2760003F8CA8 /* DPUIControlStyle.m */,
+				D7F8AAB8173D8A5B004ABF7E /* DPUIStyleParameters.h */,
+				D7F8AAB9173D8A5B004ABF7E /* DPUIStyleParameters.m */,
 			);
 			path = Styles;
 			sourceTree = "<group>";
@@ -360,6 +365,7 @@
 				D763FDD917397D2400F983CE /* DPUIViewStyle.m in Sources */,
 				D763FDEA17397E2C00F983CE /* JRSwizzle.m in Sources */,
 				D78A6147173C2760003F8CA8 /* DPUIControlStyle.m in Sources */,
+				D7F8AABA173D8A5B004ABF7E /* DPUIStyleParameters.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -90,21 +90,21 @@
     return self;
 }
 
-- (UIImage *)imageForStyleWithSize:(CGSize)size
+- (UIImage *)imageForStyleWithSize:(CGSize)size parameters:(DPUIStyleParameters *)parameters
 {
    
-    UIImage *image = [self imageForStyleWithSize:size withOuterShadow:NO];
+    UIImage *image = [self imageForStyleWithSize:size withOuterShadow:NO parameters:parameters];
 	return image;
 }
 
 
-- (UIImage *)imageForStyleWithSize:(CGSize)size withOuterShadow:(BOOL)withOuterShadow
+- (UIImage *)imageForStyleWithSize:(CGSize)size withOuterShadow:(BOOL)withOuterShadow parameters:(DPUIStyleParameters *)parameters
 {
-    UIImage *image = [self imageForStyleWithSize:size withOuterShadow:withOuterShadow flippedGradient:NO];
+    UIImage *image = [self imageForStyleWithSize:size withOuterShadow:withOuterShadow flippedGradient:NO parameters:parameters];
     return image;
 }
 
-- (UIImage *)imageForStyleWithSize:(CGSize)size withOuterShadow:(BOOL)withOuterShadow flippedGradient:(BOOL)flippedGradient
+- (UIImage *)imageForStyleWithSize:(CGSize)size withOuterShadow:(BOOL)withOuterShadow flippedGradient:(BOOL)flippedGradient parameters:(DPUIStyleParameters *)parameters
 {
     UIBezierPath *path;
     if (!CGSizeEqualToSize(self.cornerRadii, CGSizeZero)) {
@@ -113,7 +113,7 @@
         path = [UIBezierPath bezierPathWithRect:CGRectMake(0, 0, size.width, size.height)];
     }
     
-    UIImage *image = [self imageForStyleWithSize:size path:path withOuterShadow:withOuterShadow flippedGradient:flippedGradient];
+    UIImage *image = [self imageForStyleWithSize:size path:path withOuterShadow:withOuterShadow flippedGradient:flippedGradient parameters:parameters];
 	return image;
 }
 
@@ -128,7 +128,7 @@
         path = [UIBezierPath bezierPathWithRect:CGRectMake(0, 0, size.width, size.height)];
     }
     
-    UIImage *image = [self imageForStyleWithSize:size path:path withOuterShadow:NO];
+    UIImage *image = [self imageForStyleWithSize:size path:path withOuterShadow:NO parameters:view.styleParameters];
     
     view.layer.contents = (id)image.CGImage;
     
@@ -149,7 +149,7 @@
         view.layer.mask = layerMask;
     }
 }
-- (UIImage *)imageForStyleWithSize:(CGSize)size path:(UIBezierPath*)path withOuterShadow:(BOOL)withOuterShadow flippedGradient:(BOOL)flippedGradient
+- (UIImage *)imageForStyleWithSize:(CGSize)size path:(UIBezierPath*)path withOuterShadow:(BOOL)withOuterShadow flippedGradient:(BOOL)flippedGradient parameters:(DPUIStyleParameters *)parameters
 {
     UIImage *image = [UIImage imageWithSize:size drawnWithBlock:^(CGContextRef context, CGSize size) {
         [self.canvasBackgroundColor setFill];
@@ -190,8 +190,17 @@
             CGColorSpaceRef myColorspace;
             myColorspace = CGColorSpaceCreateDeviceRGB();
             
-            for (UIColor *color in self.background.colors) {
-                [colors addObject:(id)color.CGColor];
+            for (DPUIColor *color in self.background.colors) {
+                
+                UIColor *theColor = color.color;
+                if (color.definedAtRuntime) {
+                    UIColor *paramColor = [parameters valueForStyleParameter:color.variableName];
+                    if (paramColor) {
+                        theColor = paramColor;
+                    }
+                }
+                
+                [colors addObject:(id)theColor.CGColor];
             }
             
             NSMutableArray *locs = [NSMutableArray new];
@@ -213,8 +222,16 @@
             
             CGContextDrawLinearGradient(context, gradient, CGPointMake(startPoint.x * size.width, startPoint.y * size.height), CGPointMake(endPoint.x * size.width, endPoint.y * size.height), 0);
         } else {
-            UIColor *fill = self.background.colors[0];
-            [fill setFill];
+            DPUIColor *dpuiColor = self.background.colors[0];
+            UIColor *color = dpuiColor.color;
+            if (dpuiColor.definedAtRuntime) {
+                UIColor *paramColor = [parameters valueForStyleParameter:dpuiColor.variableName];
+                if (paramColor) {
+                    color = paramColor;
+                }
+            }
+            
+            [color setFill];
             [path fill];
         }
 		
@@ -259,8 +276,15 @@
         for (int x = 0; x < self.topInnerBorders.count; x++) {
             DPUIInnerBorderStyle *innerBorder = self.topInnerBorders[x];
 			
+            
 			
-			UIColor *shadow = innerBorder.color;
+			UIColor *shadow = innerBorder.color.color;
+            if (innerBorder.color.definedAtRuntime) {
+                UIColor *paramColor = [parameters valueForStyleParameter:innerBorder.color.variableName];
+                if (paramColor) {
+                    shadow = paramColor;
+                }
+            }
             CGSize shadowOffset = CGSizeMake(0, (innerBorder.height));
             CGFloat shadowBlurRadius = 0;
             
@@ -300,8 +324,14 @@
             for (int x = 0; x < self.bottomInnerBorders.count; x++) {
                 DPUIInnerBorderStyle *innerBorder = self.bottomInnerBorders[x];
                 currentY -= innerBorder.height;
-                UIColor *shadow = innerBorder.color;
-				CGSize shadowOffset = CGSizeMake(0, -innerBorder.height);
+                UIColor *shadow = innerBorder.color.color;
+                if (innerBorder.color.definedAtRuntime) {
+                    UIColor *paramColor = [parameters valueForStyleParameter:innerBorder.color.variableName];
+                    if (paramColor) {
+                        shadow = paramColor;
+                    }
+                }
+                CGSize shadowOffset = CGSizeMake(0, -innerBorder.height);
 				CGFloat shadowBlurRadius = 0;
 				
 				////// Rectangle 2 Inner Shadow
@@ -339,7 +369,15 @@
 		CGContextSaveGState(context);
 		[path addClip];
 		[path setLineWidth:self.strokeWidth];
-		[[(DPUIColor*)self.strokeColor color] setStroke];
+        
+        UIColor *stroke = self.strokeColor.color;
+        if (self.strokeColor.definedAtRuntime) {
+            UIColor *paramColor = [parameters valueForStyleParameter:self.strokeColor.variableName];
+            if (paramColor) {
+                stroke = paramColor;
+            }
+        }
+        [stroke setStroke];
 		[path stroke];
 		CGContextRestoreGState(context);
     }];
@@ -362,9 +400,9 @@
 }
 
 
-- (UIImage *)imageForStyleWithSize:(CGSize)size path:(UIBezierPath*)path withOuterShadow:(BOOL)withOuterShadow {
+- (UIImage *)imageForStyleWithSize:(CGSize)size path:(UIBezierPath*)path withOuterShadow:(BOOL)withOuterShadow parameters:(DPUIStyleParameters *)parameters {
 
-    return [self imageForStyleWithSize:size path:path withOuterShadow:withOuterShadow flippedGradient:NO];
+    return [self imageForStyleWithSize:size path:path withOuterShadow:withOuterShadow flippedGradient:NO parameters:parameters];
 }
 
 @end

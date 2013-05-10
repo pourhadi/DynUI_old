@@ -24,6 +24,7 @@
 	
 	self.navigationController.navigationBar.dpui_style = @"NavBar";
 	
+    [self.exampleButton setValue:[UIColor greenColor] forStyleParameter:@"ButtonColor"];
 	self.exampleButton.dpui_style = @"RedButton";
 	
 	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Go" style:UIBarButtonItemStyleBordered target:self action:@selector(go:)];

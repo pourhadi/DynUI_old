@@ -31,7 +31,7 @@
     
     DPUIViewStyle *navStyle = (DPUIViewStyle *)[[DPUIManager sharedInstance] styleForName:styleName];
     
-    UIImage *img = [navStyle imageForStyleWithSize:navigationBar.frame.size];
+    UIImage *img = [navStyle imageForStyleWithSize:navigationBar.frame.size parameters:navigationBar.styleParameters];
     [navigationBar setBackgroundImage:img forBarMetrics:UIBarMetricsDefault];
     
     if (navStyle.navBarTitleTextStyle) {
@@ -41,9 +41,9 @@
 	if (navStyle.barButtonItemStyleName) {
 		
 		DPUIViewStyle *style = [[DPUIManager sharedInstance] styleForName:navStyle.barButtonItemStyleName];
-		UIImage *buttonImg = [style imageForStyleWithSize:CGSizeMake(18, 28) withOuterShadow:YES];
+		UIImage *buttonImg = [style imageForStyleWithSize:CGSizeMake(18, 28) withOuterShadow:YES parameters:navigationBar.styleParameters];
 		[[UIBarButtonItem appearanceWhenContainedIn:[navigationBar class], nil] setBackgroundImage:buttonImg.dpui_resizableImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
-		UIImage *backImg = [DPUIRenderer backBarButtonImageForStyle:navStyle.barButtonItemStyleName superStyle:nil];
+		UIImage *backImg = [DPUIRenderer backBarButtonImageForStyle:navStyle.barButtonItemStyleName superStyle:nil parameters:navigationBar.styleParameters];
 		[[UIBarButtonItem appearanceWhenContainedIn:[navigationBar class], nil] setBackButtonBackgroundImage:backImg forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
 	
 	
@@ -72,26 +72,26 @@
         }
         
         if (style.controlStyle.highlightedStyleName) {
-            UIImage *buttonImg = [self imageForSize:CGSizeMake(18, 28) controlStyleName:style.controlStyle.highlightedStyleName superStyle:style];
+            UIImage *buttonImg = [self imageForSize:CGSizeMake(18, 28) controlStyleName:style.controlStyle.highlightedStyleName superStyle:style parameters:navigationBar.styleParameters];
 
             [[UIBarButtonItem appearanceWhenContainedIn:[navigationBar class], nil] setBackgroundImage:buttonImg.dpui_resizableImage forState:UIControlStateHighlighted barMetrics:UIBarMetricsDefault];
-            UIImage *backImg = [DPUIRenderer backBarButtonImageForStyle:style.controlStyle.highlightedStyleName superStyle:style];
+            UIImage *backImg = [DPUIRenderer backBarButtonImageForStyle:style.controlStyle.highlightedStyleName superStyle:style parameters:navigationBar.styleParameters];
             [[UIBarButtonItem appearanceWhenContainedIn:[navigationBar class], nil] setBackButtonBackgroundImage:backImg forState:UIControlStateHighlighted barMetrics:UIBarMetricsDefault];
         }
         
         if (style.controlStyle.selectedStyleName) {
-            UIImage *buttonImg = [self imageForSize:CGSizeMake(18, 28) controlStyleName:style.controlStyle.selectedStyleName superStyle:style];
+            UIImage *buttonImg = [self imageForSize:CGSizeMake(18, 28) controlStyleName:style.controlStyle.selectedStyleName superStyle:style parameters:navigationBar.styleParameters];
 
             [[UIBarButtonItem appearanceWhenContainedIn:[navigationBar class], nil] setBackgroundImage:buttonImg.dpui_resizableImage forState:UIControlStateSelected barMetrics:UIBarMetricsDefault];
-            UIImage *backImg = [DPUIRenderer backBarButtonImageForStyle:style.controlStyle.selectedStyleName superStyle:style];
+            UIImage *backImg = [DPUIRenderer backBarButtonImageForStyle:style.controlStyle.selectedStyleName superStyle:style parameters:navigationBar.styleParameters];
             [[UIBarButtonItem appearanceWhenContainedIn:[navigationBar class], nil] setBackButtonBackgroundImage:backImg forState:UIControlStateSelected barMetrics:UIBarMetricsDefault];
         }
         
         if (style.controlStyle.disabledStyleName) {
-            UIImage *buttonImg = [self imageForSize:CGSizeMake(18, 28) controlStyleName:style.controlStyle.disabledStyleName superStyle:style];
+            UIImage *buttonImg = [self imageForSize:CGSizeMake(18, 28) controlStyleName:style.controlStyle.disabledStyleName superStyle:style parameters:navigationBar.styleParameters];
 
             [[UIBarButtonItem appearanceWhenContainedIn:[navigationBar class], nil] setBackgroundImage:buttonImg.dpui_resizableImage forState:UIControlStateDisabled barMetrics:UIBarMetricsDefault];
-            UIImage *backImg = [DPUIRenderer backBarButtonImageForStyle:style.controlStyle.disabledStyleName superStyle:style];
+            UIImage *backImg = [DPUIRenderer backBarButtonImageForStyle:style.controlStyle.disabledStyleName superStyle:style parameters:navigationBar.styleParameters];
             [[UIBarButtonItem appearanceWhenContainedIn:[navigationBar class], nil] setBackButtonBackgroundImage:backImg forState:UIControlStateDisabled barMetrics:UIBarMetricsDefault];
         }
         
@@ -102,7 +102,7 @@
 + (void)renderButton:(UIButton*)button withStyleNamed:(NSString*)styleName
 {
     DPUIViewStyle *style = (DPUIViewStyle *)[[DPUIManager sharedInstance] styleForName:styleName];
-    UIImage *image = [style imageForStyleWithSize:button.frame.size withOuterShadow:YES];
+    UIImage *image = [style imageForStyleWithSize:button.frame.size withOuterShadow:YES parameters:button.styleParameters];
     [button setBackgroundImage:image forState:UIControlStateNormal];
     
     if (style.controlStyle.normalTextStyle) {
@@ -119,29 +119,45 @@
     }
     
     if (style.controlStyle.highlightedStyleName) {
-        UIImage *image = [self imageForSize:button.frame.size controlStyleName:style.controlStyle.highlightedStyleName superStyle:style];
+        UIImage *image = [self imageForSize:button.frame.size controlStyleName:style.controlStyle.highlightedStyleName superStyle:style parameters:button.styleParameters];
         [button setBackgroundImage:image forState:UIControlStateHighlighted];
     }
     if (style.controlStyle.selectedStyleName) {
-        UIImage *image = [self imageForSize:button.frame.size controlStyleName:style.controlStyle.selectedStyleName superStyle:style];
+        UIImage *image = [self imageForSize:button.frame.size controlStyleName:style.controlStyle.selectedStyleName superStyle:style parameters:button.styleParameters];
 
         [button setBackgroundImage:image forState:UIControlStateSelected];
     }
     if (style.controlStyle.disabledStyleName) {
-        UIImage *image = [self imageForSize:button.frame.size controlStyleName:style.controlStyle.disabledStyleName superStyle:style];
+        UIImage *image = [self imageForSize:button.frame.size controlStyleName:style.controlStyle.disabledStyleName superStyle:style parameters:button.styleParameters];
         [button setBackgroundImage:image forState:UIControlStateDisabled];
     }
     
 }
 
-+ (UIImage*)imageForSize:(CGSize)size controlStyleName:(NSString*)controlStyleName superStyle:(DPUIViewStyle*)style
++ (UIImage*)imageForSize:(CGSize)size controlStyleName:(NSString*)controlStyleName superStyle:(DPUIViewStyle*)style parameters:(DPUIStyleParameters*)parameters
 {
     DPUIViewStyle *buttonStyle;
     BOOL flipGrad = NO;
     BOOL halfAlpha = NO;
+    BOOL makeLighter = NO;
+    BOOL makeDarker = NO;
     if ([controlStyleName isEqualToString:kDPUIFlippedGradientKey]) {
         flipGrad = YES;
         buttonStyle = style;
+    } else if ([controlStyleName isEqualToString:kDPUIMakeDarkerKey]) {
+        flipGrad = NO;
+        halfAlpha = NO;
+        makeLighter = NO;
+        makeDarker = YES;
+        buttonStyle = style;
+
+    } else if ([controlStyleName isEqualToString:kDPUIMakeLigherKey]) {
+        flipGrad = NO;
+        halfAlpha = NO;
+        makeLighter = YES;
+        makeDarker = NO;
+        buttonStyle = style;
+
     } else {
         
         if ([controlStyleName isEqualToString:kDPUIHalfOpacityKey]) {
@@ -152,18 +168,27 @@
         }
         
     }
-    UIImage *image = [buttonStyle imageForStyleWithSize:size withOuterShadow:YES flippedGradient:flipGrad];
+    UIImage *image = [buttonStyle imageForStyleWithSize:size withOuterShadow:YES flippedGradient:flipGrad parameters:parameters];
     
     if (halfAlpha) {
         image = [image imageWithOpacity:0.5];
     }
+    
+    if (makeDarker) {
+        image = [image imageOverlayedWithColor:[UIColor blackColor] opacity:0.3];
+    }
+    
+    if (makeLighter) {
+        image = [image imageOverlayedWithColor:[UIColor whiteColor] opacity:0.3];
+    }
+    
     return image;
 }
 
 + (void)renderTableCell:(UITableViewCell *)tableCell withStyleNamed:(NSString *)styleName {
     DPUIViewStyle *style = (DPUIViewStyle *)[[DPUIManager sharedInstance] styleForName:styleName];
     
-    UIImage *img = [style imageForStyleWithSize:tableCell.frame.size];
+    UIImage *img = [style imageForStyleWithSize:tableCell.frame.size parameters:tableCell.styleParameters];
     UIView *backgroundView = [[UIView alloc] initWithFrame:tableCell.bounds];
     backgroundView.layer.contents = (id)img.CGImage;
     tableCell.backgroundView = backgroundView;
@@ -177,7 +202,7 @@
     }
 }
 
-+ (UIImage*)backBarButtonImageForStyle:(NSString*)styleName superStyle:(DPUIViewStyle*)style
++ (UIImage*)backBarButtonImageForStyle:(NSString*)styleName superStyle:(DPUIViewStyle*)style parameters:(DPUIStyleParameters*)parameters
 {
     
     DPUIViewStyle *buttonStyle;
@@ -217,7 +242,7 @@
 	[path closePath];
 	
 	
-	UIImage *img = [buttonStyle imageForStyleWithSize:CGSizeMake(CGRectGetWidth(path.bounds)+(CGRectGetWidth(path.bounds)*0.25), CGRectGetHeight(path.bounds)) path:path withOuterShadow:YES].dpui_resizableImage;
+	UIImage *img = [buttonStyle imageForStyleWithSize:CGSizeMake(CGRectGetWidth(path.bounds)+(CGRectGetWidth(path.bounds)*0.25), CGRectGetHeight(path.bounds)) path:path withOuterShadow:YES parameters:parameters].dpui_resizableImage;
     
     if (halfAlpha) {
         img = [img imageWithOpacity:0.5];

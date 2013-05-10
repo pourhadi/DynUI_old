@@ -22,5 +22,6 @@
 #import "DPUITextStyle.h"
 #import "DPUIViewStyle.h"
 #import "DPUIControlStyle.h"
+#import "DPUIStyleParameters.h"
 
 #endif

@@ -18,6 +18,11 @@
 @property (nonatomic, strong) NSMutableArray *styles;
 @property (nonatomic, strong) NSMutableArray *colorVariables;
 @property (nonatomic, strong) NSMutableArray *textStyles;
+
+@property (nonatomic, strong) NSDictionary *defaultParameterValues;
+
+- (id)defaultValueForParameter:(NSString*)parameter;
+
 @property (nonatomic, strong) NSArray *registeredViews;
 
 @property (nonatomic, readonly) BOOL liveUpdating;

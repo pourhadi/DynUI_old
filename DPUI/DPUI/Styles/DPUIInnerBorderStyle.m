@@ -24,7 +24,7 @@
         self.blendMode = [[dictionary objectForKey:kDPUIBlendModeKey] intValue];
         self.height = [[dictionary objectForKey:kDPUIHeightKey] floatValue];
         DPUIColor *dpColor = [[DPUIColor alloc] initWithDictionary:[dictionary objectForKey:kDPUIColorKey]];
-        self.color = dpColor.color;
+        self.color = dpColor;
     }
     return self;
 }

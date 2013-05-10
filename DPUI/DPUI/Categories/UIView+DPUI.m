@@ -109,4 +109,27 @@
         [self dpui_refreshStyle];
     }
 }
+
+#pragma mark - Parameters
+
+- (void)setStyleParameters:(DPUIStyleParameters *)styleParameters
+{
+    objc_setAssociatedObject(self, kDPUIStyleParameterKey, styleParameters, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (DPUIStyleParameters*)styleParameters
+{
+    DPUIStyleParameters *parameters = objc_getAssociatedObject(self, kDPUIStyleParameterKey);
+    if (!parameters) {
+        parameters = [[DPUIStyleParameters alloc] init];
+        self.styleParameters = parameters;
+    }
+    return parameters;
+}
+
+
+- (void)setValue:(id)value forStyleParameter:(NSString*)parameterName
+{
+    [self.styleParameters setValue:value forStyleParameter:parameterName];
+}
 @end

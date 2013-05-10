@@ -23,6 +23,15 @@
     return image;
 }
 
++ (UIImage *)tintImage:(UIImage *)uiImage withUIColor:(UIColor *)color
+{
+    CIColor *ciColor = [CIColor colorWithCGColor:color.CGColor];
+    if (!ciColor) {
+        NSLog(@"FAILLLL");
+    }
+    return [UIImage tintImage:uiImage withColor:ciColor];
+}
+
 + (UIImage *)tintImage:(UIImage *)uiImage withColor:(CIColor *)color {
     CIContext *context = [CIContext contextWithOptions:nil];
     CIImage *image = [CIImage imageWithCGImage:uiImage.CGImage];
@@ -67,6 +76,22 @@
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     
     UIGraphicsEndImageContext();
+    
+    return image;
+}
+
+- (UIImage*)imageOverlayedWithColor:(UIColor*)color opacity:(CGFloat)opacity
+{
+    UIImage *image = [UIImage imageWithSize:self.size drawnWithBlock:^(CGContextRef context, CGSize size) {
+       
+        [color setFill];
+        UIRectFill(CGRectMake(0, 0, size.width, size.height));
+        
+        [self drawInRect:CGRectMake(0,0, size.width, size.height) blendMode:kCGBlendModeDestinationIn alpha:1.0];
+        if (opacity < 1) {
+            [self drawInRect:CGRectMake(0, 0, size.width, size.height) blendMode:kCGBlendModeSourceAtop alpha:1-opacity];
+        }
+    }];
     
     return image;
 }

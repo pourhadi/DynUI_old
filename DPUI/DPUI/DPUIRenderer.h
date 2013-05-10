@@ -8,11 +8,12 @@
 
 #import <Foundation/Foundation.h>
 @class DPUIViewStyle;
+@class DPUIStyleParameters;
 @interface DPUIRenderer : NSObject
 
 + (void)renderView:(UIView *)view withStyleNamed:(NSString *)styleName;
 + (void)renderNavigationBar:(UINavigationBar *)navigationBar withStyleNamed:(NSString *)styleName;
 + (void)renderTableCell:(UITableViewCell *)tableCell withStyleNamed:(NSString *)styleName;
 + (void)renderButton:(UIButton*)button withStyleNamed:(NSString*)styleName;
-+ (UIImage*)backBarButtonImageForStyle:(NSString*)style superStyle:(DPUIViewStyle*)superStyle;
++ (UIImage*)backBarButtonImageForStyle:(NSString*)style superStyle:(DPUIViewStyle*)superStyle parameters:(DPUIStyleParameters*)parameters;
 @end

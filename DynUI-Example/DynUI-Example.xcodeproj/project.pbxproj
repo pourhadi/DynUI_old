@@ -21,7 +21,6 @@
 		44FADD4F173CEAAF00EB6BF4 /* NSString+DPUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 44FADD29173CEAAF00EB6BF4 /* NSString+DPUI.m */; };
 		44FADD50173CEAAF00EB6BF4 /* UIColor+DPUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 44FADD2B173CEAAF00EB6BF4 /* UIColor+DPUI.m */; };
 		44FADD51173CEAAF00EB6BF4 /* UIImage+DPUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 44FADD2D173CEAAF00EB6BF4 /* UIImage+DPUI.m */; };
-		44FADD52173CEAAF00EB6BF4 /* UIImage+DPUI.m.orig in Resources */ = {isa = PBXBuildFile; fileRef = 44FADD2E173CEAAF00EB6BF4 /* UIImage+DPUI.m.orig */; };
 		44FADD53173CEAAF00EB6BF4 /* UILabel+DPUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 44FADD30173CEAAF00EB6BF4 /* UILabel+DPUI.m */; };
 		44FADD54173CEAAF00EB6BF4 /* UIView+DPUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 44FADD32173CEAAF00EB6BF4 /* UIView+DPUI.m */; };
 		44FADD55173CEAAF00EB6BF4 /* DPUIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 44FADD36173CEAAF00EB6BF4 /* DPUIManager.m */; };
@@ -39,6 +38,7 @@
 		44FADD62173CEC1000EB6BF4 /* Style.dpui in Resources */ = {isa = PBXBuildFile; fileRef = 44FADD61173CEC1000EB6BF4 /* Style.dpui */; };
 		44FADD65173CECDF00EB6BF4 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44FADD64173CECDF00EB6BF4 /* QuartzCore.framework */; };
 		44FADD67173CECE500EB6BF4 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44FADD66173CECE500EB6BF4 /* CoreImage.framework */; };
+		D7F8AABD173DAF67004ABF7E /* DPUIStyleParameters.m in Sources */ = {isa = PBXBuildFile; fileRef = D7F8AABC173DAF67004ABF7E /* DPUIStyleParameters.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,7 +64,6 @@
 		44FADD2B173CEAAF00EB6BF4 /* UIColor+DPUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+DPUI.m"; sourceTree = "<group>"; };
 		44FADD2C173CEAAF00EB6BF4 /* UIImage+DPUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+DPUI.h"; sourceTree = "<group>"; };
 		44FADD2D173CEAAF00EB6BF4 /* UIImage+DPUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+DPUI.m"; sourceTree = "<group>"; };
-		44FADD2E173CEAAF00EB6BF4 /* UIImage+DPUI.m.orig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "UIImage+DPUI.m.orig"; sourceTree = "<group>"; };
 		44FADD2F173CEAAF00EB6BF4 /* UILabel+DPUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+DPUI.h"; sourceTree = "<group>"; };
 		44FADD30173CEAAF00EB6BF4 /* UILabel+DPUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+DPUI.m"; sourceTree = "<group>"; };
 		44FADD31173CEAAF00EB6BF4 /* UIView+DPUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+DPUI.h"; sourceTree = "<group>"; };
@@ -99,6 +98,8 @@
 		44FADD63173CEC9700EB6BF4 /* DPUIConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPUIConstants.h; sourceTree = "<group>"; };
 		44FADD64173CECDF00EB6BF4 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		44FADD66173CECE500EB6BF4 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		D7F8AABB173DAF67004ABF7E /* DPUIStyleParameters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPUIStyleParameters.h; sourceTree = "<group>"; };
+		D7F8AABC173DAF67004ABF7E /* DPUIStyleParameters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPUIStyleParameters.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,7 +150,6 @@
 		44FADCCC173CE99700EB6BF4 /* DynUI-Example */ = {
 			isa = PBXGroup;
 			children = (
-				44FADD61173CEC1000EB6BF4 /* Style.dpui */,
 				44FADD63173CEC9700EB6BF4 /* DPUIConstants.h */,
 				44FADD26173CEA9E00EB6BF4 /* DynUI */,
 				44FADCD5173CE99700EB6BF4 /* DYNAppDelegate.h */,
@@ -179,6 +179,7 @@
 		44FADD26173CEA9E00EB6BF4 /* DynUI */ = {
 			isa = PBXGroup;
 			children = (
+				44FADD61173CEC1000EB6BF4 /* Style.dpui */,
 				44FADD27173CEAAF00EB6BF4 /* Categories */,
 				44FADD33173CEAAF00EB6BF4 /* DPUI.h */,
 				44FADD34173CEAAF00EB6BF4 /* DPUIDefines.h */,
@@ -201,7 +202,6 @@
 				44FADD2B173CEAAF00EB6BF4 /* UIColor+DPUI.m */,
 				44FADD2C173CEAAF00EB6BF4 /* UIImage+DPUI.h */,
 				44FADD2D173CEAAF00EB6BF4 /* UIImage+DPUI.m */,
-				44FADD2E173CEAAF00EB6BF4 /* UIImage+DPUI.m.orig */,
 				44FADD2F173CEAAF00EB6BF4 /* UILabel+DPUI.h */,
 				44FADD30173CEAAF00EB6BF4 /* UILabel+DPUI.m */,
 				44FADD31173CEAAF00EB6BF4 /* UIView+DPUI.h */,
@@ -224,6 +224,8 @@
 		44FADD3C173CEAAF00EB6BF4 /* Styles */ = {
 			isa = PBXGroup;
 			children = (
+				D7F8AABB173DAF67004ABF7E /* DPUIStyleParameters.h */,
+				D7F8AABC173DAF67004ABF7E /* DPUIStyleParameters.m */,
 				44FADD3D173CEAAF00EB6BF4 /* DPUIBackgroundStyle.h */,
 				44FADD3E173CEAAF00EB6BF4 /* DPUIBackgroundStyle.m */,
 				44FADD3F173CEAAF00EB6BF4 /* DPUIColor.h */,
@@ -304,7 +306,6 @@
 				44FADCDB173CE99700EB6BF4 /* Default@2x.png in Resources */,
 				44FADCDD173CE99700EB6BF4 /* Default-568h@2x.png in Resources */,
 				44FADCE3173CE99700EB6BF4 /* DYNViewController_iPhone.xib in Resources */,
-				44FADD52173CEAAF00EB6BF4 /* UIImage+DPUI.m.orig in Resources */,
 				44FADD62173CEC1000EB6BF4 /* Style.dpui in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -336,6 +337,7 @@
 				44FADD5E173CEAAF00EB6BF4 /* DPUIStyle.m in Sources */,
 				44FADD5F173CEAAF00EB6BF4 /* DPUITextStyle.m in Sources */,
 				44FADD60173CEAAF00EB6BF4 /* DPUIViewStyle.m in Sources */,
+				D7F8AABD173DAF67004ABF7E /* DPUIStyleParameters.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -462,6 +464,7 @@
 				44FADCEB173CE99700EB6BF4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

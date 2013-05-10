@@ -31,7 +31,7 @@
         NSMutableArray *tmp = [NSMutableArray new];
         for (NSDictionary *color in colors) {
             DPUIColor *dpColor = [[DPUIColor alloc] initWithDictionary:color];
-            [tmp addObject:dpColor.color];
+            [tmp addObject:dpColor];
         }
         
         self.colors = tmp;

@@ -8,10 +8,15 @@
 
 #import <UIKit/UIKit.h>
 @class DPUIManager;
+@class DPUIStyleParameters;
 typedef void (^DPUIAppearanceBlock)(DPUIManager *styleManager, UIView *view);
 
 @interface UIView (DPUI)
 @property (nonatomic, strong) NSString *dpui_style; // set this property to assign a style
+
+- (void)setValue:(id)value forStyleParameter:(NSString*)parameterName;
+
+@property (nonatomic, strong) DPUIStyleParameters *styleParameters;
 
 @property (nonatomic) BOOL dpui_viewStyleApplied;
 @property (nonatomic) CGSize dpui_styleSizeApplied;

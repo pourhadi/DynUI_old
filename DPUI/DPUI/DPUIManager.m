@@ -108,6 +108,23 @@
     }
 }
 
+- (NSDictionary*)defaultParameterValues
+{
+    if (!_defaultParameterValues){
+        _defaultParameterValues = [NSDictionary dictionary];
+    }
+    return _defaultParameterValues;
+}
+
+- (id)defaultValueForParameter:(NSString*)parameter
+{
+    if ([self.defaultParameterValues objectForKey:parameter]){
+        return [self.defaultParameterValues objectForKey:parameter];
+    }
+    
+    return nil;
+}
+
 - (void)loadStylesFromFile:(NSString *)fileName replaceExisting:(BOOL)replaceExisting liveUpdate:(BOOL)liveUpdate {
     @synchronized(self) {
 
