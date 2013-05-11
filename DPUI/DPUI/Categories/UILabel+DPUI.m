@@ -23,8 +23,7 @@
     return objc_getAssociatedObject(self, kDPTextStyleKey);
 }
 
-- (void)dpui_refreshStyle
-{
+- (void)dpui_refreshStyle {
     if (self.dpui_textStyle) {
         [self setDpui_textStyle:self.dpui_textStyle];
     }

@@ -43,9 +43,29 @@
         self.opacity = [[dictionary objectForKey:kDPUIOpacityKey] floatValue];
         CIColor *ciColor = [CIColor colorWithString:[dictionary objectForKey:kDPUIColorKey]];
         self.color = [UIColor colorWithRed:ciColor.red green:ciColor.green blue:ciColor.blue alpha:ciColor.alpha];
-		//self.color = [UIColor colorWithCIColor:ciColor];
+        //self.color = [UIColor colorWithCIColor:ciColor];
     }
     return self;
+}
+
+- (UIImage*)getImageForWidth:(CGFloat)width
+{
+	CGFloat height = (self.radius * self.offset.height) + 100;
+	
+	UIImage *image = [UIImage imageWithSize:CGSizeMake(width, height) drawnWithBlock:^(CGContextRef context, CGSize size) {
+		
+		[[UIColor blackColor] setFill];
+		UIRectFill(CGRectMake(0, 0, size.width, size.height));
+		
+		CGContextSetShadowWithColor(context, self.offset, self.radius, [UIColor whiteColor].CGColor);
+		UIRectFill(CGRectMake(0, 0, size.width, 100));
+	}];
+	
+	UIImage *masked = [image imageWithBlackMasked];
+	image = [UIImage cropTransparencyFromImage:masked];
+	image = [image imageOverlayedWithColor:self.color opacity:1];
+	image = [image imageWithOpacity:self.opacity];
+	return image;
 }
 
 @end

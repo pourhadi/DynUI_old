@@ -11,8 +11,7 @@
 #import "DPUI.h"
 @implementation DPUIControlStyle
 
-- (id)initWithDictionary:(NSDictionary*)dictionary
-{
+- (id)initWithDictionary:(NSDictionary *)dictionary {
     self = [super init];
     if (self) {
         if ([dictionary objectForKey:kDPUINormalTextStyle]) {
@@ -37,7 +36,6 @@
         if ([dictionary objectForKey:kDPUIDisabledStyleName]) {
             self.disabledStyleName = [dictionary objectForKey:kDPUIDisabledStyleName];
         }
-        
     }
     return self;
 }

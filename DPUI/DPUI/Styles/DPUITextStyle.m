@@ -21,7 +21,7 @@
         self.shadowOffset = CGSizeMake([[dict objectForKey:kDPUIShadowXOffsetKey] floatValue], oppositeSign([[dict objectForKey:kDPUIShadowYOffsetKey] floatValue]));
         self.alignment = [[dict objectForKey:kDPUIAlignmentKey] intValue];
     }
-    
+	
     return self;
 }
 
@@ -42,8 +42,7 @@
               UITextAttributeTextShadowOffset: [NSValue valueWithCGSize:self.shadowOffset] };
 }
 
-- (void)applyToButton:(UIButton*)button forState:(UIControlState)controlState
-{
+- (void)applyToButton:(UIButton *)button forState:(UIControlState)controlState {
     [button setTitleColor:self.textColor.color forState:controlState];
     button.titleLabel.font = self.font;
     button.titleLabel.shadowColor = self.shadowColor.color;

@@ -11,8 +11,8 @@
 
 @property (nonatomic, strong) NSMutableDictionary *parameters;
 
-- (id)valueForStyleParameter:(NSString*)parameterName;
-- (void)setValue:(id)value forStyleParameter:(NSString*)parameterName;
+- (id)valueForStyleParameter:(NSString *)parameterName;
+- (void)setValue:(id)value forStyleParameter:(NSString *)parameterName;
 
 
 @end

@@ -15,6 +15,7 @@
 @property (nonatomic) CGSize offset;
 @property (nonatomic) CGFloat opacity;
 
+- (UIImage*)getImageForWidth:(CGFloat)width;
 - (void)addShadowToView:(UIView *)view;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;

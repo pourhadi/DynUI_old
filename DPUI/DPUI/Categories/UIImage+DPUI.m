@@ -23,8 +23,7 @@
     return image;
 }
 
-+ (UIImage *)tintImage:(UIImage *)uiImage withUIColor:(UIColor *)color
-{
++ (UIImage *)tintImage:(UIImage *)uiImage withUIColor:(UIColor *)color {
     CIColor *ciColor = [CIColor colorWithCGColor:color.CGColor];
     if (!ciColor) {
         NSLog(@"FAILLLL");
@@ -80,16 +79,14 @@
     return image;
 }
 
-- (UIImage*)imageOverlayedWithColor:(UIColor*)color opacity:(CGFloat)opacity
-{
+- (UIImage *)imageOverlayedWithColor:(UIColor *)color opacity:(CGFloat)opacity {
     UIImage *image = [UIImage imageWithSize:self.size drawnWithBlock:^(CGContextRef context, CGSize size) {
-       
         [color setFill];
         UIRectFill(CGRectMake(0, 0, size.width, size.height));
         
-        [self drawInRect:CGRectMake(0,0, size.width, size.height) blendMode:kCGBlendModeDestinationIn alpha:1.0];
+        [self drawInRect:CGRectMake(0, 0, size.width, size.height) blendMode:kCGBlendModeDestinationIn alpha:1.0];
         if (opacity < 1) {
-            [self drawInRect:CGRectMake(0, 0, size.width, size.height) blendMode:kCGBlendModeSourceAtop alpha:1-opacity];
+            [self drawInRect:CGRectMake(0, 0, size.width, size.height) blendMode:kCGBlendModeSourceAtop alpha:1 - opacity];
         }
     }];
     
@@ -192,30 +189,119 @@
     
     return maskingImage;
 }
-
-- (UIImage*)imageWithBlackMasked
-{
-	CIFilter *filter = [CIFilter filterWithName:@"CIMaskToAlpha"];
-	[filter setValue:[CIImage imageWithCGImage:self.CGImage] forKey:kCIInputImageKey];
-	CIContext *context = [CIContext contextWithOptions:nil];
-	CIImage *output = [filter valueForKey:kCIOutputImageKey];
-	CGImageRef imageRef = [context createCGImage:output fromRect:output.extent];
++ (UIImage *)cropTransparencyFromImage:(UIImage *)img {
 	
-	return [UIImage imageWithCGImage:imageRef];
+    CGImageRef inImage = img.CGImage;
+    CFDataRef m_DataRef;
+    m_DataRef = CGDataProviderCopyData(CGImageGetDataProvider(inImage));
+    UInt8 * m_PixelBuf = (UInt8 *) CFDataGetBytePtr(m_DataRef);
+	
+    int width = img.size.width;
+    int height = img.size.height;
+	
+    CGPoint top,left,right,bottom;
+	
+    BOOL breakOut = NO;
+    for (int x = 0;breakOut==NO && x < width; x++) {
+        for (int y = 0; y < height; y++) {
+            int loc = x + (y * width);
+            loc *= 4;
+            if (m_PixelBuf[loc + 3] != 0) {
+                left = CGPointMake(x, y);
+                breakOut = YES;
+                break;
+            }
+        }
+    }
+	
+    breakOut = NO;
+    for (int y = 0;breakOut==NO && y < height; y++) {
+		
+        for (int x = 0; x < width; x++) {
+			
+            int loc = x + (y * width);
+            loc *= 4;
+            if (m_PixelBuf[loc + 3] != 0) {
+                top = CGPointMake(x, y);
+                breakOut = YES;
+                break;
+            }
+			
+        }
+    }
+	
+    breakOut = NO;
+    for (int y = height-1;breakOut==NO && y >= 0; y--) {
+		
+        for (int x = width-1; x >= 0; x--) {
+			
+            int loc = x + (y * width);
+            loc *= 4;
+            if (m_PixelBuf[loc + 3] != 0) {
+                bottom = CGPointMake(x, y);
+                breakOut = YES;
+                break;
+            }
+			
+        }
+    }
+	
+    breakOut = NO;
+    for (int x = width-1;breakOut==NO && x >= 0; x--) {
+		
+        for (int y = height-1; y >= 0; y--) {
+			
+            int loc = x + (y * width);
+            loc *= 4;
+            if (m_PixelBuf[loc + 3] != 0) {
+                right = CGPointMake(x, y);
+                breakOut = YES;
+                break;
+            }
+			
+        }
+    }
+	
+	
+    CGRect cropRect = CGRectMake(left.x, top.y, right.x - left.x, bottom.y - top.y);
+	
+    UIGraphicsBeginImageContextWithOptions( cropRect.size,
+                                           NO,
+                                           0.);
+    [img drawAtPoint:CGPointMake(-cropRect.origin.x, -cropRect.origin.y)
+           blendMode:kCGBlendModeCopy
+               alpha:1.];
+    UIImage *croppedImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return croppedImage;
 }
 
-- (UIImage*)dpui_resizableImage
++ (UIImage*)blankOnePointImage
 {
-	CGSize size = self.size;
-	return [self resizableImageWithCapInsets:UIEdgeInsetsMake(size.height/2, size.width/2, (size.height/2)-1, (size.width/2)-1)];
+	return [UIImage imageWithSize:CGSizeMake(1, 1) drawnWithBlock:^(CGContextRef context, CGSize size) {
+		[[UIColor clearColor] setFill];
+		UIRectFill(CGRectMake(0, 0, size.width, size.height));
+	}];
 }
 
-- (UIImage*)imageWithOpacity:(CGFloat)opacity
-{
+- (UIImage *)imageWithBlackMasked {
+    CIFilter *filter = [CIFilter filterWithName:@"CIMaskToAlpha"];
+    [filter setValue:[CIImage imageWithCGImage:self.CGImage] forKey:kCIInputImageKey];
+    CIContext *context = [CIContext contextWithOptions:nil];
+    CIImage *output = [filter valueForKey:kCIOutputImageKey];
+    CGImageRef imageRef = [context createCGImage:output fromRect:output.extent];
+    
+    return [UIImage imageWithCGImage:imageRef];
+}
+
+- (UIImage *)dpui_resizableImage {
+    CGSize size = self.size;
+    return [self resizableImageWithCapInsets:UIEdgeInsetsMake(size.height / 2, size.width / 2, (size.height / 2) - 1, (size.width / 2) - 1)];
+}
+
+- (UIImage *)imageWithOpacity:(CGFloat)opacity {
     UIImage *img = [UIImage imageWithSize:self.size drawnWithBlock:^(CGContextRef context, CGSize size) {
-        
         [self drawInRect:CGRectMake(0, 0, size.width, size.height) blendMode:kCGBlendModeNormal alpha:opacity];
-        
     }];
     
     return img;

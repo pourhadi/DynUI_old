@@ -30,8 +30,7 @@
     return objc_getAssociatedObject(self, (kDPViewStyleKey));
 }
 
-- (void)dpui_frameChanged
-{
+- (void)dpui_frameChanged {
     CGSize currentSize = self.frame.size;
     CGSize lastSavedSize = self.dpui_styleSizeApplied;
     if (self.dpui_viewStyleApplied && (!CGSizeEqualToSize(currentSize, lastSavedSize))) {
@@ -42,7 +41,7 @@
 - (void)setDpui_viewStyleApplied:(BOOL)viewStyleApplied {
     if (self.dpui_viewStyleApplied != viewStyleApplied) {
         objc_setAssociatedObject(self, kDPViewStyleAppliedKey, @(viewStyleApplied), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-        if (viewStyleApplied) {            
+        if (viewStyleApplied) {
             if (![[self class] dpui_deallocSwizzled]) {
                 [[self class] dpui_swizzleDealloc];
             }
@@ -66,8 +65,7 @@
     objc_setAssociatedObject(self, kDPViewStyleSizeAppliedKey, size, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-- (void)dpui_refreshStyle
-{
+- (void)dpui_refreshStyle {
     if (self.dpui_style) {
         self.dpui_styleSizeApplied = self.frame.size;
         [DPUIRenderer renderView:self withStyleNamed:self.dpui_style];
@@ -89,9 +87,8 @@
     [self dpui_dealloc];
 }
 
-+ (BOOL)dpui_didMoveToSuperviewSwizzled
-{
-    return [(NSNumber*)objc_getAssociatedObject(self, kDPUIDidMoveToSuperviewSwizzled) boolValue];
++ (BOOL)dpui_didMoveToSuperviewSwizzled {
+    return [(NSNumber *)objc_getAssociatedObject(self, kDPUIDidMoveToSuperviewSwizzled) boolValue];
 }
 
 + (void)dpui_swizzleDidMoveToSuperview {
@@ -99,8 +96,7 @@
     objc_setAssociatedObject(self, kDPUISetFrameSwizzled, @(YES), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-- (void)dpui_didMoveToSuperview
-{
+- (void)dpui_didMoveToSuperview {
     [self dpui_didMoveToSuperview];
     CGSize currentSize = self.frame.size;
     CGSize lastSavedSize = self.dpui_styleSizeApplied;
@@ -112,13 +108,11 @@
 
 #pragma mark - Parameters
 
-- (void)setStyleParameters:(DPUIStyleParameters *)styleParameters
-{
+- (void)setStyleParameters:(DPUIStyleParameters *)styleParameters {
     objc_setAssociatedObject(self, kDPUIStyleParameterKey, styleParameters, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-- (DPUIStyleParameters*)styleParameters
-{
+- (DPUIStyleParameters *)styleParameters {
     DPUIStyleParameters *parameters = objc_getAssociatedObject(self, kDPUIStyleParameterKey);
     if (!parameters) {
         parameters = [[DPUIStyleParameters alloc] init];
@@ -127,9 +121,20 @@
     return parameters;
 }
 
-
-- (void)setValue:(id)value forStyleParameter:(NSString*)parameterName
+- (void)setValuesForStyleParameters:(NSDictionary*)valuesForParams
 {
-    [self.styleParameters setValue:value forStyleParameter:parameterName];
+	[valuesForParams enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+		
+		[self.styleParameters setValue:obj forStyleParameter:key];
+		
+	}];
+	
+	[self dpui_refreshStyle];
 }
+
+- (void)setValue:(id)value forStyleParameter:(NSString *)parameterName {
+    [self.styleParameters setValue:value forStyleParameter:parameterName];
+	[self dpui_refreshStyle];
+}
+
 @end

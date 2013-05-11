@@ -20,5 +20,5 @@
 @property (nonatomic, strong) NSString *disabledStyleName;
 @property (nonatomic, strong) DPUITextStyle *disabledTextStyle;
 
-- (id)initWithDictionary:(NSDictionary*)dictionary;
+- (id)initWithDictionary:(NSDictionary *)dictionary;
 @end

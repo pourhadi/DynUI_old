@@ -74,14 +74,13 @@
     return nil;
 }
 
-- (void)registerView:(id)view
-{
+- (void)registerView:(id)view {
     if (!self.registeredViews) {
         self.registeredViews = [NSArray array];
     }
     
     
-    if (![self.registeredViews containsObject:view])  {
+    if (![self.registeredViews containsObject:view]) {
         NSMutableArray *mutable = [self.registeredViews mutableCopy];
         [mutable addObject:view];
         [view addObserver:self forKeyPath:@"frame" options:0 context:nil];
@@ -89,8 +88,7 @@
     }
 }
 
-- (void)unregisterView:(id)view
-{
+- (void)unregisterView:(id)view {
     if (self.registeredViews) {
         if ([self.registeredViews containsObject:view]) {
             [view removeObserver:self forKeyPath:@"frame"];
@@ -101,24 +99,21 @@
     }
 }
 
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
-{
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
     if ([object respondsToSelector:@selector(dpui_frameChanged)]) {
         [object dpui_frameChanged];
     }
 }
 
-- (NSDictionary*)defaultParameterValues
-{
-    if (!_defaultParameterValues){
+- (NSDictionary *)defaultParameterValues {
+    if (!_defaultParameterValues) {
         _defaultParameterValues = [NSDictionary dictionary];
     }
     return _defaultParameterValues;
 }
 
-- (id)defaultValueForParameter:(NSString*)parameter
-{
-    if ([self.defaultParameterValues objectForKey:parameter]){
+- (id)defaultValueForParameter:(NSString *)parameter {
+    if ([self.defaultParameterValues objectForKey:parameter]) {
         return [self.defaultParameterValues objectForKey:parameter];
     }
     
@@ -127,73 +122,68 @@
 
 - (void)loadStylesFromFile:(NSString *)fileName replaceExisting:(BOOL)replaceExisting liveUpdate:(BOOL)liveUpdate {
     @synchronized(self) {
-
-    
-    NSError *error;
-    NSData *data;
-    
-    if (liveUpdate) {
-        data = [NSData dataWithContentsOfFile:fileName];
-    } else {
-        data = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:fileName ofType:nil]];
-    }
-    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-    if (error) {
-        NSLog(@"%@", error);
-    }
-    if (json) {
-		NSArray *colors = [json objectForKey:@"colors"];
-        NSMutableArray *colorTmp = [NSMutableArray arrayWithCapacity:1];
-        for (NSDictionary *dict in colors) {
-            [colorTmp addObject:[[DPUIColor alloc] initWithDictionary:dict]];
-        }
-		if (replaceExisting) {
-            self.colorVariables = colorTmp;
+        NSError *error;
+        NSData *data;
+        
+        if (liveUpdate) {
+            data = [NSData dataWithContentsOfFile:fileName];
         } else {
-            [self.colorVariables addObjectsFromArray:colorTmp];
+            data = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:fileName ofType:nil]];
         }
-		
-		NSArray *textStyles = [json objectForKey:@"textStyles"];
-        NSMutableArray *textStylesTmp = [NSMutableArray arrayWithCapacity:1];
-        for (NSDictionary *dict in textStyles) {
-            [textStylesTmp addObject:[[DPUITextStyle alloc] initWithDictionary:dict]];
+        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+        if (error) {
+            NSLog(@"%@", error);
         }
-		if (replaceExisting) {
-            self.textStyles = textStylesTmp;
-        } else {
-            [self.textStyles addObjectsFromArray:textStylesTmp];
+        if (json) {
+            NSArray *colors = [json objectForKey:@"colors"];
+            NSMutableArray *colorTmp = [NSMutableArray arrayWithCapacity:1];
+            for (NSDictionary *dict in colors) {
+                [colorTmp addObject:[[DPUIColor alloc] initWithDictionary:dict]];
+            }
+            if (replaceExisting) {
+                self.colorVariables = colorTmp;
+            } else {
+                [self.colorVariables addObjectsFromArray:colorTmp];
+            }
+            
+            NSArray *textStyles = [json objectForKey:@"textStyles"];
+            NSMutableArray *textStylesTmp = [NSMutableArray arrayWithCapacity:1];
+            for (NSDictionary *dict in textStyles) {
+                [textStylesTmp addObject:[[DPUITextStyle alloc] initWithDictionary:dict]];
+            }
+            if (replaceExisting) {
+                self.textStyles = textStylesTmp;
+            } else {
+                [self.textStyles addObjectsFromArray:textStylesTmp];
+            }
+            NSArray *styles = [json objectForKey:@"styles"];
+            NSMutableArray *viewStyleTmp = [NSMutableArray arrayWithCapacity:1];
+            for (NSDictionary *style in styles) {
+                DPUIViewStyle *new = [[DPUIViewStyle alloc] initWithDictionary:style];
+                [viewStyleTmp addObject:new];
+            }
+            if (replaceExisting) {
+                self.styles = viewStyleTmp;
+            } else {
+                [self.styles addObjectsFromArray:viewStyleTmp];
+            }
         }
-        NSArray *styles = [json objectForKey:@"styles"];
-        NSMutableArray *viewStyleTmp = [NSMutableArray arrayWithCapacity:1];
-        for (NSDictionary *style in styles) {
-            DPUIViewStyle *new = [[DPUIViewStyle alloc] initWithDictionary:style];
-            [viewStyleTmp addObject:new];
-        }
-		if (replaceExisting) {
-            self.styles = viewStyleTmp;
-        } else {
-            [self.styles addObjectsFromArray:viewStyleTmp];
-        }
-    }
-    
+        
         [CATransaction flush];
-    if (liveUpdate && !self.liveUpdating) {
-        _liveUpdating = YES;
+        if (liveUpdate && !self.liveUpdating) {
+            _liveUpdating = YES;
             [self watch:fileName withCallback:^{
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [self loadStylesFromFile:fileName replaceExisting:replaceExisting liveUpdate:liveUpdate];
-
                 });
             }];
-    } else {
-        _liveUpdating = NO;
-    }
+        } else {
+            _liveUpdating = NO;
+        }
     }
     dispatch_async(dispatch_get_main_queue(), ^{
         [self sendUpdateNotification];
-
     });
-
 }
 
 - (void)watch:(NSString *)path withCallback:(void (^)())callback {
@@ -221,7 +211,7 @@
 
 - (void)sendUpdateNotification {
     //[[NSNotificationCenter defaultCenter] postNotificationName:kDPUIThemeChangedNotification object:nil];
-
+    
     for (id obj in self.registeredViews) {
         [obj dpui_refreshStyle];
     }

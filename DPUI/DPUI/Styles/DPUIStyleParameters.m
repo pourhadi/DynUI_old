@@ -10,8 +10,7 @@
 #import "DPUI.h"
 @implementation DPUIStyleParameters
 
-- (NSMutableDictionary*)parameters
-{
+- (NSMutableDictionary *)parameters {
     if (!_parameters) {
         _parameters = [NSMutableDictionary dictionaryWithCapacity:1];
     }
@@ -19,13 +18,11 @@
     return _parameters;
 }
 
-- (void)setValue:(id)value forStyleParameter:(NSString *)parameterName
-{
+- (void)setValue:(id)value forStyleParameter:(NSString *)parameterName {
     [self.parameters setObject:value forKey:parameterName];
 }
 
-- (id)valueForStyleParameter:(NSString *)parameterName
-{
+- (id)valueForStyleParameter:(NSString *)parameterName {
     id value = [self.parameters objectForKey:parameterName];
     
     return value;

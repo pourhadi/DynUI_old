@@ -14,6 +14,7 @@
 + (void)renderView:(UIView *)view withStyleNamed:(NSString *)styleName;
 + (void)renderNavigationBar:(UINavigationBar *)navigationBar withStyleNamed:(NSString *)styleName;
 + (void)renderTableCell:(UITableViewCell *)tableCell withStyleNamed:(NSString *)styleName;
-+ (void)renderButton:(UIButton*)button withStyleNamed:(NSString*)styleName;
-+ (UIImage*)backBarButtonImageForStyle:(NSString*)style superStyle:(DPUIViewStyle*)superStyle parameters:(DPUIStyleParameters*)parameters;
++ (void)renderButton:(UIButton *)button withStyleNamed:(NSString *)styleName;
++ (void)renderToolbar:(UIToolbar*)toolbar withStyleNamed:(NSString*)styleName;
++ (UIImage *)backBarButtonImageForStyle:(NSString *)style superStyle:(DPUIViewStyle *)superStyle parameters:(DPUIStyleParameters *)parameters;
 @end

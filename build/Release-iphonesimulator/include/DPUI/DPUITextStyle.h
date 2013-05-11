@@ -21,6 +21,6 @@
 - (void)applyToLabel:(UILabel *)label;
 - (NSDictionary *)titleTextAttributes;
 
-- (void)applyToButton:(UIButton*)button forState:(UIControlState)controlState;
+- (void)applyToButton:(UIButton *)button forState:(UIControlState)controlState;
 
 @end
