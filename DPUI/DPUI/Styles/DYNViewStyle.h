@@ -63,6 +63,9 @@ typedef NS_OPTIONS(NSUInteger, CornerRadiusType) {
 // control styles
 @property (nonatomic, strong) DYNControlStyle *controlStyle;
 
+// UITextField
+@property (nonatomic, strong) DYNTextStyle *textFieldTextStyle;
+
 - (void)applyStyleToView:(UIView *)view;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;

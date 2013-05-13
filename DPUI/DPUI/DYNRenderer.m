@@ -41,7 +41,10 @@
 	} else if ([view isKindOfClass:[UISlider class]]) {
 		[self renderSlider:(UISlider*)view withSliderStyleNamed:styleName];
 		return;
-	}
+	} else if ([view isKindOfClass:[UITextField class]]) {
+        [self renderTextField:(UITextField*)view withStyleNamed:styleName];
+        return;
+    }
 	
     DYNViewStyle *style = (DYNViewStyle *)[[DYNManager sharedInstance] styleForName:styleName];
 	
@@ -137,6 +140,27 @@
 		}
 		[searchBar setSearchFieldBackgroundImage:searchFieldImage.dyn_resizableImage forState:UIControlStateNormal];
 	}
+}
+
++ (void)renderTextField:(UITextField*)textField withStyleNamed:(NSString*)styleName
+{
+    DYNViewStyle *style = (DYNViewStyle *)[[DYNManager sharedInstance] styleForName:styleName];
+    
+    UIImage *image = [style imageForStyleWithSize:textField.frame.size withOuterShadow:YES parameters:textField.styleParameters];
+ 
+    
+    textField.borderStyle = UITextBorderStyleNone;
+    [textField setBackground:image.dyn_resizableImage];
+    
+    if (style.textFieldTextStyle) {
+        [style.textFieldTextStyle applyToTextField:textField];
+    }
+    
+    if (![UITextField textRectForBoundsSwizzled]) {
+        [UITextField swizzleTextRectForBounds];
+    }
+    
+    textField.textInset = 10;
 }
 
 + (void)renderToolbar:(UIToolbar*)toolbar withStyleNamed:(NSString*)styleName

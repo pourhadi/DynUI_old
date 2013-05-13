@@ -17,12 +17,17 @@ static const void *const kDYNSetFrameSwizzled = "_DYNSetFrameSwizzled";
 static const void *const kDYNDidMoveToSuperviewSwizzled = "_DYNDidMoveToSuperview";
 static const void *const kDYNStyleParameterKey = "_DYNStyleParameterKey";
 static const void *const kDYNDrawQueueKey = "_DYNDrawQueueKey";
+static const void *const kDYNTextRectSwizzledKey = @"_DYNTextRectSwizzledKey";
+static const void *const kDYNTextFieldTextInsetKey = @"_DYNTextFieldTextInsetKey";
 
 static NSString *const kDYNThemeChangedNotification = @"_DYNThemeChangedNotification";
 
 
 // key strings for DYN files
 
+// DYNBackgroundColor
+
+static NSString *const kDYNGradientAngle = @"gradientAngle";
 
 // DYNColor
 static NSString *const kDYNColorKey = @"color";
@@ -77,6 +82,7 @@ static NSString *const kDYNDrawAsynchronouslyKey = @"drawAsynchronously";
 static NSString *const kDYNCornerRadiusTypeKey = @"cornerRadiusType";
 static NSString *const kDYNSearchFieldStyleNameKey = @"searchFieldStyleName";
 static NSString *const kDYNSearchFieldTextStyleNameKey = @"searchFieldTextStyleName";
+static NSString *const kDYNTextFieldTextStyleNameKey = @"textFieldTextStyleName";
 
 // DYNControlStyle
 static NSString *const kDYNNormalTextStyle = @"normalTextStyle";

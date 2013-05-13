@@ -51,6 +51,26 @@
     label.textAlignment = self.alignment;
 }
 
+- (void)applyToTextField:(UITextField*)textField
+{
+    CGFloat fontSize = self.font.pointSize;
+	if (self.fontSizeType == DYNFontSizeTypeRelative) {
+		if (self.fontSizeString) {
+			if ([self.fontSizeString hasSuffix:@"%"]) {
+				NSRange range = [self.fontSizeString rangeOfString:@"%"];
+				NSString *chopped = [self.fontSizeString substringToIndex:range.location];
+				CGFloat percent = [chopped floatValue];
+				percent /= 100;
+				fontSize = textField.frame.size.height * percent;
+			}
+		}
+	}
+
+    textField.font = [UIFont fontWithName:self.font.fontName size:fontSize];
+    textField.textColor = self.textColor.color;
+    textField.textAlignment = self.alignment;
+}
+
 - (NSDictionary *)titleTextAttributes {
     return @{ UITextAttributeFont: self.font,
               UITextAttributeTextColor: self.textColor.color,

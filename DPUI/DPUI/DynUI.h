@@ -5,7 +5,7 @@
 
 #ifndef _dyn_
 #define _dyn_
-#define _dyn_version_0.1_
+#define _dyn_version_0_1_
 #import "DYNManager.h"
 #import "DYNRenderer.h"
 #import "NSString+DynUI.h"
@@ -13,6 +13,7 @@
 #import "UIImage+DynUI.h"
 #import "UILabel+DynUI.h"
 #import "UIView+DynUI.h"
+#import "UITextField+DynUI.h"
 
 #import "DYNBackgroundStyle.h"
 #import "DYNColor.h"

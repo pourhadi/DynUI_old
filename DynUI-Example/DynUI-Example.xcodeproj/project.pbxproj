@@ -39,6 +39,7 @@
 		44FADD62173CEC1000EB6BF4 /* Style.dpui in Resources */ = {isa = PBXBuildFile; fileRef = 44FADD61173CEC1000EB6BF4 /* Style.dpui */; };
 		44FADD65173CECDF00EB6BF4 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44FADD64173CECDF00EB6BF4 /* QuartzCore.framework */; };
 		44FADD67173CECE500EB6BF4 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44FADD66173CECE500EB6BF4 /* CoreImage.framework */; };
+		D77C73101741871D00F2E0BF /* UITextField+DynUI.m in Sources */ = {isa = PBXBuildFile; fileRef = D77C730F1741871D00F2E0BF /* UITextField+DynUI.m */; };
 		D7F8AABD173DAF67004ABF7E /* DYNStyleParameters.m in Sources */ = {isa = PBXBuildFile; fileRef = D7F8AABC173DAF67004ABF7E /* DYNStyleParameters.m */; };
 /* End PBXBuildFile section */
 
@@ -101,6 +102,8 @@
 		44FADD63173CEC9700EB6BF4 /* DPUIConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPUIConstants.h; sourceTree = "<group>"; };
 		44FADD64173CECDF00EB6BF4 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		44FADD66173CECE500EB6BF4 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		D77C730E1741871D00F2E0BF /* UITextField+DynUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+DynUI.h"; sourceTree = "<group>"; };
+		D77C730F1741871D00F2E0BF /* UITextField+DynUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+DynUI.m"; sourceTree = "<group>"; };
 		D7F8AABB173DAF67004ABF7E /* DYNStyleParameters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYNStyleParameters.h; sourceTree = "<group>"; };
 		D7F8AABC173DAF67004ABF7E /* DYNStyleParameters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYNStyleParameters.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -209,6 +212,8 @@
 				44FADD30173CEAAF00EB6BF4 /* UILabel+DynUI.m */,
 				44FADD31173CEAAF00EB6BF4 /* UIView+DynUI.h */,
 				44FADD32173CEAAF00EB6BF4 /* UIView+DynUI.m */,
+				D77C730E1741871D00F2E0BF /* UITextField+DynUI.h */,
+				D77C730F1741871D00F2E0BF /* UITextField+DynUI.m */,
 			);
 			name = Categories;
 			path = ../../DPUI/DPUI/Categories;
@@ -344,6 +349,7 @@
 				44FADD60173CEAAF00EB6BF4 /* DYNViewStyle.m in Sources */,
 				D7F8AABD173DAF67004ABF7E /* DYNStyleParameters.m in Sources */,
 				443D2E0D17406DBC008F4162 /* DYNSliderStyle.m in Sources */,
+				D77C73101741871D00F2E0BF /* UITextField+DynUI.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

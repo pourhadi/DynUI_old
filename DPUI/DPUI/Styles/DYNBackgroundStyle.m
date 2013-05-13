@@ -14,8 +14,7 @@
 - (id)init {
     self = [super init];
     if (self) {
-        self.startPoint = CGPointMake(0.5, 0);
-        self.endPoint = CGPointMake(0.5, 1);
+        self.gradientAngle = 180;
         self.locations = nil;
     }
     return self;
@@ -24,8 +23,8 @@
 - (id)initWithDictionary:(NSDictionary *)dictionary {
     self = [super init];
     if (self) {
-        self.startPoint = CGPointMake(0.5, 0);
-        self.endPoint = CGPointMake(0.5, 1);
+        
+        self.gradientAngle = [[dictionary objectForKey:kDYNGradientAngle] floatValue];
         self.locations = nil;
         NSArray *colors = [dictionary objectForKey:@"colors"];
         NSMutableArray *tmp = [NSMutableArray new];
@@ -55,17 +54,48 @@
 	if (self.colors.count > 1) {
 		//      NSArray *theColors = self.colors;
 		
-		CGPoint startPoint = self.startPoint;
-		CGPoint endPoint = self.endPoint;
+		CGPoint startPoint;
+		CGPoint endPoint;
 		
+        CGFloat degrees = self.gradientAngle - 90;
+      
+        startPoint = [self radialIntersectionWithDegrees:degrees forFrame:bounds];
+        
+        //  endPoint = [self radialIntersectionWithDegrees:degrees];
+        if (degrees >= 180) {
+            endPoint.x = size.width - startPoint.x;
+            endPoint.y = size.height - startPoint.y;
+            
+        } else {
+            endPoint = [self radialIntersectionWithDegrees:degrees forFrame:bounds];
+            
+            startPoint.x = size.width - endPoint.x;
+            startPoint.y = size.height - endPoint.y;
+        }
+        //
+        
+        
+        startPoint.x /= size.width;
+        startPoint.y /= size.height;
+        endPoint.x /= size.width;
+        endPoint.y /= size.height;
+        
+//        NSLog(@"degrees: %f", self.gradientAngle);
+//        NSLog(@"startPoint: %@", NSStringFromCGPoint(startPoint));
+//        NSLog(@"endPoint: %@", NSStringFromCGPoint(endPoint));
+        
 		if (flippedGradient) {
 			//                NSMutableArray *tmp = [NSMutableArray new];
 			//                for (int x = theColors.count-1; x >= 0; x--) {
 			//                    [tmp addObject:theColors[x]];
 			//                }
 			
-			startPoint = self.endPoint;
-			endPoint = self.startPoint;
+            CGPoint tmpStart = endPoint;
+            CGPoint tmpEnd = startPoint;
+            
+            startPoint = tmpStart;
+            endPoint = tmpEnd;
+
 		}
 		
 		
@@ -120,6 +150,59 @@
 	}
 
 	CGContextRestoreGState(context);
+}
+
+
+// gradient angle stuff
+
+- (CGPoint)radialIntersectionWithDegrees:(CGFloat)degrees forFrame:(CGRect)frame {
+    return [self radialIntersectionWithRadians:degrees * M_PI / 180 forFrame:frame];
+}
+
+- (CGPoint)radialIntersectionWithRadians:(CGFloat)radians forFrame:(CGRect)frame {
+    radians = fmodf(radians, 2 * M_PI);
+    if (radians < 0)
+        radians += (CGFloat)(2 * M_PI);
+    return [self radialIntersectionWithConstrainedRadians:radians forFrame:frame];
+}
+
+- (CGPoint)radialIntersectionWithConstrainedRadians:(CGFloat)radians forFrame:(CGRect)frame {
+    // This method requires 0 <= radians < 2 * π.
+    
+    CGFloat xRadius = frame.size.width / 2;
+    CGFloat yRadius = frame.size.height / 2;
+    
+    CGPoint pointRelativeToCenter;
+    CGFloat tangent = tanf(radians);
+    CGFloat y = xRadius * tangent;
+    // An infinite line passing through the center at angle `radians`
+    // intersects the right edge at Y coordinate `y` and the left edge
+    // at Y coordinate `-y`.
+    if (fabsf(y) <= yRadius) {
+        // The line intersects the left and right edges before it intersects
+        // the top and bottom edges.
+        if (radians < (CGFloat)M_PI_2 || radians > (CGFloat)(M_PI + M_PI_2)) {
+            // The ray at angle `radians` intersects the right edge.
+            pointRelativeToCenter = CGPointMake(xRadius, y);
+        } else {
+            // The ray intersects the left edge.
+            pointRelativeToCenter = CGPointMake(-xRadius, -y);
+        }
+    } else {
+        // The line intersects the top and bottom edges before it intersects
+        // the left and right edges.
+        CGFloat x = yRadius / tangent;
+        if (radians < (CGFloat)M_PI) {
+            // The ray at angle `radians` intersects the bottom edge.
+            pointRelativeToCenter = CGPointMake(x, yRadius);
+        } else {
+            // The ray intersects the top edge.
+            pointRelativeToCenter = CGPointMake(-x, -yRadius);
+        }
+    }
+    
+    return CGPointMake(pointRelativeToCenter.x + CGRectGetMidX(frame),
+                       pointRelativeToCenter.y + CGRectGetMidY(frame));
 }
 
 @end

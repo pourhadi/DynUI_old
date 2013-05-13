@@ -102,6 +102,10 @@
 		if ([dictionary objectForKey:kDYNSearchFieldTextStyleNameKey]) {
 			self.searchFieldTextStyleName = [dictionary objectForKey:kDYNSearchFieldTextStyleNameKey];
 		}
+        
+        if ([dictionary objectForKey:kDYNTextFieldTextStyleNameKey]) {
+            self.textFieldTextStyle = [[DYNManager sharedInstance] textStyleForName:[dictionary objectForKey:kDYNTextFieldTextStyleNameKey]];
+        }
     }
     return self;
 }
@@ -128,6 +132,24 @@
 	
 	return path;
 }
+
+- (UIBezierPath*)strokePathForPath:(UIBezierPath*)path
+{
+    CGFloat xScale = 1 / path.bounds.size.width;
+    CGFloat yScale = 1 / path.bounds.size.height;
+    
+    xScale = 1 - ((self.strokeWidth) * xScale);
+    yScale = 1 - ((self.strokeWidth) * yScale);
+    
+    CGAffineTransform transform = CGAffineTransformMakeScale(xScale, yScale);
+    
+    transform = CGAffineTransformTranslate(transform, self.strokeWidth/2, self.strokeWidth/2);
+    
+    UIBezierPath *newPath = [path copy];
+    [newPath applyTransform:transform];
+    return newPath;
+}
+
 - (UIBezierPath*)strokePathForStyleForRect:(CGRect)rect
 {
 	CGRect strokeRect = CGRectMake(rect.origin.x + (self.strokeWidth/2), rect.origin.y+(self.strokeWidth/2), rect.size.width-self.strokeWidth, rect.size.height-self.strokeWidth);
@@ -301,7 +323,9 @@
             }
         }
 		
-		UIBezierPath *strokePath = [self strokePathForStyleForRect:path.bounds];
+//		UIBezierPath *strokePath = [self strokePathForStyleForRect:path.bounds];
+        UIBezierPath *strokePath = [self strokePathForPath:path];
+
 		[strokePath setLineWidth:self.strokeWidth];
         [stroke setStroke];
         [strokePath stroke];

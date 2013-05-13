@@ -14,8 +14,8 @@
 
 // if colors.count > 1, the properties below are used
 @property (nonatomic, strong) NSArray *locations;
-@property (nonatomic) CGPoint startPoint;
-@property (nonatomic) CGPoint endPoint;
+
+@property (nonatomic) CGFloat gradientAngle;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 
