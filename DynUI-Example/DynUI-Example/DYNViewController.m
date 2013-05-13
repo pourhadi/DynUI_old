@@ -7,11 +7,13 @@
 //
 
 #import "DYNViewController.h"
-#import "DPUI.h"
-#import "DPUIConstants.h"
+#import "DynUI.h"
+#import "DYNDefines.h"
 @interface DYNViewController ()
 
 @property (nonatomic, weak) IBOutlet UIButton *exampleButton;
+@property (nonatomic, weak) IBOutlet UISlider *slider;
+@property (nonatomic, weak) IBOutlet UISearchBar *searchBar;
 
 @end
 
@@ -20,12 +22,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
 	
-	self.navigationController.navigationBar.dpui_style = @"NavBar";
+	self.navigationController.navigationBar.dyn_style = @"NavBar";
 	
-    [self.exampleButton setValue:[UIColor greenColor] forStyleParameter:@"ButtonColor"];
-	self.exampleButton.dpui_style = @"RedButton";
+	// [self.exampleButton setValue:[UIColor greenColor] forStyleParameter:@"ButtonColor"];
+	self.exampleButton.dyn_style = @"RedButton";
+	
+	self.slider.dyn_style = @"Slider";
+	
+	self.searchBar.dyn_style = @"SearchBar";
 	
 	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Go" style:UIBarButtonItemStyleBordered target:self action:@selector(go:)];
 }

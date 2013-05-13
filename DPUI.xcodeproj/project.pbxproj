@@ -7,59 +7,60 @@
 	objects = {
 
 /* Begin PBXAggregateTarget section */
-		D763FEBA1739A20600F983CE /* DPUICombined */ = {
+		D763FEBA1739A20600F983CE /* DynUICombined */ = {
 			isa = PBXAggregateTarget;
-			buildConfigurationList = D763FEBB1739A20600F983CE /* Build configuration list for PBXAggregateTarget "DPUICombined" */;
+			buildConfigurationList = D763FEBB1739A20600F983CE /* Build configuration list for PBXAggregateTarget "DynUICombined" */;
 			buildPhases = (
 				D763FEBE1739A21C00F983CE /* ShellScript */,
 			);
 			dependencies = (
 			);
-			name = DPUICombined;
+			name = DynUICombined;
 			productName = DPUICombined;
 		};
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		443D2E0A17406A6E008F4162 /* DYNSliderStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 443D2E0917406A6E008F4162 /* DYNSliderStyle.m */; };
 		D763FD9517397D1400F983CE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D763FD9417397D1400F983CE /* Foundation.framework */; };
-		D763FDC917397D2400F983CE /* NSString+DPUI.m in Sources */ = {isa = PBXBuildFile; fileRef = D763FDA517397D2400F983CE /* NSString+DPUI.m */; };
-		D763FDCA17397D2400F983CE /* UIColor+DPUI.m in Sources */ = {isa = PBXBuildFile; fileRef = D763FDA717397D2400F983CE /* UIColor+DPUI.m */; };
-		D763FDCB17397D2400F983CE /* UIImage+DPUI.m in Sources */ = {isa = PBXBuildFile; fileRef = D763FDA917397D2400F983CE /* UIImage+DPUI.m */; };
-		D763FDCC17397D2400F983CE /* UILabel+DPUI.m in Sources */ = {isa = PBXBuildFile; fileRef = D763FDAB17397D2400F983CE /* UILabel+DPUI.m */; };
-		D763FDCF17397D2400F983CE /* UIView+DPUI.m in Sources */ = {isa = PBXBuildFile; fileRef = D763FDB117397D2400F983CE /* UIView+DPUI.m */; };
-		D763FDD017397D2400F983CE /* DPUIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D763FDB517397D2400F983CE /* DPUIManager.m */; };
-		D763FDD117397D2400F983CE /* DPUIRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = D763FDB717397D2400F983CE /* DPUIRenderer.m */; };
-		D763FDD217397D2400F983CE /* DPUIBackgroundStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = D763FDBA17397D2400F983CE /* DPUIBackgroundStyle.m */; };
-		D763FDD317397D2400F983CE /* DPUIColor.m in Sources */ = {isa = PBXBuildFile; fileRef = D763FDBC17397D2400F983CE /* DPUIColor.m */; };
-		D763FDD417397D2400F983CE /* DPUIImageStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = D763FDBE17397D2400F983CE /* DPUIImageStyle.m */; };
-		D763FDD517397D2400F983CE /* DPUIInnerBorderStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = D763FDC017397D2400F983CE /* DPUIInnerBorderStyle.m */; };
-		D763FDD617397D2400F983CE /* DPUIShadowStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = D763FDC217397D2400F983CE /* DPUIShadowStyle.m */; };
-		D763FDD717397D2400F983CE /* DPUIStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = D763FDC417397D2400F983CE /* DPUIStyle.m */; };
-		D763FDD817397D2400F983CE /* DPUITextStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = D763FDC617397D2400F983CE /* DPUITextStyle.m */; };
-		D763FDD917397D2400F983CE /* DPUIViewStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = D763FDC817397D2400F983CE /* DPUIViewStyle.m */; };
+		D763FDC917397D2400F983CE /* NSString+DynUI.m in Sources */ = {isa = PBXBuildFile; fileRef = D763FDA517397D2400F983CE /* NSString+DynUI.m */; };
+		D763FDCA17397D2400F983CE /* UIColor+DynUI.m in Sources */ = {isa = PBXBuildFile; fileRef = D763FDA717397D2400F983CE /* UIColor+DynUI.m */; };
+		D763FDCB17397D2400F983CE /* UIImage+DynUI.m in Sources */ = {isa = PBXBuildFile; fileRef = D763FDA917397D2400F983CE /* UIImage+DynUI.m */; };
+		D763FDCC17397D2400F983CE /* UILabel+DynUI.m in Sources */ = {isa = PBXBuildFile; fileRef = D763FDAB17397D2400F983CE /* UILabel+DynUI.m */; };
+		D763FDCF17397D2400F983CE /* UIView+DynUI.m in Sources */ = {isa = PBXBuildFile; fileRef = D763FDB117397D2400F983CE /* UIView+DynUI.m */; };
+		D763FDD017397D2400F983CE /* DYNManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D763FDB517397D2400F983CE /* DYNManager.m */; };
+		D763FDD117397D2400F983CE /* DYNRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = D763FDB717397D2400F983CE /* DYNRenderer.m */; };
+		D763FDD217397D2400F983CE /* DYNBackgroundStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = D763FDBA17397D2400F983CE /* DYNBackgroundStyle.m */; };
+		D763FDD317397D2400F983CE /* DYNColor.m in Sources */ = {isa = PBXBuildFile; fileRef = D763FDBC17397D2400F983CE /* DYNColor.m */; };
+		D763FDD417397D2400F983CE /* DYNImageStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = D763FDBE17397D2400F983CE /* DYNImageStyle.m */; };
+		D763FDD517397D2400F983CE /* DYNInnerBorderStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = D763FDC017397D2400F983CE /* DYNInnerBorderStyle.m */; };
+		D763FDD617397D2400F983CE /* DYNShadowStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = D763FDC217397D2400F983CE /* DYNShadowStyle.m */; };
+		D763FDD717397D2400F983CE /* DYNStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = D763FDC417397D2400F983CE /* DYNStyle.m */; };
+		D763FDD817397D2400F983CE /* DYNTextStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = D763FDC617397D2400F983CE /* DYNTextStyle.m */; };
+		D763FDD917397D2400F983CE /* DYNViewStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = D763FDC817397D2400F983CE /* DYNViewStyle.m */; };
 		D763FDDE17397D7600F983CE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D763FDDC17397D6900F983CE /* UIKit.framework */; };
 		D763FDDF17397D7600F983CE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D763FDDA17397D5900F983CE /* CoreGraphics.framework */; };
 		D763FDE417397D9200F983CE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D763FDE217397D8800F983CE /* QuartzCore.framework */; };
 		D763FDE517397D9200F983CE /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D763FDE017397D8200F983CE /* CoreImage.framework */; };
 		D763FDEA17397E2C00F983CE /* JRSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = D763FDE917397E2C00F983CE /* JRSwizzle.m */; };
-		D763FE2817399B1300F983CE /* DPUI.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D763FD9917397D1400F983CE /* DPUI.h */; };
-		D763FE2917399C7100F983CE /* DPUIBackgroundStyle.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D763FDB917397D2400F983CE /* DPUIBackgroundStyle.h */; };
-		D763FE2A17399C7100F983CE /* DPUIColor.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D763FDBB17397D2400F983CE /* DPUIColor.h */; };
-		D763FE2B17399C7100F983CE /* DPUIImageStyle.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D763FDBD17397D2400F983CE /* DPUIImageStyle.h */; };
-		D763FE2C17399C7100F983CE /* DPUIInnerBorderStyle.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D763FDBF17397D2400F983CE /* DPUIInnerBorderStyle.h */; };
-		D763FE2D17399C7100F983CE /* DPUIShadowStyle.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D763FDC117397D2400F983CE /* DPUIShadowStyle.h */; };
-		D763FE2E17399C7100F983CE /* DPUIStyle.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D763FDC317397D2400F983CE /* DPUIStyle.h */; };
-		D763FE2F17399C7100F983CE /* DPUITextStyle.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D763FDC517397D2400F983CE /* DPUITextStyle.h */; };
-		D763FE3017399C7100F983CE /* DPUIViewStyle.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D763FDC717397D2400F983CE /* DPUIViewStyle.h */; };
-		D763FE3117399C7100F983CE /* NSString+DPUI.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D763FDA417397D2400F983CE /* NSString+DPUI.h */; };
-		D763FE3217399C7100F983CE /* UIColor+DPUI.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D763FDA617397D2400F983CE /* UIColor+DPUI.h */; };
-		D763FE3317399C7100F983CE /* UIImage+DPUI.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D763FDA817397D2400F983CE /* UIImage+DPUI.h */; };
-		D763FE3417399C7100F983CE /* UILabel+DPUI.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D763FDAA17397D2400F983CE /* UILabel+DPUI.h */; };
-		D763FE3717399C7100F983CE /* UIView+DPUI.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D763FDB017397D2400F983CE /* UIView+DPUI.h */; };
-		D763FE3A17399C7100F983CE /* DPUIManager.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D763FDB417397D2400F983CE /* DPUIManager.h */; };
-		D763FE3B17399C7100F983CE /* DPUIRenderer.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D763FDB617397D2400F983CE /* DPUIRenderer.h */; };
-		D78A6147173C2760003F8CA8 /* DPUIControlStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = D78A6146173C2760003F8CA8 /* DPUIControlStyle.m */; };
-		D7F8AABA173D8A5B004ABF7E /* DPUIStyleParameters.m in Sources */ = {isa = PBXBuildFile; fileRef = D7F8AAB9173D8A5B004ABF7E /* DPUIStyleParameters.m */; };
+		D763FE2817399B1300F983CE /* DynUI.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D763FD9917397D1400F983CE /* DynUI.h */; };
+		D763FE2917399C7100F983CE /* DYNBackgroundStyle.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D763FDB917397D2400F983CE /* DYNBackgroundStyle.h */; };
+		D763FE2A17399C7100F983CE /* DYNColor.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D763FDBB17397D2400F983CE /* DYNColor.h */; };
+		D763FE2B17399C7100F983CE /* DYNImageStyle.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D763FDBD17397D2400F983CE /* DYNImageStyle.h */; };
+		D763FE2C17399C7100F983CE /* DYNInnerBorderStyle.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D763FDBF17397D2400F983CE /* DYNInnerBorderStyle.h */; };
+		D763FE2D17399C7100F983CE /* DYNShadowStyle.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D763FDC117397D2400F983CE /* DYNShadowStyle.h */; };
+		D763FE2E17399C7100F983CE /* DYNStyle.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D763FDC317397D2400F983CE /* DYNStyle.h */; };
+		D763FE2F17399C7100F983CE /* DYNTextStyle.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D763FDC517397D2400F983CE /* DYNTextStyle.h */; };
+		D763FE3017399C7100F983CE /* DYNViewStyle.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D763FDC717397D2400F983CE /* DYNViewStyle.h */; };
+		D763FE3117399C7100F983CE /* NSString+DynUI.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D763FDA417397D2400F983CE /* NSString+DynUI.h */; };
+		D763FE3217399C7100F983CE /* UIColor+DynUI.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D763FDA617397D2400F983CE /* UIColor+DynUI.h */; };
+		D763FE3317399C7100F983CE /* UIImage+DynUI.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D763FDA817397D2400F983CE /* UIImage+DynUI.h */; };
+		D763FE3417399C7100F983CE /* UILabel+DynUI.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D763FDAA17397D2400F983CE /* UILabel+DynUI.h */; };
+		D763FE3717399C7100F983CE /* UIView+DynUI.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D763FDB017397D2400F983CE /* UIView+DynUI.h */; };
+		D763FE3A17399C7100F983CE /* DYNManager.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D763FDB417397D2400F983CE /* DYNManager.h */; };
+		D763FE3B17399C7100F983CE /* DYNRenderer.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D763FDB617397D2400F983CE /* DYNRenderer.h */; };
+		D78A6147173C2760003F8CA8 /* DYNControlStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = D78A6146173C2760003F8CA8 /* DYNControlStyle.m */; };
+		D7F8AABA173D8A5B004ABF7E /* DYNStyleParameters.m in Sources */ = {isa = PBXBuildFile; fileRef = D7F8AAB9173D8A5B004ABF7E /* DYNStyleParameters.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -69,73 +70,75 @@
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
-				D763FE2917399C7100F983CE /* DPUIBackgroundStyle.h in CopyFiles */,
-				D763FE2A17399C7100F983CE /* DPUIColor.h in CopyFiles */,
-				D763FE2B17399C7100F983CE /* DPUIImageStyle.h in CopyFiles */,
-				D763FE2C17399C7100F983CE /* DPUIInnerBorderStyle.h in CopyFiles */,
-				D763FE2D17399C7100F983CE /* DPUIShadowStyle.h in CopyFiles */,
-				D763FE2E17399C7100F983CE /* DPUIStyle.h in CopyFiles */,
-				D763FE2F17399C7100F983CE /* DPUITextStyle.h in CopyFiles */,
-				D763FE3017399C7100F983CE /* DPUIViewStyle.h in CopyFiles */,
-				D763FE3117399C7100F983CE /* NSString+DPUI.h in CopyFiles */,
-				D763FE3217399C7100F983CE /* UIColor+DPUI.h in CopyFiles */,
-				D763FE3317399C7100F983CE /* UIImage+DPUI.h in CopyFiles */,
-				D763FE3417399C7100F983CE /* UILabel+DPUI.h in CopyFiles */,
-				D763FE3717399C7100F983CE /* UIView+DPUI.h in CopyFiles */,
-				D763FE3A17399C7100F983CE /* DPUIManager.h in CopyFiles */,
-				D763FE3B17399C7100F983CE /* DPUIRenderer.h in CopyFiles */,
-				D763FE2817399B1300F983CE /* DPUI.h in CopyFiles */,
+				D763FE2917399C7100F983CE /* DYNBackgroundStyle.h in CopyFiles */,
+				D763FE2A17399C7100F983CE /* DYNColor.h in CopyFiles */,
+				D763FE2B17399C7100F983CE /* DYNImageStyle.h in CopyFiles */,
+				D763FE2C17399C7100F983CE /* DYNInnerBorderStyle.h in CopyFiles */,
+				D763FE2D17399C7100F983CE /* DYNShadowStyle.h in CopyFiles */,
+				D763FE2E17399C7100F983CE /* DYNStyle.h in CopyFiles */,
+				D763FE2F17399C7100F983CE /* DYNTextStyle.h in CopyFiles */,
+				D763FE3017399C7100F983CE /* DYNViewStyle.h in CopyFiles */,
+				D763FE3117399C7100F983CE /* NSString+DynUI.h in CopyFiles */,
+				D763FE3217399C7100F983CE /* UIColor+DynUI.h in CopyFiles */,
+				D763FE3317399C7100F983CE /* UIImage+DynUI.h in CopyFiles */,
+				D763FE3417399C7100F983CE /* UILabel+DynUI.h in CopyFiles */,
+				D763FE3717399C7100F983CE /* UIView+DynUI.h in CopyFiles */,
+				D763FE3A17399C7100F983CE /* DYNManager.h in CopyFiles */,
+				D763FE3B17399C7100F983CE /* DYNRenderer.h in CopyFiles */,
+				D763FE2817399B1300F983CE /* DynUI.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		D763FD9117397D1400F983CE /* libDPUI.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libDPUI.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		443D2E0817406A6E008F4162 /* DYNSliderStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYNSliderStyle.h; sourceTree = "<group>"; };
+		443D2E0917406A6E008F4162 /* DYNSliderStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYNSliderStyle.m; sourceTree = "<group>"; };
+		D763FD9117397D1400F983CE /* libDPUI.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libDPUI.a; path = libDynUI.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D763FD9417397D1400F983CE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D763FD9817397D1400F983CE /* DPUI-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DPUI-Prefix.pch"; sourceTree = "<group>"; };
-		D763FD9917397D1400F983CE /* DPUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DPUI.h; path = DPUI/DPUI/DPUI.h; sourceTree = SOURCE_ROOT; };
-		D763FDA417397D2400F983CE /* NSString+DPUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+DPUI.h"; sourceTree = "<group>"; };
-		D763FDA517397D2400F983CE /* NSString+DPUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+DPUI.m"; sourceTree = "<group>"; };
-		D763FDA617397D2400F983CE /* UIColor+DPUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+DPUI.h"; sourceTree = "<group>"; };
-		D763FDA717397D2400F983CE /* UIColor+DPUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+DPUI.m"; sourceTree = "<group>"; };
-		D763FDA817397D2400F983CE /* UIImage+DPUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+DPUI.h"; sourceTree = "<group>"; };
-		D763FDA917397D2400F983CE /* UIImage+DPUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+DPUI.m"; sourceTree = "<group>"; };
-		D763FDAA17397D2400F983CE /* UILabel+DPUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+DPUI.h"; sourceTree = "<group>"; };
-		D763FDAB17397D2400F983CE /* UILabel+DPUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+DPUI.m"; sourceTree = "<group>"; };
-		D763FDB017397D2400F983CE /* UIView+DPUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+DPUI.h"; sourceTree = "<group>"; };
-		D763FDB117397D2400F983CE /* UIView+DPUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+DPUI.m"; sourceTree = "<group>"; };
-		D763FDB317397D2400F983CE /* DPUIDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPUIDefines.h; sourceTree = "<group>"; };
-		D763FDB417397D2400F983CE /* DPUIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPUIManager.h; sourceTree = "<group>"; };
-		D763FDB517397D2400F983CE /* DPUIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPUIManager.m; sourceTree = "<group>"; };
-		D763FDB617397D2400F983CE /* DPUIRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPUIRenderer.h; sourceTree = "<group>"; };
-		D763FDB717397D2400F983CE /* DPUIRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPUIRenderer.m; sourceTree = "<group>"; };
-		D763FDB917397D2400F983CE /* DPUIBackgroundStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPUIBackgroundStyle.h; sourceTree = "<group>"; };
-		D763FDBA17397D2400F983CE /* DPUIBackgroundStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPUIBackgroundStyle.m; sourceTree = "<group>"; };
-		D763FDBB17397D2400F983CE /* DPUIColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPUIColor.h; sourceTree = "<group>"; };
-		D763FDBC17397D2400F983CE /* DPUIColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPUIColor.m; sourceTree = "<group>"; };
-		D763FDBD17397D2400F983CE /* DPUIImageStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPUIImageStyle.h; sourceTree = "<group>"; };
-		D763FDBE17397D2400F983CE /* DPUIImageStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPUIImageStyle.m; sourceTree = "<group>"; };
-		D763FDBF17397D2400F983CE /* DPUIInnerBorderStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPUIInnerBorderStyle.h; sourceTree = "<group>"; };
-		D763FDC017397D2400F983CE /* DPUIInnerBorderStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPUIInnerBorderStyle.m; sourceTree = "<group>"; };
-		D763FDC117397D2400F983CE /* DPUIShadowStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPUIShadowStyle.h; sourceTree = "<group>"; };
-		D763FDC217397D2400F983CE /* DPUIShadowStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPUIShadowStyle.m; sourceTree = "<group>"; };
-		D763FDC317397D2400F983CE /* DPUIStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPUIStyle.h; sourceTree = "<group>"; };
-		D763FDC417397D2400F983CE /* DPUIStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPUIStyle.m; sourceTree = "<group>"; };
-		D763FDC517397D2400F983CE /* DPUITextStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPUITextStyle.h; sourceTree = "<group>"; };
-		D763FDC617397D2400F983CE /* DPUITextStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPUITextStyle.m; sourceTree = "<group>"; };
-		D763FDC717397D2400F983CE /* DPUIViewStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPUIViewStyle.h; sourceTree = "<group>"; };
-		D763FDC817397D2400F983CE /* DPUIViewStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPUIViewStyle.m; sourceTree = "<group>"; };
+		D763FD9917397D1400F983CE /* DynUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DynUI.h; path = DPUI/DPUI/DynUI.h; sourceTree = SOURCE_ROOT; };
+		D763FDA417397D2400F983CE /* NSString+DynUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+DynUI.h"; sourceTree = "<group>"; };
+		D763FDA517397D2400F983CE /* NSString+DynUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+DynUI.m"; sourceTree = "<group>"; };
+		D763FDA617397D2400F983CE /* UIColor+DynUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+DynUI.h"; sourceTree = "<group>"; };
+		D763FDA717397D2400F983CE /* UIColor+DynUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+DynUI.m"; sourceTree = "<group>"; };
+		D763FDA817397D2400F983CE /* UIImage+DynUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+DynUI.h"; sourceTree = "<group>"; };
+		D763FDA917397D2400F983CE /* UIImage+DynUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+DynUI.m"; sourceTree = "<group>"; };
+		D763FDAA17397D2400F983CE /* UILabel+DynUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+DynUI.h"; sourceTree = "<group>"; };
+		D763FDAB17397D2400F983CE /* UILabel+DynUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+DynUI.m"; sourceTree = "<group>"; };
+		D763FDB017397D2400F983CE /* UIView+DynUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+DynUI.h"; sourceTree = "<group>"; };
+		D763FDB117397D2400F983CE /* UIView+DynUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+DynUI.m"; sourceTree = "<group>"; };
+		D763FDB317397D2400F983CE /* DYNDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYNDefines.h; sourceTree = "<group>"; };
+		D763FDB417397D2400F983CE /* DYNManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYNManager.h; sourceTree = "<group>"; };
+		D763FDB517397D2400F983CE /* DYNManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYNManager.m; sourceTree = "<group>"; };
+		D763FDB617397D2400F983CE /* DYNRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYNRenderer.h; sourceTree = "<group>"; };
+		D763FDB717397D2400F983CE /* DYNRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYNRenderer.m; sourceTree = "<group>"; };
+		D763FDB917397D2400F983CE /* DYNBackgroundStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYNBackgroundStyle.h; sourceTree = "<group>"; };
+		D763FDBA17397D2400F983CE /* DYNBackgroundStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYNBackgroundStyle.m; sourceTree = "<group>"; };
+		D763FDBB17397D2400F983CE /* DYNColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYNColor.h; sourceTree = "<group>"; };
+		D763FDBC17397D2400F983CE /* DYNColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYNColor.m; sourceTree = "<group>"; };
+		D763FDBD17397D2400F983CE /* DYNImageStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYNImageStyle.h; sourceTree = "<group>"; };
+		D763FDBE17397D2400F983CE /* DYNImageStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYNImageStyle.m; sourceTree = "<group>"; };
+		D763FDBF17397D2400F983CE /* DYNInnerBorderStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYNInnerBorderStyle.h; sourceTree = "<group>"; };
+		D763FDC017397D2400F983CE /* DYNInnerBorderStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYNInnerBorderStyle.m; sourceTree = "<group>"; };
+		D763FDC117397D2400F983CE /* DYNShadowStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYNShadowStyle.h; sourceTree = "<group>"; };
+		D763FDC217397D2400F983CE /* DYNShadowStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYNShadowStyle.m; sourceTree = "<group>"; };
+		D763FDC317397D2400F983CE /* DYNStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYNStyle.h; sourceTree = "<group>"; };
+		D763FDC417397D2400F983CE /* DYNStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYNStyle.m; sourceTree = "<group>"; };
+		D763FDC517397D2400F983CE /* DYNTextStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYNTextStyle.h; sourceTree = "<group>"; };
+		D763FDC617397D2400F983CE /* DYNTextStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYNTextStyle.m; sourceTree = "<group>"; };
+		D763FDC717397D2400F983CE /* DYNViewStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYNViewStyle.h; sourceTree = "<group>"; };
+		D763FDC817397D2400F983CE /* DYNViewStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYNViewStyle.m; sourceTree = "<group>"; };
 		D763FDDA17397D5900F983CE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		D763FDDC17397D6900F983CE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D763FDE017397D8200F983CE /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		D763FDE217397D8800F983CE /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		D763FDE817397E2C00F983CE /* JRSwizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JRSwizzle.h; path = DPUI/External/JRSwizzle.h; sourceTree = "<group>"; };
 		D763FDE917397E2C00F983CE /* JRSwizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JRSwizzle.m; path = DPUI/External/JRSwizzle.m; sourceTree = "<group>"; };
-		D78A6145173C2760003F8CA8 /* DPUIControlStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPUIControlStyle.h; sourceTree = "<group>"; };
-		D78A6146173C2760003F8CA8 /* DPUIControlStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPUIControlStyle.m; sourceTree = "<group>"; };
-		D7F8AAB8173D8A5B004ABF7E /* DPUIStyleParameters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPUIStyleParameters.h; sourceTree = "<group>"; };
-		D7F8AAB9173D8A5B004ABF7E /* DPUIStyleParameters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPUIStyleParameters.m; sourceTree = "<group>"; };
+		D78A6145173C2760003F8CA8 /* DYNControlStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYNControlStyle.h; sourceTree = "<group>"; };
+		D78A6146173C2760003F8CA8 /* DYNControlStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYNControlStyle.m; sourceTree = "<group>"; };
+		D7F8AAB8173D8A5B004ABF7E /* DYNStyleParameters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYNStyleParameters.h; sourceTree = "<group>"; };
+		D7F8AAB9173D8A5B004ABF7E /* DYNStyleParameters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYNStyleParameters.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,12 +210,12 @@
 				D763FDE617397E1C00F983CE /* External */,
 				D763FDB817397D2400F983CE /* Styles */,
 				D763FDA317397D2400F983CE /* Categories */,
-				D763FDB317397D2400F983CE /* DPUIDefines.h */,
-				D763FDB417397D2400F983CE /* DPUIManager.h */,
-				D763FDB517397D2400F983CE /* DPUIManager.m */,
-				D763FDB617397D2400F983CE /* DPUIRenderer.h */,
-				D763FDB717397D2400F983CE /* DPUIRenderer.m */,
-				D763FD9917397D1400F983CE /* DPUI.h */,
+				D763FDB317397D2400F983CE /* DYNDefines.h */,
+				D763FDB417397D2400F983CE /* DYNManager.h */,
+				D763FDB517397D2400F983CE /* DYNManager.m */,
+				D763FDB617397D2400F983CE /* DYNRenderer.h */,
+				D763FDB717397D2400F983CE /* DYNRenderer.m */,
+				D763FD9917397D1400F983CE /* DynUI.h */,
 			);
 			name = DPUI;
 			path = DPUI/DPUI;
@@ -221,16 +224,16 @@
 		D763FDA317397D2400F983CE /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				D763FDA417397D2400F983CE /* NSString+DPUI.h */,
-				D763FDA517397D2400F983CE /* NSString+DPUI.m */,
-				D763FDA617397D2400F983CE /* UIColor+DPUI.h */,
-				D763FDA717397D2400F983CE /* UIColor+DPUI.m */,
-				D763FDA817397D2400F983CE /* UIImage+DPUI.h */,
-				D763FDA917397D2400F983CE /* UIImage+DPUI.m */,
-				D763FDAA17397D2400F983CE /* UILabel+DPUI.h */,
-				D763FDAB17397D2400F983CE /* UILabel+DPUI.m */,
-				D763FDB017397D2400F983CE /* UIView+DPUI.h */,
-				D763FDB117397D2400F983CE /* UIView+DPUI.m */,
+				D763FDA417397D2400F983CE /* NSString+DynUI.h */,
+				D763FDA517397D2400F983CE /* NSString+DynUI.m */,
+				D763FDA617397D2400F983CE /* UIColor+DynUI.h */,
+				D763FDA717397D2400F983CE /* UIColor+DynUI.m */,
+				D763FDA817397D2400F983CE /* UIImage+DynUI.h */,
+				D763FDA917397D2400F983CE /* UIImage+DynUI.m */,
+				D763FDAA17397D2400F983CE /* UILabel+DynUI.h */,
+				D763FDAB17397D2400F983CE /* UILabel+DynUI.m */,
+				D763FDB017397D2400F983CE /* UIView+DynUI.h */,
+				D763FDB117397D2400F983CE /* UIView+DynUI.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -238,26 +241,28 @@
 		D763FDB817397D2400F983CE /* Styles */ = {
 			isa = PBXGroup;
 			children = (
-				D763FDB917397D2400F983CE /* DPUIBackgroundStyle.h */,
-				D763FDBA17397D2400F983CE /* DPUIBackgroundStyle.m */,
-				D763FDBB17397D2400F983CE /* DPUIColor.h */,
-				D763FDBC17397D2400F983CE /* DPUIColor.m */,
-				D763FDBD17397D2400F983CE /* DPUIImageStyle.h */,
-				D763FDBE17397D2400F983CE /* DPUIImageStyle.m */,
-				D763FDBF17397D2400F983CE /* DPUIInnerBorderStyle.h */,
-				D763FDC017397D2400F983CE /* DPUIInnerBorderStyle.m */,
-				D763FDC117397D2400F983CE /* DPUIShadowStyle.h */,
-				D763FDC217397D2400F983CE /* DPUIShadowStyle.m */,
-				D763FDC317397D2400F983CE /* DPUIStyle.h */,
-				D763FDC417397D2400F983CE /* DPUIStyle.m */,
-				D763FDC517397D2400F983CE /* DPUITextStyle.h */,
-				D763FDC617397D2400F983CE /* DPUITextStyle.m */,
-				D763FDC717397D2400F983CE /* DPUIViewStyle.h */,
-				D763FDC817397D2400F983CE /* DPUIViewStyle.m */,
-				D78A6145173C2760003F8CA8 /* DPUIControlStyle.h */,
-				D78A6146173C2760003F8CA8 /* DPUIControlStyle.m */,
-				D7F8AAB8173D8A5B004ABF7E /* DPUIStyleParameters.h */,
-				D7F8AAB9173D8A5B004ABF7E /* DPUIStyleParameters.m */,
+				D763FDB917397D2400F983CE /* DYNBackgroundStyle.h */,
+				D763FDBA17397D2400F983CE /* DYNBackgroundStyle.m */,
+				D763FDBB17397D2400F983CE /* DYNColor.h */,
+				D763FDBC17397D2400F983CE /* DYNColor.m */,
+				D763FDBD17397D2400F983CE /* DYNImageStyle.h */,
+				D763FDBE17397D2400F983CE /* DYNImageStyle.m */,
+				D763FDBF17397D2400F983CE /* DYNInnerBorderStyle.h */,
+				D763FDC017397D2400F983CE /* DYNInnerBorderStyle.m */,
+				D763FDC117397D2400F983CE /* DYNShadowStyle.h */,
+				D763FDC217397D2400F983CE /* DYNShadowStyle.m */,
+				D763FDC317397D2400F983CE /* DYNStyle.h */,
+				D763FDC417397D2400F983CE /* DYNStyle.m */,
+				D763FDC517397D2400F983CE /* DYNTextStyle.h */,
+				D763FDC617397D2400F983CE /* DYNTextStyle.m */,
+				D763FDC717397D2400F983CE /* DYNViewStyle.h */,
+				D763FDC817397D2400F983CE /* DYNViewStyle.m */,
+				D78A6145173C2760003F8CA8 /* DYNControlStyle.h */,
+				D78A6146173C2760003F8CA8 /* DYNControlStyle.m */,
+				D7F8AAB8173D8A5B004ABF7E /* DYNStyleParameters.h */,
+				D7F8AAB9173D8A5B004ABF7E /* DYNStyleParameters.m */,
+				443D2E0817406A6E008F4162 /* DYNSliderStyle.h */,
+				443D2E0917406A6E008F4162 /* DYNSliderStyle.m */,
 			);
 			path = Styles;
 			sourceTree = "<group>";
@@ -283,9 +288,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D763FD9017397D1400F983CE /* DPUI */ = {
+		D763FD9017397D1400F983CE /* DynUI */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D763FD9F17397D1400F983CE /* Build configuration list for PBXNativeTarget "DPUI" */;
+			buildConfigurationList = D763FD9F17397D1400F983CE /* Build configuration list for PBXNativeTarget "DynUI" */;
 			buildPhases = (
 				D763FD8D17397D1400F983CE /* Sources */,
 				D763FD8E17397D1400F983CE /* Frameworks */,
@@ -295,7 +300,7 @@
 			);
 			dependencies = (
 			);
-			name = DPUI;
+			name = DynUI;
 			productName = DPUI;
 			productReference = D763FD9117397D1400F983CE /* libDPUI.a */;
 			productType = "com.apple.product-type.library.static";
@@ -321,8 +326,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D763FD9017397D1400F983CE /* DPUI */,
-				D763FEBA1739A20600F983CE /* DPUICombined */,
+				D763FD9017397D1400F983CE /* DynUI */,
+				D763FEBA1739A20600F983CE /* DynUICombined */,
 			);
 		};
 /* End PBXProject section */
@@ -348,24 +353,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D763FDC917397D2400F983CE /* NSString+DPUI.m in Sources */,
-				D763FDCA17397D2400F983CE /* UIColor+DPUI.m in Sources */,
-				D763FDCB17397D2400F983CE /* UIImage+DPUI.m in Sources */,
-				D763FDCC17397D2400F983CE /* UILabel+DPUI.m in Sources */,
-				D763FDCF17397D2400F983CE /* UIView+DPUI.m in Sources */,
-				D763FDD017397D2400F983CE /* DPUIManager.m in Sources */,
-				D763FDD117397D2400F983CE /* DPUIRenderer.m in Sources */,
-				D763FDD217397D2400F983CE /* DPUIBackgroundStyle.m in Sources */,
-				D763FDD317397D2400F983CE /* DPUIColor.m in Sources */,
-				D763FDD417397D2400F983CE /* DPUIImageStyle.m in Sources */,
-				D763FDD517397D2400F983CE /* DPUIInnerBorderStyle.m in Sources */,
-				D763FDD617397D2400F983CE /* DPUIShadowStyle.m in Sources */,
-				D763FDD717397D2400F983CE /* DPUIStyle.m in Sources */,
-				D763FDD817397D2400F983CE /* DPUITextStyle.m in Sources */,
-				D763FDD917397D2400F983CE /* DPUIViewStyle.m in Sources */,
+				D763FDC917397D2400F983CE /* NSString+DynUI.m in Sources */,
+				D763FDCA17397D2400F983CE /* UIColor+DynUI.m in Sources */,
+				D763FDCB17397D2400F983CE /* UIImage+DynUI.m in Sources */,
+				D763FDCC17397D2400F983CE /* UILabel+DynUI.m in Sources */,
+				D763FDCF17397D2400F983CE /* UIView+DynUI.m in Sources */,
+				D763FDD017397D2400F983CE /* DYNManager.m in Sources */,
+				D763FDD117397D2400F983CE /* DYNRenderer.m in Sources */,
+				D763FDD217397D2400F983CE /* DYNBackgroundStyle.m in Sources */,
+				D763FDD317397D2400F983CE /* DYNColor.m in Sources */,
+				D763FDD417397D2400F983CE /* DYNImageStyle.m in Sources */,
+				D763FDD517397D2400F983CE /* DYNInnerBorderStyle.m in Sources */,
+				D763FDD617397D2400F983CE /* DYNShadowStyle.m in Sources */,
+				D763FDD717397D2400F983CE /* DYNStyle.m in Sources */,
+				D763FDD817397D2400F983CE /* DYNTextStyle.m in Sources */,
+				D763FDD917397D2400F983CE /* DYNViewStyle.m in Sources */,
 				D763FDEA17397E2C00F983CE /* JRSwizzle.m in Sources */,
-				D78A6147173C2760003F8CA8 /* DPUIControlStyle.m in Sources */,
-				D7F8AABA173D8A5B004ABF7E /* DPUIStyleParameters.m in Sources */,
+				D78A6147173C2760003F8CA8 /* DYNControlStyle.m in Sources */,
+				D7F8AABA173D8A5B004ABF7E /* DYNStyleParameters.m in Sources */,
+				443D2E0A17406A6E008F4162 /* DYNSliderStyle.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -475,7 +481,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D763FD9F17397D1400F983CE /* Build configuration list for PBXNativeTarget "DPUI" */ = {
+		D763FD9F17397D1400F983CE /* Build configuration list for PBXNativeTarget "DynUI" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D763FDA017397D1400F983CE /* Debug */,
@@ -484,7 +490,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D763FEBB1739A20600F983CE /* Build configuration list for PBXAggregateTarget "DPUICombined" */ = {
+		D763FEBB1739A20600F983CE /* Build configuration list for PBXAggregateTarget "DynUICombined" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D763FEBC1739A20600F983CE /* Debug */,
