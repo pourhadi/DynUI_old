@@ -36,17 +36,41 @@
 		CGContextClipToMask(context, CGRectMake(0, 0, size.width, size.height), image.CGImage);
 		
 		DYNShadowStyle *innerShadow = self.innerShadow;
+		
+		if (self.innerShadow.opacity > 0) {
+			CGContextSaveGState(context);
+
 		CGContextSetShadowWithColor(context, CGSizeMake(innerShadow.offset.width, oppositeSign(innerShadow.offset.height)), innerShadow.radius, [innerShadow.color colorWithAlphaComponent:innerShadow.opacity].CGColor);
 		CGImageRef mask = [UIImage createMaskFromAlphaChannel:image];
 		CGContextDrawImage(context, CGRectMake(0, 0, size.width, size.height), mask);
 		CGImageRelease(mask);
-		CGContextSaveGState(context);
+			CGContextRestoreGState(context);
+		}
+		CGContextRestoreGState(context);
+		
+//		if (self.strokeWidth > 0) {
+//			CGContextSaveGState(context);
+//
+//			CGContextTranslateCTM(context, 0.0f, size.height);
+//			CGContextScaleCTM(context, 1.0f, -1.0f);
+//			CGContextDrawImage(context, imageRect, newImage.CGImage);
+//			CGContextClipToMask(context, CGRectMake(0, 0, size.width, size.height), image.CGImage);
+//			CGContextSetShadowWithColor(context, CGSizeMake(0, 0), self.strokeWidth, self.strokeColor.color.CGColor);
+//
+//			CGImageRef mask = [UIImage createMaskFromAlphaChannel:image];
+//			CGContextDrawImage(context, CGRectMake(0, 0, size.width, size.height), mask);
+//			CGImageRelease(mask);
+//			CGContextRestoreGState(context);
+//
+//		}
+
 	}];
 		
 	
 	if (self.strokeWidth > 0) {
+		CGFloat stroke = self.strokeWidth/2;
 		CGRect imageRect = CGRectMake(0, 0, newImage.size.width, newImage.size.height);
-		imageRect = CGRectInset(imageRect, -self.strokeWidth, -self.strokeWidth);		
+		imageRect = CGRectInset(imageRect, -stroke, -stroke);
 		newImage = [UIImage imageWithSize:imageRect.size drawnWithBlock:^(CGContextRef context, CGSize size) {
 			
 			DYNColor *DYNColor = self.strokeColor;

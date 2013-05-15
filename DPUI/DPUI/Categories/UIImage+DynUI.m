@@ -166,12 +166,11 @@
 }
 
 + (CGImageRef)createMaskFromAlphaChannel:(UIImage *)image {
-    size_t width = image.size.width;
-	size_t height = image.size.height;
+    size_t width = image.size.width*image.scale;
+	size_t height = image.size.height*image.scale;
 	
 	NSMutableData *data = [NSMutableData dataWithLength:width*height];
-	
-	CGContextRef context = CGBitmapContextCreate(
+		CGContextRef context = CGBitmapContextCreate(
 												 [data mutableBytes], width, height, 8, width, NULL, kCGImageAlphaOnly);
 	
 	// Set the blend mode to copy to avoid any alteration of the source data
@@ -183,7 +182,7 @@
 	
 	CGDataProviderRef dataProvider = CGDataProviderCreateWithCFData((__bridge CFMutableDataRef)data);
 	
-	CGImageRef maskingImage = CGImageMaskCreate(width, height, 8, 8, width, dataProvider, NULL, TRUE);
+	CGImageRef maskingImage = CGImageMaskCreate(width, height, 8, 8, width, dataProvider, CGImageGetDecode(image.CGImage), FALSE);
 	CGDataProviderRelease(dataProvider);
 	
 	return maskingImage;
