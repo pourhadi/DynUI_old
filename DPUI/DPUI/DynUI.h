@@ -14,6 +14,7 @@
 #import "UILabel+DynUI.h"
 #import "UIView+DynUI.h"
 #import "UITextField+DynUI.h"
+#import "UIScrollView+DynUI.h"
 
 #import "DYNBackgroundStyle.h"
 #import "DYNColor.h"

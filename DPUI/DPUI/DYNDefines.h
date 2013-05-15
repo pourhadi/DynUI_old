@@ -19,6 +19,7 @@ static const void *const kDYNStyleParameterKey = "_DYNStyleParameterKey";
 static const void *const kDYNDrawQueueKey = "_DYNDrawQueueKey";
 static const void *const kDYNTextRectSwizzledKey = @"_DYNTextRectSwizzledKey";
 static const void *const kDYNTextFieldTextInsetKey = @"_DYNTextFieldTextInsetKey";
+static const void *const kDYNContainerViewKey = @"_DYNContainerViewKey";
 
 static NSString *const kDYNThemeChangedNotification = @"_DYNThemeChangedNotification";
 
@@ -86,6 +87,7 @@ static NSString *const kDYNTextFieldTextStyleNameKey = @"textFieldTextStyleName"
 static NSString *const kDYNSegmentedControlStyleKey = @"segmentedControlStyle";
 static NSString *const kDYNSegmentDividerWidthKey = @"segmentDividerWidth";
 static NSString *const kDYNSegmentDividerColorKey = @"segmentDividerColor";
+static NSString *const kDYNAutomaticallyEmbedScrollViewInContainerViewKey = @"automaticallyEmbedScrollViewInContainerView";
 
 // DYNControlStyle
 static NSString *const kDYNNormalTextStyle = @"normalTextStyle";

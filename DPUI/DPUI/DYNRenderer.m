@@ -48,11 +48,25 @@
     } else if ([view isKindOfClass:[UISegmentedControl class]]) {
 		[self renderSegmentedControl:(UISegmentedControl*)view withStyleNamed:styleName];
 		return;
-	}
+	} else if ([view isKindOfClass:[UIScrollView class]]) {
+        [self renderScrollView:(UIScrollView*)view withStyleNamed:styleName];
+        return;
+    }
 	
     DYNViewStyle *style = (DYNViewStyle *)[[DYNManager sharedInstance] styleForName:styleName];
 	
     [style applyStyleToView:view];
+}
+
++ (void)renderScrollView:(UIScrollView*)scrollView withStyleNamed:(NSString*)styleName
+{
+    DYNViewStyle *style = (DYNViewStyle *)[[DYNManager sharedInstance] styleForName:styleName];
+
+    if (style.automaticallyEmbedScrollViewInContainerView) {
+        [scrollView dyn_embedInContainerViewWithStyle:styleName];
+    } else {
+        [style applyStyleToView:scrollView];
+    }
 }
 
 + (void)renderSegmentedControl:(UISegmentedControl*)segmentedControl withStyleNamed:(NSString*)styleName

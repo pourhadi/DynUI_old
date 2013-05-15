@@ -119,6 +119,10 @@
 		if ([dictionary objectForKey:kDYNSegmentDividerColorKey]) {
 			self.segmentDividerColor = [[DYNColor alloc] initWithDictionary:[dictionary objectForKey:kDYNSegmentDividerColorKey]];
 		}
+        
+        if ([dictionary objectForKey:kDYNAutomaticallyEmbedScrollViewInContainerViewKey]) {
+            self.automaticallyEmbedScrollViewInContainerView = [[dictionary objectForKey:kDYNAutomaticallyEmbedScrollViewInContainerViewKey] boolValue];
+        }
     }
     return self;
 }

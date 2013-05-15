@@ -71,6 +71,9 @@ typedef NS_OPTIONS(NSUInteger, CornerRadiusType) {
 @property (nonatomic) CGFloat segmentDividerWidth;
 @property (nonatomic, strong) DYNColor *segmentDividerColor;
 
+// UIScrollView
+@property (nonatomic) BOOL automaticallyEmbedScrollViewInContainerView;
+
 - (void)applyStyleToView:(UIView *)view;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
