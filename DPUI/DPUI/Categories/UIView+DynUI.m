@@ -41,11 +41,7 @@
 - (void)setDyn_viewStyleApplied:(BOOL)viewStyleApplied {
     if (self.dyn_viewStyleApplied != viewStyleApplied) {
         objc_setAssociatedObject(self, kDPViewStyleAppliedKey, @(viewStyleApplied), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-        if (viewStyleApplied) {
-            if (![[self class] dyn_deallocSwizzled]) {
-                [[self class] dyn_swizzleDealloc];
-            }
-        } else {
+        if (!viewStyleApplied) {
             [[DYNManager sharedInstance] unregisterView:self];
         }
     }
@@ -73,21 +69,6 @@
         self.dyn_styleSizeApplied = self.frame.size;
         [DYNRenderer renderView:self withStyleNamed:self.dyn_style];
     }
-}
-
-+ (BOOL)dyn_deallocSwizzled {
-    return [objc_getAssociatedObject([self class], kDYNDeallocSwizzled) boolValue];
-}
-
-+ (void)dyn_swizzleDealloc {
-    [[self class] jr_swizzleMethod:sel_registerName("dealloc") withMethod:@selector(dyn_dealloc) error:nil];
-    objc_setAssociatedObject([self class], kDYNDeallocSwizzled, @(YES), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
-
-- (void)dyn_dealloc {
-    [[DYNManager sharedInstance] unregisterView:self];
-    
-    [self dyn_dealloc];
 }
 
 + (BOOL)dyn_didMoveToSuperviewSwizzled {

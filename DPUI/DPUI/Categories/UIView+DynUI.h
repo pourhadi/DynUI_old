@@ -25,10 +25,4 @@ typedef void (^DYNAppearanceBlock)(DYNManager *styleManager, UIView *view);
 
 - (void)dyn_frameChanged;
 
-// swizzle methods for the library. do not call
-+ (BOOL)dyn_deallocSwizzled;
-+ (void)dyn_swizzleDealloc;
-//////////////
-
-
 @end
