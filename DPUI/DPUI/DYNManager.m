@@ -19,6 +19,14 @@
     return instance;
 }
 
+- (CIContext*)sharedCIContext
+{
+	if (!_sharedCIContext) {
+		_sharedCIContext = [CIContext contextWithOptions:nil];
+	}
+	return _sharedCIContext;
+}
+
 - (NSMutableArray *)styles {
     if (!_styles) {
         _styles = [NSMutableArray new];
@@ -79,6 +87,18 @@
 - (DYNTextStyle *)textStyleForName:(NSString *)name {
     NSPredicate *pred = [NSPredicate predicateWithFormat:@"name == %@", name];
     NSArray *filtered = [self.textStyles filteredArrayUsingPredicate:pred];
+    if (filtered) {
+        if (filtered.count > 0) {
+            return filtered[0];
+        }
+    }
+    return nil;
+}
+
+- (DYNImageStyle*)imageStyleForName:(NSString*)name
+{
+	NSPredicate *pred = [NSPredicate predicateWithFormat:@"name == %@", name];
+    NSArray *filtered = [self.imageStyles filteredArrayUsingPredicate:pred];
     if (filtered) {
         if (filtered.count > 0) {
             return filtered[0];
@@ -190,6 +210,18 @@
 				self.sliderStyles = sliderTmp;
 			} else {
 				[self.sliderStyles addObjectsFromArray:sliderTmp];
+			}
+			
+			NSArray *imageStyles = [json objectForKey:@"imageStyles"];
+			NSMutableArray *imgTemp = [NSMutableArray new];
+			for (NSDictionary *style in imageStyles) {
+				[imgTemp addObject:[[DYNImageStyle alloc] initWithDictionary:style]];
+			}
+			
+			if (replaceExisting) {
+				self.imageStyles = imgTemp;
+			} else {
+				[self.imageStyles addObjectsFromArray:imgTemp];
 			}
 		
         }

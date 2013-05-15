@@ -83,6 +83,9 @@ static NSString *const kDYNCornerRadiusTypeKey = @"cornerRadiusType";
 static NSString *const kDYNSearchFieldStyleNameKey = @"searchFieldStyleName";
 static NSString *const kDYNSearchFieldTextStyleNameKey = @"searchFieldTextStyleName";
 static NSString *const kDYNTextFieldTextStyleNameKey = @"textFieldTextStyleName";
+static NSString *const kDYNSegmentedControlStyleKey = @"segmentedControlStyle";
+static NSString *const kDYNSegmentDividerWidthKey = @"segmentDividerWidth";
+static NSString *const kDYNSegmentDividerColorKey = @"segmentDividerColor";
 
 // DYNControlStyle
 static NSString *const kDYNNormalTextStyle = @"normalTextStyle";

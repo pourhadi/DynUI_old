@@ -11,64 +11,74 @@
 #import "DynUI.h"
 @implementation DYNImageStyle
 
+
 - (UIImage *)applyToImage:(UIImage *)image {
-    DYNBackgroundStyle *background = self.overlay;
-    if (background) {
-        DYNShadowStyle *innerShadow = self.innerShadow;
+    DYNBackgroundStyle *background = self.background;
         
-        if (background.colors.count == 1) {
-            if (innerShadow && innerShadow.color) {
-                image = [image imageTintedWithGradientTopColor:background.colors[0] bottomColor:background.colors[0] innerShadowColor:innerShadow.color fraction:0];
-            } else {
-                image = [UIImage tintImage:image withColor:[UIColor uiColorToCIColor:background.colors[0]]];
-            }
-        } else {
-            image = [UIImage imageWithSize:image.size drawnWithBlock:^(CGContextRef context, CGSize size) {
-                CGGradientRef gradient;
-                
-                NSMutableArray *colors = [NSMutableArray new];
-                NSMutableArray *locations = [background.locations mutableCopy];
-                CGColorSpaceRef myColorspace;
-                myColorspace = CGColorSpaceCreateDeviceRGB();
-                
-                for (UIColor *color in background.colors) {
-                    [colors addObject:(id)color.CGColor];
-                }
-                
-                CGFloat locArray[locations.count];
-                for (int x = 0; x < locations.count; x++) {
-                    locArray[x] = [(NSNumber *)locations[x] floatValue];
-                }
-                
-                CFArrayRef components = (__bridge CFArrayRef)colors;
-                gradient = CGGradientCreateWithColors(myColorspace, components, locArray);
-                
-                CGContextDrawLinearGradient(context, gradient, CGPointMake(floorf(size.width / 2), 0), CGPointMake(floorf(size.width / 2), size.height), 0);
-                [image drawInRect:CGRectMake(0, 0, size.width, size.height) blendMode:kCGBlendModeDestinationIn alpha:1.0];
-                CGContextTranslateCTM(context, 0.0f, size.height);
-                CGContextScaleCTM(context, 1.0f, -1.0f);
-                CGContextClipToMask(context, CGRectMake(0, 0, size.width, size.height), image.CGImage);
-                
-                CGContextSetShadowWithColor(context, innerShadow.offset, innerShadow.radius, innerShadow.color.CGColor);
-                CGImageRef mask = [UIImage createMaskFromAlphaChannel:image];
-                CGContextDrawImage(context, CGRectMake(0, 0, size.width, size.height), mask);
-                CGImageRelease(mask);
-            }];
-        }
-        
-        if (self.outerShadow) {
-            DYNShadowStyle *outerShadow = self.outerShadow;
-            
-            CGSize newSize = CGSizeMake(image.size.width + ((fabsf(outerShadow.radius) + fabsf(outerShadow.offset.width)) * 2), image.size.height + ((fabsf(outerShadow.radius) + fabsf(outerShadow.offset.height)) * 2));
-            image = [UIImage imageWithSize:newSize drawnWithBlock:^(CGContextRef context, CGSize size) {
-                CGContextTranslateCTM(context, 0.0f, size.height);
-                CGContextScaleCTM(context, 1.0f, -1.0f);
-                CGContextSetShadowWithColor(context, outerShadow.offset, outerShadow.radius, [outerShadow.color colorWithAlphaComponent:outerShadow.opacity].CGColor);
-                CGContextDrawImage(context, CGRectMake(floorf((size.width - image.size.width) / 2), floorf((size.height - image.size.height) / 2), image.size.width, image.size.height), image.CGImage);
-            }];
-        }
-    }
-    return image;
+		UIImage *newImage = [UIImage imageWithSize:CGSizeMake(image.size.width, image.size.height) drawnWithBlock:^(CGContextRef context, CGSize size) {
+			
+			UIBezierPath *path = [UIBezierPath bezierPathWithRect:CGRectMake(0, 0, size.width, size.height)];
+			
+			[background drawInPath:path withContext:context parameters:image.styleParameters flippedGradient:NO];
+			
+			[image drawInRect:CGRectMake(0, 0, size.width, size.height) blendMode:kCGBlendModeDestinationIn alpha:1.0];
+		}];
+	
+	newImage = [UIImage imageWithSize:CGSizeMake(newImage.size.width, newImage.size.height) drawnWithBlock:^(CGContextRef context, CGSize size) {
+		CGRect imageRect = CGRectMake(0, 0, size.width, size.height);
+
+		CGContextSaveGState(context);
+
+		CGContextTranslateCTM(context, 0.0f, size.height);
+		CGContextScaleCTM(context, 1.0f, -1.0f);
+		CGContextDrawImage(context, imageRect, newImage.CGImage);
+
+		CGContextClipToMask(context, CGRectMake(0, 0, size.width, size.height), image.CGImage);
+		
+		DYNShadowStyle *innerShadow = self.innerShadow;
+		CGContextSetShadowWithColor(context, CGSizeMake(innerShadow.offset.width, oppositeSign(innerShadow.offset.height)), innerShadow.radius, [innerShadow.color colorWithAlphaComponent:innerShadow.opacity].CGColor);
+		CGImageRef mask = [UIImage createMaskFromAlphaChannel:image];
+		CGContextDrawImage(context, CGRectMake(0, 0, size.width, size.height), mask);
+		CGImageRelease(mask);
+		CGContextSaveGState(context);
+	}];
+		
+	
+	if (self.strokeWidth > 0) {
+		CGRect imageRect = CGRectMake(0, 0, newImage.size.width, newImage.size.height);
+		imageRect = CGRectInset(imageRect, -self.strokeWidth, -self.strokeWidth);		
+		newImage = [UIImage imageWithSize:imageRect.size drawnWithBlock:^(CGContextRef context, CGSize size) {
+			
+			DYNColor *DYNColor = self.strokeColor;
+			UIColor *color = DYNColor.color;
+			if (DYNColor.definedAtRuntime) {
+				UIColor *paramColor = [image.styleParameters valueForStyleParameter:DYNColor.variableName];
+				if (paramColor) {
+					color = paramColor;
+				}
+			}
+			
+			[color setFill];
+			UIRectFill(imageRect);
+			[image drawInRect:imageRect blendMode:kCGBlendModeDestinationIn alpha:1.0];
+			CGRect insetRect = CGRectMake((image.size.width-newImage.size.width)/2, (image.size.height-newImage.size.height)/2, newImage.size.width, newImage.size.height);
+			[newImage drawInRect:insetRect];
+		}];
+	}
+	
+	
+	if (self.shadow) {
+		DYNShadowStyle *outerShadow = self.shadow;
+		
+		CGSize newSize = CGSizeMake(image.size.width + ((fabsf(outerShadow.radius) + fabsf(outerShadow.offset.width)) * 2), image.size.height + ((fabsf(outerShadow.radius) + fabsf(outerShadow.offset.height)) * 2));
+		newImage = [UIImage imageWithSize:newSize drawnWithBlock:^(CGContextRef context, CGSize size) {
+			CGContextTranslateCTM(context, 0.0f, size.height);
+			CGContextScaleCTM(context, 1.0f, -1.0f);
+			CGContextSetShadowWithColor(context, outerShadow.offset, outerShadow.radius, [outerShadow.color colorWithAlphaComponent:outerShadow.opacity].CGColor);
+			CGContextDrawImage(context, CGRectMake(floorf((size.width - newImage.size.width) / 2), floorf((size.height - newImage.size.height) / 2), newImage.size.width, newImage.size.height), newImage.CGImage);
+		}];
+	}
+    return newImage;
 }
 
 @end

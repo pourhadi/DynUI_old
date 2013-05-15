@@ -7,7 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		440AA0D817419BE100F4B104 /* LBGradient.m in Sources */ = {isa = PBXBuildFile; fileRef = 440AA0D717419BE100F4B104 /* LBGradient.m */; };
 		443D2E0D17406DBC008F4162 /* DYNSliderStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 443D2E0C17406DBC008F4162 /* DYNSliderStyle.m */; };
+		445AAA61174349F5009246CB /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = 445AAA5F174349F4009246CB /* star.png */; };
+		445AAA62174349F5009246CB /* star@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 445AAA60174349F4009246CB /* star@2x.png */; };
 		44FADCC7173CE99700EB6BF4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44FADCC6173CE99700EB6BF4 /* UIKit.framework */; };
 		44FADCC9173CE99700EB6BF4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44FADCC8173CE99700EB6BF4 /* Foundation.framework */; };
 		44FADCCB173CE99700EB6BF4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44FADCCA173CE99700EB6BF4 /* CoreGraphics.framework */; };
@@ -44,8 +47,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		440AA0D617419BE100F4B104 /* LBGradient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBGradient.h; sourceTree = "<group>"; };
+		440AA0D717419BE100F4B104 /* LBGradient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBGradient.m; sourceTree = "<group>"; };
 		443D2E0B17406DBC008F4162 /* DYNSliderStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYNSliderStyle.h; sourceTree = "<group>"; };
 		443D2E0C17406DBC008F4162 /* DYNSliderStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYNSliderStyle.m; sourceTree = "<group>"; };
+		445AAA5F174349F4009246CB /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
+		445AAA60174349F4009246CB /* star@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star@2x.png"; sourceTree = "<group>"; };
 		44FADCC3173CE99700EB6BF4 /* DynUI-Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DynUI-Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		44FADCC6173CE99700EB6BF4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		44FADCC8173CE99700EB6BF4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -124,6 +131,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		440AA0D517419BE100F4B104 /* LBGradient */ = {
+			isa = PBXGroup;
+			children = (
+				440AA0D617419BE100F4B104 /* LBGradient.h */,
+				440AA0D717419BE100F4B104 /* LBGradient.m */,
+			);
+			path = LBGradient;
+			sourceTree = "<group>";
+		};
 		44FADCBA173CE99700EB6BF4 = {
 			isa = PBXGroup;
 			children = (
@@ -163,6 +179,8 @@
 				44FADCDE173CE99700EB6BF4 /* DYNViewController.h */,
 				44FADCDF173CE99700EB6BF4 /* DYNViewController.m */,
 				44FADCE1173CE99700EB6BF4 /* DYNViewController_iPhone.xib */,
+				445AAA5F174349F4009246CB /* star.png */,
+				445AAA60174349F4009246CB /* star@2x.png */,
 				44FADCCD173CE99700EB6BF4 /* Supporting Files */,
 			);
 			path = "DynUI-Example";
@@ -222,6 +240,7 @@
 		44FADD39173CEAAF00EB6BF4 /* External */ = {
 			isa = PBXGroup;
 			children = (
+				440AA0D517419BE100F4B104 /* LBGradient */,
 				44FADD3A173CEAAF00EB6BF4 /* JRSwizzle.h */,
 				44FADD3B173CEAAF00EB6BF4 /* JRSwizzle.m */,
 			);
@@ -317,6 +336,8 @@
 				44FADCDD173CE99700EB6BF4 /* Default-568h@2x.png in Resources */,
 				44FADCE3173CE99700EB6BF4 /* DYNViewController_iPhone.xib in Resources */,
 				44FADD62173CEC1000EB6BF4 /* Style.dpui in Resources */,
+				445AAA61174349F5009246CB /* star.png in Resources */,
+				445AAA62174349F5009246CB /* star@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -350,6 +371,7 @@
 				D7F8AABD173DAF67004ABF7E /* DYNStyleParameters.m in Sources */,
 				443D2E0D17406DBC008F4162 /* DYNSliderStyle.m in Sources */,
 				D77C73101741871D00F2E0BF /* UITextField+DynUI.m in Sources */,
+				440AA0D817419BE100F4B104 /* LBGradient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

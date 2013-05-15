@@ -18,6 +18,6 @@
 + (void)renderToolbar:(UIToolbar*)toolbar withStyleNamed:(NSString*)styleName;
 + (void)renderSearchBar:(UISearchBar*)searchBar withStyleNamed:(NSString*)styleName;
 + (void)renderSlider:(UISlider*)slider withSliderStyleNamed:(NSString*)name;
-
++ (void)renderSegmentedControl:(UISegmentedControl*)segmentedControl withStyleNamed:(NSString*)styleName;
 + (UIImage *)backBarButtonImageForStyle:(NSString *)style superStyle:(DYNViewStyle *)superStyle parameters:(DYNStyleParameters *)parameters;
 @end

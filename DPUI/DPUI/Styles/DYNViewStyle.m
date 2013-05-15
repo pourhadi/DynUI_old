@@ -9,6 +9,7 @@
 #import "DYNViewStyle.h"
 #import "DYNDefines.h"
 #import "DynUI.h"
+
 @implementation DYNViewStyle
 
 - (id)init {
@@ -106,6 +107,18 @@
         if ([dictionary objectForKey:kDYNTextFieldTextStyleNameKey]) {
             self.textFieldTextStyle = [[DYNManager sharedInstance] textStyleForName:[dictionary objectForKey:kDYNTextFieldTextStyleNameKey]];
         }
+		
+		if ([dictionary objectForKey:kDYNSegmentedControlStyleKey]) {
+			self.segmentedControlStyle = [[DYNControlStyle alloc] initWithDictionary:[dictionary objectForKey:kDYNSegmentedControlStyleKey]];
+		}
+		
+		if ([dictionary objectForKey:kDYNSegmentDividerWidthKey]) {
+			self.segmentDividerWidth = [[dictionary objectForKey:kDYNSegmentDividerWidthKey] floatValue];
+		}
+		
+		if ([dictionary objectForKey:kDYNSegmentDividerColorKey]) {
+			self.segmentDividerColor = [[DYNColor alloc] initWithDictionary:[dictionary objectForKey:kDYNSegmentDividerColorKey]];
+		}
     }
     return self;
 }
@@ -154,6 +167,11 @@
 {
 	CGRect strokeRect = CGRectMake(rect.origin.x + (self.strokeWidth/2), rect.origin.y+(self.strokeWidth/2), rect.size.width-self.strokeWidth, rect.size.height-self.strokeWidth);
 	return [self pathForStyleForRect:strokeRect];
+}
+
+- (UIBezierPath*)strokePathForStyleForPath:(UIBezierPath*)path
+{
+	
 }
 
 - (UIImage *)imageForStyleWithSize:(CGSize)size parameters:(DYNStyleParameters *)parameters {
@@ -223,9 +241,7 @@
         CGFloat currentY = 0;
         for (int x = 0; x < self.topInnerBorders.count; x++) {
             DYNInnerBorderStyle *innerBorder = self.topInnerBorders[x];
-			
-			
-			
+
             UIColor *shadow = innerBorder.color.color;
             if (innerBorder.color.definedAtRuntime) {
                 UIColor *paramColor = [parameters valueForStyleParameter:innerBorder.color.variableName];

@@ -14,6 +14,7 @@
 @property (nonatomic, weak) IBOutlet UIButton *exampleButton;
 @property (nonatomic, weak) IBOutlet UISlider *slider;
 @property (nonatomic, weak) IBOutlet UISearchBar *searchBar;
+@property (nonatomic, weak) IBOutlet UIImageView *imageView;
 
 @end
 
@@ -31,6 +32,8 @@
 	self.slider.dyn_style = @"Slider";
 	
 	self.searchBar.dyn_style = @"SearchBar";
+	
+	self.imageView.image = [UIImage imageNamed:@"star.png" withStyle:@"StarStyle"];
 	
 	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Go" style:UIBarButtonItemStyleBordered target:self action:@selector(go:)];
 }

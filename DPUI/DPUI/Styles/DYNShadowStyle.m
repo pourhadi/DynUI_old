@@ -22,6 +22,14 @@
     return self;
 }
 
+- (void)addShadowToView:(UIView *)view withPath:(UIBezierPath*)path {
+    view.layer.shadowColor = self.color.CGColor;
+    view.layer.shadowRadius = self.radius;
+    view.layer.shadowOpacity = self.opacity;
+    view.layer.shadowOffset = self.offset;
+	view.layer.shadowPath = path.CGPath;
+}
+
 - (void)addShadowToView:(UIView *)view {
     view.layer.shadowColor = self.color.CGColor;
     view.layer.shadowRadius = self.radius;

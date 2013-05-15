@@ -66,6 +66,11 @@ typedef NS_OPTIONS(NSUInteger, CornerRadiusType) {
 // UITextField
 @property (nonatomic, strong) DYNTextStyle *textFieldTextStyle;
 
+// UISegmentedControl
+@property (nonatomic, strong) DYNControlStyle *segmentedControlStyle;
+@property (nonatomic) CGFloat segmentDividerWidth;
+@property (nonatomic, strong) DYNColor *segmentDividerColor;
+
 - (void)applyStyleToView:(UIView *)view;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
@@ -77,4 +82,5 @@ typedef NS_OPTIONS(NSUInteger, CornerRadiusType) {
 
 - (UIBezierPath*)pathForStyleForRect:(CGRect)rect;
 - (UIBezierPath*)strokePathForStyleForRect:(CGRect)rect;
+- (UIBezierPath*)strokePathForPath:(UIBezierPath*)path;
 @end

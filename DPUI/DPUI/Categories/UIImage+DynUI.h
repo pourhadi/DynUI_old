@@ -8,9 +8,18 @@
 
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
+@class DYNStyleParameters;
 typedef void (^DYNDrawImageBlock)(CGContextRef context, CGSize size);
 
 @interface UIImage (DynUI)
+
+
+- (void)setValuesForStyleParameters:(NSDictionary*)valuesForParams;
+- (void)setValue:(id)value forStyleParameter:(NSString *)parameterName;
+
+@property (nonatomic, strong) DYNStyleParameters *styleParameters;
+
+
 
 + (UIImage *)imageWithSize:(CGSize)size drawnWithBlock:(DYNDrawImageBlock)block;
 

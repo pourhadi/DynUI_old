@@ -9,6 +9,7 @@
 #import "DYNBackgroundStyle.h"
 #import "DYNDefines.h"
 #import "DynUI.h"
+
 @implementation DYNBackgroundStyle
 
 - (id)init {
@@ -58,6 +59,9 @@
 		CGPoint endPoint;
 		
         CGFloat degrees = self.gradientAngle - 90;
+		if (degrees < 0) {
+			degrees = 360 - fabs(degrees);
+		}
       
         startPoint = [self radialIntersectionWithDegrees:degrees forFrame:bounds];
         

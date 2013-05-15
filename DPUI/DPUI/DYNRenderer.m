@@ -10,6 +10,7 @@
 #import "DYNDefines.h"
 #import "DynUI.h"
 #import <objc/runtime.h>
+
 @implementation DYNRenderer
 
 + (NSOperationQueue *)drawQueue {
@@ -44,12 +45,62 @@
 	} else if ([view isKindOfClass:[UITextField class]]) {
         [self renderTextField:(UITextField*)view withStyleNamed:styleName];
         return;
-    }
+    } else if ([view isKindOfClass:[UISegmentedControl class]]) {
+		[self renderSegmentedControl:(UISegmentedControl*)view withStyleNamed:styleName];
+		return;
+	}
 	
     DYNViewStyle *style = (DYNViewStyle *)[[DYNManager sharedInstance] styleForName:styleName];
 	
     [style applyStyleToView:view];
 }
+
++ (void)renderSegmentedControl:(UISegmentedControl*)segmentedControl withStyleNamed:(NSString*)styleName
+{
+	DYNViewStyle *style = (DYNViewStyle *)[[DYNManager sharedInstance] styleForName:styleName];
+
+	UIImage *bgImg = [style imageForStyleWithSize:segmentedControl.frame.size withOuterShadow:NO parameters:segmentedControl.styleParameters];
+	[segmentedControl setBackgroundImage:bgImg.dyn_resizableImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+	if (style.segmentedControlStyle) {
+		if (style.segmentedControlStyle.normalTextStyle) {
+			[segmentedControl setTitleTextAttributes:style.segmentedControlStyle.normalTextStyle.titleTextAttributes forState:UIControlStateNormal];
+		}
+		
+		if (style.segmentedControlStyle.selectedTextStyle) {
+			[segmentedControl setTitleTextAttributes:style.segmentedControlStyle.selectedTextStyle.titleTextAttributes forState:UIControlStateSelected | UIControlStateHighlighted];
+		}
+		
+		if (style.segmentedControlStyle.selectedStyleName) {
+			DYNViewStyle *selectedStyle = [[DYNManager sharedInstance] styleForName:style.segmentedControlStyle.selectedStyleName];
+			
+			
+		}
+	}
+	
+}
+
+#pragma mark - Segment control renderers
+
+- (UIImage*)leftSelectedRightUnselectedImageForSegmentedControl:(UISegmentedControl*)segmentedControl style:(DYNViewStyle*)style selectedStyle:(DYNViewStyle*)selectedStyle
+{
+	
+}
+
+- (UIImage*)rightSelectedLeftUnselectedImageForSegmentedControl:(UISegmentedControl*)segmentedControl style:(DYNViewStyle*)style selectedStyle:(DYNViewStyle*)selectedStyle
+{
+	
+}
+
+- (UIImage*)bothUnselectedImageForSegmentedControl:(UISegmentedControl*)segmentedControl style:(DYNViewStyle*)style selectedStyle:(DYNViewStyle*)selectedStyle
+{
+	
+}
+
+- (UIImage*)bothSelectedImageForSegmentedControl:(UISegmentedControl*)segmentedControl style:(DYNViewStyle*)style selectedStyle:(DYNViewStyle*)selectedStyle
+{
+	
+}
+
 
 + (void)renderSlider:(UISlider*)slider withSliderStyleNamed:(NSString*)name
 {

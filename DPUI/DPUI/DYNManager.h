@@ -12,6 +12,7 @@
 @class DYNTextStyle;
 @class DYNViewStyle;
 @class DYNSliderStyle;
+@class DYNImageStyle;
 @interface DYNManager : NSObject
 
 + (DYNManager *)sharedInstance;
@@ -20,6 +21,7 @@
 @property (nonatomic, strong) NSMutableArray *sliderStyles;
 @property (nonatomic, strong) NSMutableArray *colorVariables;
 @property (nonatomic, strong) NSMutableArray *textStyles;
+@property (nonatomic, strong) NSMutableArray *imageStyles;
 
 @property (nonatomic, strong) NSDictionary *defaultParameterValues;
 
@@ -29,10 +31,13 @@
 
 @property (nonatomic, readonly) BOOL liveUpdating;
 
+@property (nonatomic, strong) CIContext *sharedCIContext;
+
 - (DYNSliderStyle*)sliderStyleForName:(NSString*)name;
 - (DYNViewStyle *)styleForName:(NSString *)name;
 - (UIColor *)colorForVariableName:(NSString *)variableName;
 - (DYNTextStyle *)textStyleForName:(NSString *)name;
+- (DYNImageStyle*)imageStyleForName:(NSString*)styleName;
 
 - (void)registerView:(id)view;
 - (void)unregisterView:(id)view;

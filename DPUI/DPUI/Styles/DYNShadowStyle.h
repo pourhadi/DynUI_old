@@ -16,6 +16,7 @@
 @property (nonatomic) CGFloat opacity;
 
 - (UIImage*)getImageForWidth:(CGFloat)width;
+- (void)addShadowToView:(UIView *)view withPath:(UIBezierPath*)path;
 - (void)addShadowToView:(UIView *)view;
 - (UIImage*)applyShadowToImage:(UIImage*)image;
 - (id)initWithDictionary:(NSDictionary *)dictionary;

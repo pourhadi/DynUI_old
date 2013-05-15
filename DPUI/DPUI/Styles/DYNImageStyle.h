@@ -7,15 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "DYNStyle.h"
+#import "DYNViewStyle.h"
 @class DYNShadowStyle;
 @class DYNBackgroundStyle;
-@interface DYNImageStyle : DYNStyle
-
-@property (nonatomic, strong) DYNBackgroundStyle *overlay;
-
-@property (nonatomic, strong) DYNShadowStyle *innerShadow;
-@property (nonatomic, strong) DYNShadowStyle *outerShadow; // equal padding on all four sides of the image will be added to accomodate the shadow while keeping the image centered in the frame
+@interface DYNImageStyle : DYNViewStyle
 
 - (UIImage *)applyToImage:(UIImage *)image;
 

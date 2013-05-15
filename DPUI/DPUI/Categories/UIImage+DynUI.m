@@ -9,6 +9,7 @@
 #import "UIImage+DynUI.h"
 #import "DYNDefines.h"
 #import "DynUI.h"
+#import <objc/runtime.h>
 @implementation UIImage (DynUI)
 
 + (UIImage *)imageWithSize:(CGSize)size drawnWithBlock:(DYNDrawImageBlock)block {
@@ -158,7 +159,7 @@
 + (UIImage *)imageNamed:(NSString *)name withStyle:(NSString *)styleName {
     UIImage *image = [UIImage imageNamed:name];
     
-    DYNImageStyle *style = (DYNImageStyle *)[[DYNManager sharedInstance] styleForName:styleName];
+    DYNImageStyle *style = (DYNImageStyle *)[[DYNManager sharedInstance] imageStyleForName:styleName];
     image = [style applyToImage:image];
     
     return image;
@@ -166,31 +167,26 @@
 
 + (CGImageRef)createMaskFromAlphaChannel:(UIImage *)image {
     size_t width = image.size.width;
-    size_t height = image.size.height;
-    
-    NSMutableData *data = [NSMutableData dataWithLength:width * height];
-    CGImageRef maskRef = image.CGImage;
-    CGContextRef context = CGBitmapContextCreate(
-                                                 [data mutableBytes], width, height, 8, width, NULL, kCGImageAlphaOnly);
-    
-    // Set the blend mode to copy to avoid any alteration of the source data
-    CGContextSetBlendMode(context, kCGBlendModeCopy);
-    
-    // Draw the image to extract the alpha channel
-    CGContextDrawImage(context, CGRectMake(0.0, 0.0, width, height), image.CGImage);
-    CGContextRelease(context);
-    
-    CGDataProviderRef dataProvider = CGDataProviderCreateWithCFData((__bridge CFMutableDataRef)data);
-    
-    CGImageRef maskingImage = CGImageMaskCreate(CGImageGetWidth(maskRef),
-                                                CGImageGetHeight(maskRef),
-                                                8,
-                                                CGImageGetBitsPerPixel(maskRef),
-                                                width,
-                                                CGImageGetDataProvider(maskRef), NULL, false);
-    CGDataProviderRelease(dataProvider);
-    
-    return maskingImage;
+	size_t height = image.size.height;
+	
+	NSMutableData *data = [NSMutableData dataWithLength:width*height];
+	
+	CGContextRef context = CGBitmapContextCreate(
+												 [data mutableBytes], width, height, 8, width, NULL, kCGImageAlphaOnly);
+	
+	// Set the blend mode to copy to avoid any alteration of the source data
+	CGContextSetBlendMode(context, kCGBlendModeCopy);
+	
+	// Draw the image to extract the alpha channel
+	CGContextDrawImage(context, CGRectMake(0.0, 0.0, width, height), image.CGImage);
+	CGContextRelease(context);
+	
+	CGDataProviderRef dataProvider = CGDataProviderCreateWithCFData((__bridge CFMutableDataRef)data);
+	
+	CGImageRef maskingImage = CGImageMaskCreate(width, height, 8, 8, width, dataProvider, NULL, TRUE);
+	CGDataProviderRelease(dataProvider);
+	
+	return maskingImage;
 }
 + (UIImage *)cropTransparencyFromImage:(UIImage *)img {
 	
@@ -308,6 +304,36 @@
     }];
     
     return img;
+}
+
+// style parameters
+
+#pragma mark - Parameters
+
+- (void)setStyleParameters:(DYNStyleParameters *)styleParameters {
+    objc_setAssociatedObject(self, kDYNStyleParameterKey, styleParameters, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (DYNStyleParameters *)styleParameters {
+    DYNStyleParameters *parameters = objc_getAssociatedObject(self, kDYNStyleParameterKey);
+    if (!parameters) {
+        parameters = [[DYNStyleParameters alloc] init];
+        self.styleParameters = parameters;
+    }
+    return parameters;
+}
+
+- (void)setValuesForStyleParameters:(NSDictionary*)valuesForParams
+{
+	[valuesForParams enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+		
+		[self.styleParameters setValue:obj forStyleParameter:key];
+		
+	}];
+}
+
+- (void)setValue:(id)value forStyleParameter:(NSString *)parameterName {
+    [self.styleParameters setValue:value forStyleParameter:parameterName];
 }
 
 @end
