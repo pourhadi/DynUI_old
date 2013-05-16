@@ -17,9 +17,12 @@ static const void *const kDYNSetFrameSwizzled = "_DYNSetFrameSwizzled";
 static const void *const kDYNDidMoveToSuperviewSwizzled = "_DYNDidMoveToSuperview";
 static const void *const kDYNStyleParameterKey = "_DYNStyleParameterKey";
 static const void *const kDYNDrawQueueKey = "_DYNDrawQueueKey";
-static const void *const kDYNTextRectSwizzledKey = @"_DYNTextRectSwizzledKey";
-static const void *const kDYNTextFieldTextInsetKey = @"_DYNTextFieldTextInsetKey";
-static const void *const kDYNContainerViewKey = @"_DYNContainerViewKey";
+static const void *const kDYNTextRectSwizzledKey = "_DYNTextRectSwizzledKey";
+static const void *const kDYNTextFieldTextInsetKey = "_DYNTextFieldTextInsetKey";
+static const void *const kDYNContainerViewKey = "_DYNContainerViewKey";
+static const void *const kDYNBackgroundViewKey = "_DYNBackgroundViewKey";
+static const void *const kDYNCurrentPopoverStyleKey = "_DYNCurrentPopoverStyle";
+static const void *const kDYNPresentPopoverSwizzledKey = "_DYNPresentPopoverSwizzledKey";
 
 static NSString *const kDYNThemeChangedNotification = @"_DYNThemeChangedNotification";
 
@@ -65,6 +68,8 @@ static NSString *const kDYNNameKey = @"name";
 static NSString *const kDYNBackgroundKey = @"background";
 static NSString *const kDYNTopInnerBordersKey = @"topInnerBorders";
 static NSString *const kDYNBottomInnerBordersKey = @"bottomInnerBorders";
+static NSString *const kDYNLeftInnerBordersKey = @"leftInnerBorders";
+static NSString *const kDYNRightInnerBordersKey = @"rightInnerBorders";
 static NSString *const kDYNCornerRadiusKey = @"cornerRadius";
 static NSString *const kDYNRoundedCornersKey = @"roundedCorners";
 static NSString *const kDYNShadowKey = @"shadow";
@@ -87,7 +92,10 @@ static NSString *const kDYNTextFieldTextStyleNameKey = @"textFieldTextStyleName"
 static NSString *const kDYNSegmentedControlStyleKey = @"segmentedControlStyle";
 static NSString *const kDYNSegmentDividerWidthKey = @"segmentDividerWidth";
 static NSString *const kDYNSegmentDividerColorKey = @"segmentDividerColor";
-static NSString *const kDYNAutomaticallyEmbedScrollViewInContainerViewKey = @"automaticallyEmbedScrollViewInContainerView";
+static NSString *const kDYNGroupedTableTopCellKey = @"groupedTableTopCell";
+static NSString *const kDYNGroupedTableMiddleCellKey = @"groupedTableMiddleCell";
+static NSString *const kDYNGroupedTableBottomCellKey = @"groupedTableBottomCell";
+static NSString *const kDYNGroupedTableSingleCellKey = @"groupedTableSingleCell";
 
 // DYNControlStyle
 static NSString *const kDYNNormalTextStyle = @"normalTextStyle";

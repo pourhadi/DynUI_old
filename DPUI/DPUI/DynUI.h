@@ -14,7 +14,8 @@
 #import "UILabel+DynUI.h"
 #import "UIView+DynUI.h"
 #import "UITextField+DynUI.h"
-#import "UIScrollView+DynUI.h"
+#import "UIPopoverController+DynUI.h"
+#import "UITableView+DynUI.h"
 
 #import "DYNBackgroundStyle.h"
 #import "DYNColor.h"
@@ -27,5 +28,5 @@
 #import "DYNControlStyle.h"
 #import "DYNStyleParameters.h"
 #import "DYNSliderStyle.h"
-
+#import "DYNPopoverStyle.h"
 #endif

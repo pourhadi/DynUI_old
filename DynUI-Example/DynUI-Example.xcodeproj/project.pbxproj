@@ -39,7 +39,14 @@
 		44FADD62173CEC1000EB6BF4 /* Style.dpui in Resources */ = {isa = PBXBuildFile; fileRef = 44FADD61173CEC1000EB6BF4 /* Style.dpui */; };
 		44FADD65173CECDF00EB6BF4 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44FADD64173CECDF00EB6BF4 /* QuartzCore.framework */; };
 		44FADD67173CECE500EB6BF4 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44FADD66173CECE500EB6BF4 /* CoreImage.framework */; };
-		D73493F917443B2D0005386E /* UIScrollView+DynUI.m in Sources */ = {isa = PBXBuildFile; fileRef = D73493F817443B2D0005386E /* UIScrollView+DynUI.m */; };
+		D71B085E174542E4003440E4 /* UIPopoverController+DynUI.m in Sources */ = {isa = PBXBuildFile; fileRef = D71B085D174542E4003440E4 /* UIPopoverController+DynUI.m */; };
+		D71B0861174542FB003440E4 /* DYNPopoverStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = D71B0860174542FA003440E4 /* DYNPopoverStyle.m */; };
+		D71B086417454390003440E4 /* DYNGradient.m in Sources */ = {isa = PBXBuildFile; fileRef = D71B08631745438F003440E4 /* DYNGradient.m */; };
+		D71B087517455958003440E4 /* DYNTooltipViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D71B087317455958003440E4 /* DYNTooltipViewController.m */; };
+		D71B087617455958003440E4 /* DYNTooltipViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D71B087417455958003440E4 /* DYNTooltipViewController.xib */; };
+		D71B087917455B41003440E4 /* DYNViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = D71B087717455B41003440E4 /* DYNViewController_iPad.xib */; };
+		D71B087C174562D6003440E4 /* UITableView+DynUI.m in Sources */ = {isa = PBXBuildFile; fileRef = D71B087B174562D5003440E4 /* UITableView+DynUI.m */; };
+		D71B087F17456BC6003440E4 /* DYNTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D71B087E17456BC5003440E4 /* DYNTableViewController.m */; };
 		D77C73101741871D00F2E0BF /* UITextField+DynUI.m in Sources */ = {isa = PBXBuildFile; fileRef = D77C730F1741871D00F2E0BF /* UITextField+DynUI.m */; };
 		D7F8AABD173DAF67004ABF7E /* DYNStyleParameters.m in Sources */ = {isa = PBXBuildFile; fileRef = D7F8AABC173DAF67004ABF7E /* DYNStyleParameters.m */; };
 /* End PBXBuildFile section */
@@ -103,8 +110,20 @@
 		44FADD63173CEC9700EB6BF4 /* DPUIConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPUIConstants.h; sourceTree = "<group>"; };
 		44FADD64173CECDF00EB6BF4 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		44FADD66173CECE500EB6BF4 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
-		D73493F717443B2D0005386E /* UIScrollView+DynUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+DynUI.h"; sourceTree = "<group>"; };
-		D73493F817443B2D0005386E /* UIScrollView+DynUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+DynUI.m"; sourceTree = "<group>"; };
+		D71B085C174542E4003440E4 /* UIPopoverController+DynUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIPopoverController+DynUI.h"; sourceTree = "<group>"; };
+		D71B085D174542E4003440E4 /* UIPopoverController+DynUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIPopoverController+DynUI.m"; sourceTree = "<group>"; };
+		D71B085F174542FA003440E4 /* DYNPopoverStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYNPopoverStyle.h; sourceTree = "<group>"; };
+		D71B0860174542FA003440E4 /* DYNPopoverStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYNPopoverStyle.m; sourceTree = "<group>"; };
+		D71B08621745438F003440E4 /* DYNGradient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYNGradient.h; sourceTree = "<group>"; };
+		D71B08631745438F003440E4 /* DYNGradient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYNGradient.m; sourceTree = "<group>"; };
+		D71B087217455957003440E4 /* DYNTooltipViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYNTooltipViewController.h; sourceTree = "<group>"; };
+		D71B087317455958003440E4 /* DYNTooltipViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYNTooltipViewController.m; sourceTree = "<group>"; };
+		D71B087417455958003440E4 /* DYNTooltipViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DYNTooltipViewController.xib; sourceTree = "<group>"; };
+		D71B087817455B41003440E4 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/DYNViewController_iPad.xib; sourceTree = "<group>"; };
+		D71B087A174562D5003440E4 /* UITableView+DynUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+DynUI.h"; sourceTree = "<group>"; };
+		D71B087B174562D5003440E4 /* UITableView+DynUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+DynUI.m"; sourceTree = "<group>"; };
+		D71B087D17456BC4003440E4 /* DYNTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYNTableViewController.h; sourceTree = "<group>"; };
+		D71B087E17456BC5003440E4 /* DYNTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYNTableViewController.m; sourceTree = "<group>"; };
 		D77C730E1741871D00F2E0BF /* UITextField+DynUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+DynUI.h"; sourceTree = "<group>"; };
 		D77C730F1741871D00F2E0BF /* UITextField+DynUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+DynUI.m"; sourceTree = "<group>"; };
 		D7F8AABB173DAF67004ABF7E /* DYNStyleParameters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYNStyleParameters.h; sourceTree = "<group>"; };
@@ -166,6 +185,12 @@
 				44FADCDE173CE99700EB6BF4 /* DYNViewController.h */,
 				44FADCDF173CE99700EB6BF4 /* DYNViewController.m */,
 				44FADCE1173CE99700EB6BF4 /* DYNViewController_iPhone.xib */,
+				D71B087717455B41003440E4 /* DYNViewController_iPad.xib */,
+				D71B087217455957003440E4 /* DYNTooltipViewController.h */,
+				D71B087317455958003440E4 /* DYNTooltipViewController.m */,
+				D71B087417455958003440E4 /* DYNTooltipViewController.xib */,
+				D71B087D17456BC4003440E4 /* DYNTableViewController.h */,
+				D71B087E17456BC5003440E4 /* DYNTableViewController.m */,
 				44FADCCD173CE99700EB6BF4 /* Supporting Files */,
 			);
 			path = "DynUI-Example";
@@ -217,8 +242,10 @@
 				44FADD32173CEAAF00EB6BF4 /* UIView+DynUI.m */,
 				D77C730E1741871D00F2E0BF /* UITextField+DynUI.h */,
 				D77C730F1741871D00F2E0BF /* UITextField+DynUI.m */,
-				D73493F717443B2D0005386E /* UIScrollView+DynUI.h */,
-				D73493F817443B2D0005386E /* UIScrollView+DynUI.m */,
+				D71B085C174542E4003440E4 /* UIPopoverController+DynUI.h */,
+				D71B085D174542E4003440E4 /* UIPopoverController+DynUI.m */,
+				D71B087A174562D5003440E4 /* UITableView+DynUI.h */,
+				D71B087B174562D5003440E4 /* UITableView+DynUI.m */,
 			);
 			name = Categories;
 			path = ../../DPUI/DPUI/Categories;
@@ -259,6 +286,10 @@
 				44FADD4C173CEAAF00EB6BF4 /* DYNTextStyle.m */,
 				44FADD4D173CEAAF00EB6BF4 /* DYNViewStyle.h */,
 				44FADD4E173CEAAF00EB6BF4 /* DYNViewStyle.m */,
+				D71B085F174542FA003440E4 /* DYNPopoverStyle.h */,
+				D71B0860174542FA003440E4 /* DYNPopoverStyle.m */,
+				D71B08621745438F003440E4 /* DYNGradient.h */,
+				D71B08631745438F003440E4 /* DYNGradient.m */,
 			);
 			name = Styles;
 			path = ../../DPUI/DPUI/Styles;
@@ -322,6 +353,8 @@
 				44FADCDD173CE99700EB6BF4 /* Default-568h@2x.png in Resources */,
 				44FADCE3173CE99700EB6BF4 /* DYNViewController_iPhone.xib in Resources */,
 				44FADD62173CEC1000EB6BF4 /* Style.dpui in Resources */,
+				D71B087617455958003440E4 /* DYNTooltipViewController.xib in Resources */,
+				D71B087917455B41003440E4 /* DYNViewController_iPad.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -355,7 +388,12 @@
 				D7F8AABD173DAF67004ABF7E /* DYNStyleParameters.m in Sources */,
 				443D2E0D17406DBC008F4162 /* DYNSliderStyle.m in Sources */,
 				D77C73101741871D00F2E0BF /* UITextField+DynUI.m in Sources */,
-				D73493F917443B2D0005386E /* UIScrollView+DynUI.m in Sources */,
+				D71B085E174542E4003440E4 /* UIPopoverController+DynUI.m in Sources */,
+				D71B0861174542FB003440E4 /* DYNPopoverStyle.m in Sources */,
+				D71B086417454390003440E4 /* DYNGradient.m in Sources */,
+				D71B087517455958003440E4 /* DYNTooltipViewController.m in Sources */,
+				D71B087C174562D6003440E4 /* UITableView+DynUI.m in Sources */,
+				D71B087F17456BC6003440E4 /* DYNTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,6 +414,14 @@
 				44FADCE2173CE99700EB6BF4 /* en */,
 			);
 			name = DYNViewController_iPhone.xib;
+			sourceTree = "<group>";
+		};
+		D71B087717455B41003440E4 /* DYNViewController_iPad.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D71B087817455B41003440E4 /* en */,
+			);
+			name = DYNViewController_iPad.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -445,8 +491,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DynUI-Example/DynUI-Example-Prefix.pch";
 				INFOPLIST_FILE = "DynUI-Example/DynUI-Example-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -457,8 +504,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DynUI-Example/DynUI-Example-Prefix.pch";
 				INFOPLIST_FILE = "DynUI-Example/DynUI-Example-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

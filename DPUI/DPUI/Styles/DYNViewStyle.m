@@ -40,6 +40,20 @@
             [tmp addObject:[[DYNInnerBorderStyle alloc] initWithDictionary:border]];
         }
         self.bottomInnerBorders = tmp;
+        
+        NSArray *left = [dictionary objectForKey:kDYNLeftInnerBordersKey];
+        tmp = [NSMutableArray new];
+        for (NSDictionary *border in left) {
+            [tmp addObject:[[DYNInnerBorderStyle alloc] initWithDictionary:border]];
+        }
+        self.leftInnerBorders = tmp;
+        
+        NSArray *right = [dictionary objectForKey:kDYNRightInnerBordersKey];
+        tmp = [NSMutableArray new];
+        for (NSDictionary *border in right) {
+            [tmp addObject:[[DYNInnerBorderStyle alloc] initWithDictionary:border]];
+        }
+        self.rightInnerBorders = tmp;
 		
         NSNumber *cornerRadius = [dictionary objectForKey:kDYNCornerRadiusKey];
         if (cornerRadius) {
@@ -120,9 +134,22 @@
 			self.segmentDividerColor = [[DYNColor alloc] initWithDictionary:[dictionary objectForKey:kDYNSegmentDividerColorKey]];
 		}
         
-        if ([dictionary objectForKey:kDYNAutomaticallyEmbedScrollViewInContainerViewKey]) {
-            self.automaticallyEmbedScrollViewInContainerView = [[dictionary objectForKey:kDYNAutomaticallyEmbedScrollViewInContainerViewKey] boolValue];
+        if ([dictionary objectForKey:kDYNGroupedTableTopCellKey]) {
+            self.groupedTableTopCell = [dictionary objectForKey:kDYNGroupedTableTopCellKey];
         }
+        
+        if ([dictionary objectForKey:kDYNGroupedTableMiddleCellKey]) {
+            self.groupedTableMiddleCell = [dictionary objectForKey:kDYNGroupedTableMiddleCellKey];
+        }
+        
+        if ([dictionary objectForKey:kDYNGroupedTableBottomCellKey]) {
+            self.groupedTableBottomCell = [dictionary objectForKey:kDYNGroupedTableBottomCellKey];
+        }
+        
+        if ([dictionary objectForKey:kDYNGroupedTableSingleCellKey]) {
+            self.groupedTableSingleCell = [dictionary objectForKey:kDYNGroupedTableSingleCellKey];
+        }
+
     }
     return self;
 }
@@ -331,7 +358,97 @@
                 CGContextRestoreGState(context);
             }
         }
+        
+        if (self.leftInnerBorders.count > 0) {
+            currentY = size.height;
+            for (int x = 0; x < self.leftInnerBorders.count; x++) {
+                DYNInnerBorderStyle *innerBorder = self.leftInnerBorders[x];
+                currentY -= innerBorder.height;
+                UIColor *shadow = innerBorder.color.color;
+                if (innerBorder.color.definedAtRuntime) {
+                    UIColor *paramColor = [parameters valueForStyleParameter:innerBorder.color.variableName];
+                    if (paramColor) {
+                        shadow = paramColor;
+                    }
+                }
+                CGSize shadowOffset = CGSizeMake(innerBorder.height, 0);
+                CGFloat shadowBlurRadius = 0;
+				
+                ////// Rectangle 2 Inner Shadow
+                CGRect rectangle2BorderRect = CGRectInset([path bounds], -shadowBlurRadius, -shadowBlurRadius);
+                rectangle2BorderRect = CGRectOffset(rectangle2BorderRect, -shadowOffset.width, -shadowOffset.height);
+                rectangle2BorderRect = CGRectInset(CGRectUnion(rectangle2BorderRect, [path bounds]), -1, -1);
+				
+                UIBezierPath *rectangle2NegativePath = [UIBezierPath bezierPathWithRect:rectangle2BorderRect];
+                [rectangle2NegativePath appendPath:path];
+                rectangle2NegativePath.usesEvenOddFillRule = YES;
+				
+                CGContextSaveGState(context);
+                {
+                    CGContextSetBlendMode(context, innerBorder.blendMode);
+					
+                    CGFloat xOffset = shadowOffset.width + round(rectangle2BorderRect.size.width);
+                    CGFloat yOffset = shadowOffset.height;
+                    CGContextSetShadowWithColor(context,
+                                                CGSizeMake(xOffset + copysign(0.1, xOffset), yOffset + copysign(0.1, yOffset)),
+                                                shadowBlurRadius,
+                                                shadow.CGColor);
+					
+                    [path addClip];
+                    CGAffineTransform transform = CGAffineTransformMakeTranslation(-round(rectangle2BorderRect.size.width), 0);
+                    [rectangle2NegativePath applyTransform:transform];
+                    [[UIColor grayColor] setFill];
+                    [rectangle2NegativePath fill];
+                }
+                CGContextRestoreGState(context);
+            }
+        }
 		
+        if (self.rightInnerBorders.count > 0) {
+            currentY = size.height;
+            for (int x = 0; x < self.rightInnerBorders.count; x++) {
+                DYNInnerBorderStyle *innerBorder = self.rightInnerBorders[x];
+                currentY -= innerBorder.height;
+                UIColor *shadow = innerBorder.color.color;
+                if (innerBorder.color.definedAtRuntime) {
+                    UIColor *paramColor = [parameters valueForStyleParameter:innerBorder.color.variableName];
+                    if (paramColor) {
+                        shadow = paramColor;
+                    }
+                }
+                CGSize shadowOffset = CGSizeMake(-innerBorder.height, 0);
+                CGFloat shadowBlurRadius = 0;
+				
+                ////// Rectangle 2 Inner Shadow
+                CGRect rectangle2BorderRect = CGRectInset([path bounds], -shadowBlurRadius, -shadowBlurRadius);
+                rectangle2BorderRect = CGRectOffset(rectangle2BorderRect, -shadowOffset.width, -shadowOffset.height);
+                rectangle2BorderRect = CGRectInset(CGRectUnion(rectangle2BorderRect, [path bounds]), -1, -1);
+				
+                UIBezierPath *rectangle2NegativePath = [UIBezierPath bezierPathWithRect:rectangle2BorderRect];
+                [rectangle2NegativePath appendPath:path];
+                rectangle2NegativePath.usesEvenOddFillRule = YES;
+				
+                CGContextSaveGState(context);
+                {
+                    CGContextSetBlendMode(context, innerBorder.blendMode);
+					
+                    CGFloat xOffset = shadowOffset.width + round(rectangle2BorderRect.size.width);
+                    CGFloat yOffset = shadowOffset.height;
+                    CGContextSetShadowWithColor(context,
+                                                CGSizeMake(xOffset + copysign(0.1, xOffset), yOffset + copysign(0.1, yOffset)),
+                                                shadowBlurRadius,
+                                                shadow.CGColor);
+					
+                    [path addClip];
+                    CGAffineTransform transform = CGAffineTransformMakeTranslation(-round(rectangle2BorderRect.size.width), 0);
+                    [rectangle2NegativePath applyTransform:transform];
+                    [[UIColor grayColor] setFill];
+                    [rectangle2NegativePath fill];
+                }
+                CGContextRestoreGState(context);
+            }
+        }
+        
         CGContextSaveGState(context);
 		// [path addClip];
 		

@@ -19,13 +19,16 @@
 	// load styles
 	//NSString *stylePath = [[[NSBundle mainBundle] bundlePath]
 	//						   stringByAppendingPathComponent:@"Style.dpui"];
-	[[DYNManager sharedInstance] loadStylesFromFile:@"/Users/danpourhadi/Projects/DPUI/DynUI-Example/DynUI-Example/Style.dpui" replaceExisting:YES liveUpdate:YES];
+	[[DYNManager sharedInstance] loadStylesFromFile:@"/Users/dpourhad/DPUI/DynUI-Example/DynUI-Example/Style.dpui" replaceExisting:YES liveUpdate:YES];
 	
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
 	if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
 	    self.viewController = [[DYNViewController alloc] initWithNibName:@"DYNViewController_iPhone" bundle:nil];
-	}
+	} else {
+        self.viewController = [[DYNViewController alloc] initWithNibName:@"DYNViewController_iPad" bundle:nil];
+
+    }
 	
 	UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:self.viewController];
 	self.window.rootViewController = nav;

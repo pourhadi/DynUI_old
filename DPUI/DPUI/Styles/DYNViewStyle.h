@@ -28,6 +28,9 @@ typedef NS_OPTIONS(NSUInteger, CornerRadiusType) {
 @property (nonatomic, strong) NSArray *topInnerBorders; // DPStyleInnerBorder objects
 @property (nonatomic, strong) NSArray *bottomInnerBorders; // DPStyleInnerBorder objects
 
+@property (nonatomic, strong) NSArray *leftInnerBorders;
+@property (nonatomic, strong) NSArray *rightInnerBorders;
+
 @property (nonatomic, strong) DYNShadowStyle *shadow;
 @property (nonatomic, strong) DYNShadowStyle *innerShadow; // will be placed underneath inner borders
 
@@ -71,8 +74,11 @@ typedef NS_OPTIONS(NSUInteger, CornerRadiusType) {
 @property (nonatomic) CGFloat segmentDividerWidth;
 @property (nonatomic, strong) DYNColor *segmentDividerColor;
 
-// UIScrollView
-@property (nonatomic) BOOL automaticallyEmbedScrollViewInContainerView;
+// UITableView - grouped
+@property (nonatomic, strong) NSString *groupedTableTopCell;
+@property (nonatomic, strong) NSString *groupedTableMiddleCell;
+@property (nonatomic, strong) NSString *groupedTableSingleCell;
+@property (nonatomic, strong) NSString *groupedTableBottomCell;
 
 - (void)applyStyleToView:(UIView *)view;
 

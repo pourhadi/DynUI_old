@@ -13,7 +13,6 @@
 @property (nonatomic, strong) DYNColor *color;
 @property (nonatomic) CGBlendMode blendMode;
 @property (nonatomic) CGFloat height;
-
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 
 @end

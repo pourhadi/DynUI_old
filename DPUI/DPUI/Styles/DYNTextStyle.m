@@ -81,7 +81,7 @@
 - (void)applyToButton:(UIButton *)button forState:(UIControlState)controlState {
     [button setTitleColor:self.textColor.color forState:controlState];
 	
-	CGFloat fontSize = self.font.pointSize;
+	CGFloat fontSize = floorf(self.font.pointSize);
 	if (self.fontSizeType == DYNFontSizeTypeRelative) {
 		if (self.fontSizeString) {
 			if ([self.fontSizeString hasSuffix:@"%"]) {
@@ -89,7 +89,7 @@
 				NSString *chopped = [self.fontSizeString substringToIndex:range.location];
 				CGFloat percent = [chopped floatValue];
 				percent /= 100;
-				fontSize = button.frame.size.height * percent;
+				fontSize = floorf(button.frame.size.height * percent);
 			}
 		}
 	}

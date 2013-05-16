@@ -90,6 +90,16 @@
     }
 }
 
+- (UIView*)dyn_backgroundView
+{
+    return objc_getAssociatedObject(self, kDYNBackgroundViewKey);
+}
+
+- (void)setDyn_backgroundView:(UIView *)dyn_backgroundView
+{
+    objc_setAssociatedObject(self, kDYNBackgroundViewKey, dyn_backgroundView, OBJC_ASSOCIATION_ASSIGN);
+}
+
 #pragma mark - Parameters
 
 - (void)setStyleParameters:(DYNStyleParameters *)styleParameters {

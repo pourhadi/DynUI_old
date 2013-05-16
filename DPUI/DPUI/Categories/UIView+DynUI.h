@@ -21,6 +21,8 @@ typedef void (^DYNAppearanceBlock)(DYNManager *styleManager, UIView *view);
 @property (nonatomic) BOOL dyn_viewStyleApplied;
 @property (nonatomic) CGSize dyn_styleSizeApplied;
 
+@property (nonatomic, assign) UIView *dyn_backgroundView; // for UITableView
+
 - (void)dyn_refreshStyle;
 
 - (void)dyn_frameChanged;

@@ -14,7 +14,6 @@
     NSMutableDictionary *dict = [NSMutableDictionary new];
     [dict setObject:@(self.blendMode) forKey:kDYNBlendModeKey];
     [dict setObject:@(self.height) forKey:kDYNHeightKey];
-    
     return dict;
 }
 

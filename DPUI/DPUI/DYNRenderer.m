@@ -48,8 +48,8 @@
     } else if ([view isKindOfClass:[UISegmentedControl class]]) {
 		[self renderSegmentedControl:(UISegmentedControl*)view withStyleNamed:styleName];
 		return;
-	} else if ([view isKindOfClass:[UIScrollView class]]) {
-        [self renderScrollView:(UIScrollView*)view withStyleNamed:styleName];
+	} else if ([view isKindOfClass:[UITableView class]]) {
+        [self renderTableView:(UITableView*)view withStyleNamed:styleName];
         return;
     }
 	
@@ -58,15 +58,15 @@
     [style applyStyleToView:view];
 }
 
-+ (void)renderScrollView:(UIScrollView*)scrollView withStyleNamed:(NSString*)styleName
++ (void)renderTableView:(UITableView*)tableView withStyleNamed:(NSString*)styleName
 {
-    DYNViewStyle *style = (DYNViewStyle *)[[DYNManager sharedInstance] styleForName:styleName];
-
-    if (style.automaticallyEmbedScrollViewInContainerView) {
-        [scrollView dyn_embedInContainerViewWithStyle:styleName];
-    } else {
-        [style applyStyleToView:scrollView];
+    if (!tableView.dyn_backgroundView) {
+        UIView *bgView = [[UIView alloc] initWithFrame:tableView.frame];
+        tableView.backgroundView = bgView;
+        tableView.dyn_backgroundView = bgView;
     }
+    
+    tableView.dyn_backgroundView.dyn_style = styleName;
 }
 
 + (void)renderSegmentedControl:(UISegmentedControl*)segmentedControl withStyleNamed:(NSString*)styleName
@@ -414,25 +414,35 @@
 + (void)renderTableCell:(UITableViewCell *)tableCell withStyleNamed:(NSString *)styleName {
     DYNViewStyle *style = (DYNViewStyle *)[[DYNManager sharedInstance] styleForName:styleName];
 	
+    tableCell.backgroundColor = [UIColor clearColor];
+    tableCell.contentView.backgroundColor = [UIColor clearColor];
+    
     if (style.drawAsynchronously) {
         __weak __typeof(& *self) weakSelf = self;
         [[self drawQueue] addOperationWithBlock:^{
-            UIImage *img = [style imageForStyleWithSize:tableCell.frame.size parameters:tableCell.styleParameters];
+            UIImage *img = [style imageForStyleWithSize:tableCell.frame.size withOuterShadow:NO parameters:tableCell.styleParameters];
 			
             [[NSOperationQueue mainQueue] addOperationWithBlock:^{
                 [weakSelf applyImage:img fromStyle:style toTableCell:tableCell];
             }];
         }];
     } else {
-        UIImage *img = [style imageForStyleWithSize:tableCell.frame.size parameters:tableCell.styleParameters];
+        //UIImage *img = [style imageForStyleWithSize:tableCell.frame.size parameters:tableCell.styleParameters];
+        UIImage *img = [style imageForStyleWithSize:tableCell.frame.size withOuterShadow:NO parameters:tableCell.styleParameters];
         [self applyImage:img fromStyle:style toTableCell:tableCell];
     }
 }
 
 + (void)applyImage:(UIImage *)image fromStyle:(DYNViewStyle *)style toTableCell:(UITableViewCell *)tableCell {
-    UIView *backgroundView = [[UIView alloc] initWithFrame:tableCell.bounds];
-    backgroundView.layer.contents = (id)image.CGImage;
-    tableCell.backgroundView = backgroundView;
+    
+    if (!tableCell.dyn_backgroundView) {
+        UIView *backgroundView = [[UIView alloc] initWithFrame:tableCell.bounds];
+        tableCell.backgroundView = backgroundView;
+        tableCell.dyn_backgroundView = backgroundView;
+    }
+    
+    tableCell.dyn_backgroundView.layer.contents = (id)image.CGImage;
+
 	
     if (style.tableCellTitleTextStyle) {
         [style.tableCellTitleTextStyle applyToLabel:tableCell.textLabel];

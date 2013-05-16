@@ -80,7 +80,7 @@
 {
 	//// Shadow Declarations
 	UIColor *shadow = [self.color colorWithAlphaComponent:self.opacity];
-	CGSize shadowOffset = CGSizeMake(self.offset.width, oppositeSign(self.offset.height));
+	CGSize shadowOffset = CGSizeMake(oppositeSign(self.offset.width), oppositeSign(self.offset.height));
 	CGFloat shadowBlurRadius = self.radius;
 	
 	////// Polygon Inner Shadow
