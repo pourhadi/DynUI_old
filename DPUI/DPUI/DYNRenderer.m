@@ -337,6 +337,8 @@
 + (void)applyImage:(UIImage *)image fromStyle:(DYNViewStyle *)style toButton:(UIButton *)button {
     [button setBackgroundImage:image forState:UIControlStateNormal];
 	
+    [button setTitleEdgeInsets:UIEdgeInsetsMake(0, 5, 0, 5)];
+    
     if (style.controlStyle.normalTextStyle) {
         [style.controlStyle.normalTextStyle applyToButton:button forState:UIControlStateNormal];
     }

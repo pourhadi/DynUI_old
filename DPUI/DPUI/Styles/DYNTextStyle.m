@@ -93,8 +93,24 @@
 			}
 		}
 	}
+    
+    UIFont *font = [UIFont fontWithName:self.font.fontName size:fontSize];
+    
+    CGSize size = [button.titleLabel.text sizeWithFont:font];
+
+    if (size.width > button.frame.size.width-10) {
+        BOOL tooBig = YES;
+        while (tooBig) {
+            fontSize -= 1;
+            font = [UIFont fontWithName:self.font.fontName size:fontSize];
+            size = [button.titleLabel.text sizeWithFont:font];
+            if (size.width < button.frame.size.width-10) {
+                tooBig = NO;
+            }
+        }
+    }
 	
-    button.titleLabel.font = [UIFont fontWithName:self.font.fontName size:fontSize];
+    button.titleLabel.font = font;
     [button setTitleShadowColor:self.shadowColor.color forState:controlState];
     button.titleLabel.shadowOffset = self.shadowOffset;
     button.titleLabel.textAlignment = self.alignment;
