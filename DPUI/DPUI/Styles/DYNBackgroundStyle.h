@@ -20,5 +20,5 @@
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 
 - (void)drawInPath:(UIBezierPath*)path withContext:(CGContextRef)context parameters:(DYNStyleParameters*)parameters flippedGradient:(BOOL)flippedGradient;
-
+- (void)drawInFrame:(CGRect)frame clippedToPath:(UIBezierPath*)path parameters:(DYNStyleParameters*)parameters flippedGradient:(BOOL)flippedGradient;
 @end

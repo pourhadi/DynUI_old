@@ -40,6 +40,8 @@
         
         [self jr_swizzleMethod:@selector(presentPopoverFromRect:inView:permittedArrowDirections:animated:) withMethod:@selector(dyn_presentPopoverFromRect:inView:permittedArrowDirections:animated:) error:nil];
         [self jr_swizzleMethod:@selector(presentPopoverFromBarButtonItem:permittedArrowDirections:animated:) withMethod:@selector(dyn_presentPopoverFromBarButtonItem:permittedArrowDirections:animated:) error:nil];
+		
+		objc_setAssociatedObject(self, kDYNPresentPopoverSwizzledKey, @(YES), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     }
 }
 

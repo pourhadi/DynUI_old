@@ -200,11 +200,6 @@
 	return [self pathForStyleForRect:strokeRect];
 }
 
-- (UIBezierPath*)strokePathForStyleForPath:(UIBezierPath*)path
-{
-	
-}
-
 - (UIImage *)imageForStyleWithSize:(CGSize)size parameters:(DYNStyleParameters *)parameters {
     UIImage *image = [self imageForStyleWithSize:size withOuterShadow:NO parameters:parameters];
     return image;
@@ -251,7 +246,11 @@
 
 - (UIImage *)imageForStyleWithSize:(CGSize)size path:(UIBezierPath *)path withOuterShadow:(BOOL)withOuterShadow flippedGradient:(BOOL)flippedGradient parameters:(DYNStyleParameters *)parameters {
     UIImage *image = [UIImage imageWithSize:size drawnWithBlock:^(CGContextRef context, CGSize size) {
-        [self.canvasBackgroundColor setFill];
+        
+		CGContextSetInterpolationQuality(context, kCGInterpolationHigh);
+		path.miterLimit=-10;
+		
+		[self.canvasBackgroundColor setFill];
         UIRectFill(CGRectMake(0, 0, size.width, size.height));
 		
         //        UIBezierPath *path;
@@ -262,9 +261,10 @@
         //            path = [UIBezierPath bezierPathWithRect:CGRectMake(0, 0, size.width, size.height)];
         //        }
 		
-        [self.background drawInPath:path withContext:context parameters:parameters flippedGradient:flippedGradient];
+		[self.background drawInFrame:CGRectMake(0, 0, size.width, size.height) clippedToPath:path parameters:parameters flippedGradient:flippedGradient];
+        //[self.background drawInPath:path withContext:context parameters:parameters flippedGradient:flippedGradient];
 		
-        if (self.innerShadow) {
+        if (self.innerShadow && self.innerShadow.opacity > 0) {
             [self.innerShadow drawAsInnerShadowInPath:path context:context];
         }
 		
@@ -289,6 +289,8 @@
             polygonBorderRect = CGRectInset(CGRectUnion(polygonBorderRect, [path bounds]), -1, -1);
 			
             UIBezierPath *polygonNegativePath = [UIBezierPath bezierPathWithRect:polygonBorderRect];
+			polygonNegativePath.miterLimit=-10;
+
             [polygonNegativePath appendPath:path];
             polygonNegativePath.usesEvenOddFillRule = YES;
 			
@@ -335,6 +337,8 @@
                 rectangle2BorderRect = CGRectInset(CGRectUnion(rectangle2BorderRect, [path bounds]), -1, -1);
 				
                 UIBezierPath *rectangle2NegativePath = [UIBezierPath bezierPathWithRect:rectangle2BorderRect];
+				rectangle2NegativePath.miterLimit=-10;
+				
                 [rectangle2NegativePath appendPath:path];
                 rectangle2NegativePath.usesEvenOddFillRule = YES;
 				
@@ -380,6 +384,8 @@
                 rectangle2BorderRect = CGRectInset(CGRectUnion(rectangle2BorderRect, [path bounds]), -1, -1);
 				
                 UIBezierPath *rectangle2NegativePath = [UIBezierPath bezierPathWithRect:rectangle2BorderRect];
+				rectangle2NegativePath.miterLimit=-10;
+
                 [rectangle2NegativePath appendPath:path];
                 rectangle2NegativePath.usesEvenOddFillRule = YES;
 				
@@ -425,6 +431,8 @@
                 rectangle2BorderRect = CGRectInset(CGRectUnion(rectangle2BorderRect, [path bounds]), -1, -1);
 				
                 UIBezierPath *rectangle2NegativePath = [UIBezierPath bezierPathWithRect:rectangle2BorderRect];
+				rectangle2NegativePath.miterLimit=-10;
+
                 [rectangle2NegativePath appendPath:path];
                 rectangle2NegativePath.usesEvenOddFillRule = YES;
 				
@@ -452,25 +460,27 @@
         CGContextSaveGState(context);
 		// [path addClip];
 		
-        UIColor *stroke = self.strokeColor.color;
-        if (self.strokeColor.definedAtRuntime) {
-            UIColor *paramColor = [parameters valueForStyleParameter:self.strokeColor.variableName];
-            if (paramColor) {
-                stroke = paramColor;
-            }
-        }
-		
-//		UIBezierPath *strokePath = [self strokePathForStyleForRect:path.bounds];
-        UIBezierPath *strokePath = [self strokePathForPath:path];
-
-		[strokePath setLineWidth:self.strokeWidth];
-        [stroke setStroke];
-        [strokePath stroke];
-        CGContextRestoreGState(context);
+		if (self.strokeWidth > 0) {
+			UIColor *stroke = self.strokeColor.color;
+			if (self.strokeColor.definedAtRuntime) {
+				UIColor *paramColor = [parameters valueForStyleParameter:self.strokeColor.variableName];
+				if (paramColor) {
+					stroke = paramColor;
+				}
+			}
+			
+			//		UIBezierPath *strokePath = [self strokePathForStyleForRect:path.bounds];
+			UIBezierPath *strokePath = [self strokePathForPath:path];
+			
+			[strokePath setLineWidth:self.strokeWidth];
+			[stroke setStroke];
+			[strokePath stroke];
+			CGContextRestoreGState(context);
+		}
     }];
 	
 	
-    if (self.shadow && withOuterShadow) {
+    if (self.shadow && withOuterShadow && self.shadow.opacity > 0) {
         DYNShadowStyle *outerShadow = self.shadow;
 		
         CGSize newSize = CGSizeMake(image.size.width + ((fabsf(outerShadow.radius) + fabsf(outerShadow.offset.width)) * 2), image.size.height + ((fabsf(outerShadow.radius) + fabsf(outerShadow.offset.height)) * 2));

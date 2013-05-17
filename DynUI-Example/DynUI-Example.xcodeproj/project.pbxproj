@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		443D2E0D17406DBC008F4162 /* DYNSliderStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 443D2E0C17406DBC008F4162 /* DYNSliderStyle.m */; };
+		4477CFDF17460D090002033A /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = 4477CFDD17460D090002033A /* star.png */; };
+		4477CFE017460D090002033A /* star@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4477CFDE17460D090002033A /* star@2x.png */; };
 		44FADCC7173CE99700EB6BF4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44FADCC6173CE99700EB6BF4 /* UIKit.framework */; };
 		44FADCC9173CE99700EB6BF4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44FADCC8173CE99700EB6BF4 /* Foundation.framework */; };
 		44FADCCB173CE99700EB6BF4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44FADCCA173CE99700EB6BF4 /* CoreGraphics.framework */; };
@@ -54,6 +56,8 @@
 /* Begin PBXFileReference section */
 		443D2E0B17406DBC008F4162 /* DYNSliderStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYNSliderStyle.h; sourceTree = "<group>"; };
 		443D2E0C17406DBC008F4162 /* DYNSliderStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYNSliderStyle.m; sourceTree = "<group>"; };
+		4477CFDD17460D090002033A /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
+		4477CFDE17460D090002033A /* star@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star@2x.png"; sourceTree = "<group>"; };
 		44FADCC3173CE99700EB6BF4 /* DynUI-Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DynUI-Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		44FADCC6173CE99700EB6BF4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		44FADCC8173CE99700EB6BF4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -191,6 +195,8 @@
 				D71B087417455958003440E4 /* DYNTooltipViewController.xib */,
 				D71B087D17456BC4003440E4 /* DYNTableViewController.h */,
 				D71B087E17456BC5003440E4 /* DYNTableViewController.m */,
+				4477CFDD17460D090002033A /* star.png */,
+				4477CFDE17460D090002033A /* star@2x.png */,
 				44FADCCD173CE99700EB6BF4 /* Supporting Files */,
 			);
 			path = "DynUI-Example";
@@ -355,6 +361,8 @@
 				44FADD62173CEC1000EB6BF4 /* Style.dpui in Resources */,
 				D71B087617455958003440E4 /* DYNTooltipViewController.xib in Resources */,
 				D71B087917455B41003440E4 /* DYNViewController_iPad.xib in Resources */,
+				4477CFDF17460D090002033A /* star.png in Resources */,
+				4477CFE017460D090002033A /* star@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -488,11 +496,13 @@
 		44FADCEA173CE99700EB6BF4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Daniel Pourhadi (RF698QD3XB)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DynUI-Example/DynUI-Example-Prefix.pch";
 				INFOPLIST_FILE = "DynUI-Example/DynUI-Example-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "2CB73D58-9067-4A20-9488-2DF8AE1EE318";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -501,11 +511,13 @@
 		44FADCEB173CE99700EB6BF4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Daniel Pourhadi (RF698QD3XB)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DynUI-Example/DynUI-Example-Prefix.pch";
 				INFOPLIST_FILE = "DynUI-Example/DynUI-Example-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "2CB73D58-9067-4A20-9488-2DF8AE1EE318";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};

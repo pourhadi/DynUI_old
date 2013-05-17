@@ -9,7 +9,7 @@
 #import "DYNBackgroundStyle.h"
 #import "DYNDefines.h"
 #import "DynUI.h"
-
+#import "DYNGradient.h"
 @implementation DYNBackgroundStyle
 
 - (id)init {
@@ -44,101 +44,20 @@
 	return [self valueForKeyPath:@"colors.color"];
 }
 
-- (void)drawInPath:(UIBezierPath*)path withContext:(CGContextRef)context parameters:(DYNStyleParameters*)parameters flippedGradient:(BOOL)flippedGradient
+- (void)drawInFrame:(CGRect)frame clippedToPath:(UIBezierPath*)path parameters:(DYNStyleParameters*)parameters flippedGradient:(BOOL)flippedGradient
 {
-	CGRect bounds = path.bounds;
-	CGSize size = bounds.size;
+	
+	CGContextRef context = UIGraphicsGetCurrentContext();
 	
 	CGContextSaveGState(context);
 	[path addClip];
 	
 	if (self.colors.count > 1) {
-		//      NSArray *theColors = self.colors;
 		
-		CGPoint startPoint;
-		CGPoint endPoint;
-		
-        CGFloat degrees = self.gradientAngle - 90;
-		if (degrees < 0) {
-			degrees = 360 - fabs(degrees);
-		}
-      
-        startPoint = [self radialIntersectionWithDegrees:degrees forFrame:bounds];
-        
-        //  endPoint = [self radialIntersectionWithDegrees:degrees];
-        if (degrees >= 180) {
-            endPoint.x = size.width - startPoint.x;
-            endPoint.y = size.height - startPoint.y;
-            
-        } else {
-            endPoint = [self radialIntersectionWithDegrees:degrees forFrame:bounds];
-            
-            startPoint.x = size.width - endPoint.x;
-            startPoint.y = size.height - endPoint.y;
-        }
-        //
-        
-        
-        startPoint.x /= size.width;
-        startPoint.y /= size.height;
-        endPoint.x /= size.width;
-        endPoint.y /= size.height;
-        
-//        NSLog(@"degrees: %f", self.gradientAngle);
-//        NSLog(@"startPoint: %@", NSStringFromCGPoint(startPoint));
-//        NSLog(@"endPoint: %@", NSStringFromCGPoint(endPoint));
-        
-		if (flippedGradient) {
-			//                NSMutableArray *tmp = [NSMutableArray new];
-			//                for (int x = theColors.count-1; x >= 0; x--) {
-			//                    [tmp addObject:theColors[x]];
-			//                }
-			
-            CGPoint tmpStart = endPoint;
-            CGPoint tmpEnd = startPoint;
-            
-            startPoint = tmpStart;
-            endPoint = tmpEnd;
+		DYNGradient *gradient = [[DYNGradient alloc] initWithColors:self.colors];
+		//[gradient drawInPath:path flipped:flippedGradient angle:self.gradientAngle parameters:parameters];
+		[gradient drawInFrame:frame clippedToPath:path angle:self.gradientAngle flippedGradient:flippedGradient parameters:parameters];
 
-		}
-		
-		
-		CGGradientRef gradient;
-		
-		NSMutableArray *colors = [NSMutableArray new];
-		CGColorSpaceRef myColorspace;
-		myColorspace = CGColorSpaceCreateDeviceRGB();
-		
-		for (DYNColor *color in self.colors) {
-			UIColor *theColor = color.color;
-			if (color.definedAtRuntime) {
-				UIColor *paramColor = [parameters valueForStyleParameter:color.variableName];
-				if (paramColor) {
-					theColor = paramColor;
-				}
-			}
-			
-			[colors addObject:(id)theColor.CGColor];
-		}
-		
-		NSMutableArray *locs = [NSMutableArray new];
-		float div = 1 / (float)(self.colors.count - 1);
-		float current = 0;
-		for (int x = 0; x < self.colors.count; x++) {
-			[locs addObject:@(current)];
-			current += div;
-		}
-		NSMutableArray *locations = locs;
-		
-		CGFloat locArray[locations.count];
-		for (int x = 0; x < locations.count; x++) {
-			locArray[x] = [(NSNumber *)locations[x] floatValue];
-		}
-		
-		CFArrayRef components = (__bridge CFArrayRef)colors;
-		gradient = CGGradientCreateWithColors(myColorspace, components, locArray);
-		
-		CGContextDrawLinearGradient(context, gradient, CGPointMake(startPoint.x * size.width, startPoint.y * size.height), CGPointMake(endPoint.x * size.width, endPoint.y * size.height), 0);
 	} else {
 		DYNColor *DYNColor = self.colors[0];
 		UIColor *color = DYNColor.color;
@@ -152,8 +71,14 @@
 		[color setFill];
 		[path fill];
 	}
-
+	
 	CGContextRestoreGState(context);
+
+}
+
+- (void)drawInPath:(UIBezierPath*)path withContext:(CGContextRef)context parameters:(DYNStyleParameters*)parameters flippedGradient:(BOOL)flippedGradient
+{
+	[self drawInFrame:path.bounds clippedToPath:path parameters:parameters flippedGradient:flippedGradient];
 }
 
 

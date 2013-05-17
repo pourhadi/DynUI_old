@@ -10,6 +10,8 @@
 #import "DYNDefines.h"
 #import "DynUI.h"
 #import <objc/runtime.h>
+#import <stdlib.h>
+#define ROUND_UP(N, S) ((((N) + (S) - 1) / (S)) * (S))
 @implementation UIImage (DynUI)
 
 + (UIImage *)imageWithSize:(CGSize)size drawnWithBlock:(DYNDrawImageBlock)block {
@@ -165,27 +167,62 @@
     return image;
 }
 
++ (CGImageRef)createMaskFromAlphaChannel:(UIImage *)image inverted:(BOOL)inverted
+{
+	if (!image) {
+		return nil;
+	}
+	// Original RGBA image
+	CGImageRef originalMaskImage = [image CGImage];
+	float width = CGImageGetWidth(originalMaskImage) *image.scale;
+	float height = CGImageGetHeight(originalMaskImage) * image.scale;
+
+	// Make a bitmap context that's only 1 alpha channel
+	// WARNING: the bytes per row probably needs to be a multiple of 4
+	int strideLength = ROUND_UP(width * 1, 4);
+	unsigned char * alphaData = calloc(strideLength * height, sizeof(unsigned char));
+	CGContextRef alphaOnlyContext = CGBitmapContextCreate(alphaData,
+														  width,
+														  height,
+														  8,
+														  strideLength,
+														  NULL,
+														  kCGImageAlphaOnly);
+	
+	CGContextTranslateCTM(alphaOnlyContext, 0.0f, height);
+	CGContextScaleCTM(alphaOnlyContext, 1.0f, -1.0f);
+	
+	// Draw the RGBA image into the alpha-only context.
+	CGContextDrawImage(alphaOnlyContext, CGRectMake(0, 0, width, height), originalMaskImage);
+	
+	if (inverted) {
+		for (int y = 0; y < height; y++) {
+			for (int x = 0; x < width; x++) {
+				unsigned char val = alphaData[y*strideLength + x];
+				val = 255 - val;
+				alphaData[y*strideLength + x] = val;
+			}
+		}
+	}
+	
+	CGImageRef alphaMaskImage = CGBitmapContextCreateImage(alphaOnlyContext);
+	CGContextRelease(alphaOnlyContext);
+	free(alphaData);
+	
+	// Make a mask
+	CGImageRef finalMaskImage = CGImageMaskCreate(CGImageGetWidth(alphaMaskImage),
+												  CGImageGetHeight(alphaMaskImage),
+												  CGImageGetBitsPerComponent(alphaMaskImage),
+												  CGImageGetBitsPerPixel(alphaMaskImage),
+												  CGImageGetBytesPerRow(alphaMaskImage),
+												  CGImageGetDataProvider(alphaMaskImage), NULL, false);
+	CGImageRelease(alphaMaskImage);
+	return finalMaskImage;
+
+}
+
 + (CGImageRef)createMaskFromAlphaChannel:(UIImage *)image {
-    size_t width = image.size.width*image.scale;
-	size_t height = image.size.height*image.scale;
-	
-	NSMutableData *data = [NSMutableData dataWithLength:width*height];
-		CGContextRef context = CGBitmapContextCreate(
-												 [data mutableBytes], width, height, 8, width, NULL, kCGImageAlphaOnly);
-	
-	// Set the blend mode to copy to avoid any alteration of the source data
-	CGContextSetBlendMode(context, kCGBlendModeCopy);
-	
-	// Draw the image to extract the alpha channel
-	CGContextDrawImage(context, CGRectMake(0.0, 0.0, width, height), image.CGImage);
-	CGContextRelease(context);
-	
-	CGDataProviderRef dataProvider = CGDataProviderCreateWithCFData((__bridge CFMutableDataRef)data);
-	
-	CGImageRef maskingImage = CGImageMaskCreate(width, height, 8, 8, width, dataProvider, CGImageGetDecode(image.CGImage), FALSE);
-	CGDataProviderRelease(dataProvider);
-	
-	return maskingImage;
+	return [self createMaskFromAlphaChannel:image inverted:YES];
 }
 + (UIImage *)cropTransparencyFromImage:(UIImage *)img {
 	
@@ -303,6 +340,27 @@
     }];
     
     return img;
+}
+
+- (UIImage*)imageScaledToSize:(CGSize)scaledSized cropTransparent:(BOOL)crop
+{
+	CGSize imageSize = (crop ? scaledSized : self.size);
+	
+	return [UIImage imageWithSize:imageSize drawnWithBlock:^(CGContextRef context, CGSize size) {
+		
+		CGContextTranslateCTM(context, 0.0f, size.height);
+		CGContextScaleCTM(context, 1.0f, -1.0f);
+
+		CGRect resizedRect = CGRectMake(0, 0, size.width, size.height);
+		
+		if (!crop) {
+			resizedRect = CGRectMake((size.width-scaledSized.width)/2, (size.height-scaledSized.height)/2, scaledSized.width, scaledSized.height);
+		}
+		
+		CGContextSetInterpolationQuality(context, kCGInterpolationHigh);
+		CGContextDrawImage(context, resizedRect, self.CGImage);
+		
+	}];
 }
 
 // style parameters

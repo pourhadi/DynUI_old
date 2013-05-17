@@ -9,6 +9,7 @@
 #import "DYNGradient.h"
 #import "DYNColor.h"
 #import "DYNStyleParameters.h"
+#import <QuartzCore/QuartzCore.h>
 @interface DYNGradient ()
 
 @property (nonatomic, strong) NSArray *colors;
@@ -32,9 +33,9 @@
     [self drawInPath:path flipped:NO angle:angle parameters:parameters];
 }
 
-- (void)drawInPath:(UIBezierPath*)path flipped:(BOOL)flipped angle:(CGFloat)angle parameters:(DYNStyleParameters*)parameters
+- (void)drawInFrame:(CGRect)frame clippedToPath:(UIBezierPath*)path angle:(CGFloat)angle flippedGradient:(BOOL)flipped parameters:(DYNStyleParameters*)parameters
 {
-    CGRect bounds = path.bounds;
+	CGRect bounds = frame;
 	CGSize size = bounds.size;
 	CGContextRef context = UIGraphicsGetCurrentContext();
 	CGContextSaveGState(context);
@@ -71,17 +72,10 @@
         startPoint.y /= size.height;
         endPoint.x /= size.width;
         endPoint.y /= size.height;
-        
-        //        NSLog(@"degrees: %f", self.gradientAngle);
-        //        NSLog(@"startPoint: %@", NSStringFromCGPoint(startPoint));
-        //        NSLog(@"endPoint: %@", NSStringFromCGPoint(endPoint));
+
         
 		if (flipped) {
-			//                NSMutableArray *tmp = [NSMutableArray new];
-			//                for (int x = theColors.count-1; x >= 0; x--) {
-			//                    [tmp addObject:theColors[x]];
-			//                }
-			
+
             CGPoint tmpStart = endPoint;
             CGPoint tmpEnd = startPoint;
             
@@ -91,6 +85,30 @@
 		}
 		
 		
+		 
+		 NSMutableArray *colors = [NSMutableArray new];
+		 
+		 for (DYNColor *color in self.colors) {
+		 UIColor *theColor = color.color;
+		 if (color.definedAtRuntime) {
+		 UIColor *paramColor = [parameters valueForStyleParameter:color.variableName];
+		 if (paramColor) {
+		 theColor = paramColor;
+		 }
+		 }
+		 
+		 [colors addObject:(id)theColor.CGColor];
+		 }
+		 
+		 CAGradientLayer *gradient = [CAGradientLayer layer];
+		 gradient.colors = colors;
+		 gradient.startPoint = startPoint;
+		 gradient.endPoint = endPoint;
+		 
+		 gradient.frame = bounds;
+		 [gradient renderInContext:context];
+		 
+		 /*
 		CGGradientRef gradient;
 		
 		NSMutableArray *colors = [NSMutableArray new];
@@ -127,6 +145,9 @@
 		gradient = CGGradientCreateWithColors(myColorspace, components, locArray);
 		
 		CGContextDrawLinearGradient(context, gradient, CGPointMake(startPoint.x * size.width, startPoint.y * size.height), CGPointMake(endPoint.x * size.width, endPoint.y * size.height), 0);
+		
+		*/
+		
 	} else {
 		DYNColor *DYNColor = self.colors[0];
 		UIColor *color = DYNColor.color;
@@ -143,6 +164,12 @@
     
 	CGContextRestoreGState(context);
 
+}
+
+- (void)drawInPath:(UIBezierPath*)path flipped:(BOOL)flipped angle:(CGFloat)angle parameters:(DYNStyleParameters*)parameters
+{
+	
+	[self drawInFrame:path.bounds clippedToPath:path angle:angle flippedGradient:flipped parameters:parameters];
 }
 
 // gradient angle stuff

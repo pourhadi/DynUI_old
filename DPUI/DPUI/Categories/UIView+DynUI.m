@@ -77,7 +77,7 @@
 
 + (void)dyn_swizzleDidMoveToSuperview {
     [self jr_swizzleMethod:@selector(didMoveToSuperview) withMethod:@selector(dyn_didMoveToSuperview) error:nil];
-    objc_setAssociatedObject(self, kDYNSetFrameSwizzled, @(YES), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    objc_setAssociatedObject(self, kDYNDidMoveToSuperviewSwizzled, @(YES), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 - (void)dyn_didMoveToSuperview {

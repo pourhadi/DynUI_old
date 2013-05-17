@@ -19,7 +19,10 @@
 	// load styles
 	//NSString *stylePath = [[[NSBundle mainBundle] bundlePath]
 	//						   stringByAppendingPathComponent:@"Style.dpui"];
-	[[DYNManager sharedInstance] loadStylesFromFile:@"/Users/dpourhad/DPUI/DynUI-Example/DynUI-Example/Style.dpui" replaceExisting:YES liveUpdate:YES];
+	
+	
+	//@"/Users/danpourhadi/Projects/DPUI/DynUI-Example/DynUI-Example/Style.dpui"
+	[[DYNManager sharedInstance] loadStylesFromFile:@"Style.dpui" replaceExisting:YES liveUpdate:NO];
 	
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.

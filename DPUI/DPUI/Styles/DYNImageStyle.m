@@ -9,69 +9,47 @@
 #import "DYNImageStyle.h"
 #import "DYNDefines.h"
 #import "DynUI.h"
+
 @implementation DYNImageStyle
 
 
 - (UIImage *)applyToImage:(UIImage *)image {
     DYNBackgroundStyle *background = self.background;
-        
-		UIImage *newImage = [UIImage imageWithSize:CGSizeMake(image.size.width, image.size.height) drawnWithBlock:^(CGContextRef context, CGSize size) {
-			
-			UIBezierPath *path = [UIBezierPath bezierPathWithRect:CGRectMake(0, 0, size.width, size.height)];
-			
-			[background drawInPath:path withContext:context parameters:image.styleParameters flippedGradient:NO];
-			
-			[image drawInRect:CGRectMake(0, 0, size.width, size.height) blendMode:kCGBlendModeDestinationIn alpha:1.0];
-		}];
+    
 	
-	newImage = [UIImage imageWithSize:CGSizeMake(newImage.size.width, newImage.size.height) drawnWithBlock:^(CGContextRef context, CGSize size) {
-		CGRect imageRect = CGRectMake(0, 0, size.width, size.height);
+	CGImageRef mask = [UIImage createMaskFromAlphaChannel:image];
+	CGImageRef nonInvertedMask = [UIImage createMaskFromAlphaChannel:image inverted:NO];
 
+	UIImage *newImage = [UIImage imageWithSize:CGSizeMake(image.size.width, image.size.height) drawnWithBlock:^(CGContextRef
+																												context, CGSize size) {
+				CGContextSetInterpolationQuality(context, kCGInterpolationHigh);
+		UIBezierPath *path = [UIBezierPath bezierPathWithRect:CGRectMake(0, 0, size.width, size.height)];
 		CGContextSaveGState(context);
 
-		CGContextTranslateCTM(context, 0.0f, size.height);
-		CGContextScaleCTM(context, 1.0f, -1.0f);
-		CGContextDrawImage(context, imageRect, newImage.CGImage);
-
-		CGContextClipToMask(context, CGRectMake(0, 0, size.width, size.height), image.CGImage);
+		CGContextClipToMask(context, path.bounds, mask);
+		
+		[background drawInPath:path withContext:context parameters:image.styleParameters flippedGradient:NO];
 		
 		DYNShadowStyle *innerShadow = self.innerShadow;
 		
-		if (self.innerShadow.opacity > 0) {
-			CGContextSaveGState(context);
-
-		CGContextSetShadowWithColor(context, CGSizeMake(innerShadow.offset.width, oppositeSign(innerShadow.offset.height)), innerShadow.radius, [innerShadow.color colorWithAlphaComponent:innerShadow.opacity].CGColor);
-		CGImageRef mask = [UIImage createMaskFromAlphaChannel:image];
-		CGContextDrawImage(context, CGRectMake(0, 0, size.width, size.height), mask);
-		CGImageRelease(mask);
-			CGContextRestoreGState(context);
+		if (innerShadow.opacity > 0) {
+			
+			CGContextSetShadowWithColor(context, CGSizeMake(innerShadow.offset.width, oppositeSign(innerShadow.offset.height)), innerShadow.radius, [innerShadow.color colorWithAlphaComponent:innerShadow.opacity].CGColor);
+			
+			CGContextDrawImage(context, CGRectMake(0, 0, size.width, size.height), nonInvertedMask);
 		}
 		CGContextRestoreGState(context);
 		
-//		if (self.strokeWidth > 0) {
-//			CGContextSaveGState(context);
-//
-//			CGContextTranslateCTM(context, 0.0f, size.height);
-//			CGContextScaleCTM(context, 1.0f, -1.0f);
-//			CGContextDrawImage(context, imageRect, newImage.CGImage);
-//			CGContextClipToMask(context, CGRectMake(0, 0, size.width, size.height), image.CGImage);
-//			CGContextSetShadowWithColor(context, CGSizeMake(0, 0), self.strokeWidth, self.strokeColor.color.CGColor);
-//
-//			CGImageRef mask = [UIImage createMaskFromAlphaChannel:image];
-//			CGContextDrawImage(context, CGRectMake(0, 0, size.width, size.height), mask);
-//			CGImageRelease(mask);
-//			CGContextRestoreGState(context);
-//
-//		}
-
-	}];
-		
-	
-	if (self.strokeWidth > 0) {
-		CGFloat stroke = self.strokeWidth/2;
-		CGRect imageRect = CGRectMake(0, 0, newImage.size.width, newImage.size.height);
-		imageRect = CGRectInset(imageRect, -stroke, -stroke);
-		newImage = [UIImage imageWithSize:imageRect.size drawnWithBlock:^(CGContextRef context, CGSize size) {
+		if (self.strokeWidth > 0) {
+						
+			CGContextClipToMask(context, path.bounds, mask);
+			
+			CGRect insetRect = CGRectInset(path.bounds, self.strokeWidth, self.strokeWidth);
+				
+			UIImage *scaled = [image imageScaledToSize:insetRect.size cropTransparent:NO];
+			CGImageRef scaledNonInverted = [UIImage createMaskFromAlphaChannel:scaled inverted:NO];
+			
+			CGContextClipToMask(context, path.bounds, scaledNonInverted);
 			
 			DYNColor *DYNColor = self.strokeColor;
 			UIColor *color = DYNColor.color;
@@ -83,15 +61,15 @@
 			}
 			
 			[color setFill];
-			UIRectFill(imageRect);
-			[image drawInRect:imageRect blendMode:kCGBlendModeDestinationIn alpha:1.0];
-			CGRect insetRect = CGRectMake((image.size.width-newImage.size.width)/2, (image.size.height-newImage.size.height)/2, newImage.size.width, newImage.size.height);
-			[newImage drawInRect:insetRect];
-		}];
-	}
+				CGContextFillRect(context, path.bounds);
+			
+			
+		}
+		
+	}];
+
 	
-	
-	if (self.shadow) {
+	if (self.shadow && self.shadow.opacity > 0) {
 		DYNShadowStyle *outerShadow = self.shadow;
 		
 		CGSize newSize = CGSizeMake(image.size.width + ((fabsf(outerShadow.radius) + fabsf(outerShadow.offset.width)) * 2), image.size.height + ((fabsf(outerShadow.radius) + fabsf(outerShadow.offset.height)) * 2));

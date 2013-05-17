@@ -30,10 +30,14 @@ typedef void (^DYNDrawImageBlock)(CGContextRef context, CGSize size);
 + (CAGradientLayer *)gradientLayerWithTop:(id)topColor bottom:(id)bottomColor frame:(CGRect)frame;
 + (UIImage *)gradientImageWithTop:(id)topColor bottom:(id)bottomColor frame:(CGRect)frame;
 + (UIImage *)imageNamed:(NSString *)name withStyle:(NSString *)style;
-+ (CGImageRef)createMaskFromAlphaChannel:(UIImage *)image;
+
++ (CGImageRef)createMaskFromAlphaChannel:(UIImage *)image inverted:(BOOL)inverted;
++ (CGImageRef)createMaskFromAlphaChannel:(UIImage *)image; // inverted
+
 + (UIImage *)cropTransparencyFromImage:(UIImage *)img;
 + (UIImage*)blankOnePointImage;
 
+- (UIImage*)imageScaledToSize:(CGSize)size cropTransparent:(BOOL)crop;
 - (UIImage *)imageOverlayedWithColor:(UIColor *)color opacity:(CGFloat)opacity;
 - (UIImage *)imageTintedWithGradientTopColor:(UIColor *)topColor bottomColor:(UIColor *)bottomColor fraction:(CGFloat)fraction;
 - (UIImage *)imageTintedWithGradientTopColor:(UIColor *)topColor bottomColor:(UIColor *)bottomColor innerShadowColor:(UIColor *)innerShadow fraction:(CGFloat)fraction;
