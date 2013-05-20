@@ -45,10 +45,10 @@
 	} else if ([view isKindOfClass:[UITextField class]]) {
         [self renderTextField:(UITextField*)view withStyleNamed:styleName];
         return;
-    } else if ([view isKindOfClass:[UISegmentedControl class]]) {
+    } /*else if ([view isKindOfClass:[UISegmentedControl class]]) {
 		[self renderSegmentedControl:(UISegmentedControl*)view withStyleNamed:styleName];
 		return;
-	} else if ([view isKindOfClass:[UITableView class]]) {
+	}*/ else if ([view isKindOfClass:[UITableView class]]) {
         [self renderTableView:(UITableView*)view withStyleNamed:styleName];
         return;
     }
@@ -68,7 +68,7 @@
     
     tableView.dyn_backgroundView.dyn_style = styleName;
 }
-
+/*
 + (void)renderSegmentedControl:(UISegmentedControl*)segmentedControl withStyleNamed:(NSString*)styleName
 {
 	DYNViewStyle *style = (DYNViewStyle *)[[DYNManager sharedInstance] styleForName:styleName];
@@ -115,7 +115,7 @@
 	
 }
 
-
+*/
 + (void)renderSlider:(UISlider*)slider withSliderStyleNamed:(NSString*)name
 {
 	DYNSliderStyle *style = [[DYNManager sharedInstance] sliderStyleForName:name];

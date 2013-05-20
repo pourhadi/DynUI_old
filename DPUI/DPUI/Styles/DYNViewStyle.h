@@ -83,6 +83,7 @@ typedef NS_OPTIONS(NSUInteger, CornerRadiusType) {
 - (void)applyStyleToView:(UIView *)view;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
+- (CALayer*)layerMaskForStyleWithSize:(CGSize)size;
 - (UIImage *)imageForStyleWithSize:(CGSize)size parameters:(DYNStyleParameters *)parameters;
 - (UIImage *)imageForStyleWithSize:(CGSize)size withOuterShadow:(BOOL)withOuterShadow parameters:(DYNStyleParameters *)parameters;
 - (UIImage *)imageForStyleWithSize:(CGSize)size withOuterShadow:(BOOL)withOuterShadow flippedGradient:(BOOL)flippedGradient parameters:(DYNStyleParameters *)parameters;

@@ -499,4 +499,15 @@
     return [self imageForStyleWithSize:size path:path withOuterShadow:withOuterShadow flippedGradient:NO parameters:parameters];
 }
 
+- (CALayer*)layerMaskForStyleWithSize:(CGSize)size
+{
+    UIBezierPath *path = [self pathForStyleForRect:CGRectMake(0, 0, size.width, size.height)];
+    CAShapeLayer *shape = [CAShapeLayer layer];
+    shape.path = path.CGPath;
+    shape.fillColor = [[UIColor blackColor] CGColor];
+    shape.shouldRasterize = YES;
+    shape.rasterizationScale = [[UIScreen mainScreen] scale];
+    return shape;
+}
+
 @end
