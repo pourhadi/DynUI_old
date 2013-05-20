@@ -46,14 +46,6 @@
 		self.backgroundColor = [UIColor clearColor];
         
         [self addSubview:_borderImageView];
-		//
-		//		self.layer.shadowColor = [[UIColor blackColor] CGColor];
-		//		self.layer.shadowRadius = 8;
-		//		self.layer.shadowOffset = CGSizeMake(0, 2);
-		//		self.layer.shadowOpacity = 1;
-		//		self.layer.shouldRasterize = YES;
-		//		self.layer.rasterizationScale = [[UIScreen mainScreen] scale];
-		
     }
     return self;
 }
@@ -148,9 +140,6 @@
 
 -(UIImage*)getBgImageOfSize:(CGSize)size withArrowRect:(CGRect)arrowRect andBgRect:(CGRect)bgRect
 {
-	
-	//UIGraphicsBeginImageContextWithOptions(size, NO, [[UIScreen mainScreen] scale]);
-	
 	UIBezierPath *path = [UIBezierPath bezierPath];
 	CGSize radius = [[DYNPopoverStyle currentStyle] cornerRadii];
 	
@@ -220,61 +209,6 @@
 	}
 
 	[path closePath];
-	
-	
-	/*
-	
-	
-	CGFloat curve = radius.width;
-    CGFloat controlOff = curve*0.55;
-	[path moveToPoint:CGPointMake(bgRect.origin.x, bgRect.origin.y+curve)];
-	[path addCurveToPoint:CGPointMake(bgRect.origin.x+curve, bgRect.origin.y) controlPoint1:CGPointMake(bgRect.origin.x, bgRect.origin.y+controlOff) controlPoint2:CGPointMake(bgRect.origin.x+controlOff, bgRect.origin.y)];
-	
-	if (self.arrowDirection == UIPopoverArrowDirectionUp)
-	{
-		[path addLineToPoint:CGPointMake(arrowRect.origin.x, bgRect.origin.y)];
-		[path addLineToPoint:CGPointMake(arrowRect.origin.x + (arrowRect.size.width/2), 1)];
-		[path addLineToPoint:CGPointMake(arrowRect.origin.x+arrowRect.size.width, bgRect.origin.y)];
-	}
-	
-	[path addLineToPoint:CGPointMake((bgRect.origin.x+bgRect.size.width)-curve, bgRect.origin.y)];
-	[path addCurveToPoint:CGPointMake(bgRect.origin.x+bgRect.size.width, bgRect.origin.y+curve) controlPoint1:CGPointMake((bgRect.origin.x+bgRect.size.width)-controlOff, bgRect.origin.y) controlPoint2:CGPointMake(bgRect.origin.x+bgRect.size.width, bgRect.origin.y+controlOff)];
-	
-	if (self.arrowDirection == UIPopoverArrowDirectionRight)
-	{
-		[path addLineToPoint:CGPointMake(bgRect.origin.x+bgRect.size.width, arrowRect.origin.y)];
-		[path addLineToPoint:CGPointMake(arrowRect.origin.x+arrowRect.size.width, arrowRect.origin.y + (arrowRect.size.height/2))];
-		[path addLineToPoint:CGPointMake(bgRect.origin.x+bgRect.size.width, arrowRect.origin.y+arrowRect.size.height)];
-	}
-	
-	[path addLineToPoint:CGPointMake(bgRect.origin.x+bgRect.size.width, (bgRect.origin.y+bgRect.size.height)-curve)];
-	[path addCurveToPoint:CGPointMake((bgRect.origin.x+bgRect.size.width)-curve, bgRect.origin.y+bgRect.size.height) controlPoint1:CGPointMake(bgRect.origin.x+bgRect.size.width, (bgRect.origin.y+bgRect.size.height)-controlOff) controlPoint2:CGPointMake((bgRect.origin.x+bgRect.size.width)-controlOff, bgRect.origin.y+bgRect.size.height)];
-	
-	if (self.arrowDirection == UIPopoverArrowDirectionDown)
-	{
-		[path addLineToPoint:CGPointMake(arrowRect.origin.x+arrowRect.size.width, bgRect.origin.y+bgRect.size.height)];
-		[path addLineToPoint:CGPointMake(arrowRect.origin.x+(arrowRect.size.width/2), arrowRect.origin.y+arrowRect.size.height)];
-		[path addLineToPoint:CGPointMake(arrowRect.origin.x, bgRect.origin.y+bgRect.size.height)];
-	}
-	
-	[path addLineToPoint:CGPointMake(bgRect.origin.x+curve, bgRect.origin.y+bgRect.size.height)];
-	[path addCurveToPoint:CGPointMake(bgRect.origin.x, (bgRect.origin.y+bgRect.size.height)-curve) controlPoint1:CGPointMake(bgRect.origin.x+controlOff, bgRect.origin.y+bgRect.size.height) controlPoint2:CGPointMake(bgRect.origin.x, (bgRect.origin.y+bgRect.size.height)-controlOff)];
-	
-	if (self.arrowDirection == UIPopoverArrowDirectionLeft)
-	{
-		[path addLineToPoint:CGPointMake(bgRect.origin.x, arrowRect.origin.y+arrowRect.size.height)];
-		[path addLineToPoint:CGPointMake(arrowRect.origin.x, arrowRect.origin.y + (arrowRect.size.height/2))];
-		[path addLineToPoint:CGPointMake(bgRect.origin.x, arrowRect.origin.y)];
-	}
-    
-	
-	[path closePath];
-    
-	*/
-//    if ([DYNPopoverStyle currentStyle]) {
-//        UIImage *bgImage = [[DYNPopoverStyle currentStyle] imageForStyleWithSize:path.bounds.size path:path withOuterShadow:NO parameters:nil];
-//        [bgImage drawAtPoint:bgRect.origin];
-//    }
     
 	UIImage *bgImage = [[DYNPopoverStyle currentStyle] imageForStyleWithSize:size path:path withOuterShadow:NO parameters:nil];
 
@@ -284,10 +218,7 @@
 	
 	
 	return bgImage;
-    //[[UIColor blackColor] setFill];
-	//[path fill];
-    
-	//return UIGraphicsGetImageFromCurrentImageContext();
+
 }
 
 @end

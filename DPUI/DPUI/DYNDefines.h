@@ -1,4 +1,24 @@
+#import <objc/runtime.h>
+
 #define degreesToRadians(x) (M_PI * (x) / 180.0)
+
+#define SET_ASSOCIATED_OBJ(NAME) \
+- (void)set_##NAME:(id)obj \
+{ \
+ objc_setAssociatedObject(self, #NAME, obj, OBJC_ASSOCIATION_RETAIN_NONATOMIC);	\
+}
+
+#define GET_ASSOCIATED_OBJ(NAME, DEFAULTVAL) \
+- (id)NAME \
+{ \
+	id obj = objc_getAssociatedObject(self, #NAME); \
+	if (!obj) { \
+		obj = DEFAULTVAL; \
+	} \
+	return obj; \
+} \
+
+#define GET_AND_SET_ASSOCIATED_OBJ(NAME, DEFAULTVAL) GET_ASSOCIATED_OBJ(NAME, DEFAULTVAL) SET_ASSOCIATED_OBJ(NAME)
 
 NS_INLINE float oppositeSign(float x) {
     return (x > 0 ? -x : fabs(x));

@@ -12,4 +12,13 @@
 @property (nonatomic, strong) NSString *dyn_textStyle;
 
 - (void)dyn_refreshStyle;
+
+@property (nonatomic) BOOL dyn_autoScroll;
+
+@property (nonatomic) NSTimeInterval dyn_scrollDuration;
+@property (nonatomic) NSTimeInterval dyn_scrollPauseDuration;
+@property (nonatomic) CGFloat dyn_scrollTextSeparatorWidth;
+
+- (void)applyLabelAttributesToLabel:(UILabel*)label;
+
 @end

@@ -64,9 +64,7 @@
             
             startPoint.x = size.width - endPoint.x;
             startPoint.y = size.height - endPoint.y;
-        }
-        //
-        
+        }        
         
         startPoint.x /= size.width;
         startPoint.y /= size.height;
@@ -108,46 +106,6 @@
 		 gradient.frame = bounds;
 		 [gradient renderInContext:context];
 		 
-		 /*
-		CGGradientRef gradient;
-		
-		NSMutableArray *colors = [NSMutableArray new];
-		CGColorSpaceRef myColorspace;
-		myColorspace = CGColorSpaceCreateDeviceRGB();
-		
-		for (DYNColor *color in self.colors) {
-			UIColor *theColor = color.color;
-			if (color.definedAtRuntime) {
-				UIColor *paramColor = [parameters valueForStyleParameter:color.variableName];
-				if (paramColor) {
-					theColor = paramColor;
-				}
-			}
-			
-			[colors addObject:(id)theColor.CGColor];
-		}
-		
-		NSMutableArray *locs = [NSMutableArray new];
-		float div = 1 / (float)(self.colors.count - 1);
-		float current = 0;
-		for (int x = 0; x < self.colors.count; x++) {
-			[locs addObject:@(current)];
-			current += div;
-		}
-		NSMutableArray *locations = locs;
-		
-		CGFloat locArray[locations.count];
-		for (int x = 0; x < locations.count; x++) {
-			locArray[x] = [(NSNumber *)locations[x] floatValue];
-		}
-		
-		CFArrayRef components = (__bridge CFArrayRef)colors;
-		gradient = CGGradientCreateWithColors(myColorspace, components, locArray);
-		
-		CGContextDrawLinearGradient(context, gradient, CGPointMake(startPoint.x * size.width, startPoint.y * size.height), CGPointMake(endPoint.x * size.width, endPoint.y * size.height), 0);
-		
-		*/
-		
 	} else {
 		DYNColor *DYNColor = self.colors[0];
 		UIColor *color = DYNColor.color;

@@ -34,7 +34,6 @@
 		
 		self.maximumTrackBackground = [[DYNBackgroundStyle alloc] init];
 		self.maximumTrackBackground.colors = tmp;
-		//self.maxTrackBgColors = tmp;
 		
 		tmp = [NSMutableArray new];
 		for (NSDictionary *color in [dictionary objectForKey:kDYNMinTrackBgColorsKey]) {
@@ -43,7 +42,6 @@
 		
 		self.minimumTrackBackground = [[DYNBackgroundStyle alloc] init];
 		self.minimumTrackBackground.colors = tmp;
-		//self.minTrackBgColors = tmp;
 		
 	}
 	

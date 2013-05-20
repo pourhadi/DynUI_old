@@ -15,14 +15,13 @@
 @property (nonatomic) CGSize offset;
 @property (nonatomic) CGFloat opacity;
 
+- (id)initWithDictionary:(NSDictionary *)dictionary;
+
 - (UIImage*)getImageForWidth:(CGFloat)width;
 - (void)addShadowToView:(UIView *)view withPath:(UIBezierPath*)path;
 - (void)addShadowToView:(UIView *)view;
 - (UIImage*)applyShadowToImage:(UIImage*)image;
-- (id)initWithDictionary:(NSDictionary *)dictionary;
 
 - (void)drawAsInnerShadowInPath:(UIBezierPath*)path context:(CGContextRef)context;
-
-- (void)drawAsOuterShadowWithPath:(UIBezierPath*)path context:(CGContextRef)context;
 
 @end

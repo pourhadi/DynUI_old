@@ -19,7 +19,14 @@
         self.textColor = [[DYNColor alloc] initWithDictionary:[dict objectForKey:kDYNTextColorKey]];
         self.shadowColor = [[DYNColor alloc] initWithDictionary:[dict objectForKey:kDYNShadowColorKey]];
         self.shadowOffset = CGSizeMake([[dict objectForKey:kDYNShadowXOffsetKey] floatValue], oppositeSign([[dict objectForKey:kDYNShadowYOffsetKey] floatValue]));
-        self.alignment = [[dict objectForKey:kDYNAlignmentKey] intValue];
+        NSInteger alignInt = [[dict objectForKey:kDYNAlignmentKey] intValue];
+		if (alignInt == 0) {
+			self.alignment = NSTextAlignmentLeft;
+		} else if (alignInt == 1) {
+			self.alignment = NSTextAlignmentCenter;
+		} else if (alignInt == 2) {
+			self.alignment = NSTextAlignmentRight;
+		}
 		self.fontSizeString = [dict objectForKey:kDYNFontSizeStringKey];
 		self.fontSizeType = [[dict objectForKey:kDYNFontSizeTypeKey] intValue];
     }

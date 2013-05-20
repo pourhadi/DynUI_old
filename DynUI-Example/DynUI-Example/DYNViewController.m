@@ -19,6 +19,8 @@
 @property (nonatomic, weak) IBOutlet UIImageView *imageView;
 
 @property (nonatomic, strong) UIPopoverController *popover;
+
+@property (nonatomic, weak) IBOutlet UILabel *testLabel;
 - (IBAction)buttonHit:(id)sender;
 
 @end
@@ -41,8 +43,12 @@
 	self.imageView.image = [UIImage imageNamed:@"star.png" withStyle:@"StarStyle"];
 	
 	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Go" style:UIBarButtonItemStyleBordered target:self action:@selector(go:)];
+	
+	self.testLabel.dyn_autoScroll = YES;
+	self.testLabel.dyn_scrollDuration = 8;
+	self.testLabel.dyn_scrollTextSeparatorWidth = 50;
+	
 }
-
 - (IBAction)go:(id)sender
 {
 	DYNViewController *controller = [[DYNViewController alloc] initWithNibName:@"DYNViewController_iPhone" bundle:nil];

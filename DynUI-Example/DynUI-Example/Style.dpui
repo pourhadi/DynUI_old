@@ -451,26 +451,7 @@
 
       },
       "rightInnerBorders" : [
-        {
-          "height" : 2,
-          "color" : {
-            "definedAtRuntime" : false,
-            "colorString" : "1 0.999974 0.999991 0.15",
-            "colorVar" : "",
-            "colorName" : ""
-          },
-          "blendMode" : 0
-        },
-        {
-          "height" : 1,
-          "color" : {
-            "definedAtRuntime" : false,
-            "colorString" : "0 0 0 1",
-            "colorVar" : "",
-            "colorName" : ""
-          },
-          "blendMode" : 0
-        }
+
       ],
       "roundedCorners" : 0
     },
