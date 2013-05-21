@@ -11,6 +11,7 @@
 #import "DYNDefines.h"
 #import "DYNTooltipViewController.h"
 #import "DYNTableViewController.h"
+#import "DYNContainerTestViewController.h"
 @interface DYNViewController ()
 
 @property (nonatomic, weak) IBOutlet UIButton *exampleButton;
@@ -51,8 +52,8 @@
 }
 - (IBAction)go:(id)sender
 {
-	DYNViewController *controller = [[DYNViewController alloc] initWithNibName:@"DYNViewController_iPhone" bundle:nil];
-	[self.navigationController pushViewController:controller animated:YES];
+	DYNTableViewController *table = [[DYNTableViewController alloc] initWithStyle:UITableViewStyleGrouped];
+    [self.navigationController pushViewController:table animated:YES];
 }
 
 - (void)didReceiveMemoryWarning
@@ -65,8 +66,9 @@
 {
 	if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
         
-        DYNTableViewController *table = [[DYNTableViewController alloc] initWithStyle:UITableViewStyleGrouped];
-        [self.navigationController pushViewController:table animated:YES];
+        DYNContainerTestViewController *vc = [[DYNContainerTestViewController alloc] initWithNibName:@"DYNContainerTestViewController" bundle:nil];
+        [self.navigationController pushViewController:vc animated:YES];
+        
         
     } else {
         DYNTooltipViewController *vc = [[DYNTooltipViewController alloc] initWithNibName:@"DYNTooltipViewController" bundle:nil];

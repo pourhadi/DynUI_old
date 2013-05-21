@@ -28,4 +28,13 @@
     return value;
 }
 
+- (id)copyWithZone:(NSZone *)zone
+{
+    id theCopy = [[[self class] allocWithZone:zone] init];  // use designated initializer
+    
+    [theCopy setParameters:[self.parameters copy]];
+    
+    return theCopy;
+}
+
 @end

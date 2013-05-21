@@ -11,6 +11,23 @@
 #import <objc/runtime.h>
 #import "DynUI.h"
 @implementation DYNTextStyle
+
+
+- (id)copyWithZone:(NSZone *)zone
+{
+    id theCopy = [super copyWithZone:zone];  // use designated initializer
+    
+    [theCopy setTextColor:[self.textColor copy]];
+    [theCopy setFont:[self.font copy]];
+    [theCopy setShadowOffset:self.shadowOffset];
+    [theCopy setShadowColor:[self.shadowColor copy]];
+    [theCopy setAlignment:self.alignment];
+    [theCopy setFontSizeString:[self.fontSizeString copy]];
+    [theCopy setFontSizeType:self.fontSizeType];
+    
+    return theCopy;
+}
+
 - (id)initWithDictionary:(NSDictionary *)dict {
     self = [super init];
     if (self) {

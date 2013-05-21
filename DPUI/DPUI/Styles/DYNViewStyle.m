@@ -9,6 +9,7 @@
 #import "DYNViewStyle.h"
 #import "DYNDefines.h"
 #import "DynUI.h"
+#import "DYNPassThroughView.h"
 
 @implementation DYNViewStyle
 
@@ -231,16 +232,18 @@
     }
 	
     if (self.maskToCorners) {
-        UIImage *mask = [UIImage imageWithSize:size drawnWithBlock:^(CGContextRef context, CGSize size) {
-            [path addClip];
-            [[UIColor blackColor] setFill];
-            [path fill];
-        }];
-		
-        CALayer *layerMask = [CALayer layer];
-        layerMask.frame = view.bounds;
-        layerMask.contents = (id)mask.CGImage;
+        CALayer *layerMask = [self layerMaskForStyleWithSize:view.frame.size];
         view.layer.mask = layerMask;
+        
+        if (!view.dyn_overlayView) {
+            DYNPassThroughView *overlay = [[DYNPassThroughView alloc] initWithFrame:view.bounds];
+            view.dyn_overlayView = overlay;
+        }
+        
+        view.dyn_overlayView.frame = view.bounds;
+        UIImage *borderImage = [self borderImageForSize:view.frame.size parameters:view.styleParameters];
+        view.dyn_overlayView.layer.contents = (id)borderImage.CGImage;
+        
     }
 }
 
@@ -508,6 +511,228 @@
     shape.shouldRasterize = YES;
     shape.rasterizationScale = [[UIScreen mainScreen] scale];
     return shape;
+}
+
+- (UIImage*)borderImageForSize:(CGSize)size parameters:(DYNStyleParameters*)parameters
+{
+    UIBezierPath *path = [self pathForStyleForRect:CGRectMake(0, 0, size.width, size.height)];
+    return [UIImage imageWithSize:size drawnWithBlock:^(CGContextRef context, CGSize size) {
+       
+        if (self.innerShadow && self.innerShadow.opacity > 0) {
+            [self.innerShadow drawAsInnerShadowInPath:path context:context];
+        }
+		
+		
+        CGFloat currentY = 0;
+        for (int x = 0; x < self.topInnerBorders.count; x++) {
+            DYNInnerBorderStyle *innerBorder = self.topInnerBorders[x];
+            
+            UIColor *shadow = innerBorder.color.color;
+            if (innerBorder.color.definedAtRuntime) {
+                UIColor *paramColor = [parameters valueForStyleParameter:innerBorder.color.variableName];
+                if (paramColor) {
+                    shadow = paramColor;
+                }
+            }
+            CGSize shadowOffset = CGSizeMake(0, (innerBorder.height));
+            CGFloat shadowBlurRadius = 0;
+			
+            ////// Polygon Inner Shadow
+            CGRect polygonBorderRect = CGRectInset([path bounds], -shadowBlurRadius, -shadowBlurRadius);
+            polygonBorderRect = CGRectOffset(polygonBorderRect, -shadowOffset.width, -shadowOffset.height);
+            polygonBorderRect = CGRectInset(CGRectUnion(polygonBorderRect, [path bounds]), -1, -1);
+			
+            UIBezierPath *polygonNegativePath = [UIBezierPath bezierPathWithRect:polygonBorderRect];
+			polygonNegativePath.miterLimit=-10;
+            
+            [polygonNegativePath appendPath:path];
+            polygonNegativePath.usesEvenOddFillRule = YES;
+			
+            CGContextSaveGState(context);
+            {
+                CGContextSetBlendMode(context, innerBorder.blendMode);
+				
+                CGFloat xOffset = shadowOffset.width + round(polygonBorderRect.size.width);
+                CGFloat yOffset = shadowOffset.height;
+                CGContextSetShadowWithColor(context,
+                                            CGSizeMake(xOffset + copysign(0.1, xOffset), yOffset + copysign(0.1, yOffset)),
+                                            shadowBlurRadius,
+                                            shadow.CGColor);
+				
+                [path addClip];
+                CGAffineTransform transform = CGAffineTransformMakeTranslation(-round(polygonBorderRect.size.width), 0);
+                [polygonNegativePath applyTransform:transform];
+                [[UIColor grayColor] setFill];
+                [polygonNegativePath fill];
+            }
+            CGContextRestoreGState(context);
+			
+            currentY += innerBorder.height;
+        }
+		
+        if (self.bottomInnerBorders.count > 0) {
+            currentY = size.height;
+            for (int x = 0; x < self.bottomInnerBorders.count; x++) {
+                DYNInnerBorderStyle *innerBorder = self.bottomInnerBorders[x];
+                currentY -= innerBorder.height;
+                UIColor *shadow = innerBorder.color.color;
+                if (innerBorder.color.definedAtRuntime) {
+                    UIColor *paramColor = [parameters valueForStyleParameter:innerBorder.color.variableName];
+                    if (paramColor) {
+                        shadow = paramColor;
+                    }
+                }
+                CGSize shadowOffset = CGSizeMake(0, -innerBorder.height);
+                CGFloat shadowBlurRadius = 0;
+				
+                ////// Rectangle 2 Inner Shadow
+                CGRect rectangle2BorderRect = CGRectInset([path bounds], -shadowBlurRadius, -shadowBlurRadius);
+                rectangle2BorderRect = CGRectOffset(rectangle2BorderRect, -shadowOffset.width, -shadowOffset.height);
+                rectangle2BorderRect = CGRectInset(CGRectUnion(rectangle2BorderRect, [path bounds]), -1, -1);
+				
+                UIBezierPath *rectangle2NegativePath = [UIBezierPath bezierPathWithRect:rectangle2BorderRect];
+				rectangle2NegativePath.miterLimit=-10;
+				
+                [rectangle2NegativePath appendPath:path];
+                rectangle2NegativePath.usesEvenOddFillRule = YES;
+				
+                CGContextSaveGState(context);
+                {
+                    CGContextSetBlendMode(context, innerBorder.blendMode);
+					
+                    CGFloat xOffset = shadowOffset.width + round(rectangle2BorderRect.size.width);
+                    CGFloat yOffset = shadowOffset.height;
+                    CGContextSetShadowWithColor(context,
+                                                CGSizeMake(xOffset + copysign(0.1, xOffset), yOffset + copysign(0.1, yOffset)),
+                                                shadowBlurRadius,
+                                                shadow.CGColor);
+					
+                    [path addClip];
+                    CGAffineTransform transform = CGAffineTransformMakeTranslation(-round(rectangle2BorderRect.size.width), 0);
+                    [rectangle2NegativePath applyTransform:transform];
+                    [[UIColor grayColor] setFill];
+                    [rectangle2NegativePath fill];
+                }
+                CGContextRestoreGState(context);
+            }
+        }
+        
+        if (self.leftInnerBorders.count > 0) {
+            currentY = size.height;
+            for (int x = 0; x < self.leftInnerBorders.count; x++) {
+                DYNInnerBorderStyle *innerBorder = self.leftInnerBorders[x];
+                currentY -= innerBorder.height;
+                UIColor *shadow = innerBorder.color.color;
+                if (innerBorder.color.definedAtRuntime) {
+                    UIColor *paramColor = [parameters valueForStyleParameter:innerBorder.color.variableName];
+                    if (paramColor) {
+                        shadow = paramColor;
+                    }
+                }
+                CGSize shadowOffset = CGSizeMake(innerBorder.height, 0);
+                CGFloat shadowBlurRadius = 0;
+				
+                ////// Rectangle 2 Inner Shadow
+                CGRect rectangle2BorderRect = CGRectInset([path bounds], -shadowBlurRadius, -shadowBlurRadius);
+                rectangle2BorderRect = CGRectOffset(rectangle2BorderRect, -shadowOffset.width, -shadowOffset.height);
+                rectangle2BorderRect = CGRectInset(CGRectUnion(rectangle2BorderRect, [path bounds]), -1, -1);
+				
+                UIBezierPath *rectangle2NegativePath = [UIBezierPath bezierPathWithRect:rectangle2BorderRect];
+				rectangle2NegativePath.miterLimit=-10;
+                
+                [rectangle2NegativePath appendPath:path];
+                rectangle2NegativePath.usesEvenOddFillRule = YES;
+				
+                CGContextSaveGState(context);
+                {
+                    CGContextSetBlendMode(context, innerBorder.blendMode);
+					
+                    CGFloat xOffset = shadowOffset.width + round(rectangle2BorderRect.size.width);
+                    CGFloat yOffset = shadowOffset.height;
+                    CGContextSetShadowWithColor(context,
+                                                CGSizeMake(xOffset + copysign(0.1, xOffset), yOffset + copysign(0.1, yOffset)),
+                                                shadowBlurRadius,
+                                                shadow.CGColor);
+					
+                    [path addClip];
+                    CGAffineTransform transform = CGAffineTransformMakeTranslation(-round(rectangle2BorderRect.size.width), 0);
+                    [rectangle2NegativePath applyTransform:transform];
+                    [[UIColor grayColor] setFill];
+                    [rectangle2NegativePath fill];
+                }
+                CGContextRestoreGState(context);
+            }
+        }
+		
+        if (self.rightInnerBorders.count > 0) {
+            currentY = size.height;
+            for (int x = 0; x < self.rightInnerBorders.count; x++) {
+                DYNInnerBorderStyle *innerBorder = self.rightInnerBorders[x];
+                currentY -= innerBorder.height;
+                UIColor *shadow = innerBorder.color.color;
+                if (innerBorder.color.definedAtRuntime) {
+                    UIColor *paramColor = [parameters valueForStyleParameter:innerBorder.color.variableName];
+                    if (paramColor) {
+                        shadow = paramColor;
+                    }
+                }
+                CGSize shadowOffset = CGSizeMake(-innerBorder.height, 0);
+                CGFloat shadowBlurRadius = 0;
+				
+                ////// Rectangle 2 Inner Shadow
+                CGRect rectangle2BorderRect = CGRectInset([path bounds], -shadowBlurRadius, -shadowBlurRadius);
+                rectangle2BorderRect = CGRectOffset(rectangle2BorderRect, -shadowOffset.width, -shadowOffset.height);
+                rectangle2BorderRect = CGRectInset(CGRectUnion(rectangle2BorderRect, [path bounds]), -1, -1);
+				
+                UIBezierPath *rectangle2NegativePath = [UIBezierPath bezierPathWithRect:rectangle2BorderRect];
+				rectangle2NegativePath.miterLimit=-10;
+                
+                [rectangle2NegativePath appendPath:path];
+                rectangle2NegativePath.usesEvenOddFillRule = YES;
+				
+                CGContextSaveGState(context);
+                {
+                    CGContextSetBlendMode(context, innerBorder.blendMode);
+					
+                    CGFloat xOffset = shadowOffset.width + round(rectangle2BorderRect.size.width);
+                    CGFloat yOffset = shadowOffset.height;
+                    CGContextSetShadowWithColor(context,
+                                                CGSizeMake(xOffset + copysign(0.1, xOffset), yOffset + copysign(0.1, yOffset)),
+                                                shadowBlurRadius,
+                                                shadow.CGColor);
+					
+                    [path addClip];
+                    CGAffineTransform transform = CGAffineTransformMakeTranslation(-round(rectangle2BorderRect.size.width), 0);
+                    [rectangle2NegativePath applyTransform:transform];
+                    [[UIColor grayColor] setFill];
+                    [rectangle2NegativePath fill];
+                }
+                CGContextRestoreGState(context);
+            }
+        }
+        
+        CGContextSaveGState(context);
+		// [path addClip];
+		
+		if (self.strokeWidth > 0) {
+			UIColor *stroke = self.strokeColor.color;
+			if (self.strokeColor.definedAtRuntime) {
+				UIColor *paramColor = [parameters valueForStyleParameter:self.strokeColor.variableName];
+				if (paramColor) {
+					stroke = paramColor;
+				}
+			}
+			
+			//		UIBezierPath *strokePath = [self strokePathForStyleForRect:path.bounds];
+			UIBezierPath *strokePath = [self strokePathForPath:path];
+			
+			[strokePath setLineWidth:self.strokeWidth];
+			[stroke setStroke];
+			[strokePath stroke];
+			CGContextRestoreGState(context);
+		}
+        
+    }];
 }
 
 @end

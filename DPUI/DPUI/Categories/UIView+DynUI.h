@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 @class DYNManager;
 @class DYNStyleParameters;
+@class DYNPassThroughView;
 typedef void (^DYNAppearanceBlock)(DYNManager *styleManager, UIView *view);
 
 @interface UIView (DynUI)
@@ -21,7 +22,8 @@ typedef void (^DYNAppearanceBlock)(DYNManager *styleManager, UIView *view);
 @property (nonatomic) BOOL dyn_viewStyleApplied;
 @property (nonatomic) CGSize dyn_styleSizeApplied;
 
-@property (nonatomic, assign) UIView *dyn_backgroundView; // for UITableView
+@property (nonatomic, assign) UIView *dyn_backgroundView; // i.e., for UITableView
+@property (nonatomic, strong) DYNPassThroughView *dyn_overlayView; // so the stroke and inner borders are above everything else
 
 - (void)dyn_refreshStyle;
 

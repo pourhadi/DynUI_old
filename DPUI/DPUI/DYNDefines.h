@@ -20,6 +20,25 @@
 
 #define GET_AND_SET_ASSOCIATED_OBJ(NAME, DEFAULTVAL) GET_ASSOCIATED_OBJ(NAME, DEFAULTVAL) SET_ASSOCIATED_OBJ(NAME)
 
+#define SET_CLASS_OBJ(NAME) \
++ (void)set_##NAME:(id)obj \
+{ \
+objc_setAssociatedObject(self, #NAME, obj, OBJC_ASSOCIATION_RETAIN_NONATOMIC);	\
+}
+
+#define GET_CLASS_OBJ(NAME, DEFAULTVAL) \
++ (id)NAME \
+{ \
+id obj = objc_getAssociatedObject(self, #NAME); \
+if (!obj) { \
+obj = DEFAULTVAL; \
+} \
+return obj; \
+} \
+
+#define GET_AND_SET_CLASS_OBJ(NAME, DEFAULTVAL) GET_CLASS_OBJ(NAME, DEFAULTVAL) SET_CLASS_OBJ(NAME)
+
+
 NS_INLINE float oppositeSign(float x) {
     return (x > 0 ? -x : fabs(x));
 }
@@ -43,7 +62,6 @@ static const void *const kDYNContainerViewKey = "_DYNContainerViewKey";
 static const void *const kDYNBackgroundViewKey = "_DYNBackgroundViewKey";
 static const void *const kDYNCurrentPopoverStyleKey = "_DYNCurrentPopoverStyle";
 static const void *const kDYNPresentPopoverSwizzledKey = "_DYNPresentPopoverSwizzledKey";
-
 static NSString *const kDYNThemeChangedNotification = @"_DYNThemeChangedNotification";
 
 

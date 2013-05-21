@@ -11,6 +11,17 @@
 #import "DynUI.h"
 @implementation DYNColor
 
+- (id)copyWithZone:(NSZone *)zone
+{
+    id theCopy = [[[self class] allocWithZone:zone] init];  // use designated initializer
+    
+    [theCopy setVariableName:[self.variableName copy]];
+    [theCopy setColor:[self.color copy]];
+    [theCopy setDefinedAtRuntime:self.definedAtRuntime];
+    
+    return theCopy;
+}
+
 - (id)initWithDictionary:(NSDictionary *)dictionary {
     self = [super init];
     if (self) {

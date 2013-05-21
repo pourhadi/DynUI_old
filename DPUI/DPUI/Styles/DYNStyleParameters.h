@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-@interface DYNStyleParameters : NSObject
+@interface DYNStyleParameters : NSObject <NSCopying>
 
 @property (nonatomic, strong) NSMutableDictionary *parameters;
 

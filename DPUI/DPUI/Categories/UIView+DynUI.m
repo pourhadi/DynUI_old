@@ -11,6 +11,7 @@
 #import <objc/runtime.h>
 #import "DYNDefines.h"
 #import "DynUI.h"
+#import "DYNPassThroughView.h"
 @implementation UIView (DynUI)
 
 - (void)setDyn_style:(NSString *)viewStyle {
@@ -20,6 +21,7 @@
         if (![[self class] dyn_didMoveToSuperviewSwizzled]) {
             [[self class] dyn_swizzleDidMoveToSuperview];
         }
+        
         objc_setAssociatedObject(self, (kDPViewStyleKey), viewStyle, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
         self.dyn_viewStyleApplied = YES;
         [self dyn_refreshStyle];
@@ -90,15 +92,53 @@
     }
 }
 
-- (UIView*)dyn_backgroundView
++ (void)swizzleDidAddSubview
 {
-    return objc_getAssociatedObject(self, kDYNBackgroundViewKey);
+    [self jr_swizzleMethod:@selector(didAddSubview:) withMethod:@selector(dyn_didAddSubview:) error:nil];
+    NSNumber *swizzled = [self swizzledDidAddSubview];
+    BOOL new = !swizzled.boolValue;
+    [self set_swizzledDidAddSubview:@(new)];
 }
+
+- (void)dyn_didAddSubview:(UIView*)subview
+{
+    [self dyn_didAddSubview:subview];
+    
+    if (self.dyn_viewStyleApplied && self.dyn_overlayView && [self.dyn_overlayView isDescendantOfView:self]) {
+        [self bringSubviewToFront:self.dyn_overlayView];
+    }
+}
+
+GET_AND_SET_CLASS_OBJ(swizzledDidAddSubview, @(NO));
 
 - (void)setDyn_backgroundView:(UIView *)dyn_backgroundView
 {
-    objc_setAssociatedObject(self, kDYNBackgroundViewKey, dyn_backgroundView, OBJC_ASSOCIATION_ASSIGN);
+    [self set_dyn_backgroundView:dyn_backgroundView];
 }
+
+- (void)setDyn_overlayView:(DYNPassThroughView *)dyn_overlayView
+{
+    [self addSubview:dyn_overlayView];
+    
+    if (self.constraints) {
+        NSDictionary *vars = NSDictionaryOfVariableBindings(dyn_overlayView);
+        NSArray *constraints = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[dyn_overlayView]-0-|" options:0 metrics:nil views:vars];
+        constraints = [constraints arrayByAddingObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[dyn_overlayView]-0-|" options:0 metrics:nil views:vars]];
+        [self addConstraints:constraints];
+    } else {
+        dyn_overlayView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    }
+    
+    if (dyn_overlayView) {
+        if (![[self class] swizzledDidAddSubview]) {
+            [[self class] swizzleDidAddSubview];
+        }
+    }
+    [self set_dyn_overlayView:dyn_overlayView];
+}
+
+GET_AND_SET_ASSOCIATED_OBJ(dyn_backgroundView, nil);
+GET_AND_SET_ASSOCIATED_OBJ(dyn_overlayView, nil);
 
 #pragma mark - Parameters
 

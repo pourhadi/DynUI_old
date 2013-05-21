@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface DYNStyle : NSObject
+@interface DYNStyle : NSObject <NSCopying>
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSArray *parameters;
 

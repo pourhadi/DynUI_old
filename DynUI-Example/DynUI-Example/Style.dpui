@@ -641,7 +641,7 @@
         "xOffset" : 0,
         "color" : "1 1 1 1",
         "yOffset" : -2,
-        "opacity" : 0.2,
+        "opacity" : 0.2000000029802322,
         "radius" : 1
       },
       "background" : {
@@ -755,7 +755,7 @@
         "xOffset" : 0,
         "color" : "1 1 1 1",
         "yOffset" : -2,
-        "opacity" : 0.2,
+        "opacity" : 0.2000000029802322,
         "radius" : 1
       },
       "background" : {
@@ -860,7 +860,7 @@
         "xOffset" : 0,
         "color" : "1 1 1 1",
         "yOffset" : -2,
-        "opacity" : 0.2,
+        "opacity" : 0.2000000029802322,
         "radius" : 1
       },
       "background" : {
@@ -965,7 +965,7 @@
         "xOffset" : 0,
         "color" : "1 1 1 1",
         "yOffset" : -2,
-        "opacity" : 0.2,
+        "opacity" : 0.2000000029802322,
         "radius" : 1
       },
       "background" : {
@@ -1034,6 +1034,80 @@
       "rightInnerBorders" : [
         {
           "height" : 1,
+          "color" : {
+            "definedAtRuntime" : false,
+            "colorString" : "0 0 0 1",
+            "colorVar" : "",
+            "colorName" : ""
+          },
+          "blendMode" : 0
+        }
+      ]
+    },
+    {
+      "name" : "RoundContainer",
+      "canvasBackgroundType" : "Transparent",
+      "roundedCorners" : 15,
+      "strokeWidth" : 5,
+      "shadow" : {
+        "xOffset" : 0,
+        "color" : "0 0 0 1",
+        "yOffset" : -1,
+        "opacity" : 0,
+        "radius" : 0
+      },
+      "maskToCorners" : true,
+      "strokeColor" : {
+        "definedAtRuntime" : false,
+        "colorString" : "0.593415 0.593415 0.593415 1",
+        "colorVar" : "NavBarTop",
+        "colorName" : ""
+      },
+      "topInnerBorders" : [
+
+      ],
+      "innerShadow" : {
+        "xOffset" : 0,
+        "color" : "0 0 0 1",
+        "yOffset" : -10,
+        "opacity" : 0.5000000000000001,
+        "radius" : 8
+      },
+      "background" : {
+        "gradientAngle" : 180,
+        "colors" : [
+          {
+            "definedAtRuntime" : false,
+            "colorString" : "0.918083 0.918083 0.918083 1",
+            "colorVar" : "",
+            "colorName" : ""
+          }
+        ]
+      },
+      "leftInnerBorders" : [
+        {
+          "height" : 10,
+          "color" : {
+            "definedAtRuntime" : false,
+            "colorString" : "0 0 0 1",
+            "colorVar" : "",
+            "colorName" : ""
+          },
+          "blendMode" : 0
+        }
+      ],
+      "controlStyle" : {
+
+      },
+      "drawAsynchronously" : false,
+      "bottomInnerBorders" : [
+
+      ],
+      "canvasBackgroundColor" : "0 0 0 0",
+      "cornerRadius" : 18,
+      "rightInnerBorders" : [
+        {
+          "height" : 10,
           "color" : {
             "definedAtRuntime" : false,
             "colorString" : "0 0 0 1",

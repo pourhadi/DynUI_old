@@ -50,6 +50,9 @@
 		D71B087C174562D6003440E4 /* UITableView+DynUI.m in Sources */ = {isa = PBXBuildFile; fileRef = D71B087B174562D5003440E4 /* UITableView+DynUI.m */; };
 		D71B087F17456BC6003440E4 /* DYNTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D71B087E17456BC5003440E4 /* DYNTableViewController.m */; };
 		D77C73101741871D00F2E0BF /* UITextField+DynUI.m in Sources */ = {isa = PBXBuildFile; fileRef = D77C730F1741871D00F2E0BF /* UITextField+DynUI.m */; };
+		D7C245CD174BE6DD009C3CC2 /* DYNPassThroughView.m in Sources */ = {isa = PBXBuildFile; fileRef = D7C245CC174BE6DD009C3CC2 /* DYNPassThroughView.m */; };
+		D7C245D4174BEB67009C3CC2 /* DYNContainerTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7C245D2174BEB67009C3CC2 /* DYNContainerTestViewController.m */; };
+		D7C245D5174BEB67009C3CC2 /* DYNContainerTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7C245D3174BEB67009C3CC2 /* DYNContainerTestViewController.xib */; };
 		D7F8AABD173DAF67004ABF7E /* DYNStyleParameters.m in Sources */ = {isa = PBXBuildFile; fileRef = D7F8AABC173DAF67004ABF7E /* DYNStyleParameters.m */; };
 /* End PBXBuildFile section */
 
@@ -118,8 +121,8 @@
 		D71B085D174542E4003440E4 /* UIPopoverController+DynUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIPopoverController+DynUI.m"; sourceTree = "<group>"; };
 		D71B085F174542FA003440E4 /* DYNPopoverStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYNPopoverStyle.h; sourceTree = "<group>"; };
 		D71B0860174542FA003440E4 /* DYNPopoverStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYNPopoverStyle.m; sourceTree = "<group>"; };
-		D71B08621745438F003440E4 /* DYNGradient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYNGradient.h; sourceTree = "<group>"; };
-		D71B08631745438F003440E4 /* DYNGradient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYNGradient.m; sourceTree = "<group>"; };
+		D71B08621745438F003440E4 /* DYNGradient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DYNGradient.h; path = ../../DPUI/DPUI/Tools/DYNGradient.h; sourceTree = "<group>"; };
+		D71B08631745438F003440E4 /* DYNGradient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DYNGradient.m; path = ../../DPUI/DPUI/Tools/DYNGradient.m; sourceTree = "<group>"; };
 		D71B087217455957003440E4 /* DYNTooltipViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYNTooltipViewController.h; sourceTree = "<group>"; };
 		D71B087317455958003440E4 /* DYNTooltipViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYNTooltipViewController.m; sourceTree = "<group>"; };
 		D71B087417455958003440E4 /* DYNTooltipViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DYNTooltipViewController.xib; sourceTree = "<group>"; };
@@ -130,6 +133,11 @@
 		D71B087E17456BC5003440E4 /* DYNTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYNTableViewController.m; sourceTree = "<group>"; };
 		D77C730E1741871D00F2E0BF /* UITextField+DynUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+DynUI.h"; sourceTree = "<group>"; };
 		D77C730F1741871D00F2E0BF /* UITextField+DynUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+DynUI.m"; sourceTree = "<group>"; };
+		D7C245CB174BE6DD009C3CC2 /* DYNPassThroughView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DYNPassThroughView.h; path = ../../DPUI/DPUI/Tools/DYNPassThroughView.h; sourceTree = "<group>"; };
+		D7C245CC174BE6DD009C3CC2 /* DYNPassThroughView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DYNPassThroughView.m; path = ../../DPUI/DPUI/Tools/DYNPassThroughView.m; sourceTree = "<group>"; };
+		D7C245D1174BEB66009C3CC2 /* DYNContainerTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYNContainerTestViewController.h; sourceTree = "<group>"; };
+		D7C245D2174BEB67009C3CC2 /* DYNContainerTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYNContainerTestViewController.m; sourceTree = "<group>"; };
+		D7C245D3174BEB67009C3CC2 /* DYNContainerTestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DYNContainerTestViewController.xib; sourceTree = "<group>"; };
 		D7F8AABB173DAF67004ABF7E /* DYNStyleParameters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYNStyleParameters.h; sourceTree = "<group>"; };
 		D7F8AABC173DAF67004ABF7E /* DYNStyleParameters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYNStyleParameters.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -195,6 +203,9 @@
 				D71B087417455958003440E4 /* DYNTooltipViewController.xib */,
 				D71B087D17456BC4003440E4 /* DYNTableViewController.h */,
 				D71B087E17456BC5003440E4 /* DYNTableViewController.m */,
+				D7C245D1174BEB66009C3CC2 /* DYNContainerTestViewController.h */,
+				D7C245D2174BEB67009C3CC2 /* DYNContainerTestViewController.m */,
+				D7C245D3174BEB67009C3CC2 /* DYNContainerTestViewController.xib */,
 				4477CFDD17460D090002033A /* star.png */,
 				4477CFDE17460D090002033A /* star@2x.png */,
 				44FADCCD173CE99700EB6BF4 /* Supporting Files */,
@@ -219,6 +230,7 @@
 		44FADD26173CEA9E00EB6BF4 /* DynUI */ = {
 			isa = PBXGroup;
 			children = (
+				D7C245CA174BE66C009C3CC2 /* Tools */,
 				44FADD61173CEC1000EB6BF4 /* Style.dpui */,
 				44FADD27173CEAAF00EB6BF4 /* Categories */,
 				44FADD33173CEAAF00EB6BF4 /* DynUI.h */,
@@ -294,11 +306,20 @@
 				44FADD4E173CEAAF00EB6BF4 /* DYNViewStyle.m */,
 				D71B085F174542FA003440E4 /* DYNPopoverStyle.h */,
 				D71B0860174542FA003440E4 /* DYNPopoverStyle.m */,
-				D71B08621745438F003440E4 /* DYNGradient.h */,
-				D71B08631745438F003440E4 /* DYNGradient.m */,
 			);
 			name = Styles;
 			path = ../../DPUI/DPUI/Styles;
+			sourceTree = "<group>";
+		};
+		D7C245CA174BE66C009C3CC2 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				D71B08621745438F003440E4 /* DYNGradient.h */,
+				D71B08631745438F003440E4 /* DYNGradient.m */,
+				D7C245CB174BE6DD009C3CC2 /* DYNPassThroughView.h */,
+				D7C245CC174BE6DD009C3CC2 /* DYNPassThroughView.m */,
+			);
+			name = Tools;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -363,6 +384,7 @@
 				D71B087917455B41003440E4 /* DYNViewController_iPad.xib in Resources */,
 				4477CFDF17460D090002033A /* star.png in Resources */,
 				4477CFE017460D090002033A /* star@2x.png in Resources */,
+				D7C245D5174BEB67009C3CC2 /* DYNContainerTestViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -402,6 +424,8 @@
 				D71B087517455958003440E4 /* DYNTooltipViewController.m in Sources */,
 				D71B087C174562D6003440E4 /* UITableView+DynUI.m in Sources */,
 				D71B087F17456BC6003440E4 /* DYNTableViewController.m in Sources */,
+				D7C245CD174BE6DD009C3CC2 /* DYNPassThroughView.m in Sources */,
+				D7C245D4174BEB67009C3CC2 /* DYNContainerTestViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

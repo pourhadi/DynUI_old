@@ -210,6 +210,14 @@ To use this, the grouped UITableView's delegate must call -dyn_styleGroupedCell:
  */
 - (CALayer*)layerMaskForStyleWithSize:(CGSize)size;
 
+/** Returns an image with only the stroke, and top, bottom, left, and right borders drawn
+ 
+ @param size The size of the image to return.
+ @param parameters The style parameters to apply when rendering this style. May be nil.
+
+ */
+- (UIImage*)borderImageForSize:(CGSize)size parameters:(DYNStyleParameters*)parameters;
+
 
 ///---------------------------------------------------------------------------------------
 /// @name Deriving paths for the style

@@ -14,7 +14,7 @@ typedef NS_ENUM(NSUInteger, DYNFontSizeType){
 	DYNFontSizeTypeRelative,
 };
 
-@interface DYNTextStyle : DYNStyle
+@interface DYNTextStyle : DYNStyle <NSCopying>
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 

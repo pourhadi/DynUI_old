@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface DYNColor : NSObject
+@interface DYNColor : NSObject <NSCopying>
 
 @property (nonatomic, strong) NSString *variableName;
 @property (nonatomic, strong) UIColor *color;
