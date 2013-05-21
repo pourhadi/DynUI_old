@@ -43,9 +43,9 @@
 - (void)unregisterView:(id)view;
 
 - (void)sendUpdateNotification;
-/*!
- @method -loadStylesFromFile:replaceExisting:liveUpdate:
- @abstract Loads a .DYN style file
+
+/** Load a .dpui style file created with the DynUI Editor.
+ 
  @param fileName The name, with extension, of the style file. (i.e., "Style.dpui"). When live-updating, this string must be the absolute path to the file (i.e., /Users/dpourhad/Projects/App/Style.dpui)
  @param replaceExisting Replace the existing styles or append to them. Adding duplicate styles results in undefine behavior
  @param liveUpdate When liveUpdate is YES, changes saved to the style file specified in fileName are instantly reflected in the simulator when the app is running (no need to re-compile).

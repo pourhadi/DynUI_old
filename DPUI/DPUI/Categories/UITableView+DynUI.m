@@ -40,4 +40,9 @@
     
 }
 
+- (void)dyn_styleGroupedCell:(UITableViewCell *)cell forIndexPath:(NSIndexPath *)indexPath
+{
+	[self dyn_styleGroupedCell:cell forIndexPath:indexPath withStyle:self.dyn_style];
+}
+
 @end
