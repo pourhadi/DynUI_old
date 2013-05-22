@@ -38,12 +38,9 @@ return obj; \
 
 #define GET_AND_SET_CLASS_OBJ(NAME, DEFAULTVAL) GET_CLASS_OBJ(NAME, DEFAULTVAL) SET_CLASS_OBJ(NAME)
 
-
 NS_INLINE float oppositeSign(float x) {
     return (x > 0 ? -x : fabs(x));
 }
-
-
 
 static const void *const kDPViewStyleKey = "_DPViewStyle";
 static const void *const kDPTextStyleKey = "_DPTextStyle";

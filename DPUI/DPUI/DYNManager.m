@@ -107,6 +107,31 @@
     return nil;
 }
 
+- (void)addSliderStyle:(DYNSliderStyle*)sliderStyle
+{
+	[self.sliderStyles addObject:sliderStyle];
+}
+
+- (void)addViewStyle:(DYNViewStyle*)viewStyle
+{
+	[self.styles addObject:viewStyle];
+}
+
+- (void)addColorVariable:(DYNColor*)colorVariable
+{
+	[self.colorVariables addObject:colorVariable];
+}
+
+- (void)addTextStyle:(DYNTextStyle*)textStyle
+{
+	[self.textStyles addObject:textStyle];
+}
+
+- (void)addImageStyle:(DYNImageStyle*)imageStyle
+{
+	[self.imageStyles addObject:imageStyle];
+}
+
 - (void)registerView:(id)view {
     if (!self.registeredViews) {
         self.registeredViews = [NSArray array];

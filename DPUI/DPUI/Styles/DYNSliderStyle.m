@@ -11,6 +11,11 @@
 #import "DYNDefines.h"
 @implementation DYNSliderStyle
 
++ (DYNSliderStyle*)sliderStyleForName:(NSString*)styleName
+{
+	return [[DYNManager sharedInstance] sliderStyleForName:styleName];
+}
+
 - (id)initWithDictionary:(NSDictionary*)dictionary
 {
 	self = [super init];

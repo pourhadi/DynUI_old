@@ -39,6 +39,12 @@
 - (DYNTextStyle *)textStyleForName:(NSString *)name;
 - (DYNImageStyle*)imageStyleForName:(NSString*)styleName;
 
+- (void)addSliderStyle:(DYNSliderStyle*)sliderStyle;
+- (void)addViewStyle:(DYNViewStyle*)viewStyle;
+- (void)addColorVariable:(DYNColor*)colorVariable;
+- (void)addTextStyle:(DYNTextStyle*)textStyle;
+- (void)addImageStyle:(DYNImageStyle*)imageStyle;
+
 - (void)registerView:(id)view;
 - (void)unregisterView:(id)view;
 

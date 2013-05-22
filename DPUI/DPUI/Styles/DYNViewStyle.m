@@ -21,6 +21,11 @@
     return self;
 }
 
++ (DYNViewStyle*)styleForName:(NSString*)styleName
+{
+	return [[DYNManager sharedInstance] styleForName:styleName];
+}
+
 - (id)initWithDictionary:(NSDictionary *)dictionary {
     self = [super init];
     if (self) {

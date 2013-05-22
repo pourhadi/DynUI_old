@@ -25,6 +25,8 @@ typedef NS_OPTIONS(NSUInteger, CornerRadiusType) {
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 
++ (DYNViewStyle*)styleForName:(NSString*)styleName;
+
 ///---------------------------------------------------------------------------------------
 /// @name General Style Properties
 ///---------------------------------------------------------------------------------------

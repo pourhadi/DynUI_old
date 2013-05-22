@@ -12,6 +12,10 @@
 #import "DynUI.h"
 @implementation DYNTextStyle
 
++ (DYNTextStyle*)textStyleForName:(NSString*)styleName
+{
+	return [[DYNManager sharedInstance] textStyleForName:styleName];
+}
 
 - (id)copyWithZone:(NSZone *)zone
 {
