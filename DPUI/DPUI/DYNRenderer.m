@@ -545,9 +545,8 @@
     [path addQuadCurveToPoint:CGPointMake(11.5, height) controlPoint:CGPointMake(((10.5 / 2) + 3), height - 2)];
     [path closePath];
     
-    
-    UIImage *img = [buttonStyle imageForStyleWithSize:CGSizeMake(CGRectGetWidth(path.bounds) + (CGRectGetWidth(path.bounds) * 0.25), CGRectGetHeight(path.bounds)) path:path withOuterShadow:YES parameters:parameters].dyn_resizableImage;
-    
+    UIImage *img = [buttonStyle imageForStyleWithSize:CGSizeMake(CGRectGetWidth(path.bounds) + (CGRectGetWidth(path.bounds) * 0.25), CGRectGetHeight(path.bounds)) path:path withOuterShadow:YES flippedGradient:flipGrad parameters:parameters].dyn_resizableImage;
+
     if (halfAlpha) {
         img = [img imageWithOpacity:0.5];
     }

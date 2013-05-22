@@ -549,25 +549,25 @@
       },
       "tableCellTitleTextStyle" : {
         "fontSize" : 12,
-        "shadowXOffset" : 0,
+        "textColor" : {
+          "colorVar" : "ButtonTextColor",
+          "colorString" : "1 1 1 1",
+          "colorName" : "",
+          "definedAtRuntime" : false
+        },
         "fontSizeType" : 0,
         "shadowColor" : {
-          "colorName" : "",
+          "colorVar" : "",
           "colorString" : "0 0 0 1",
-          "definedAtRuntime" : false,
-          "colorVar" : ""
+          "colorName" : "",
+          "definedAtRuntime" : false
         },
         "fontName" : "Helvetica-Bold",
         "styleName" : "ButtonText",
         "shadowYOffset" : 1,
         "alignment" : 0,
         "fontSizeString" : "12",
-        "textColor" : {
-          "colorName" : "",
-          "colorString" : "1 1 1 1",
-          "definedAtRuntime" : false,
-          "colorVar" : "ButtonTextColor"
-        }
+        "shadowXOffset" : 0
       },
       "innerShadow" : {
         "xOffset" : 0,
@@ -674,25 +674,25 @@
       "drawAsynchronously" : false,
       "tableCellTitleTextStyle" : {
         "fontSize" : 12,
-        "shadowXOffset" : 0,
+        "textColor" : {
+          "colorVar" : "ButtonTextColor",
+          "colorString" : "1 1 1 1",
+          "colorName" : "",
+          "definedAtRuntime" : false
+        },
         "fontSizeType" : 0,
         "shadowColor" : {
-          "colorName" : "",
+          "colorVar" : "",
           "colorString" : "0 0 0 1",
-          "definedAtRuntime" : false,
-          "colorVar" : ""
+          "colorName" : "",
+          "definedAtRuntime" : false
         },
         "fontName" : "Helvetica-Bold",
         "styleName" : "ButtonText",
         "shadowYOffset" : 1,
         "alignment" : 0,
         "fontSizeString" : "12",
-        "textColor" : {
-          "colorName" : "",
-          "colorString" : "1 1 1 1",
-          "definedAtRuntime" : false,
-          "colorVar" : "ButtonTextColor"
-        }
+        "shadowXOffset" : 0
       },
       "bottomInnerBorders" : [
         {
@@ -788,25 +788,25 @@
       "drawAsynchronously" : false,
       "tableCellTitleTextStyle" : {
         "fontSize" : 12,
-        "shadowXOffset" : 0,
+        "textColor" : {
+          "colorVar" : "ButtonTextColor",
+          "colorString" : "1 1 1 1",
+          "colorName" : "",
+          "definedAtRuntime" : false
+        },
         "fontSizeType" : 0,
         "shadowColor" : {
-          "colorName" : "",
+          "colorVar" : "",
           "colorString" : "0 0 0 1",
-          "definedAtRuntime" : false,
-          "colorVar" : ""
+          "colorName" : "",
+          "definedAtRuntime" : false
         },
         "fontName" : "Helvetica-Bold",
         "styleName" : "ButtonText",
         "shadowYOffset" : 1,
         "alignment" : 0,
         "fontSizeString" : "12",
-        "textColor" : {
-          "colorName" : "",
-          "colorString" : "1 1 1 1",
-          "definedAtRuntime" : false,
-          "colorVar" : "ButtonTextColor"
-        }
+        "shadowXOffset" : 0
       },
       "bottomInnerBorders" : [
 
@@ -893,25 +893,25 @@
       "drawAsynchronously" : false,
       "tableCellTitleTextStyle" : {
         "fontSize" : 12,
-        "shadowXOffset" : 0,
+        "textColor" : {
+          "colorVar" : "ButtonTextColor",
+          "colorString" : "1 1 1 1",
+          "colorName" : "",
+          "definedAtRuntime" : false
+        },
         "fontSizeType" : 0,
         "shadowColor" : {
-          "colorName" : "",
+          "colorVar" : "",
           "colorString" : "0 0 0 1",
-          "definedAtRuntime" : false,
-          "colorVar" : ""
+          "colorName" : "",
+          "definedAtRuntime" : false
         },
         "fontName" : "Helvetica-Bold",
         "styleName" : "ButtonText",
         "shadowYOffset" : 1,
         "alignment" : 0,
         "fontSizeString" : "12",
-        "textColor" : {
-          "colorName" : "",
-          "colorString" : "1 1 1 1",
-          "definedAtRuntime" : false,
-          "colorVar" : "ButtonTextColor"
-        }
+        "shadowXOffset" : 0
       },
       "bottomInnerBorders" : [
 
@@ -998,25 +998,25 @@
       "drawAsynchronously" : false,
       "tableCellTitleTextStyle" : {
         "fontSize" : 12,
-        "shadowXOffset" : 0,
+        "textColor" : {
+          "colorVar" : "ButtonTextColor",
+          "colorString" : "1 1 1 1",
+          "colorName" : "",
+          "definedAtRuntime" : false
+        },
         "fontSizeType" : 0,
         "shadowColor" : {
-          "colorName" : "",
+          "colorVar" : "",
           "colorString" : "0 0 0 1",
-          "definedAtRuntime" : false,
-          "colorVar" : ""
+          "colorName" : "",
+          "definedAtRuntime" : false
         },
         "fontName" : "Helvetica-Bold",
         "styleName" : "ButtonText",
         "shadowYOffset" : 1,
         "alignment" : 0,
         "fontSizeString" : "12",
-        "textColor" : {
-          "colorName" : "",
-          "colorString" : "1 1 1 1",
-          "definedAtRuntime" : false,
-          "colorVar" : "ButtonTextColor"
-        }
+        "shadowXOffset" : 0
       },
       "bottomInnerBorders" : [
         {
@@ -1274,8 +1274,8 @@
       "shadowXOffset" : 0
     },
     {
-      "fontSize" : 9,
-      "fontSizeString" : "9",
+      "fontSize" : 18,
+      "fontSizeString" : "18",
       "fontSizeType" : 0,
       "shadowColor" : {
         "definedAtRuntime" : false,

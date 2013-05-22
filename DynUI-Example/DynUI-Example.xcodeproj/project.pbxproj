@@ -50,6 +50,8 @@
 		D71B087C174562D6003440E4 /* UITableView+DynUI.m in Sources */ = {isa = PBXBuildFile; fileRef = D71B087B174562D5003440E4 /* UITableView+DynUI.m */; };
 		D71B087F17456BC6003440E4 /* DYNTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D71B087E17456BC5003440E4 /* DYNTableViewController.m */; };
 		D77C73101741871D00F2E0BF /* UITextField+DynUI.m in Sources */ = {isa = PBXBuildFile; fileRef = D77C730F1741871D00F2E0BF /* UITextField+DynUI.m */; };
+		D791426A174D502B008FCC58 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D7914267174D502B008FCC58 /* SVProgressHUD.bundle */; };
+		D791426B174D502B008FCC58 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = D7914269174D502B008FCC58 /* SVProgressHUD.m */; };
 		D7C245CD174BE6DD009C3CC2 /* DYNPassThroughView.m in Sources */ = {isa = PBXBuildFile; fileRef = D7C245CC174BE6DD009C3CC2 /* DYNPassThroughView.m */; };
 		D7C245D4174BEB67009C3CC2 /* DYNContainerTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7C245D2174BEB67009C3CC2 /* DYNContainerTestViewController.m */; };
 		D7C245D5174BEB67009C3CC2 /* DYNContainerTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7C245D3174BEB67009C3CC2 /* DYNContainerTestViewController.xib */; };
@@ -133,6 +135,9 @@
 		D71B087E17456BC5003440E4 /* DYNTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYNTableViewController.m; sourceTree = "<group>"; };
 		D77C730E1741871D00F2E0BF /* UITextField+DynUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+DynUI.h"; sourceTree = "<group>"; };
 		D77C730F1741871D00F2E0BF /* UITextField+DynUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+DynUI.m"; sourceTree = "<group>"; };
+		D7914267174D502B008FCC58 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
+		D7914268174D502B008FCC58 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
+		D7914269174D502B008FCC58 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
 		D7C245CB174BE6DD009C3CC2 /* DYNPassThroughView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DYNPassThroughView.h; path = ../../DPUI/DPUI/Tools/DYNPassThroughView.h; sourceTree = "<group>"; };
 		D7C245CC174BE6DD009C3CC2 /* DYNPassThroughView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DYNPassThroughView.m; path = ../../DPUI/DPUI/Tools/DYNPassThroughView.m; sourceTree = "<group>"; };
 		D7C245D1174BEB66009C3CC2 /* DYNContainerTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYNContainerTestViewController.h; sourceTree = "<group>"; };
@@ -272,6 +277,9 @@
 		44FADD39173CEAAF00EB6BF4 /* External */ = {
 			isa = PBXGroup;
 			children = (
+				D7914267174D502B008FCC58 /* SVProgressHUD.bundle */,
+				D7914268174D502B008FCC58 /* SVProgressHUD.h */,
+				D7914269174D502B008FCC58 /* SVProgressHUD.m */,
 				44FADD3A173CEAAF00EB6BF4 /* JRSwizzle.h */,
 				44FADD3B173CEAAF00EB6BF4 /* JRSwizzle.m */,
 			);
@@ -385,6 +393,7 @@
 				4477CFDF17460D090002033A /* star.png in Resources */,
 				4477CFE017460D090002033A /* star@2x.png in Resources */,
 				D7C245D5174BEB67009C3CC2 /* DYNContainerTestViewController.xib in Resources */,
+				D791426A174D502B008FCC58 /* SVProgressHUD.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -426,6 +435,7 @@
 				D71B087F17456BC6003440E4 /* DYNTableViewController.m in Sources */,
 				D7C245CD174BE6DD009C3CC2 /* DYNPassThroughView.m in Sources */,
 				D7C245D4174BEB67009C3CC2 /* DYNContainerTestViewController.m in Sources */,
+				D791426B174D502B008FCC58 /* SVProgressHUD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

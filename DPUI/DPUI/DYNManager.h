@@ -58,4 +58,6 @@
  @param liveUpdate When liveUpdate is YES, changes saved to the style file specified in fileName are instantly reflected in the simulator when the app is running (no need to re-compile).
  */
 - (void)loadStylesFromFile:(NSString *)fileName replaceExisting:(BOOL)replaceExisting liveUpdate:(BOOL)liveUpdate;
+
+- (void)loadStylesFromFileAbsolutePath:(NSString*)absolute resourcePath:(NSString*)resourcePath replaceExisting:(BOOL)replaceExisting liveUpdateIfPossible:(BOOL)liveUpdate;
 @end
