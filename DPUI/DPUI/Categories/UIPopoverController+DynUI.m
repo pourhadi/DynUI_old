@@ -28,25 +28,21 @@
     return objc_getAssociatedObject(self, (kDPViewStyleKey));
 }
 
-+ (BOOL)dyn_presentPopoverSwizzled
-{
++ (BOOL)dyn_presentPopoverSwizzled {
     NSNumber *num = objc_getAssociatedObject(self, kDYNPresentPopoverSwizzledKey);
     return num.boolValue;
 }
 
-+ (void)dyn_swizzlePresentPopover
-{
++ (void)dyn_swizzlePresentPopover {
     if (![self dyn_presentPopoverSwizzled]) {
-        
         [self jr_swizzleMethod:@selector(presentPopoverFromRect:inView:permittedArrowDirections:animated:) withMethod:@selector(dyn_presentPopoverFromRect:inView:permittedArrowDirections:animated:) error:nil];
         [self jr_swizzleMethod:@selector(presentPopoverFromBarButtonItem:permittedArrowDirections:animated:) withMethod:@selector(dyn_presentPopoverFromBarButtonItem:permittedArrowDirections:animated:) error:nil];
-		
-		objc_setAssociatedObject(self, kDYNPresentPopoverSwizzledKey, @(YES), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+        
+        objc_setAssociatedObject(self, kDYNPresentPopoverSwizzledKey, @(YES), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     }
 }
 
-- (void)dyn_presentPopoverFromBarButtonItem:(UIBarButtonItem *)item permittedArrowDirections:(UIPopoverArrowDirection)arrowDirections animated:(BOOL)animated
-{
+- (void)dyn_presentPopoverFromBarButtonItem:(UIBarButtonItem *)item permittedArrowDirections:(UIPopoverArrowDirection)arrowDirections animated:(BOOL)animated {
     if (self.dyn_style) {
         DYNViewStyle *style = [[DYNManager sharedInstance] styleForName:self.dyn_style];
         [DYNPopoverStyle setCurrentStyle:style];
@@ -56,8 +52,7 @@
     [self dyn_presentPopoverFromBarButtonItem:item permittedArrowDirections:arrowDirections animated:animated];
 }
 
-- (void)dyn_presentPopoverFromRect:(CGRect)rect inView:(UIView *)view permittedArrowDirections:(UIPopoverArrowDirection)arrowDirections animated:(BOOL)animated
-{
+- (void)dyn_presentPopoverFromRect:(CGRect)rect inView:(UIView *)view permittedArrowDirections:(UIPopoverArrowDirection)arrowDirections animated:(BOOL)animated {
     if (self.dyn_style) {
         DYNViewStyle *style = [[DYNManager sharedInstance] styleForName:self.dyn_style];
         [DYNPopoverStyle setCurrentStyle:style];
@@ -65,4 +60,5 @@
     }
     [self dyn_presentPopoverFromRect:rect inView:view permittedArrowDirections:arrowDirections animated:animated];
 }
+
 @end

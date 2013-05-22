@@ -10,9 +10,9 @@
 @class DYNStyleParameters;
 @interface DYNGradient : NSObject
 
-- (id)initWithColors:(NSArray*)colors;
+- (id)initWithColors:(NSArray *)colors;
 
-- (void)drawInPath:(UIBezierPath*)path angle:(CGFloat)angle parameters:(DYNStyleParameters*)parameters;
-- (void)drawInPath:(UIBezierPath*)path flipped:(BOOL)flipped angle:(CGFloat)angle parameters:(DYNStyleParameters*)parameters;
-- (void)drawInFrame:(CGRect)frame clippedToPath:(UIBezierPath*)path angle:(CGFloat)angle flippedGradient:(BOOL)flipped parameters:(DYNStyleParameters*)parameters;
+- (void)drawInPath:(UIBezierPath *)path angle:(CGFloat)angle parameters:(DYNStyleParameters *)parameters;
+- (void)drawInPath:(UIBezierPath *)path flipped:(BOOL)flipped angle:(CGFloat)angle parameters:(DYNStyleParameters *)parameters;
+- (void)drawInFrame:(CGRect)frame clippedToPath:(UIBezierPath *)path angle:(CGFloat)angle flippedGradient:(BOOL)flipped parameters:(DYNStyleParameters *)parameters;
 @end

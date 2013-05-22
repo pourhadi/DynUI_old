@@ -10,7 +10,7 @@
 @class DYNTextStyle;
 @interface NSString (DynUI)
 - (void)dyn_drawAtPoint:(CGPoint)point forWidth:(CGFloat)width lineBreakMode:(NSLineBreakMode)lineBreakMode withStyleNamed:(NSString *)DYNTextStyle;
-- (void)dyn_drawInRect:(CGRect)rect lineBreakMode:(NSLineBreakMode)lineBreakMode withStyleNamed:(NSString*)textStyle;
+- (void)dyn_drawInRect:(CGRect)rect lineBreakMode:(NSLineBreakMode)lineBreakMode withStyleNamed:(NSString *)textStyle;
 
-- (void)dyn_drawInRect:(CGRect)rect lineBreakMode:(NSLineBreakMode)lineBreakMode withStyle:(DYNTextStyle*)style;
+- (void)dyn_drawInRect:(CGRect)rect lineBreakMode:(NSLineBreakMode)lineBreakMode withStyle:(DYNTextStyle *)style;
 @end

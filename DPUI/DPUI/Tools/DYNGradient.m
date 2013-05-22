@@ -18,8 +18,7 @@
 
 @implementation DYNGradient
 
-- (id)initWithColors:(NSArray *)colors
-{
+- (id)initWithColors:(NSArray *)colors {
     self = [super init];
     if (self) {
         self.colors = colors;
@@ -28,29 +27,27 @@
     return self;
 }
 
-- (void)drawInPath:(UIBezierPath *)path angle:(CGFloat)angle parameters:(DYNStyleParameters*)parameters
-{
+- (void)drawInPath:(UIBezierPath *)path angle:(CGFloat)angle parameters:(DYNStyleParameters *)parameters {
     [self drawInPath:path flipped:NO angle:angle parameters:parameters];
 }
 
-- (void)drawInFrame:(CGRect)frame clippedToPath:(UIBezierPath*)path angle:(CGFloat)angle flippedGradient:(BOOL)flipped parameters:(DYNStyleParameters*)parameters
-{
-	CGRect bounds = frame;
-	CGSize size = bounds.size;
-	CGContextRef context = UIGraphicsGetCurrentContext();
-	CGContextSaveGState(context);
-	[path addClip];
-	
-	if (self.colors.count > 1) {
-		//      NSArray *theColors = self.colors;
-		
-		CGPoint startPoint;
-		CGPoint endPoint;
-		
+- (void)drawInFrame:(CGRect)frame clippedToPath:(UIBezierPath *)path angle:(CGFloat)angle flippedGradient:(BOOL)flipped parameters:(DYNStyleParameters *)parameters {
+    CGRect bounds = frame;
+    CGSize size = bounds.size;
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSaveGState(context);
+    [path addClip];
+    
+    if (self.colors.count > 1) {
+        //      NSArray *theColors = self.colors;
+        
+        CGPoint startPoint;
+        CGPoint endPoint;
+        
         CGFloat degrees = angle - 90;
-		if (degrees < 0) {
-			degrees = 360 - fabs(degrees);
-		}
+        if (degrees < 0) {
+            degrees = 360 - fabs(degrees);
+        }
         
         startPoint = [self radialIntersectionWithDegrees:degrees forFrame:bounds];
         
@@ -58,76 +55,69 @@
         if (degrees >= 180) {
             endPoint.x = size.width - startPoint.x;
             endPoint.y = size.height - startPoint.y;
-            
         } else {
             endPoint = [self radialIntersectionWithDegrees:degrees forFrame:bounds];
             
             startPoint.x = size.width - endPoint.x;
             startPoint.y = size.height - endPoint.y;
-        }        
+        }
         
         startPoint.x /= size.width;
         startPoint.y /= size.height;
         endPoint.x /= size.width;
         endPoint.y /= size.height;
-
         
-		if (flipped) {
-
+        
+        if (flipped) {
             CGPoint tmpStart = endPoint;
             CGPoint tmpEnd = startPoint;
             
             startPoint = tmpStart;
             endPoint = tmpEnd;
+        }
+        
+        
+        
+        NSMutableArray *colors = [NSMutableArray new];
+        
+        for (DYNColor *color in self.colors) {
+            UIColor *theColor = color.color;
+            if (color.definedAtRuntime) {
+                UIColor *paramColor = [parameters valueForStyleParameter:color.variableName];
+                if (paramColor) {
+                    theColor = paramColor;
+                }
+            }
             
-		}
-		
-		
-		 
-		 NSMutableArray *colors = [NSMutableArray new];
-		 
-		 for (DYNColor *color in self.colors) {
-		 UIColor *theColor = color.color;
-		 if (color.definedAtRuntime) {
-		 UIColor *paramColor = [parameters valueForStyleParameter:color.variableName];
-		 if (paramColor) {
-		 theColor = paramColor;
-		 }
-		 }
-		 
-		 [colors addObject:(id)theColor.CGColor];
-		 }
-		 
-		 CAGradientLayer *gradient = [CAGradientLayer layer];
-		 gradient.colors = colors;
-		 gradient.startPoint = startPoint;
-		 gradient.endPoint = endPoint;
-		 
-		 gradient.frame = bounds;
-		 [gradient renderInContext:context];
-		 
-	} else {
-		DYNColor *DYNColor = self.colors[0];
-		UIColor *color = DYNColor.color;
-		if (DYNColor.definedAtRuntime) {
-			UIColor *paramColor = [parameters valueForStyleParameter:DYNColor.variableName];
-			if (paramColor) {
-				color = paramColor;
-			}
-		}
-		
-		[color setFill];
-		[path fill];
-	}
+            [colors addObject:(id)theColor.CGColor];
+        }
+        
+        CAGradientLayer *gradient = [CAGradientLayer layer];
+        gradient.colors = colors;
+        gradient.startPoint = startPoint;
+        gradient.endPoint = endPoint;
+        
+        gradient.frame = bounds;
+        [gradient renderInContext:context];
+    } else {
+        DYNColor *DYNColor = self.colors[0];
+        UIColor *color = DYNColor.color;
+        if (DYNColor.definedAtRuntime) {
+            UIColor *paramColor = [parameters valueForStyleParameter:DYNColor.variableName];
+            if (paramColor) {
+                color = paramColor;
+            }
+        }
+        
+        [color setFill];
+        [path fill];
+    }
     
-	CGContextRestoreGState(context);
-
+    CGContextRestoreGState(context);
 }
 
-- (void)drawInPath:(UIBezierPath*)path flipped:(BOOL)flipped angle:(CGFloat)angle parameters:(DYNStyleParameters*)parameters
-{
-	
-	[self drawInFrame:path.bounds clippedToPath:path angle:angle flippedGradient:flipped parameters:parameters];
+- (void)drawInPath:(UIBezierPath *)path flipped:(BOOL)flipped angle:(CGFloat)angle parameters:(DYNStyleParameters *)parameters {
+    [self drawInFrame:path.bounds clippedToPath:path angle:angle flippedGradient:flipped parameters:parameters];
 }
 
 // gradient angle stuff
@@ -138,8 +128,7 @@
 
 - (CGPoint)radialIntersectionWithRadians:(CGFloat)radians forFrame:(CGRect)frame {
     radians = fmodf(radians, 2 * M_PI);
-    if (radians < 0)
-        radians += (CGFloat)(2 * M_PI);
+    if (radians < 0) radians += (CGFloat)(2 * M_PI);
     return [self radialIntersectionWithConstrainedRadians:radians forFrame:frame];
 }
 

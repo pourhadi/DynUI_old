@@ -55,9 +55,9 @@
 
 - (CGSize)dyn_styleSizeApplied {
     NSValue *size = objc_getAssociatedObject(self, kDPViewStyleSizeAppliedKey);
-	if (!size) {
-		size = [NSValue valueWithCGSize:CGSizeZero];
-	}
+    if (!size) {
+        size = [NSValue valueWithCGSize:CGSizeZero];
+    }
     return size.CGSizeValue;
 }
 
@@ -92,16 +92,14 @@
     }
 }
 
-+ (void)swizzleDidAddSubview
-{
++ (void)swizzleDidAddSubview {
     [self jr_swizzleMethod:@selector(didAddSubview:) withMethod:@selector(dyn_didAddSubview:) error:nil];
     NSNumber *swizzled = [self swizzledDidAddSubview];
     BOOL new = !swizzled.boolValue;
     [self set_swizzledDidAddSubview:@(new)];
 }
 
-- (void)dyn_didAddSubview:(UIView*)subview
-{
+- (void)dyn_didAddSubview:(UIView *)subview {
     [self dyn_didAddSubview:subview];
     
     if (self.dyn_viewStyleApplied && self.dyn_overlayView && [self.dyn_overlayView isDescendantOfView:self]) {
@@ -111,13 +109,11 @@
 
 GET_AND_SET_CLASS_OBJ(swizzledDidAddSubview, @(NO));
 
-- (void)setDyn_backgroundView:(UIView *)dyn_backgroundView
-{
+- (void)setDyn_backgroundView:(UIView *)dyn_backgroundView {
     [self set_dyn_backgroundView:dyn_backgroundView];
 }
 
-- (void)setDyn_overlayView:(DYNPassThroughView *)dyn_overlayView
-{
+- (void)setDyn_overlayView:(DYNPassThroughView *)dyn_overlayView {
     [self addSubview:dyn_overlayView];
     
     if (self.constraints) {
@@ -155,20 +151,17 @@ GET_AND_SET_ASSOCIATED_OBJ(dyn_overlayView, nil);
     return parameters;
 }
 
-- (void)setValuesForStyleParameters:(NSDictionary*)valuesForParams
-{
-	[valuesForParams enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-		
-		[self.styleParameters setValue:obj forStyleParameter:key];
-		
-	}];
-	
-	[self dyn_refreshStyle];
+- (void)setValuesForStyleParameters:(NSDictionary *)valuesForParams {
+    [valuesForParams enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+        [self.styleParameters setValue:obj forStyleParameter:key];
+    }];
+    
+    [self dyn_refreshStyle];
 }
 
 - (void)setValue:(id)value forStyleParameter:(NSString *)parameterName {
     [self.styleParameters setValue:value forStyleParameter:parameterName];
-	[self dyn_refreshStyle];
+    [self dyn_refreshStyle];
 }
 
 @end

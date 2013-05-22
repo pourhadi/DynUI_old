@@ -28,14 +28,12 @@
     [self drawAtPoint:point forWidth:width withFont:style.font lineBreakMode:lineBreakMode];
 }
 
-- (void)dyn_drawInRect:(CGRect)rect lineBreakMode:(NSLineBreakMode)lineBreakMode withStyleNamed:(NSString*)textStyle {
-    
+- (void)dyn_drawInRect:(CGRect)rect lineBreakMode:(NSLineBreakMode)lineBreakMode withStyleNamed:(NSString *)textStyle {
     DYNTextStyle *style = [[DYNManager sharedInstance] textStyleForName:textStyle];
     [self dyn_drawInRect:rect lineBreakMode:lineBreakMode withStyle:style];
 }
 
-- (void)dyn_drawInRect:(CGRect)rect lineBreakMode:(NSLineBreakMode)lineBreakMode withStyle:(DYNTextStyle*)style
-{
+- (void)dyn_drawInRect:(CGRect)rect lineBreakMode:(NSLineBreakMode)lineBreakMode withStyle:(DYNTextStyle *)style {
     if (style.shadowOffset.width > 0 && style.shadowOffset.height > 0) {
         [style.shadowColor.color set];
         CGRect offsetRect = rect;
@@ -48,8 +46,6 @@
     [style.textColor.color set];
     
     [self drawInRect:rect withFont:style.font lineBreakMode:lineBreakMode alignment:style.alignment];
-    
-
 }
 
 @end

@@ -11,8 +11,8 @@
 @class DYNViewStyle;
 @interface DYNPopoverStyle : UIPopoverBackgroundView
 
-+ (void)setCurrentStyle:(DYNViewStyle*)style;
-+ (DYNViewStyle*)currentStyle;
++ (void)setCurrentStyle:(DYNViewStyle *)style;
++ (DYNViewStyle *)currentStyle;
 
 
 @end

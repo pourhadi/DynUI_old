@@ -14,7 +14,7 @@ typedef void (^DYNAppearanceBlock)(DYNManager *styleManager, UIView *view);
 
 @interface UIView (DynUI)
 @property (nonatomic, strong) NSString *dyn_style; // set this property to assign a style
-- (void)setValuesForStyleParameters:(NSDictionary*)valuesForParams;
+- (void)setValuesForStyleParameters:(NSDictionary *)valuesForParams;
 - (void)setValue:(id)value forStyleParameter:(NSString *)parameterName;
 
 @property (nonatomic, strong) DYNStyleParameters *styleParameters;

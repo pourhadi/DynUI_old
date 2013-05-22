@@ -10,15 +10,19 @@
 @class DYNStyleParameters;
 @interface DYNBackgroundStyle : NSObject
 
-@property (nonatomic, strong) NSArray *colors; // multiple colors for gradient; single for solid color
+/** The background colors, represented as DYNColor objects. If there is more than one color in the array, the colors are rednered as a gradient. */
+@property (nonatomic, strong) NSArray *colors;
 
-// if colors.count > 1, the properties below are used
 @property (nonatomic, strong) NSArray *locations;
 
+/** The angle of the gradient if colors.count > 1, in degrees. 180 degrees represents a vertical gradient, with a startPoint of [0.5, 0] and an endPoint of [0.5, 1] (in unit coordinates). */
 @property (nonatomic) CGFloat gradientAngle;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 
-- (void)drawInPath:(UIBezierPath*)path withContext:(CGContextRef)context parameters:(DYNStyleParameters*)parameters flippedGradient:(BOOL)flippedGradient;
-- (void)drawInFrame:(CGRect)frame clippedToPath:(UIBezierPath*)path parameters:(DYNStyleParameters*)parameters flippedGradient:(BOOL)flippedGradient;
+///---------------------------------------------------------------------------------------
+/// @name Drawing Methods
+///---------------------------------------------------------------------------------------
+- (void)drawInPath:(UIBezierPath *)path withContext:(CGContextRef)context parameters:(DYNStyleParameters *)parameters flippedGradient:(BOOL)flippedGradient;
+- (void)drawInFrame:(CGRect)frame clippedToPath:(UIBezierPath *)path parameters:(DYNStyleParameters *)parameters flippedGradient:(BOOL)flippedGradient;
 @end

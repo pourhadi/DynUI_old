@@ -19,6 +19,6 @@
 @property (nonatomic) NSTimeInterval dyn_scrollPauseDuration;
 @property (nonatomic) CGFloat dyn_scrollTextSeparatorWidth;
 
-- (void)applyLabelAttributesToLabel:(UILabel*)label;
+- (void)applyLabelAttributesToLabel:(UILabel *)label;
 
 @end

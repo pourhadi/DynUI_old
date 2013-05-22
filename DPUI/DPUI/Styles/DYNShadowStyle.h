@@ -17,11 +17,11 @@
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 
-- (UIImage*)getImageForWidth:(CGFloat)width;
-- (void)addShadowToView:(UIView *)view withPath:(UIBezierPath*)path;
+- (UIImage *)getImageForWidth:(CGFloat)width;
+- (void)addShadowToView:(UIView *)view withPath:(UIBezierPath *)path;
 - (void)addShadowToView:(UIView *)view;
-- (UIImage*)applyShadowToImage:(UIImage*)image;
+- (UIImage *)applyShadowToImage:(UIImage *)image;
 
-- (void)drawAsInnerShadowInPath:(UIBezierPath*)path context:(CGContextRef)context;
+- (void)drawAsInnerShadowInPath:(UIBezierPath *)path context:(CGContextRef)context;
 
 @end

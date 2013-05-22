@@ -13,6 +13,7 @@
 @class DYNViewStyle;
 @class DYNSliderStyle;
 @class DYNImageStyle;
+@class DYNColor;
 @interface DYNManager : NSObject
 
 + (DYNManager *)sharedInstance;
@@ -33,11 +34,17 @@
 
 @property (nonatomic, strong) CIContext *sharedCIContext;
 
-- (DYNSliderStyle*)sliderStyleForName:(NSString*)name;
+- (DYNSliderStyle *)sliderStyleForName:(NSString *)name;
 - (DYNViewStyle *)styleForName:(NSString *)name;
 - (UIColor *)colorForVariableName:(NSString *)variableName;
 - (DYNTextStyle *)textStyleForName:(NSString *)name;
-- (DYNImageStyle*)imageStyleForName:(NSString*)styleName;
+- (DYNImageStyle *)imageStyleForName:(NSString *)styleName;
+
+- (void)addSliderStyle:(DYNSliderStyle *)sliderStyle;
+- (void)addViewStyle:(DYNViewStyle *)viewStyle;
+- (void)addColorVariable:(DYNColor *)colorVariable;
+- (void)addTextStyle:(DYNTextStyle *)textStyle;
+- (void)addImageStyle:(DYNImageStyle *)imageStyle;
 
 - (void)registerView:(id)view;
 - (void)unregisterView:(id)view;
