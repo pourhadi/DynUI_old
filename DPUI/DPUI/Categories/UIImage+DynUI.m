@@ -11,16 +11,16 @@
 #import "DynUI.h"
 #import <objc/runtime.h>
 #import <stdlib.h>
-#define ROUND_UP(N, S) ((((N) + (S) - 1) / (S)) * (S))
+#define ROUND_UP(N, S) ((((N) + (S)-1) / (S)) * (S))
 @implementation UIImage (DynUI)
 
 + (UIImage *)imageWithSize:(CGSize)size drawnWithBlock:(DYNDrawImageBlock)block {
     UIGraphicsBeginImageContextWithOptions(size, NO, [[UIScreen mainScreen] scale]);
     CGContextRef c = UIGraphicsGetCurrentContext();
     if (!c) {
-		return nil;
-	}
-	
+        return nil;
+    }
+    
     if (block) {
         block(c, size);
     }
@@ -167,77 +167,75 @@
     return image;
 }
 
-+ (CGImageRef)createMaskFromAlphaChannel:(UIImage *)image inverted:(BOOL)inverted
-{
-	if (!image) {
-		return nil;
-	}
-	// Original RGBA image
-	CGImageRef originalMaskImage = [image CGImage];
-	float width = CGImageGetWidth(originalMaskImage) *image.scale;
-	float height = CGImageGetHeight(originalMaskImage) * image.scale;
-
-	// Make a bitmap context that's only 1 alpha channel
-	// WARNING: the bytes per row probably needs to be a multiple of 4
-	int strideLength = ROUND_UP(width * 1, 4);
-	unsigned char * alphaData = calloc(strideLength * height, sizeof(unsigned char));
-	CGContextRef alphaOnlyContext = CGBitmapContextCreate(alphaData,
-														  width,
-														  height,
-														  8,
-														  strideLength,
-														  NULL,
-														  kCGImageAlphaOnly);
-	
-	CGContextTranslateCTM(alphaOnlyContext, 0.0f, height);
-	CGContextScaleCTM(alphaOnlyContext, 1.0f, -1.0f);
-	
-	// Draw the RGBA image into the alpha-only context.
-	CGContextDrawImage(alphaOnlyContext, CGRectMake(0, 0, width, height), originalMaskImage);
-	
-	if (inverted) {
-		for (int y = 0; y < height; y++) {
-			for (int x = 0; x < width; x++) {
-				unsigned char val = alphaData[y*strideLength + x];
-				val = 255 - val;
-				alphaData[y*strideLength + x] = val;
-			}
-		}
-	}
-	
-	CGImageRef alphaMaskImage = CGBitmapContextCreateImage(alphaOnlyContext);
-	CGContextRelease(alphaOnlyContext);
-	free(alphaData);
-	
-	// Make a mask
-	CGImageRef finalMaskImage = CGImageMaskCreate(CGImageGetWidth(alphaMaskImage),
-												  CGImageGetHeight(alphaMaskImage),
-												  CGImageGetBitsPerComponent(alphaMaskImage),
-												  CGImageGetBitsPerPixel(alphaMaskImage),
-												  CGImageGetBytesPerRow(alphaMaskImage),
-												  CGImageGetDataProvider(alphaMaskImage), NULL, false);
-	CGImageRelease(alphaMaskImage);
-	return finalMaskImage;
-
++ (CGImageRef)createMaskFromAlphaChannel:(UIImage *)image inverted:(BOOL)inverted {
+    if (!image) {
+        return nil;
+    }
+    // Original RGBA image
+    CGImageRef originalMaskImage = [image CGImage];
+    float width = CGImageGetWidth(originalMaskImage) * image.scale;
+    float height = CGImageGetHeight(originalMaskImage) * image.scale;
+    
+    // Make a bitmap context that's only 1 alpha channel
+    // WARNING: the bytes per row probably needs to be a multiple of 4
+    int strideLength = ROUND_UP(width * 1, 4);
+    unsigned char *alphaData = calloc(strideLength * height, sizeof(unsigned char));
+    CGContextRef alphaOnlyContext = CGBitmapContextCreate(alphaData,
+                                                          width,
+                                                          height,
+                                                          8,
+                                                          strideLength,
+                                                          NULL,
+                                                          kCGImageAlphaOnly);
+    
+    CGContextTranslateCTM(alphaOnlyContext, 0.0f, height);
+    CGContextScaleCTM(alphaOnlyContext, 1.0f, -1.0f);
+    
+    // Draw the RGBA image into the alpha-only context.
+    CGContextDrawImage(alphaOnlyContext, CGRectMake(0, 0, width, height), originalMaskImage);
+    
+    if (inverted) {
+        for (int y = 0; y < height; y++) {
+            for (int x = 0; x < width; x++) {
+                unsigned char val = alphaData[y * strideLength + x];
+                val = 255 - val;
+                alphaData[y * strideLength + x] = val;
+            }
+        }
+    }
+    
+    CGImageRef alphaMaskImage = CGBitmapContextCreateImage(alphaOnlyContext);
+    CGContextRelease(alphaOnlyContext);
+    free(alphaData);
+    
+    // Make a mask
+    CGImageRef finalMaskImage = CGImageMaskCreate(CGImageGetWidth(alphaMaskImage),
+                                                  CGImageGetHeight(alphaMaskImage),
+                                                  CGImageGetBitsPerComponent(alphaMaskImage),
+                                                  CGImageGetBitsPerPixel(alphaMaskImage),
+                                                  CGImageGetBytesPerRow(alphaMaskImage),
+                                                  CGImageGetDataProvider(alphaMaskImage), NULL, false);
+    CGImageRelease(alphaMaskImage);
+    return finalMaskImage;
 }
 
 + (CGImageRef)createMaskFromAlphaChannel:(UIImage *)image {
-	return [self createMaskFromAlphaChannel:image inverted:YES];
+    return [self createMaskFromAlphaChannel:image inverted:YES];
 }
+
 + (UIImage *)cropTransparencyFromImage:(UIImage *)img {
-	
     CGImageRef inImage = img.CGImage;
     CFDataRef m_DataRef;
     m_DataRef = CGDataProviderCopyData(CGImageGetDataProvider(inImage));
-    UInt8 * m_PixelBuf = (UInt8 *) CFDataGetBytePtr(m_DataRef);
-	
+    UInt8 *m_PixelBuf = (UInt8 *)CFDataGetBytePtr(m_DataRef);
+    
     int width = img.size.width;
     int height = img.size.height;
-	
-    CGPoint top,left,right,bottom;
-	
+    
+    CGPoint top, left, right, bottom;
+    
     BOOL breakOut = NO;
-    for (int x = 0;breakOut==NO && x < width; x++) {
+    for (int x = 0; breakOut == NO && x < width; x++) {
         for (int y = 0; y < height; y++) {
             int loc = x + (y * width);
             loc *= 4;
@@ -248,12 +246,10 @@
             }
         }
     }
-	
+    
     breakOut = NO;
-    for (int y = 0;breakOut==NO && y < height; y++) {
-		
+    for (int y = 0; breakOut == NO && y < height; y++) {
         for (int x = 0; x < width; x++) {
-			
             int loc = x + (y * width);
             loc *= 4;
             if (m_PixelBuf[loc + 3] != 0) {
@@ -261,15 +257,12 @@
                 breakOut = YES;
                 break;
             }
-			
         }
     }
-	
+    
     breakOut = NO;
-    for (int y = height-1;breakOut==NO && y >= 0; y--) {
-		
-        for (int x = width-1; x >= 0; x--) {
-			
+    for (int y = height - 1; breakOut == NO && y >= 0; y--) {
+        for (int x = width - 1; x >= 0; x--) {
             int loc = x + (y * width);
             loc *= 4;
             if (m_PixelBuf[loc + 3] != 0) {
@@ -277,15 +270,12 @@
                 breakOut = YES;
                 break;
             }
-			
         }
     }
-	
+    
     breakOut = NO;
-    for (int x = width-1;breakOut==NO && x >= 0; x--) {
-		
-        for (int y = height-1; y >= 0; y--) {
-			
+    for (int x = width - 1; breakOut == NO && x >= 0; x--) {
+        for (int y = height - 1; y >= 0; y--) {
             int loc = x + (y * width);
             loc *= 4;
             if (m_PixelBuf[loc + 3] != 0) {
@@ -293,14 +283,13 @@
                 breakOut = YES;
                 break;
             }
-			
         }
     }
-	
-	
+    
+    
     CGRect cropRect = CGRectMake(left.x, top.y, right.x - left.x, bottom.y - top.y);
-	
-    UIGraphicsBeginImageContextWithOptions( cropRect.size,
+    
+    UIGraphicsBeginImageContextWithOptions(cropRect.size,
                                            NO,
                                            0.);
     [img drawAtPoint:CGPointMake(-cropRect.origin.x, -cropRect.origin.y)
@@ -311,12 +300,11 @@
     return croppedImage;
 }
 
-+ (UIImage*)blankOnePointImage
-{
-	return [UIImage imageWithSize:CGSizeMake(1, 1) drawnWithBlock:^(CGContextRef context, CGSize size) {
-		[[UIColor clearColor] setFill];
-		UIRectFill(CGRectMake(0, 0, size.width, size.height));
-	}];
++ (UIImage *)blankOnePointImage {
+    return [UIImage imageWithSize:CGSizeMake(1, 1) drawnWithBlock:^(CGContextRef context, CGSize size) {
+        [[UIColor clearColor] setFill];
+        UIRectFill(CGRectMake(0, 0, size.width, size.height));
+    }];
 }
 
 - (UIImage *)imageWithBlackMasked {
@@ -342,25 +330,22 @@
     return img;
 }
 
-- (UIImage*)imageScaledToSize:(CGSize)scaledSized cropTransparent:(BOOL)crop
-{
-	CGSize imageSize = (crop ? scaledSized : self.size);
-	
-	return [UIImage imageWithSize:imageSize drawnWithBlock:^(CGContextRef context, CGSize size) {
-		
-		CGContextTranslateCTM(context, 0.0f, size.height);
-		CGContextScaleCTM(context, 1.0f, -1.0f);
-
-		CGRect resizedRect = CGRectMake(0, 0, size.width, size.height);
-		
-		if (!crop) {
-			resizedRect = CGRectMake((size.width-scaledSized.width)/2, (size.height-scaledSized.height)/2, scaledSized.width, scaledSized.height);
-		}
-		
-		CGContextSetInterpolationQuality(context, kCGInterpolationHigh);
-		CGContextDrawImage(context, resizedRect, self.CGImage);
-		
-	}];
+- (UIImage *)imageScaledToSize:(CGSize)scaledSized cropTransparent:(BOOL)crop {
+    CGSize imageSize = (crop ? scaledSized : self.size);
+    
+    return [UIImage imageWithSize:imageSize drawnWithBlock:^(CGContextRef context, CGSize size) {
+        CGContextTranslateCTM(context, 0.0f, size.height);
+        CGContextScaleCTM(context, 1.0f, -1.0f);
+        
+        CGRect resizedRect = CGRectMake(0, 0, size.width, size.height);
+        
+        if (!crop) {
+            resizedRect = CGRectMake((size.width - scaledSized.width) / 2, (size.height - scaledSized.height) / 2, scaledSized.width, scaledSized.height);
+        }
+        
+        CGContextSetInterpolationQuality(context, kCGInterpolationHigh);
+        CGContextDrawImage(context, resizedRect, self.CGImage);
+    }];
 }
 
 // style parameters
@@ -380,13 +365,10 @@
     return parameters;
 }
 
-- (void)setValuesForStyleParameters:(NSDictionary*)valuesForParams
-{
-	[valuesForParams enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-		
-		[self.styleParameters setValue:obj forStyleParameter:key];
-		
-	}];
+- (void)setValuesForStyleParameters:(NSDictionary *)valuesForParams {
+    [valuesForParams enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+        [self.styleParameters setValue:obj forStyleParameter:key];
+    }];
 }
 
 - (void)setValue:(id)value forStyleParameter:(NSString *)parameterName {

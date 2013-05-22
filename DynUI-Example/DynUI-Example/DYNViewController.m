@@ -32,6 +32,8 @@
 {
     [super viewDidLoad];
 	
+	self.navigationItem.title = @"DynUI";
+	
 	self.navigationController.navigationBar.dyn_style = @"NavBar";
 	
 	// [self.exampleButton setValue:[UIColor greenColor] forStyleParameter:@"ButtonColor"];

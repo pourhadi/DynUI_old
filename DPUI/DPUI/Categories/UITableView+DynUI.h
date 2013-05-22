@@ -10,7 +10,7 @@
 
 @interface UITableView (DynUI)
 
-- (void)dyn_styleGroupedCell:(UITableViewCell*)cell forIndexPath:(NSIndexPath*)indexPath withStyle:(NSString*)styleName;
+- (void)dyn_styleGroupedCell:(UITableViewCell *)cell forIndexPath:(NSIndexPath *)indexPath withStyle:(NSString *)styleName;
 - (void)dyn_styleGroupedCell:(UITableViewCell *)cell forIndexPath:(NSIndexPath *)indexPath;
 
 @end

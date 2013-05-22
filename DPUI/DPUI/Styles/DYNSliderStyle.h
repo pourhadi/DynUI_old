@@ -13,8 +13,8 @@
 @class DYNViewStyle;
 @interface DYNSliderStyle : DYNStyle
 
-- (id)initWithDictionary:(NSDictionary*)dictionary;
-+ (DYNSliderStyle*)sliderStyleForName:(NSString*)styleName;
+- (id)initWithDictionary:(NSDictionary *)dictionary;
++ (DYNSliderStyle *)sliderStyleForName:(NSString *)styleName;
 
 /** The slider's track image stroke width. */
 @property (nonatomic) CGFloat strokeWidth;
@@ -28,7 +28,7 @@
 /** The height of the slider's track image. */
 @property (nonatomic) CGFloat trackHeight;
 
-/** The height of the slider's thumb, expressed as a multiplier of the thumb height. The actual height of thumb is calculated as trackHeight * thumbHeight. default is 1.5 */
+/** The height of the slider's thumb, expressed as a multiplier of the track height. The actual height of thumb is calculated as trackHeight * thumbHeight. default is 1.5 */
 @property (nonatomic) CGFloat thumbHeight;
 
 ///---------------------------------------------------------------------------------------
@@ -61,22 +61,22 @@
 /// @name Slider Image Rendering
 ///---------------------------------------------------------------------------------------
 
-/** Returns the rendered maximum track image. 
+/** Returns the rendered maximum track image.
  
- @param slider The UISlider that will use this image for its maximum track. 
+ @param slider The UISlider that will use this image for its maximum track.
  */
-- (UIImage*)maxTrackImageForSlider:(UISlider*)slider;
+- (UIImage *)maxTrackImageForSlider:(UISlider *)slider;
 
 /** Returns the rendered minimum track image.
  
  @param slider The UISlider that will use this image for its minimum track.
  */
-- (UIImage*)minTrackImageForSlider:(UISlider*)slider;
+- (UIImage *)minTrackImageForSlider:(UISlider *)slider;
 
 /** Returns the rendered thumb image.
  
  @param slider The UISlider that will use this image for its thumb.
  */
-- (UIImage*)thumbImageForSlider:(UISlider*)slider;
+- (UIImage *)thumbImageForSlider:(UISlider *)slider;
 
 @end

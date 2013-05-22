@@ -11,146 +11,132 @@
 #import "DYNDefines.h"
 @implementation DYNSliderStyle
 
-+ (DYNSliderStyle*)sliderStyleForName:(NSString*)styleName
-{
-	return [[DYNManager sharedInstance] sliderStyleForName:styleName];
++ (DYNSliderStyle *)sliderStyleForName:(NSString *)styleName {
+    return [[DYNManager sharedInstance] sliderStyleForName:styleName];
 }
 
-- (id)initWithDictionary:(NSDictionary*)dictionary
-{
-	self = [super init];
-	if (self) {
-		self.name = [dictionary objectForKey:kDYNStyleNameKey];
-		self.strokeWidth = [[dictionary objectForKey:kDYNStrokeWidth] floatValue];
-		self.strokeColor = [[DYNColor alloc] initWithDictionary:[dictionary objectForKey:kDYNStrokeColor]];
-		self.outerShadow = [[DYNShadowStyle alloc] initWithDictionary:[dictionary objectForKey:kDYNOuterShadowKey]];
-		self.trackHeight = [[dictionary objectForKey:kDYNTrackHeightKey] floatValue];
-		self.thumbHeight = [[dictionary objectForKey:kDYNThumbHeightKey] floatValue];
-		self.minimumTrackInnerShadow = [[DYNShadowStyle alloc] initWithDictionary:[dictionary objectForKey:kDYNMinimumTrackInnerShadowKey]];
-		self.maximumTrackInnerShadow = [[DYNShadowStyle alloc] initWithDictionary:[dictionary objectForKey:kDYNMaximumTrackInnerShadowKey]];
-		if ([dictionary objectForKey:kDYNThumbStyleNameKey])
-			self.thumbStyleName = [dictionary objectForKey:kDYNThumbStyleNameKey];
-		NSMutableArray *tmp;
+- (id)initWithDictionary:(NSDictionary *)dictionary {
+    self = [super init];
+    if (self) {
+        self.name = [dictionary objectForKey:kDYNStyleNameKey];
+        self.strokeWidth = [[dictionary objectForKey:kDYNStrokeWidth] floatValue];
+        self.strokeColor = [[DYNColor alloc] initWithDictionary:[dictionary objectForKey:kDYNStrokeColor]];
+        self.outerShadow = [[DYNShadowStyle alloc] initWithDictionary:[dictionary objectForKey:kDYNOuterShadowKey]];
+        self.trackHeight = [[dictionary objectForKey:kDYNTrackHeightKey] floatValue];
+        self.thumbHeight = [[dictionary objectForKey:kDYNThumbHeightKey] floatValue];
+        self.minimumTrackInnerShadow = [[DYNShadowStyle alloc] initWithDictionary:[dictionary objectForKey:kDYNMinimumTrackInnerShadowKey]];
+        self.maximumTrackInnerShadow = [[DYNShadowStyle alloc] initWithDictionary:[dictionary objectForKey:kDYNMaximumTrackInnerShadowKey]];
+        if ([dictionary objectForKey:kDYNThumbStyleNameKey]) self.thumbStyleName = [dictionary objectForKey:kDYNThumbStyleNameKey];
+        NSMutableArray *tmp;
 		
-		tmp = [NSMutableArray new];
-		for (NSDictionary *color in [dictionary objectForKey:kDYNMaxTrackBgColorsKey]) {
-			[tmp addObject:[[DYNColor alloc] initWithDictionary:color]];
-		}
+        tmp = [NSMutableArray new];
+        for (NSDictionary *color in [dictionary objectForKey : kDYNMaxTrackBgColorsKey]) {
+            [tmp addObject:[[DYNColor alloc] initWithDictionary:color]];
+        }
 		
-		self.maximumTrackBackground = [[DYNBackgroundStyle alloc] init];
-		self.maximumTrackBackground.colors = tmp;
+        self.maximumTrackBackground = [[DYNBackgroundStyle alloc] init];
+        self.maximumTrackBackground.colors = tmp;
 		
-		tmp = [NSMutableArray new];
-		for (NSDictionary *color in [dictionary objectForKey:kDYNMinTrackBgColorsKey]) {
-			[tmp addObject:[[DYNColor alloc] initWithDictionary:color]];
-		}
+        tmp = [NSMutableArray new];
+        for (NSDictionary *color in [dictionary objectForKey : kDYNMinTrackBgColorsKey]) {
+            [tmp addObject:[[DYNColor alloc] initWithDictionary:color]];
+        }
 		
-		self.minimumTrackBackground = [[DYNBackgroundStyle alloc] init];
-		self.minimumTrackBackground.colors = tmp;
-		
-	}
+        self.minimumTrackBackground = [[DYNBackgroundStyle alloc] init];
+        self.minimumTrackBackground.colors = tmp;
+    }
 	
-	return self;
+    return self;
 }
 
-- (id)init
-{
-	self = [super init];
-	if (self) {
-		
-		self.name = @"SliderStyle";
-		self.minimumTrackBackground = [[DYNBackgroundStyle alloc] init];
-		self.maximumTrackBackground = [[DYNBackgroundStyle alloc] init];
-		self.minimumTrackInnerShadow = [[DYNShadowStyle alloc] init];
-		self.maximumTrackInnerShadow = [[DYNShadowStyle alloc] init];
-		self.outerShadow = [[DYNShadowStyle alloc] init];
-		self.trackHeight = 11;
-		self.thumbHeight = 1.5;
-		self.strokeColor = [[DYNColor alloc] init];
-		
-	}
-	return self;
+- (id)init {
+    self = [super init];
+    if (self) {
+        self.name = @"SliderStyle";
+        self.minimumTrackBackground = [[DYNBackgroundStyle alloc] init];
+        self.maximumTrackBackground = [[DYNBackgroundStyle alloc] init];
+        self.minimumTrackInnerShadow = [[DYNShadowStyle alloc] init];
+        self.maximumTrackInnerShadow = [[DYNShadowStyle alloc] init];
+        self.outerShadow = [[DYNShadowStyle alloc] init];
+        self.trackHeight = 11;
+        self.thumbHeight = 1.5;
+        self.strokeColor = [[DYNColor alloc] init];
+    }
+    return self;
 }
 
-- (UIImage*)maxTrackImageForSlider:(UISlider*)slider
-{
-	UIImage *image = [UIImage imageWithSize:CGSizeMake(self.trackHeight, self.trackHeight) drawnWithBlock:^(CGContextRef context, CGSize size) {
+- (UIImage *)maxTrackImageForSlider:(UISlider *)slider {
+    UIImage *image = [UIImage imageWithSize:CGSizeMake(self.trackHeight, self.trackHeight) drawnWithBlock:^(CGContextRef context, CGSize size) {
+        CGRect rect = CGRectMake(0, 0, size.width, size.height);
 		
-		CGRect rect = CGRectMake(0, 0, size.width, size.height);
+        UIBezierPath *path = [UIBezierPath bezierPathWithOvalInRect:rect];
 		
-		UIBezierPath *path = [UIBezierPath bezierPathWithOvalInRect:rect];
+        DYNStyleParameters *params;
+        if (slider) {
+            params = slider.styleParameters;
+        }
 		
-		DYNStyleParameters *params;
-		if (slider) {
-			params = slider.styleParameters;
-		}
-		
-		[self.maximumTrackBackground drawInPath:path withContext:context parameters:params flippedGradient:NO];
-		[self.maximumTrackInnerShadow drawAsInnerShadowInPath:path context:context];
-		if (self.strokeWidth > 0) {
-			
-			CGRect strokeRect = CGRectMake(self.strokeWidth/2, self.strokeWidth/2, rect.size.width-(self.strokeWidth), rect.size.height-(self.strokeWidth));
-			UIBezierPath *strokePath = [UIBezierPath bezierPathWithOvalInRect:strokeRect];
-			[self.strokeColor.color setStroke];
-			[strokePath setLineWidth:self.strokeWidth];
-			[strokePath stroke];
-		}
-		
-	}].dyn_resizableImage;
+        [self.maximumTrackBackground drawInPath:path withContext:context parameters:params flippedGradient:NO];
+        [self.maximumTrackInnerShadow drawAsInnerShadowInPath:path context:context];
+        if (self.strokeWidth > 0) {
+            CGRect strokeRect = CGRectMake(self.strokeWidth / 2, self.strokeWidth / 2, rect.size.width - (self.strokeWidth), rect.size.height - (self.strokeWidth));
+            UIBezierPath *strokePath = [UIBezierPath bezierPathWithOvalInRect:strokeRect];
+            [self.strokeColor.color setStroke];
+            [strokePath setLineWidth:self.strokeWidth];
+            [strokePath stroke];
+        }
+    }].dyn_resizableImage;
 	
-	if (self.outerShadow) {
-		image = [self.outerShadow applyShadowToImage:image].dyn_resizableImage;
-	}
+    if (self.outerShadow) {
+        image = [self.outerShadow applyShadowToImage:image].dyn_resizableImage;
+    }
 	
-	return image;
+    return image;
 }
-- (UIImage*)minTrackImageForSlider:(UISlider*)slider
-{
-	UIImage *image = [UIImage imageWithSize:CGSizeMake(self.trackHeight, self.trackHeight) drawnWithBlock:^(CGContextRef context, CGSize size) {
+
+- (UIImage *)minTrackImageForSlider:(UISlider *)slider {
+    UIImage *image = [UIImage imageWithSize:CGSizeMake(self.trackHeight, self.trackHeight) drawnWithBlock:^(CGContextRef context, CGSize size) {
+        CGRect rect = CGRectMake(0, 0, size.width, size.height);
 		
-		CGRect rect = CGRectMake(0, 0, size.width, size.height);
+        UIBezierPath *path = [UIBezierPath bezierPathWithOvalInRect:rect];
 		
-		UIBezierPath *path = [UIBezierPath bezierPathWithOvalInRect:rect];
+        DYNStyleParameters *params;
+        if (slider) {
+            params = slider.styleParameters;
+        }
 		
-		DYNStyleParameters *params;
-		if (slider) {
-			params = slider.styleParameters;
-		}
+        [self.minimumTrackBackground drawInPath:path withContext:context parameters:params flippedGradient:NO];
+        [self.minimumTrackInnerShadow drawAsInnerShadowInPath:path context:context];
 		
-		[self.minimumTrackBackground drawInPath:path withContext:context parameters:params flippedGradient:NO];
-		[self.minimumTrackInnerShadow drawAsInnerShadowInPath:path context:context];
-		
-		if (self.strokeWidth > 0) {
-			
-			CGRect strokeRect = CGRectMake(self.strokeWidth/2, self.strokeWidth/2, rect.size.width-(self.strokeWidth), rect.size.height-(self.strokeWidth));
-			UIBezierPath *strokePath = [UIBezierPath bezierPathWithOvalInRect:strokeRect];
-			[self.strokeColor.color setStroke];
-			[strokePath setLineWidth:self.strokeWidth];
-			[strokePath stroke];
-		}
-		
-	}].dyn_resizableImage;
+        if (self.strokeWidth > 0) {
+            CGRect strokeRect = CGRectMake(self.strokeWidth / 2, self.strokeWidth / 2, rect.size.width - (self.strokeWidth), rect.size.height - (self.strokeWidth));
+            UIBezierPath *strokePath = [UIBezierPath bezierPathWithOvalInRect:strokeRect];
+            [self.strokeColor.color setStroke];
+            [strokePath setLineWidth:self.strokeWidth];
+            [strokePath stroke];
+        }
+    }].dyn_resizableImage;
 	
-	if (self.outerShadow) {
-		image = [self.outerShadow applyShadowToImage:image].dyn_resizableImage;
-	}
+    if (self.outerShadow) {
+        image = [self.outerShadow applyShadowToImage:image].dyn_resizableImage;
+    }
 	
-	return image;
+    return image;
 }
-- (UIImage*)thumbImageForSlider:(UISlider*)slider
-{
-	DYNViewStyle *style = [[DYNManager sharedInstance] styleForName:self.thumbStyleName];
+
+- (UIImage *)thumbImageForSlider:(UISlider *)slider {
+    DYNViewStyle *style = [[DYNManager sharedInstance] styleForName:self.thumbStyleName];
 	
-	CGFloat thumbHeight = floorf(self.trackHeight * self.thumbHeight);
+    CGFloat thumbHeight = floorf(self.trackHeight * self.thumbHeight);
 	
-	DYNStyleParameters *params;
-	if (slider) {
-		params = slider.styleParameters;
-	}
+    DYNStyleParameters *params;
+    if (slider) {
+        params = slider.styleParameters;
+    }
 	
-	UIImage *image = [style imageForStyleWithSize:CGSizeMake(thumbHeight, thumbHeight) withOuterShadow:YES parameters:params];
+    UIImage *image = [style imageForStyleWithSize:CGSizeMake(thumbHeight, thumbHeight) withOuterShadow:YES parameters:params];
 	
-	return image;
+    return image;
 }
 
 @end

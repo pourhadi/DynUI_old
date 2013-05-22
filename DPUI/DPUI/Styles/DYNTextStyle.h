@@ -9,14 +9,14 @@
 #import "DYNStyle.h"
 @class DYNColor;
 
-typedef NS_ENUM(NSUInteger, DYNFontSizeType){
-	DYNFontSizeTypeAbsolute,
-	DYNFontSizeTypeRelative,
+typedef NS_ENUM (NSUInteger, DYNFontSizeType) {
+    DYNFontSizeTypeAbsolute,
+    DYNFontSizeTypeRelative,
 };
 
 @interface DYNTextStyle : DYNStyle <NSCopying>
 
-+ (DYNTextStyle*)textStyleForName:(NSString*)styleName;
++ (DYNTextStyle *)textStyleForName:(NSString *)styleName;
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 
 @property (nonatomic, strong) DYNColor *textColor;
@@ -28,7 +28,7 @@ typedef NS_ENUM(NSUInteger, DYNFontSizeType){
 @property (nonatomic) DYNFontSizeType fontSizeType;
 
 - (void)applyToLabel:(UILabel *)label;
-- (void)applyToTextField:(UITextField*)textField;
+- (void)applyToTextField:(UITextField *)textField;
 - (NSDictionary *)titleTextAttributes;
 
 - (void)applyToButton:(UIButton *)button forState:(UIControlState)controlState;

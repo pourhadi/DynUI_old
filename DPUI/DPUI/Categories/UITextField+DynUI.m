@@ -12,13 +12,11 @@
 #import "JRSwizzle.h"
 @implementation UITextField (DynUI)
 
-+ (BOOL)textRectForBoundsSwizzled
-{
++ (BOOL)textRectForBoundsSwizzled {
     return [objc_getAssociatedObject(self, kDYNTextRectSwizzledKey) boolValue];
 }
 
-+ (void)swizzleTextRectForBounds
-{
++ (void)swizzleTextRectForBounds {
     NSError *error;
     [[self class] jr_swizzleMethod:@selector(textRectForBounds:) withMethod:@selector(dyn_textRectForBounds:) error:&error];
     if (error) {
@@ -31,8 +29,7 @@
     objc_setAssociatedObject(self, kDYNTextRectSwizzledKey, @(YES), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-- (CGRect)dyn_textRectForBounds:(CGRect)bounds
-{
+- (CGRect)dyn_textRectForBounds:(CGRect)bounds {
     CGRect rect = [self dyn_textRectForBounds:bounds];
     
     if (self.textInset > 0) {
@@ -41,8 +38,7 @@
     return rect;
 }
 
-- (CGRect)dyn_editingRectForBounds:(CGRect)bounds
-{
+- (CGRect)dyn_editingRectForBounds:(CGRect)bounds {
     CGRect rect = [self dyn_editingRectForBounds:bounds];
     
     if (self.textInset > 0) {
@@ -51,16 +47,15 @@
     return rect;
 }
 
-- (CGFloat)textInset
-{
+- (CGFloat)textInset {
     NSNumber *val = objc_getAssociatedObject(self, kDYNTextFieldTextInsetKey);
     return val.floatValue;
 }
 
-- (void)setTextInset:(CGFloat)textInset
-{
+- (void)setTextInset:(CGFloat)textInset {
     objc_setAssociatedObject(self, kDYNTextFieldTextInsetKey, @(textInset), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     [self setNeedsDisplay];
     [self setNeedsLayout];
 }
+
 @end

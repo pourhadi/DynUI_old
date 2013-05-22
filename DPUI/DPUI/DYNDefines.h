@@ -1,29 +1,29 @@
 #import <objc/runtime.h>
 
-#define degreesToRadians(x) (M_PI * (x) / 180.0)
+#define degreesToRadians(x)                          (M_PI * (x) / 180.0)
 
 #define SET_ASSOCIATED_OBJ(NAME) \
-- (void)set_##NAME:(id)obj \
+- (void)set_ ## NAME : (id)obj \
 { \
- objc_setAssociatedObject(self, #NAME, obj, OBJC_ASSOCIATION_RETAIN_NONATOMIC);	\
+objc_setAssociatedObject(self, #NAME, obj, OBJC_ASSOCIATION_RETAIN_NONATOMIC); \
 }
 
 #define GET_ASSOCIATED_OBJ(NAME, DEFAULTVAL) \
 - (id)NAME \
 { \
-	id obj = objc_getAssociatedObject(self, #NAME); \
-	if (!obj) { \
-		obj = DEFAULTVAL; \
-	} \
-	return obj; \
+id obj = objc_getAssociatedObject(self, #NAME); \
+if (!obj) { \
+obj = DEFAULTVAL; \
+} \
+return obj; \
 } \
 
 #define GET_AND_SET_ASSOCIATED_OBJ(NAME, DEFAULTVAL) GET_ASSOCIATED_OBJ(NAME, DEFAULTVAL) SET_ASSOCIATED_OBJ(NAME)
 
 #define SET_CLASS_OBJ(NAME) \
-+ (void)set_##NAME:(id)obj \
++ (void)set_ ## NAME : (id)obj \
 { \
-objc_setAssociatedObject(self, #NAME, obj, OBJC_ASSOCIATION_RETAIN_NONATOMIC);	\
+objc_setAssociatedObject(self, #NAME, obj, OBJC_ASSOCIATION_RETAIN_NONATOMIC);  \
 }
 
 #define GET_CLASS_OBJ(NAME, DEFAULTVAL) \
@@ -36,7 +36,7 @@ obj = DEFAULTVAL; \
 return obj; \
 } \
 
-#define GET_AND_SET_CLASS_OBJ(NAME, DEFAULTVAL) GET_CLASS_OBJ(NAME, DEFAULTVAL) SET_CLASS_OBJ(NAME)
+#define GET_AND_SET_CLASS_OBJ(NAME, DEFAULTVAL)      GET_CLASS_OBJ(NAME, DEFAULTVAL) SET_CLASS_OBJ(NAME)
 
 NS_INLINE float oppositeSign(float x) {
     return (x > 0 ? -x : fabs(x));
@@ -146,11 +146,11 @@ static NSString *const kDYNMakeDarkerKey = @"Current - Make Darker";
 static NSString *const kDYNMakeLigherKey = @"Current - Make Lighter";
 
 // DYNSliderStyle
-static NSString * const kDYNOuterShadowKey = @"outerShadow";
-static NSString * const kDYNTrackHeightKey = @"trackHeight";
-static NSString * const kDYNThumbHeightKey = @"thumbHeight";
-static NSString * const kDYNMinimumTrackInnerShadowKey = @"minimumTrackInnerShadow";
-static NSString * const kDYNMaximumTrackInnerShadowKey = @"maximumTrackInnerShadow";
-static NSString * const kDYNThumbStyleNameKey = @"thumbStyleName";
-static NSString * const kDYNMaxTrackBgColorsKey = @"maxTrackBgColors";
-static NSString * const kDYNMinTrackBgColorsKey = @"minTrackBgColors";
+static NSString *const kDYNOuterShadowKey = @"outerShadow";
+static NSString *const kDYNTrackHeightKey = @"trackHeight";
+static NSString *const kDYNThumbHeightKey = @"thumbHeight";
+static NSString *const kDYNMinimumTrackInnerShadowKey = @"minimumTrackInnerShadow";
+static NSString *const kDYNMaximumTrackInnerShadowKey = @"maximumTrackInnerShadow";
+static NSString *const kDYNThumbStyleNameKey = @"thumbStyleName";
+static NSString *const kDYNMaxTrackBgColorsKey = @"maxTrackBgColors";
+static NSString *const kDYNMinTrackBgColorsKey = @"minTrackBgColors";

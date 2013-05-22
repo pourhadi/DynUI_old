@@ -15,24 +15,24 @@
 @class DYNControlStyle;
 @class DYNStyleParameters;
 
-typedef NS_OPTIONS(NSUInteger, CornerRadiusType) {
-	CornerRadiusTypeCustom,
-	CornerRadiusTypeHalfHeight,
-	CornerRadiusTypeHalfWidth,
+typedef NS_OPTIONS (NSUInteger, CornerRadiusType) {
+    CornerRadiusTypeCustom,
+    CornerRadiusTypeHalfHeight,
+    CornerRadiusTypeHalfWidth,
 };
 
 @interface DYNViewStyle : DYNStyle
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 
-+ (DYNViewStyle*)styleForName:(NSString*)styleName;
++ (DYNViewStyle *)styleForName:(NSString *)styleName;
 
 ///---------------------------------------------------------------------------------------
 /// @name General Style Properties
 ///---------------------------------------------------------------------------------------
 @property (nonatomic, strong) DYNBackgroundStyle *background;
 
-/** NSArray of DYNInnerBorderStyle objects that specify the borders to draw on the top side of the view. 
+/** NSArray of DYNInnerBorderStyle objects that specify the borders to draw on the top side of the view.
  
  Borders are drawn on top of each other corresponding to the order of the objects in the array.*/
 @property (nonatomic, strong) NSArray *topInnerBorders;
@@ -126,12 +126,12 @@ typedef NS_OPTIONS(NSUInteger, CornerRadiusType) {
 /// @name UITableView Style Properties
 ///---------------------------------------------------------------------------------------
 
-/** The name of the DYNViewStyle object used to style the top cell of a section when this style is applied to a grouped UITableView. 
+/** The name of the DYNViewStyle object used to style the top cell of a section when this style is applied to a grouped UITableView.
  
-To use this, the grouped UITableView's delegate must call -dyn_styleGroupedCell:forIndexPath: on the UITableView from within the -tableView:willDisplayCell:forRowAtIndexPath: method. */
+ To use this, the grouped UITableView's delegate must call -dyn_styleGroupedCell:forIndexPath: on the UITableView from within the -tableView:willDisplayCell:forRowAtIndexPath: method. */
 @property (nonatomic, strong) NSString *groupedTableTopCell;
 
-/** The name of the DYNViewStyle object used to style the middle cells of sections when this style is applied to a grouped UITableView. 
+/** The name of the DYNViewStyle object used to style the middle cells of sections when this style is applied to a grouped UITableView.
  
  To use this, the grouped UITableView's delegate must call -dyn_styleGroupedCell:forIndexPath: on the UITableView from within the -tableView:willDisplayCell:forRowAtIndexPath: method. */
 @property (nonatomic, strong) NSString *groupedTableMiddleCell;
@@ -151,7 +151,7 @@ To use this, the grouped UITableView's delegate must call -dyn_styleGroupedCell:
 /// @name Using DYNViewStyle
 ///---------------------------------------------------------------------------------------
 
-/** Apply this style to the given view. 
+/** Apply this style to the given view.
  
  @param view The view to style.
  */
@@ -207,39 +207,47 @@ To use this, the grouped UITableView's delegate must call -dyn_styleGroupedCell:
 
 /** Returns a CALayer object derived from this style's path that can be used a layer mask.
  
- @param size The size of the layer to return. 
+ @param size The size of the layer to return.
  
  */
-- (CALayer*)layerMaskForStyleWithSize:(CGSize)size;
+- (CALayer *)layerMaskForStyleWithSize:(CGSize)size;
+
+/** Returns a CALayer object derived from this style's path that can be used a layer mask.
+ 
+ @param size The size of the layer to return.
+ @param outerShadow Whether to account for the outer shadow when drawing the mask (if YES, the size changes to accomodate for the shadow).
+ 
+ */
+- (CALayer *)layerMaskForStyleWithSize:(CGSize)size withOuterShadow:(BOOL)outerShadow;
 
 /** Returns an image with only the stroke, and top, bottom, left, and right borders drawn
  
  @param size The size of the image to return.
  @param parameters The style parameters to apply when rendering this style. May be nil.
-
+ 
  */
-- (UIImage*)borderImageForSize:(CGSize)size parameters:(DYNStyleParameters*)parameters;
+- (UIImage *)borderImageForSize:(CGSize)size parameters:(DYNStyleParameters *)parameters;
 
 
 ///---------------------------------------------------------------------------------------
 /// @name Deriving paths for the style
 ///---------------------------------------------------------------------------------------
 
-/** Returns a UIBezierPath for the given rect. 
+/** Returns a UIBezierPath for the given rect.
  
  @param rect The rect used to construct the UIBezierPath.
  */
-- (UIBezierPath*)pathForStyleForRect:(CGRect)rect;
+- (UIBezierPath *)pathForStyleForRect:(CGRect)rect;
 
 /** Returns a UIBezierPath for the given rect, inset by this style's strokeWidth property.
  
  @param rect The rect used to construct the UIBezierPath.
  */
-- (UIBezierPath*)strokePathForStyleForRect:(CGRect)rect;
+- (UIBezierPath *)strokePathForStyleForRect:(CGRect)rect;
 
 /** Transforms the provided path and returns a path inset by this style's strokeWidth.
  
  @param path The path to transform.
  */
-- (UIBezierPath*)strokePathForPath:(UIBezierPath*)path;
+- (UIBezierPath *)strokePathForPath:(UIBezierPath *)path;
 @end

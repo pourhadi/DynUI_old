@@ -1,43 +1,16 @@
 {
   "styles" : [
     {
-      "name" : "NavBar",
+      "leftInnerBorders" : [
+
+      ],
       "canvasBackgroundType" : "Transparent",
-      "roundedCorners" : 3,
-      "strokeWidth" : 0,
-      "shadow" : {
-        "xOffset" : 0,
-        "color" : "0 0 0 1",
-        "yOffset" : -1,
-        "opacity" : 0,
-        "radius" : 0
-      },
-      "maskToCorners" : false,
+      "barButtonItemStyleName" : "NavBarButton",
       "strokeColor" : {
         "definedAtRuntime" : false,
         "colorString" : "0 0 0 1",
         "colorVar" : "",
         "colorName" : ""
-      },
-      "barButtonItemStyleName" : "NavBarButton",
-      "topInnerBorders" : [
-        {
-          "height" : 1,
-          "color" : {
-            "definedAtRuntime" : false,
-            "colorString" : "0.702253 0.702232 0.702243 0.75",
-            "colorVar" : "",
-            "colorName" : ""
-          },
-          "blendMode" : 3
-        }
-      ],
-      "innerShadow" : {
-        "xOffset" : 0,
-        "color" : "0 0 0 1",
-        "yOffset" : -1,
-        "opacity" : 0,
-        "radius" : 0
       },
       "background" : {
         "gradientAngle" : 180,
@@ -56,14 +29,38 @@
           }
         ]
       },
-      "leftInnerBorders" : [
-
-      ],
-      "controlStyle" : {
-
+      "innerShadow" : {
+        "xOffset" : 0,
+        "color" : "0 0 0 1",
+        "yOffset" : -1,
+        "opacity" : 0,
+        "radius" : 0
       },
+      "strokeWidth" : 0,
+      "name" : "NavBar",
+      "shadow" : {
+        "xOffset" : 0,
+        "color" : "0 0 0 1",
+        "yOffset" : -1,
+        "opacity" : 0,
+        "radius" : 0
+      },
+      "canvasBackgroundColor" : "0 0 0 0",
       "drawAsynchronously" : false,
-      "textFieldTextStyleName" : "ButtonText",
+      "maskToCorners" : false,
+      "cornerRadius" : 10,
+      "topInnerBorders" : [
+        {
+          "height" : 1,
+          "color" : {
+            "definedAtRuntime" : false,
+            "colorString" : "0.702253 0.702232 0.702243 0.75",
+            "colorVar" : "",
+            "colorName" : ""
+          },
+          "blendMode" : 3
+        }
+      ],
       "bottomInnerBorders" : [
         {
           "height" : 2,
@@ -86,11 +83,15 @@
           "blendMode" : 0
         }
       ],
-      "canvasBackgroundColor" : "0 0 0 0",
-      "cornerRadius" : 10,
+      "controlStyle" : {
+
+      },
+      "navBarTitleTextStyle" : "NavBarText",
       "rightInnerBorders" : [
 
-      ]
+      ],
+      "textFieldTextStyleName" : "ButtonText",
+      "roundedCorners" : 3
     },
     {
       "name" : "NavBarButton",
@@ -548,25 +549,25 @@
       },
       "tableCellTitleTextStyle" : {
         "fontSize" : 12,
-        "fontSizeString" : "12",
+        "shadowXOffset" : 0,
         "fontSizeType" : 0,
         "shadowColor" : {
-          "definedAtRuntime" : false,
+          "colorName" : "",
           "colorString" : "0 0 0 1",
-          "colorVar" : "",
-          "colorName" : ""
+          "definedAtRuntime" : false,
+          "colorVar" : ""
         },
         "fontName" : "Helvetica-Bold",
         "styleName" : "ButtonText",
         "shadowYOffset" : 1,
         "alignment" : 0,
+        "fontSizeString" : "12",
         "textColor" : {
-          "definedAtRuntime" : false,
+          "colorName" : "",
           "colorString" : "1 1 1 1",
-          "colorVar" : "ButtonTextColor",
-          "colorName" : ""
-        },
-        "shadowXOffset" : 0
+          "definedAtRuntime" : false,
+          "colorVar" : "ButtonTextColor"
+        }
       },
       "innerShadow" : {
         "xOffset" : 0,
@@ -673,25 +674,25 @@
       "drawAsynchronously" : false,
       "tableCellTitleTextStyle" : {
         "fontSize" : 12,
-        "fontSizeString" : "12",
+        "shadowXOffset" : 0,
         "fontSizeType" : 0,
         "shadowColor" : {
-          "definedAtRuntime" : false,
+          "colorName" : "",
           "colorString" : "0 0 0 1",
-          "colorVar" : "",
-          "colorName" : ""
+          "definedAtRuntime" : false,
+          "colorVar" : ""
         },
         "fontName" : "Helvetica-Bold",
         "styleName" : "ButtonText",
         "shadowYOffset" : 1,
         "alignment" : 0,
+        "fontSizeString" : "12",
         "textColor" : {
-          "definedAtRuntime" : false,
+          "colorName" : "",
           "colorString" : "1 1 1 1",
-          "colorVar" : "ButtonTextColor",
-          "colorName" : ""
-        },
-        "shadowXOffset" : 0
+          "definedAtRuntime" : false,
+          "colorVar" : "ButtonTextColor"
+        }
       },
       "bottomInnerBorders" : [
         {
@@ -787,25 +788,25 @@
       "drawAsynchronously" : false,
       "tableCellTitleTextStyle" : {
         "fontSize" : 12,
-        "fontSizeString" : "12",
+        "shadowXOffset" : 0,
         "fontSizeType" : 0,
         "shadowColor" : {
-          "definedAtRuntime" : false,
+          "colorName" : "",
           "colorString" : "0 0 0 1",
-          "colorVar" : "",
-          "colorName" : ""
+          "definedAtRuntime" : false,
+          "colorVar" : ""
         },
         "fontName" : "Helvetica-Bold",
         "styleName" : "ButtonText",
         "shadowYOffset" : 1,
         "alignment" : 0,
+        "fontSizeString" : "12",
         "textColor" : {
-          "definedAtRuntime" : false,
+          "colorName" : "",
           "colorString" : "1 1 1 1",
-          "colorVar" : "ButtonTextColor",
-          "colorName" : ""
-        },
-        "shadowXOffset" : 0
+          "definedAtRuntime" : false,
+          "colorVar" : "ButtonTextColor"
+        }
       },
       "bottomInnerBorders" : [
 
@@ -892,25 +893,25 @@
       "drawAsynchronously" : false,
       "tableCellTitleTextStyle" : {
         "fontSize" : 12,
-        "fontSizeString" : "12",
+        "shadowXOffset" : 0,
         "fontSizeType" : 0,
         "shadowColor" : {
-          "definedAtRuntime" : false,
+          "colorName" : "",
           "colorString" : "0 0 0 1",
-          "colorVar" : "",
-          "colorName" : ""
+          "definedAtRuntime" : false,
+          "colorVar" : ""
         },
         "fontName" : "Helvetica-Bold",
         "styleName" : "ButtonText",
         "shadowYOffset" : 1,
         "alignment" : 0,
+        "fontSizeString" : "12",
         "textColor" : {
-          "definedAtRuntime" : false,
+          "colorName" : "",
           "colorString" : "1 1 1 1",
-          "colorVar" : "ButtonTextColor",
-          "colorName" : ""
-        },
-        "shadowXOffset" : 0
+          "definedAtRuntime" : false,
+          "colorVar" : "ButtonTextColor"
+        }
       },
       "bottomInnerBorders" : [
 
@@ -997,25 +998,25 @@
       "drawAsynchronously" : false,
       "tableCellTitleTextStyle" : {
         "fontSize" : 12,
-        "fontSizeString" : "12",
+        "shadowXOffset" : 0,
         "fontSizeType" : 0,
         "shadowColor" : {
-          "definedAtRuntime" : false,
+          "colorName" : "",
           "colorString" : "0 0 0 1",
-          "colorVar" : "",
-          "colorName" : ""
+          "definedAtRuntime" : false,
+          "colorVar" : ""
         },
         "fontName" : "Helvetica-Bold",
         "styleName" : "ButtonText",
         "shadowYOffset" : 1,
         "alignment" : 0,
+        "fontSizeString" : "12",
         "textColor" : {
-          "definedAtRuntime" : false,
+          "colorName" : "",
           "colorString" : "1 1 1 1",
-          "colorVar" : "ButtonTextColor",
-          "colorName" : ""
-        },
-        "shadowXOffset" : 0
+          "definedAtRuntime" : false,
+          "colorVar" : "ButtonTextColor"
+        }
       },
       "bottomInnerBorders" : [
         {
@@ -1070,7 +1071,7 @@
         "xOffset" : 0,
         "color" : "0 0 0 1",
         "yOffset" : -10,
-        "opacity" : 0.5000000000000001,
+        "opacity" : 0.5,
         "radius" : 8
       },
       "background" : {
@@ -1267,6 +1268,28 @@
       "textColor" : {
         "definedAtRuntime" : false,
         "colorString" : "0.873994 0.873994 0.873994 1",
+        "colorVar" : "",
+        "colorName" : ""
+      },
+      "shadowXOffset" : 0
+    },
+    {
+      "fontSize" : 9,
+      "fontSizeString" : "9",
+      "fontSizeType" : 0,
+      "shadowColor" : {
+        "definedAtRuntime" : false,
+        "colorString" : "0 0 0 1",
+        "colorVar" : "",
+        "colorName" : ""
+      },
+      "fontName" : "Helvetica",
+      "styleName" : "NavBarText",
+      "shadowYOffset" : -1,
+      "alignment" : 0,
+      "textColor" : {
+        "definedAtRuntime" : false,
+        "colorString" : "0.696312 0.696312 0.696312 1",
         "colorVar" : "",
         "colorName" : ""
       },

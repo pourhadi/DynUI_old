@@ -14,7 +14,7 @@ typedef void (^DYNDrawImageBlock)(CGContextRef context, CGSize size);
 @interface UIImage (DynUI)
 
 
-- (void)setValuesForStyleParameters:(NSDictionary*)valuesForParams;
+- (void)setValuesForStyleParameters:(NSDictionary *)valuesForParams;
 - (void)setValue:(id)value forStyleParameter:(NSString *)parameterName;
 
 @property (nonatomic, strong) DYNStyleParameters *styleParameters;
@@ -35,9 +35,9 @@ typedef void (^DYNDrawImageBlock)(CGContextRef context, CGSize size);
 + (CGImageRef)createMaskFromAlphaChannel:(UIImage *)image; // inverted
 
 + (UIImage *)cropTransparencyFromImage:(UIImage *)img;
-+ (UIImage*)blankOnePointImage;
++ (UIImage *)blankOnePointImage;
 
-- (UIImage*)imageScaledToSize:(CGSize)size cropTransparent:(BOOL)crop;
+- (UIImage *)imageScaledToSize:(CGSize)size cropTransparent:(BOOL)crop;
 - (UIImage *)imageOverlayedWithColor:(UIColor *)color opacity:(CGFloat)opacity;
 - (UIImage *)imageTintedWithGradientTopColor:(UIColor *)topColor bottomColor:(UIColor *)bottomColor fraction:(CGFloat)fraction;
 - (UIImage *)imageTintedWithGradientTopColor:(UIColor *)topColor bottomColor:(UIColor *)bottomColor innerShadowColor:(UIColor *)innerShadow fraction:(CGFloat)fraction;
