@@ -437,8 +437,8 @@
     }
 	
 	if (style.maskToCorners) {
-		CALayer *mask = [style layerMaskForStyleWithSize:cell.frame.size];
-		cell.layer.mask = mask;
+		CALayer *mask = [style layerMaskForStyleWithSize:cell.frame.size withOuterShadow:YES];
+		cell.contentView.layer.mask = mask;
 	}
 
 }

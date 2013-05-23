@@ -511,9 +511,28 @@
     return shape;
 }
 
-- (CALayer *)layerMaskForStyleWithSize:(CGSize)size withOuterShadow:(BOOL)outerShadow
+- (CALayer *)layerMaskForStyleWithSize:(CGSize)size withOuterShadow:(BOOL)withOuterShadow
 {
+	if (!withOuterShadow) {
+		return [self layerMaskForStyleWithSize:size];
+	}
+	DYNShadowStyle *outerShadow = self.shadow;
+
+	CGSize newSize = CGSizeMake(size.width - ((fabsf(outerShadow.radius) + fabsf(outerShadow.offset.width)) * 2), size.height - ((fabsf(outerShadow.radius) + fabsf(outerShadow.offset.height)) * 2));
+
 	
+	UIImage *maskImage = [UIImage imageWithSize:size drawnFromBlock:^(CGContextRef context, CGSize size) {
+		CGRect rect = CGRectMake((size.width-newSize.width)/2, (size.height-newSize.height)/2, newSize.width, newSize.height);
+		UIBezierPath *path = [self pathForStyleForRect:rect];
+		[[UIColor blackColor] setFill];
+		[path fill];
+		
+	}];
+	
+	CALayer *layerMask = [CALayer layer];
+	layerMask.frame = CGRectMake(0, 0, size.width, size.height);
+	layerMask.contents = (id)maskImage.CGImage;
+	return layerMask;
 }
 
 - (UIImage *)borderImageForSize:(CGSize)size parameters:(DYNStyleParameters *)parameters {
