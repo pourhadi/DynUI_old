@@ -253,6 +253,24 @@
 
 }
 
+- (NSArray*)stylesForParentStyle:(NSDictionary*)dictionary
+{
+    NSMutableArray *tmp = [NSMutableArray new];
+    for (NSDictionary *style in dictionary) {
+        if ([[style objectForKey:@"isLeaf"] boolValue]) {
+            DYNViewStyle *viewStyle = [[DYNViewStyle alloc] initWithDictionary:style];
+            [tmp addObject:viewStyle];
+        } else {
+            
+            [tmp addObjectsFromArray:[self stylesForParentStyle:style]];
+            
+        }
+    }
+    
+    
+    return tmp;
+}
+
 - (void)processStyleDictionary:(NSDictionary*)json replaceExisting:(BOOL)replaceExisting
 {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
@@ -280,8 +298,14 @@
         NSArray *styles = [json objectForKey:@"styles"];
         NSMutableArray *viewStyleTmp = [NSMutableArray arrayWithCapacity:1];
         for (NSDictionary *style in styles) {
-            DYNViewStyle *new = [[DYNViewStyle alloc] initWithDictionary:style];
-            [viewStyleTmp addObject:new];
+            if ([[style objectForKey:@"isLeaf"] boolValue]) {
+                DYNViewStyle *viewStyle = [[DYNViewStyle alloc] initWithDictionary:style];
+                [viewStyleTmp addObject:viewStyle];
+            } else {
+                
+                [viewStyleTmp addObjectsFromArray:[self stylesForParentStyle:style]];
+                
+            }
         }
         if (replaceExisting) {
             self.styles = viewStyleTmp;
