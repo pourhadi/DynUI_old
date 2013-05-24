@@ -521,7 +521,7 @@
 	CGSize newSize = CGSizeMake(size.width - ((fabsf(outerShadow.radius) + fabsf(outerShadow.offset.width)) * 2), size.height - ((fabsf(outerShadow.radius) + fabsf(outerShadow.offset.height)) * 2));
 
 	
-	UIImage *maskImage = [UIImage imageWithSize:size drawnFromBlock:^(CGContextRef context, CGSize size) {
+	UIImage *maskImage = [UIImage imageWithSize:size drawnWithBlock:^(CGContextRef context, CGSize size) {
 		CGRect rect = CGRectMake((size.width-newSize.width)/2, (size.height-newSize.height)/2, newSize.width, newSize.height);
 		UIBezierPath *path = [self pathForStyleForRect:rect];
 		[[UIColor blackColor] setFill];

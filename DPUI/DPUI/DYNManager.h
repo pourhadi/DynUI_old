@@ -60,4 +60,7 @@
 - (void)loadStylesFromFile:(NSString *)fileName replaceExisting:(BOOL)replaceExisting liveUpdate:(BOOL)liveUpdate;
 
 - (void)loadStylesFromFileAbsolutePath:(NSString*)absolute resourcePath:(NSString*)resourcePath replaceExisting:(BOOL)replaceExisting liveUpdateIfPossible:(BOOL)liveUpdate;
+
++ (void)loadStylesFromFile:(NSString*)styleFileName replaceExisting:(BOOL)replaceExisting;
++ (void)setAutoUpdatePath:(NSString*)absolutePathToFile;
 @end

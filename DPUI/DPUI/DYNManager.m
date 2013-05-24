@@ -172,6 +172,48 @@
     return nil;
 }
 
++ (void)loadStylesFromFile:(NSString*)styleFileName replaceExisting:(BOOL)replaceExisting
+{
+    NSData *data = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:styleFileName ofType:nil]];
+    NSError *error;
+
+    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+    if (error) {
+        NSLog(@"%@", error);
+    }
+    if (json) {
+        [[DYNManager sharedInstance] processStyleDictionary:json replaceExisting:replaceExisting];
+    }
+
+}
+
++ (void)setAutoUpdatePath:(NSString*)absolutePathToFile
+{
+#if (TARGET_IPHONE_SIMULATOR)
+
+    @synchronized(self) {
+        NSData *data = [NSData dataWithContentsOfFile:absolutePathToFile];
+        NSError *error;
+        
+        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+        if (error) {
+            NSLog(@"%@", error);
+        }
+        if (json) {
+            [[DYNManager sharedInstance] processStyleDictionary:json replaceExisting:YES];
+        }
+        
+        [CATransaction flush];
+        
+        [[DYNManager sharedInstance] watch:absolutePathToFile withCallback:^{
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [DYNManager setAutoUpdatePath:absolutePathToFile];
+            });
+        }];
+    }
+#endif
+}
+
 - (void)loadStylesFromFileAbsolutePath:(NSString*)absolute resourcePath:(NSString*)resourcePath replaceExisting:(BOOL)replaceExisting liveUpdateIfPossible:(BOOL)liveUpdate
 {
     @synchronized(self) {
@@ -201,22 +243,22 @@
                 data = [NSData dataWithContentsOfFile:resourcePath];
             }
 #else
-        data = [NSData dataWithContentsOfFile:resourcePath];
+            data = [NSData dataWithContentsOfFile:resourcePath];
 #endif
-    } else {
-        data = [NSData dataWithContentsOfFile:resourcePath];
-    }
-    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-    if (error) {
-        NSLog(@"%@", error);
-    }
-    if (json) {
-        [self processStyleDictionary:json replaceExisting:replaceExisting];
+        } else {
+            data = [NSData dataWithContentsOfFile:resourcePath];
+        }
+        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+        if (error) {
+            NSLog(@"%@", error);
+        }
+        if (json) {
+            [self processStyleDictionary:json replaceExisting:replaceExisting];
+        }
+        
+        [CATransaction flush];
     }
     
-    [CATransaction flush];
-}
-
 }
 
 - (void)loadStylesFromFile:(NSString *)fileName replaceExisting:(BOOL)replaceExisting liveUpdate:(BOOL)liveUpdate {
@@ -250,7 +292,7 @@
             _liveUpdating = NO;
         }
     }
-
+    
 }
 
 - (NSArray*)stylesForParentStyle:(NSDictionary*)dictionary
@@ -340,7 +382,7 @@
             [self sendUpdateNotification];
             [SVProgressHUD dismiss];
         });
-
+        
     });
     
 }

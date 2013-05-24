@@ -47,6 +47,11 @@ static const void *const kDYNSetTextSwizzledKey = "_DYNSetTextSwizzledKey";
     if (self.dyn_textStyle) {
         [self setDyn_textStyle:self.dyn_textStyle];
     }
+    
+    if (self.dyn_style) {
+        self.dyn_styleSizeApplied = self.frame.size;
+        [DYNRenderer renderView:self withStyleNamed:self.dyn_style];
+    }
 }
 
 - (void)setDyn_autoScroll:(BOOL)dyn_autoScroll {
