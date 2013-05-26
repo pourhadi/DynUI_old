@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 @class DYNStyleParameters;
-typedef void (^DYNDrawImageBlock)(CGContextRef context, CGSize size);
+typedef void (^DYNDrawImageBlock)(CGContextRef context, CGRect rect);
 
 @interface UIImage (DynUI)
 
@@ -19,6 +19,11 @@ typedef void (^DYNDrawImageBlock)(CGContextRef context, CGSize size);
 
 @property (nonatomic, strong) DYNStyleParameters *styleParameters;
 
++ (UIImage*)iconImage:(NSString*)iconKey constrainedToSize:(CGSize)size withStyle:(NSString*)styleName;
++ (UIImage*)iconImage:(NSString*)iconKey forWidth:(CGFloat)width withStyle:(NSString*)styleName;
++ (UIImage*)iconImage:(NSString*)iconKey forHeight:(CGFloat)height withStyle:(NSString*)styleName;
+
++ (UIImage *)imageNamed:(NSString *)name withStyle:(NSString *)style;
 
 
 + (UIImage *)imageWithSize:(CGSize)size drawnWithBlock:(DYNDrawImageBlock)block;
@@ -29,7 +34,6 @@ typedef void (^DYNDrawImageBlock)(CGContextRef context, CGSize size);
 
 + (CAGradientLayer *)gradientLayerWithTop:(id)topColor bottom:(id)bottomColor frame:(CGRect)frame;
 + (UIImage *)gradientImageWithTop:(id)topColor bottom:(id)bottomColor frame:(CGRect)frame;
-+ (UIImage *)imageNamed:(NSString *)name withStyle:(NSString *)style;
 
 + (CGImageRef)createMaskFromAlphaChannel:(UIImage *)image inverted:(BOOL)inverted;
 + (CGImageRef)createMaskFromAlphaChannel:(UIImage *)image; // inverted

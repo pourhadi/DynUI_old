@@ -71,6 +71,9 @@ typedef NS_OPTIONS (NSUInteger, CornerRadiusType) {
 
 @property (nonatomic) BOOL drawAsynchronously;
 
+/** An NSArray of DYNCustomSetting objects for styling keypaths of the receiving view object. */
+@property (nonatomic, strong) NSArray *customSettings;
+
 ///---------------------------------------------------------------------------------------
 /// @name UISearchBar Style Properties
 ///---------------------------------------------------------------------------------------
@@ -100,6 +103,8 @@ typedef NS_OPTIONS (NSUInteger, CornerRadiusType) {
 
 /** The name of the DYNTextStyle object used to style the UITableViewCell's detailTextLabel text when this style is applied to a UITableViewCell.*/
 @property (nonatomic, strong) DYNTextStyle *tableCellDetailTextStyle;
+
+@property (nonatomic, strong) NSString *tableCellSelectedStyleName;
 
 ///---------------------------------------------------------------------------------------
 /// @name UIControl Style Properties

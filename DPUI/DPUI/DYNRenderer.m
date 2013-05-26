@@ -9,6 +9,7 @@
 #import "DYNRenderer.h"
 #import "DYNDefines.h"
 #import "DynUI.h"
+#import "UITableViewCell+DynUI.h"
 #import <objc/runtime.h>
 
 @implementation DYNRenderer
@@ -22,7 +23,18 @@
     return queue;
 }
 
++ (void)applyCustomSettingsFromStyle:(DYNViewStyle*)style toView:(UIView*)view
+{
+	if (style.customSettings) {
+		[style.customSettings makeObjectsPerformSelector:@selector(applyToObject:) withObject:view];
+	}
+}
+
 + (void)renderView:(UIView *)view withStyleNamed:(NSString *)styleName {
+	DYNViewStyle *style = (DYNViewStyle *)[[DYNManager sharedInstance] styleForName:styleName];
+
+	[self applyCustomSettingsFromStyle:style toView:view];
+	
     if ([view isKindOfClass:[UIButton class]]) {
         [self renderButton:(UIButton *)view withStyleNamed:styleName];
         return;
@@ -56,7 +68,6 @@
         return;
     }
     
-    DYNViewStyle *style = (DYNViewStyle *)[[DYNManager sharedInstance] styleForName:styleName];
     
     [style applyStyleToView:view];
 }
@@ -463,6 +474,60 @@
         UIImage *img = [style imageForStyleWithSize:tableCell.frame.size withOuterShadow:NO parameters:tableCell.styleParameters];
         [self applyImage:img fromStyle:style toTableCell:tableCell];
     }
+	
+	if (style.tableCellSelectedStyleName) {
+		DYNViewStyle *selectedCellStyle;
+		BOOL flipGrad = NO;
+		BOOL halfAlpha = NO;
+		BOOL makeLighter = NO;
+		BOOL makeDarker = NO;
+		if ([style.tableCellSelectedStyleName isEqualToString:kDYNFlippedGradientKey]) {
+			flipGrad = YES;
+			selectedCellStyle = style;
+		} else if ([style.tableCellSelectedStyleName isEqualToString:kDYNMakeDarkerKey]) {
+			flipGrad = NO;
+			halfAlpha = NO;
+			makeLighter = NO;
+			makeDarker = YES;
+			selectedCellStyle = style;
+		} else if ([style.tableCellSelectedStyleName isEqualToString:kDYNMakeLigherKey]) {
+			flipGrad = NO;
+			halfAlpha = NO;
+			makeLighter = YES;
+			selectedCellStyle = NO;
+			selectedCellStyle = style;
+		} else {
+			if ([style.tableCellSelectedStyleName isEqualToString:kDYNHalfOpacityKey]) {
+				selectedCellStyle = style;
+				halfAlpha = YES;
+			} else {
+				selectedCellStyle = (DYNViewStyle *)[[DYNManager sharedInstance] styleForName:style.tableCellSelectedStyleName];
+			}
+		}
+		UIImage *image = [selectedCellStyle imageForStyleWithSize:tableCell.frame.size withOuterShadow:YES flippedGradient:flipGrad parameters:tableCell.styleParameters];
+		
+		if (halfAlpha) {
+			image = [image imageWithOpacity:0.5];
+		}
+		
+		if (makeDarker) {
+			image = [image imageOverlayedWithColor:[UIColor blackColor] opacity:0.3];
+		}
+		
+		if (makeLighter) {
+			image = [image imageOverlayedWithColor:[UIColor whiteColor] opacity:0.3];
+		}
+		
+		if (!tableCell.dyn_selectedBackgroundView) {
+			UIView *bgView = [[UIView alloc] initWithFrame:tableCell.bounds];
+			tableCell.dyn_selectedBackgroundView = bgView;
+		}
+		
+		tableCell.dyn_selectedBackgroundView.layer.contents = (id)image.CGImage;
+		tableCell.selectedBackgroundView = tableCell.dyn_selectedBackgroundView;
+
+	}
+	
 }
 
 + (void)applyImage:(UIImage *)image fromStyle:(DYNViewStyle *)style toTableCell:(UITableViewCell *)tableCell {
@@ -482,6 +547,8 @@
     if (style.tableCellDetailTextStyle) {
         [style.tableCellDetailTextStyle applyToLabel:tableCell.detailTextLabel];
     }
+	
+	
 }
 
 + (void)applyImage:(UIImage*)image fromStyle:(DYNViewStyle*)style toCollectionViewCell:(UICollectionViewCell*)cell

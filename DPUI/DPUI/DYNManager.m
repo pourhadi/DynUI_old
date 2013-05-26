@@ -298,7 +298,7 @@
 - (NSArray*)stylesForParentStyle:(NSDictionary*)dictionary
 {
     NSMutableArray *tmp = [NSMutableArray new];
-    for (NSDictionary *style in dictionary) {
+    for (NSDictionary *style in [dictionary objectForKey:@"children"]) {
         if ([[style objectForKey:@"isLeaf"] boolValue]) {
             DYNViewStyle *viewStyle = [[DYNViewStyle alloc] initWithDictionary:style];
             [tmp addObject:viewStyle];
@@ -315,7 +315,6 @@
 
 - (void)processStyleDictionary:(NSDictionary*)json replaceExisting:(BOOL)replaceExisting
 {
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSArray *colors = [json objectForKey:@"colors"];
         NSMutableArray *colorTmp = [NSMutableArray arrayWithCapacity:1];
         for (NSDictionary *dict in colors) {
@@ -382,9 +381,7 @@
             [self sendUpdateNotification];
             [SVProgressHUD dismiss];
         });
-        
-    });
-    
+
 }
 
 - (void)watch:(NSString *)path withCallback:(void (^)())callback {

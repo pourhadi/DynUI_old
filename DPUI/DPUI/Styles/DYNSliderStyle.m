@@ -66,8 +66,7 @@
 }
 
 - (UIImage *)maxTrackImageForSlider:(UISlider *)slider {
-    UIImage *image = [UIImage imageWithSize:CGSizeMake(self.trackHeight, self.trackHeight) drawnWithBlock:^(CGContextRef context, CGSize size) {
-        CGRect rect = CGRectMake(0, 0, size.width, size.height);
+    UIImage *image = [UIImage imageWithSize:CGSizeMake(self.trackHeight, self.trackHeight) drawnWithBlock:^(CGContextRef context, CGRect rect) {
 		
         UIBezierPath *path = [UIBezierPath bezierPathWithOvalInRect:rect];
 		
@@ -95,8 +94,7 @@
 }
 
 - (UIImage *)minTrackImageForSlider:(UISlider *)slider {
-    UIImage *image = [UIImage imageWithSize:CGSizeMake(self.trackHeight, self.trackHeight) drawnWithBlock:^(CGContextRef context, CGSize size) {
-        CGRect rect = CGRectMake(0, 0, size.width, size.height);
+    UIImage *image = [UIImage imageWithSize:CGSizeMake(self.trackHeight, self.trackHeight) drawnWithBlock:^(CGContextRef context, CGRect rect) {
 		
         UIBezierPath *path = [UIBezierPath bezierPathWithOvalInRect:rect];
 		

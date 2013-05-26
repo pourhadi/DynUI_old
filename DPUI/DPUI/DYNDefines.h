@@ -110,8 +110,9 @@ static NSString *const kDYNRoundedCornersKey = @"roundedCorners";
 static NSString *const kDYNShadowKey = @"shadow";
 static NSString *const kDYNInnerShadowKey = @"innerShadow";
 static NSString *const kDYNCanvasBackgroundColorKey = @"canvasBackgroundColor";
-static NSString *const kDYNTablCellTitleTextStyleKey = @"tableCellTitleTextStyle";
+static NSString *const kDYNTableCellTitleTextStyleKey = @"tableCellTitleTextStyle";
 static NSString *const kDYNTableCellDetailTextStyleKey = @"tableCellDetailTextStyle";
+static NSString *const kDYNTableCellSelectedStyleNameKey = @"tableCellSelectedStyleName";
 static NSString *const kDYNNavBarTitleTextStyle = @"navBarTitleTextStyle";
 static NSString *const kDYNBarButtonItemTextStyle = @"barButtonItemTextStyle";
 static NSString *const kDYNBarButtonItemStyleName = @"barButtonItemStyleName";
@@ -131,6 +132,7 @@ static NSString *const kDYNGroupedTableTopCellKey = @"groupedTableTopCell";
 static NSString *const kDYNGroupedTableMiddleCellKey = @"groupedTableMiddleCell";
 static NSString *const kDYNGroupedTableBottomCellKey = @"groupedTableBottomCell";
 static NSString *const kDYNGroupedTableSingleCellKey = @"groupedTableSingleCell";
+static NSString *const kDYNCustomSettingsKey = @"customSettings";
 
 // DYNControlStyle
 static NSString *const kDYNNormalTextStyle = @"normalTextStyle";
@@ -154,3 +156,8 @@ static NSString *const kDYNMaximumTrackInnerShadowKey = @"maximumTrackInnerShado
 static NSString *const kDYNThumbStyleNameKey = @"thumbStyleName";
 static NSString *const kDYNMaxTrackBgColorsKey = @"maxTrackBgColors";
 static NSString *const kDYNMinTrackBgColorsKey = @"minTrackBgColors";
+
+// DYNCustomSetting
+static NSString *const kDYNKeyPathKey = @"keyPath";
+static NSString *const kDYNKeyPathTypeKey = @"keyPathType";
+static NSString *const kDYNValueKey = @"value";

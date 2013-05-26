@@ -29,4 +29,6 @@
 #import "DYNStyleParameters.h"
 #import "DYNSliderStyle.h"
 #import "DYNPopoverStyle.h"
+#import "DYNCustomSetting.h"
+#import "DYNIcons.h"
 #endif

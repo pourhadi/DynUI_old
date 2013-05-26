@@ -12,6 +12,11 @@
 
 @implementation DYNImageStyle
 
++ (DYNImageStyle*)imageStyleForName:(NSString*)styleName
+{
+	return [[DYNManager sharedInstance] imageStyleForName:styleName];
+}
+
 
 - (UIImage *)applyToImage:(UIImage *)image {
     DYNBackgroundStyle *background = self.background;
@@ -20,8 +25,8 @@
     CGImageRef mask = [UIImage createMaskFromAlphaChannel:image];
     CGImageRef nonInvertedMask = [UIImage createMaskFromAlphaChannel:image inverted:NO];
     
-    UIImage *newImage = [UIImage imageWithSize:CGSizeMake(image.size.width, image.size.height) drawnWithBlock:^(CGContextRef
-                                                                                                                context, CGSize size) {
+    UIImage *newImage = [UIImage imageWithSize:CGSizeMake(image.size.width, image.size.height) drawnWithBlock:^(CGContextRef context, CGRect rect) {
+		CGSize size = rect.size;
         CGContextSetInterpolationQuality(context, kCGInterpolationHigh);
         UIBezierPath *path = [UIBezierPath bezierPathWithRect:CGRectMake(0, 0, size.width, size.height)];
         CGContextSaveGState(context);
@@ -68,7 +73,8 @@
         DYNShadowStyle *outerShadow = self.shadow;
         
         CGSize newSize = CGSizeMake(image.size.width + ((fabsf(outerShadow.radius) + fabsf(outerShadow.offset.width)) * 2), image.size.height + ((fabsf(outerShadow.radius) + fabsf(outerShadow.offset.height)) * 2));
-        newImage = [UIImage imageWithSize:newSize drawnWithBlock:^(CGContextRef context, CGSize size) {
+        newImage = [UIImage imageWithSize:newSize drawnWithBlock:^(CGContextRef context, CGRect rect) {
+			CGSize size = rect.size;
             CGContextTranslateCTM(context, 0.0f, size.height);
             CGContextScaleCTM(context, 1.0f, -1.0f);
             CGContextSetShadowWithColor(context, outerShadow.offset, outerShadow.radius, [outerShadow.color colorWithAlphaComponent:outerShadow.opacity].CGColor);

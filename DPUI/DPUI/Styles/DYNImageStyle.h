@@ -14,4 +14,6 @@
 
 - (UIImage *)applyToImage:(UIImage *)image;
 
++ (DYNImageStyle*)imageStyleForName:(NSString*)styleName;
+
 @end

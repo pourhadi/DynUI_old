@@ -11,8 +11,37 @@
 #import "DynUI.h"
 #import <objc/runtime.h>
 #import <stdlib.h>
+
 #define ROUND_UP(N, S) ((((N) + (S)-1) / (S)) * (S))
 @implementation UIImage (DynUI)
+
++ (UIImage*)iconImage:(NSString*)iconKey constrainedToSize:(CGSize)size withStyle:(NSString*)styleName
+{
+	UIBezierPath *iconPath = [DYNIcons iconPathForKey:iconKey fitInSize:size];
+	DYNImageStyle *style = [DYNImageStyle imageStyleForName:styleName];
+	UIImage *image = [style imageForStyleWithSize:size path:iconPath withOuterShadow:YES flippedGradient:NO parameters:nil];
+
+	return image;
+}
+
++ (UIImage*)iconImage:(NSString*)iconKey forWidth:(CGFloat)width withStyle:(NSString*)styleName
+{
+	UIBezierPath *iconPath = [DYNIcons iconPathForKey:iconKey forWidth:width];
+	DYNImageStyle *style = [DYNImageStyle imageStyleForName:styleName];
+	UIImage *image = [style imageForStyleWithSize:iconPath.bounds.size path:iconPath withOuterShadow:YES flippedGradient:NO parameters:nil];
+	
+	return image;
+}
+
++ (UIImage*)iconImage:(NSString*)iconKey forHeight:(CGFloat)height withStyle:(NSString*)styleName
+{
+	UIBezierPath *iconPath = [DYNIcons iconPathForKey:iconKey forHeight:height];
+	DYNImageStyle *style = [DYNImageStyle imageStyleForName:styleName];
+	UIImage *image = [style imageForStyleWithSize:iconPath.bounds.size path:iconPath withOuterShadow:YES flippedGradient:NO parameters:nil];
+	
+	return image;
+
+}
 
 + (UIImage *)imageWithSize:(CGSize)size drawnWithBlock:(DYNDrawImageBlock)block {
     UIGraphicsBeginImageContextWithOptions(size, NO, [[UIScreen mainScreen] scale]);
@@ -22,7 +51,7 @@
     }
     
     if (block) {
-        block(c, size);
+        block(c, CGRectMake(0, 0, size.width, size.height));
     }
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
@@ -86,7 +115,8 @@
 }
 
 - (UIImage *)imageOverlayedWithColor:(UIColor *)color opacity:(CGFloat)opacity {
-    UIImage *image = [UIImage imageWithSize:self.size drawnWithBlock:^(CGContextRef context, CGSize size) {
+    UIImage *image = [UIImage imageWithSize:self.size drawnWithBlock:^(CGContextRef context, CGRect rect) {
+		CGSize size = rect.size;
         [color setFill];
         UIRectFill(CGRectMake(0, 0, size.width, size.height));
         
@@ -301,7 +331,8 @@
 }
 
 + (UIImage *)blankOnePointImage {
-    return [UIImage imageWithSize:CGSizeMake(1, 1) drawnWithBlock:^(CGContextRef context, CGSize size) {
+    return [UIImage imageWithSize:CGSizeMake(1, 1) drawnWithBlock:^(CGContextRef context, CGRect rect) {
+		CGSize size = rect.size;
         [[UIColor clearColor] setFill];
         UIRectFill(CGRectMake(0, 0, size.width, size.height));
     }];
@@ -323,7 +354,8 @@
 }
 
 - (UIImage *)imageWithOpacity:(CGFloat)opacity {
-    UIImage *img = [UIImage imageWithSize:self.size drawnWithBlock:^(CGContextRef context, CGSize size) {
+    UIImage *img = [UIImage imageWithSize:self.size drawnWithBlock:^(CGContextRef context, CGRect rect) {
+		CGSize size = rect.size;
         [self drawInRect:CGRectMake(0, 0, size.width, size.height) blendMode:kCGBlendModeNormal alpha:opacity];
     }];
     
@@ -333,7 +365,8 @@
 - (UIImage *)imageScaledToSize:(CGSize)scaledSized cropTransparent:(BOOL)crop {
     CGSize imageSize = (crop ? scaledSized : self.size);
     
-    return [UIImage imageWithSize:imageSize drawnWithBlock:^(CGContextRef context, CGSize size) {
+    return [UIImage imageWithSize:imageSize drawnWithBlock:^(CGContextRef context, CGRect rect) {
+		CGSize size = rect.size;
         CGContextTranslateCTM(context, 0.0f, size.height);
         CGContextScaleCTM(context, 1.0f, -1.0f);
         

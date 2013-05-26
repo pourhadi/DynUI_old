@@ -81,14 +81,18 @@
         if ([dictionary objectForKey:kDYNCanvasBackgroundColorKey]) {
             self.canvasBackgroundColor = [UIColor colorFromCIString:[dictionary objectForKey:kDYNCanvasBackgroundColorKey]];
         }
-        if ([dictionary objectForKey:kDYNTablCellTitleTextStyleKey]) {
-            DYNTextStyle *textStyle = [DYNTextStyle textStyleForName:[dictionary objectForKey:kDYNTablCellTitleTextStyleKey]];
+        if ([dictionary objectForKey:kDYNTableCellTitleTextStyleKey]) {
+            DYNTextStyle *textStyle = [DYNTextStyle textStyleForName:[dictionary objectForKey:kDYNTableCellTitleTextStyleKey]];
 			self.tableCellTitleTextStyle = textStyle;
         }
         if ([dictionary objectForKey:kDYNTableCellDetailTextStyleKey]) {
            DYNTextStyle *textStyle = [DYNTextStyle textStyleForName:[dictionary objectForKey:kDYNTableCellDetailTextStyleKey]];
 			self.tableCellDetailTextStyle = textStyle;
         }
+		
+		if ([dictionary objectForKey:kDYNTableCellSelectedStyleNameKey]) {
+			self.tableCellSelectedStyleName = [dictionary objectForKey:kDYNTableCellSelectedStyleNameKey];
+		}
         if ([dictionary objectForKey:kDYNNavBarTitleTextStyle]) {
 			DYNTextStyle *textStyle = [DYNTextStyle textStyleForName:[dictionary objectForKey:kDYNNavBarTitleTextStyle]];
             self.navBarTitleTextStyle = textStyle;
@@ -157,6 +161,16 @@
         if ([dictionary objectForKey:kDYNGroupedTableSingleCellKey]) {
             self.groupedTableSingleCell = [dictionary objectForKey:kDYNGroupedTableSingleCellKey];
         }
+		
+		if ([dictionary objectForKey:kDYNCustomSettingsKey]) {
+			
+			NSMutableArray *tmpSettings = [NSMutableArray new];
+			for (NSDictionary *setting in [dictionary objectForKey:kDYNCustomSettingsKey]) {
+				[tmpSettings addObject:[[DYNCustomSetting alloc] initWithDictionary:setting]];
+			}
+			
+			self.customSettings = tmpSettings;
+		}
     }
     return self;
 }
@@ -183,6 +197,7 @@
 }
 
 - (UIBezierPath *)strokePathForPath:(UIBezierPath *)path {
+
     CGFloat xScale = 1 / path.bounds.size.width;
     CGFloat yScale = 1 / path.bounds.size.height;
 	
@@ -191,7 +206,7 @@
 	
     CGAffineTransform transform = CGAffineTransformMakeScale(xScale, yScale);
 	
-    transform = CGAffineTransformTranslate(transform, self.strokeWidth / 2, self.strokeWidth / 2);
+    transform = CGAffineTransformTranslate(transform, self.strokeWidth/2, self.strokeWidth/2);
 	
     UIBezierPath *newPath = [path copy];
     [newPath applyTransform:transform];
@@ -232,7 +247,7 @@
         [self.shadow addShadowToView:view];
     }
 	
-    if (self.maskToCorners) {
+    if (self.maskToCorners && self.cornerRadii.height != 0) {
         CALayer *layerMask = [self layerMaskForStyleWithSize:view.frame.size];
         view.layer.mask = layerMask;
 		
@@ -243,28 +258,22 @@
 		
         view.dyn_overlayView.frame = view.bounds;
         UIImage *borderImage = [self borderImageForSize:view.frame.size parameters:view.styleParameters];
-        view.dyn_overlayView.layer.contents = (id)borderImage.CGImage;
+		view.dyn_overlayView.layer.contents = (id)borderImage.CGImage;
+
+		
     }
 }
 
 - (UIImage *)imageForStyleWithSize:(CGSize)size path:(UIBezierPath *)path withOuterShadow:(BOOL)withOuterShadow flippedGradient:(BOOL)flippedGradient parameters:(DYNStyleParameters *)parameters {
-    UIImage *image = [UIImage imageWithSize:size drawnWithBlock:^(CGContextRef context, CGSize size) {
+    UIImage *image = [UIImage imageWithSize:size drawnWithBlock:^(CGContextRef context, CGRect rect) {
+		CGSize size = rect.size;
         CGContextSetInterpolationQuality(context, kCGInterpolationHigh);
         path.miterLimit = -10;
 		
         [self.canvasBackgroundColor setFill];
         UIRectFill(CGRectMake(0, 0, size.width, size.height));
 		
-        //        UIBezierPath *path;
-        //
-        //        if (!CGSizeEqualToSize(self.cornerRadii, CGSizeZero)) {
-        //            path = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0, 0, size.width, size.height) byRoundingCorners:self.roundedCorners cornerRadii:self.cornerRadii];
-        //        } else {
-        //            path = [UIBezierPath bezierPathWithRect:CGRectMake(0, 0, size.width, size.height)];
-        //        }
-		
         [self.background drawInFrame:CGRectMake(0, 0, size.width, size.height) clippedToPath:path parameters:parameters flippedGradient:flippedGradient];
-        //[self.background drawInPath:path withContext:context parameters:parameters flippedGradient:flippedGradient];
 		
         if (self.innerShadow && self.innerShadow.opacity > 0) {
             [self.innerShadow drawAsInnerShadowInPath:path context:context];
@@ -473,8 +482,9 @@
 			
             //		UIBezierPath *strokePath = [self strokePathForStyleForRect:path.bounds];
             UIBezierPath *strokePath = [self strokePathForPath:path];
-			
-            [strokePath setLineWidth:self.strokeWidth];
+			strokePath = path;
+			[strokePath addClip];
+			            [strokePath setLineWidth:self.strokeWidth*2];
             [stroke setStroke];
             [strokePath stroke];
             CGContextRestoreGState(context);
@@ -486,7 +496,8 @@
         DYNShadowStyle *outerShadow = self.shadow;
 		
         CGSize newSize = CGSizeMake(image.size.width + ((fabsf(outerShadow.radius) + fabsf(outerShadow.offset.width)) * 2), image.size.height + ((fabsf(outerShadow.radius) + fabsf(outerShadow.offset.height)) * 2));
-        image = [UIImage imageWithSize:newSize drawnWithBlock:^(CGContextRef context, CGSize size) {
+        image = [UIImage imageWithSize:newSize drawnWithBlock:^(CGContextRef context, CGRect rect) {
+			CGSize size = rect.size;
             CGContextTranslateCTM(context, 0.0f, size.height);
             CGContextScaleCTM(context, 1.0f, -1.0f);
             CGContextSetShadowWithColor(context, outerShadow.offset, outerShadow.radius, [outerShadow.color colorWithAlphaComponent:outerShadow.opacity].CGColor);
@@ -521,9 +532,10 @@
 	CGSize newSize = CGSizeMake(size.width - ((fabsf(outerShadow.radius) + fabsf(outerShadow.offset.width)) * 2), size.height - ((fabsf(outerShadow.radius) + fabsf(outerShadow.offset.height)) * 2));
 
 	
-	UIImage *maskImage = [UIImage imageWithSize:size drawnWithBlock:^(CGContextRef context, CGSize size) {
-		CGRect rect = CGRectMake((size.width-newSize.width)/2, (size.height-newSize.height)/2, newSize.width, newSize.height);
-		UIBezierPath *path = [self pathForStyleForRect:rect];
+	UIImage *maskImage = [UIImage imageWithSize:size drawnWithBlock:^(CGContextRef context, CGRect rect) {
+		CGSize size = rect.size;
+		CGRect newRect = CGRectMake((size.width-newSize.width)/2, (size.height-newSize.height)/2, newSize.width, newSize.height);
+		UIBezierPath *path = [self pathForStyleForRect:newRect];
 		[[UIColor blackColor] setFill];
 		[path fill];
 		
@@ -537,7 +549,8 @@
 
 - (UIImage *)borderImageForSize:(CGSize)size parameters:(DYNStyleParameters *)parameters {
     UIBezierPath *path = [self pathForStyleForRect:CGRectMake(0, 0, size.width, size.height)];
-    return [UIImage imageWithSize:size drawnWithBlock:^(CGContextRef context, CGSize size) {
+    return [UIImage imageWithSize:size drawnWithBlock:^(CGContextRef context, CGRect rect) {
+		CGSize size = rect.size;
         if (self.innerShadow && self.innerShadow.opacity > 0) {
             [self.innerShadow drawAsInnerShadowInPath:path context:context];
         }
@@ -745,8 +758,8 @@
 			
             //		UIBezierPath *strokePath = [self strokePathForStyleForRect:path.bounds];
             UIBezierPath *strokePath = [self strokePathForPath:path];
-			
-            [strokePath setLineWidth:self.strokeWidth];
+			strokePath = path;
+            [strokePath setLineWidth:self.strokeWidth*2];
             [stroke setStroke];
             [strokePath stroke];
             CGContextRestoreGState(context);

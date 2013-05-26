@@ -59,7 +59,7 @@
 - (UIImage *)getImageForWidth:(CGFloat)width {
     CGFloat height = (self.radius * self.offset.height) + 100;
     
-    UIImage *image = [UIImage imageWithSize:CGSizeMake(width, height) drawnWithBlock:^(CGContextRef context, CGSize size) {
+    UIImage *image = [UIImage imageWithSize:CGSizeMake(width, height) drawnWithBlock:^(CGContextRef context, CGRect rect) { CGSize size = rect.size;
         [[UIColor blackColor] setFill];
         UIRectFill(CGRectMake(0, 0, size.width, size.height));
         
@@ -112,7 +112,8 @@
     CGFloat newWidth = image.size.width + ((fabsf(outerShadow.radius) + fabsf(outerShadow.offset.width)) * 2);
     CGFloat newHeight = image.size.height + ((fabsf(outerShadow.radius) + fabsf(outerShadow.offset.height)) * 2);
     CGSize newSize = CGSizeMake(newWidth, newHeight);
-    image = [UIImage imageWithSize:newSize drawnWithBlock:^(CGContextRef context, CGSize size) {
+    image = [UIImage imageWithSize:newSize drawnWithBlock:^(CGContextRef context, CGRect rect) {
+		CGSize size = rect.size;
         CGContextTranslateCTM(context, 0.0f, size.height);
         CGContextScaleCTM(context, 1.0f, -1.0f);
         CGContextSetShadowWithColor(context, CGSizeMake(outerShadow.offset.width, oppositeSign(outerShadow.offset.height)), outerShadow.radius, [outerShadow.color colorWithAlphaComponent:outerShadow.opacity].CGColor);
