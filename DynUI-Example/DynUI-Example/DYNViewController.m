@@ -36,17 +36,21 @@
 - (void)viewWillAppear:(BOOL)animated
 {
 	[super viewWillAppear:animated];
-	self.navigationController.navigationBar.dyn_style = @"NavBar";
+	self.navigationController.navigationBar.dyn_style = @"DemoNavBar";
 
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	
+
+	self.tableView.backgroundColor = [UIColor clearColor];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.view.backgroundColor = [UIColor colorForVariable:@"IconDemoColor"];
+
 	self.navigationItem.title = @"DynUI";
 	
-	self.navigationController.navigationBar.dyn_style = @"NavBar";
+	self.navigationController.navigationBar.dyn_style = @"DemoNavBar";
 	
 	// [self.exampleButton setValue:[UIColor greenColor] forStyleParameter:@"ButtonColor"];
 	self.exampleButton.dyn_style = @"RedButton";
@@ -54,10 +58,7 @@
 	self.slider.dyn_style = @"Slider";
 	
 	self.searchBar.dyn_style = @"SearchBar";
-	
-	self.imageView.image = [UIImage iconImage:kDYNIconStarKey constrainedToSize:self.imageView.frame.size withStyle:@"StarStyle"];
-	self.imageView.contentMode = UIViewContentModeScaleAspectFit;
-	
+
 	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Grouped Table" style:UIBarButtonItemStyleBordered target:self action:@selector(go:)];
 	
 	self.testLabel.dyn_autoScroll = YES;
@@ -102,4 +103,43 @@
 	
 	[self presentViewController:nav animated:YES completion:nil];
 }
+
+#pragma mark - Table view data source
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    // Return the number of sections.
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    
+  //  return [self.cellTitles[section] count];
+    // Return the number of rows in the section.
+    return 0;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"Cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
+    
+  //  NSString *title = self.cellTitles[indexPath.section][indexPath.row];
+    
+//    cell.textLabel.text = title;
+    
+    
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    cell.dyn_style = @"IconDemoCell";
+   // [tableView dyn_styleGroupedCell:cell forIndexPath:indexPath withStyle:@"GroupedTable"];
+}
+
 @end

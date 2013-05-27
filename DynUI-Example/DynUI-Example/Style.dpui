@@ -211,7 +211,7 @@
           },
           {
             "colorName" : "",
-            "colorString" : "0.473643 0 0.00439108 1",
+            "colorString" : "0.563323 0 0 1",
             "colorVar" : "",
             "definedAtRuntime" : true
           }
@@ -634,25 +634,25 @@
           },
           "tableCellTitleTextStyle" : {
             "fontSize" : 12,
-            "textColor" : {
-              "definedAtRuntime" : false,
-              "colorString" : "1 1 1 1",
-              "colorVar" : "ButtonTextColor",
-              "colorName" : ""
-            },
+            "shadowXOffset" : 0,
             "fontSizeType" : 0,
             "shadowColor" : {
-              "definedAtRuntime" : false,
+              "colorName" : "",
               "colorString" : "0 0 0 1",
-              "colorVar" : "",
-              "colorName" : ""
+              "definedAtRuntime" : false,
+              "colorVar" : ""
             },
             "fontName" : "Helvetica-Bold",
             "styleName" : "ButtonText",
             "shadowYOffset" : 1,
             "alignment" : 0,
-            "fontSizeString" : "12",
-            "shadowXOffset" : 0
+            "textColor" : {
+              "colorName" : "",
+              "colorString" : "1 1 1 1",
+              "definedAtRuntime" : false,
+              "colorVar" : "ButtonTextColor"
+            },
+            "fontSizeString" : "12"
           },
           "innerShadow" : {
             "xOffset" : 0,
@@ -1377,7 +1377,7 @@
         "xOffset" : 0,
         "color" : "1 1 1 1",
         "yOffset" : 1,
-        "opacity" : 0.1000000029802322,
+        "opacity" : 0.1000000014901161,
         "radius" : 0
       },
       "strokeWidth" : 1,
@@ -1395,7 +1395,7 @@
         "xOffset" : 0,
         "color" : "1 1 1 1",
         "yOffset" : -2,
-        "opacity" : 0.1000000029802322,
+        "opacity" : 0.1000000014901161,
         "radius" : 0
       },
       "background" : {
@@ -1712,7 +1712,7 @@
     }
   ],
   "textExampleContainerBgColor" : "0 0 0 1",
-  "exampleContainerBgColor" : "0.419958 0.41993 0.419946 1",
+  "exampleContainerBgColor" : "0.315266 0.315266 0.315266 1",
   "sliderStyles" : [
     {
       "maxTrackBgColors" : [

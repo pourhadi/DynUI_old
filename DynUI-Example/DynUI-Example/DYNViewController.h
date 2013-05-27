@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DYNViewController : UIViewController
+@interface DYNViewController : UITableViewController
 
 @end

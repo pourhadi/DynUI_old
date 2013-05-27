@@ -22,7 +22,7 @@
 	
 	
 	//@"/Users/danpourhadi/Projects/DPUI/DynUI-Example/DynUI-Example/Style.dpui"
-	[[DYNManager sharedInstance] loadStylesFromFile:@"Style.dpui" replaceExisting:YES liveUpdate:NO];
+	[[DYNManager sharedInstance] loadStylesFromFile:@"/Users/danpourhadi/DPUI/DynUI-Example/DynUI-Example/Style.dpui" replaceExisting:YES liveUpdate:YES];
 	
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
