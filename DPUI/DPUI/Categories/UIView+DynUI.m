@@ -19,9 +19,13 @@
     if (!currentStyle || ![currentStyle isEqualToString:viewStyle]) {
         [[DYNManager sharedInstance] registerView:self];
         if (![[self class] dyn_didMoveToSuperviewSwizzled]) {
-            [[self class] dyn_swizzleDidMoveToSuperview];
+			//	[[self class] dyn_swizzleDidMoveToSuperview];
         }
         
+		if (![[UIView dyn_deallocSwizzled] boolValue]) {
+			[UIView dyn_swizzleDealloc];
+		}
+		
         objc_setAssociatedObject(self, (kDPViewStyleKey), viewStyle, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
         self.dyn_viewStyleApplied = YES;
         [self dyn_refreshStyle];
@@ -73,16 +77,14 @@
     }
 }
 
-+ (BOOL)dyn_didMoveToSuperviewSwizzled {
-    return [(NSNumber *)objc_getAssociatedObject(self, kDYNDidMoveToSuperviewSwizzled) boolValue];
-}
-
 + (void)dyn_swizzleDidMoveToSuperview {
+	NSLog(@"swizzle did move to superview");
     [self jr_swizzleMethod:@selector(didMoveToSuperview) withMethod:@selector(dyn_didMoveToSuperview) error:nil];
-    objc_setAssociatedObject(self, kDYNDidMoveToSuperviewSwizzled, @(YES), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+	[self set_dyn_didMoveToSuperviewSwizzled:@(YES)];
 }
 
 - (void)dyn_didMoveToSuperview {
+	NSLog(@"did move to superview");
     [self dyn_didMoveToSuperview];
     CGSize currentSize = self.frame.size;
     CGSize lastSavedSize = self.dyn_styleSizeApplied;
@@ -93,6 +95,7 @@
 }
 
 + (void)swizzleDidAddSubview {
+	NSLog(@"swizzle did add subview");
     [self jr_swizzleMethod:@selector(didAddSubview:) withMethod:@selector(dyn_didAddSubview:) error:nil];
     NSNumber *swizzled = [self swizzledDidAddSubview];
     BOOL new = !swizzled.boolValue;
@@ -100,7 +103,7 @@
 }
 
 - (void)dyn_didAddSubview:(UIView *)subview {
-    [self dyn_didAddSubview:subview];
+	[self dyn_didAddSubview:subview];
     
     if (self.dyn_viewStyleApplied && self.dyn_overlayView && [self.dyn_overlayView isDescendantOfView:self]) {
         [self bringSubviewToFront:self.dyn_overlayView];
@@ -109,11 +112,36 @@
 
 GET_AND_SET_CLASS_OBJ(swizzledDidAddSubview, @(NO));
 
++ (void)dyn_swizzleDealloc
+{
+	[UIView jr_swizzleMethod:NSSelectorFromString(@"dealloc") withMethod:@selector(dyn_dealloc) error:nil];
+    NSNumber *swizzled = [UIView dyn_deallocSwizzled];
+    BOOL new = !swizzled.boolValue;
+    [UIView set_dyn_deallocSwizzled:@(new)];
+}
+
+- (void)dyn_dealloc
+{
+	if ([self dyn_overlayView]) {
+		[[self dyn_overlayView] removeFromSuperview];
+		[self set_dyn_overlayView:nil];
+	}
+	
+	if ([self dyn_backgroundView]) {
+		[[self dyn_backgroundView] removeFromSuperview];
+		[self set_dyn_backgroundView:nil];
+	}
+	[[DYNManager sharedInstance] unregisterView:self];
+	
+	[self dyn_dealloc];
+}
+
 - (void)setDyn_backgroundView:(UIView *)dyn_backgroundView {
     [self set_dyn_backgroundView:dyn_backgroundView];
 }
 
 - (void)setDyn_overlayView:(DYNPassThroughView *)dyn_overlayView {
+	[self set_dyn_overlayView:dyn_overlayView];
     [self addSubview:dyn_overlayView];
     
     if (self.constraints) {
@@ -126,16 +154,90 @@ GET_AND_SET_CLASS_OBJ(swizzledDidAddSubview, @(NO));
     }
     
     if (dyn_overlayView) {
-        if (![[self class] swizzledDidAddSubview]) {
-            [[self class] swizzleDidAddSubview];
+        if (![UIView swizzledDidAddSubview]) {
+            [UIView swizzleDidAddSubview];
         }
     }
-    [self set_dyn_overlayView:dyn_overlayView];
 }
 
+- (void)setDyn_fadedEdgeInsets:(NSValue*)dyn_fadedEdgeInsets
+{
+	[self set_dyn_fadedEdgeInsets:dyn_fadedEdgeInsets];
+	
+	UIImage *maskImage = [UIImage imageWithSize:self.bounds.size drawnWithBlock:^(CGContextRef context, CGRect rect) {
+
+		id clear = (id)[UIColor clearColor].CGColor;
+		id black = (id)[UIColor blackColor].CGColor;
+		
+		UIEdgeInsets insets = dyn_fadedEdgeInsets.UIEdgeInsetsValue;
+		
+		CGFloat topStart = 0;
+		CGFloat topEnd = insets.top / self.layer.bounds.size.height;
+		CGFloat bottomStart = (self.layer.bounds.size.height - insets.bottom) / self.layer.bounds.size.height;
+		CGFloat bottomEnd = 1;
+		
+		CAGradientLayer *topBottomInsets = [CAGradientLayer layer];
+		NSArray *locations = @[@(topStart),
+						 @(topEnd),
+						 @(bottomStart),
+						 @(bottomEnd)];
+		topBottomInsets.frame = self.bounds;
+		topBottomInsets.locations = locations;
+		topBottomInsets.colors = @[(topEnd > 0 ? clear : black),
+							 black,
+							 black,
+							 (bottomStart > 0 ? clear : black)];
+		
+		CGFloat leftStart = 0;
+		CGFloat leftEnd = insets.left / self.layer.bounds.size.width;
+		CGFloat rightStart = (self.layer.bounds.size.width - insets.right) / self.layer.bounds.size.width;
+		CGFloat rightEnd = 1;
+		
+		CAGradientLayer *leftRightInsets = [CAGradientLayer layer];
+		locations = @[@(leftStart),
+				@(leftEnd),
+				@(rightStart),
+				@(rightEnd)];
+		leftRightInsets.frame = self.bounds;
+		leftRightInsets.startPoint = CGPointMake(0, 0.5);
+		leftRightInsets.endPoint = CGPointMake(1, 0.5);
+		leftRightInsets.locations = locations;
+		leftRightInsets.colors = @[(leftEnd > 0 ? clear : black),
+							 black,
+							 black,
+							 (rightStart > 0 ? clear : black)];
+		
+		CGRect topBottomFrame;
+		topBottomFrame.origin.x = insets.left;
+		topBottomFrame.origin.y = 0;
+		topBottomFrame.size.width = self.bounds.size.width - (insets.left + insets.right);
+		topBottomFrame.size.height = self.bounds.size.height;
+		topBottomInsets.frame = topBottomFrame;
+		
+		CGRect leftRightFrame;
+		leftRightFrame.origin.x = 0;
+		leftRightFrame.origin.y = insets.top;
+		leftRightFrame.size.width = self.bounds.size.width;
+		leftRightFrame.size.height = self.bounds.size.height - (insets.top + insets.bottom);
+		leftRightInsets.frame = leftRightFrame;
+		
+		[leftRightInsets renderInContext:context];
+		[topBottomInsets renderInContext:context];
+		
+	}];
+	
+	CALayer *mask = [CALayer layer];
+	mask.frame = self.bounds;
+	mask.contents = (id)maskImage.CGImage;
+	
+	self.layer.mask = mask;
+}
+
+GET_AND_SET_ASSOCIATED_OBJ(dyn_fadedEdgeInsets, nil);
 GET_AND_SET_ASSOCIATED_OBJ(dyn_backgroundView, nil);
 GET_AND_SET_ASSOCIATED_OBJ(dyn_overlayView, nil);
-
+GET_AND_SET_CLASS_OBJ(dyn_deallocSwizzled, @(NO));
+GET_AND_SET_CLASS_OBJ(dyn_didMoveToSuperviewSwizzled, @(NO));
 #pragma mark - Parameters
 
 - (void)setStyleParameters:(DYNStyleParameters *)styleParameters {

@@ -64,8 +64,7 @@ static const void *const kDYNSetTextSwizzledKey = "_DYNSetTextSwizzledKey";
         if (![[self class] dyn_swizzledSetText]) {
             [[self class] dyn_swizzleSetText];
         }
-//        self.lineBreakMode = NSLineBreakByWordWrapping;
-//        self.contentMode = UIViewContentModeRedraw;
+
         self.adjustsFontSizeToFitWidth = NO;
         self.adjustsLetterSpacingToFitWidth = NO;
         
@@ -128,7 +127,7 @@ static const void *const kDYNSetTextSwizzledKey = "_DYNSetTextSwizzledKey";
 }
 
 - (void)dyn_drawTextInRect:(CGRect)rect {
-    if (self.dyn_autoScroll && [[self isScrolling] boolValue] && ![[self isPaused] boolValue]) {
+    if (self.dyn_autoScroll) { // && [[self isScrolling] boolValue] && ![[self isPaused] boolValue]) {
     } else {
         [self dyn_drawTextInRect:rect];
     }

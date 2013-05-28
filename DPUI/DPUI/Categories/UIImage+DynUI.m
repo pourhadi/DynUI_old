@@ -43,6 +43,31 @@
 
 }
 
++ (UIImage*)iconImage:(NSString *)iconKey forHeight:(CGFloat)height color:(UIColor*)color
+{
+	UIBezierPath *iconPath = [DYNIcons iconPathForKey:iconKey forHeight:height];
+	UIImage *image = [UIImage imageWithSize:iconPath.bounds.size drawnWithBlock:^(CGContextRef context, CGRect rect) {
+		
+		[color setFill];
+		[iconPath fill];
+		
+	}];
+	return image;
+}
+
++ (UIImage*)iconImage:(NSString *)iconKey forWidth:(CGFloat)width color:(UIColor*)color
+{
+	UIBezierPath *iconPath = [DYNIcons iconPathForKey:iconKey forWidth:width];
+
+	UIImage *image = [UIImage imageWithSize:iconPath.bounds.size drawnWithBlock:^(CGContextRef context, CGRect rect) {
+		
+		[color setFill];
+		[iconPath fill];
+		
+	}];
+	return image;
+}
+
 + (UIImage *)imageWithSize:(CGSize)size drawnWithBlock:(DYNDrawImageBlock)block {
     UIGraphicsBeginImageContextWithOptions(size, NO, [[UIScreen mainScreen] scale]);
     CGContextRef c = UIGraphicsGetCurrentContext();

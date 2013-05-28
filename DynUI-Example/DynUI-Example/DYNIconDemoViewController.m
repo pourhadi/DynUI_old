@@ -38,7 +38,7 @@
 	
 	self.navigationItem.title = @"Icons";
 	
-	self.view.backgroundColor = [UIColor colorForVariable:@"IconDemoColor"];
+	self.view.backgroundColor = [UIColor colorForVariable:@"DemoColor"];
 	self.navigationController.navigationBar.dyn_style = @"DemoNavBar";
 	
 	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(dismiss:)];
@@ -47,11 +47,7 @@
 	[SVProgressHUD show];
 
 	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
-		dispatch_async(dispatch_get_main_queue(), ^{
 
-
-		});
-		
 		NSMutableArray *tmp = [NSMutableArray new];
 		
 		for (NSString *key in [DYNIcons availableIconKeys]) {

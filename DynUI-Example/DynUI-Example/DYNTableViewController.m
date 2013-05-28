@@ -16,6 +16,7 @@
 
 @implementation DYNTableViewController
 
+
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -29,12 +30,8 @@
 {
     [super viewDidLoad];
 
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
+	self.navigationItem.title = @"Grouped Table";
+	
     self.tableView.dyn_style = @"GroupedTable";
     
     NSArray *cellGroupOne = @[@"Cell One", @"Cell Two"];
@@ -42,6 +39,7 @@
     NSArray *cellGroupThree = @[@"Cell One"];
     
     self.cellTitles = @[cellGroupOne, cellGroupTwo, cellGroupThree];
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -77,8 +75,6 @@
     NSString *title = self.cellTitles[indexPath.section][indexPath.row];
     
     cell.textLabel.text = title;
-    
-    
     return cell;
 }
 

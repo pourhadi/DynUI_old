@@ -27,6 +27,13 @@
 
 @property (nonatomic, weak) IBOutlet DYNCustomView *customView;
 
+@property (nonatomic, strong) IBOutlet UITableViewCell *sliderCell;
+@property (nonatomic, strong) IBOutlet UITableViewCell *buttonCell;
+@property (nonatomic, strong) IBOutlet UITableViewCell *iconCell;
+@property (nonatomic, strong) IBOutlet UITableViewCell *labelCell;
+
+@property (nonatomic, strong) NSArray *cells;
+
 - (IBAction)buttonHit:(id)sender;
 
 @end
@@ -40,13 +47,19 @@
 
 }
 
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+	
+	self.cells = @[self.labelCell,
+				self.sliderCell,
+				self.buttonCell,
+				self.iconCell];
+	
 	self.tableView.backgroundColor = [UIColor clearColor];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    self.view.backgroundColor = [UIColor colorForVariable:@"IconDemoColor"];
+    self.view.backgroundColor = [UIColor colorForVariable:@"DemoColor"];
 
 	self.navigationItem.title = @"DynUI";
 	
@@ -61,10 +74,12 @@
 
 	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Grouped Table" style:UIBarButtonItemStyleBordered target:self action:@selector(go:)];
 	
+	self.testLabel.dyn_textStyle = @"ScrollLabelText";
 	self.testLabel.dyn_autoScroll = YES;
 	self.testLabel.dyn_scrollDuration = 8;
 	self.testLabel.dyn_scrollTextSeparatorWidth = 50;
-	
+	self.testLabel.dyn_fadedEdgeInsets = [NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(0, 20, 0, 20)];
+
 	self.customView.dyn_style = @"CustomView";
 		
 }
@@ -117,23 +132,12 @@
     
   //  return [self.cellTitles[section] count];
     // Return the number of rows in the section.
-    return 0;
+    return self.cells.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-    }
-    
-  //  NSString *title = self.cellTitles[indexPath.section][indexPath.row];
-    
-//    cell.textLabel.text = title;
-    
-    
-    return cell;
+	return self.cells[indexPath.row];
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath

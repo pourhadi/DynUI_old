@@ -23,6 +23,9 @@ typedef void (^DYNDrawImageBlock)(CGContextRef context, CGRect rect);
 + (UIImage*)iconImage:(NSString*)iconKey forWidth:(CGFloat)width withStyle:(NSString*)styleName;
 + (UIImage*)iconImage:(NSString*)iconKey forHeight:(CGFloat)height withStyle:(NSString*)styleName;
 
++ (UIImage*)iconImage:(NSString *)iconKey forHeight:(CGFloat)height color:(UIColor*)color;
++ (UIImage*)iconImage:(NSString *)iconKey forWidth:(CGFloat)width color:(UIColor*)color;
+
 + (UIImage *)imageNamed:(NSString *)name withStyle:(NSString *)style;
 
 

@@ -33,7 +33,7 @@
 	
 	self.navigationItem.title = self.iconKey;
 	
-	self.view.backgroundColor = [UIColor colorForVariable:@"IconDemoColor"];
+	self.view.backgroundColor = [UIColor colorForVariable:@"DemoColor"];
 
 	UIImage *iconImage = [UIImage iconImage:self.iconKey constrainedToSize:self.imageView.frame.size withStyle:@"Demo"];
 	self.imageView.image = iconImage;

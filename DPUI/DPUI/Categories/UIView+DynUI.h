@@ -25,8 +25,12 @@ typedef void (^DYNAppearanceBlock)(DYNManager *styleManager, UIView *view);
 @property (nonatomic, assign) UIView *dyn_backgroundView; // i.e., for UITableView
 @property (nonatomic, strong) DYNPassThroughView *dyn_overlayView; // so the stroke and inner borders are above everything else
 
+@property (nonatomic) NSValue *dyn_fadedEdgeInsets;
+
 - (void)dyn_refreshStyle;
 
 - (void)dyn_frameChanged;
+
+- (void)dyn_dealloc;
 
 @end
