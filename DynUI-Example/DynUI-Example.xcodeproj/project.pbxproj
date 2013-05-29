@@ -66,6 +66,7 @@
 		D7C245CD174BE6DD009C3CC2 /* DYNPassThroughView.m in Sources */ = {isa = PBXBuildFile; fileRef = D7C245CC174BE6DD009C3CC2 /* DYNPassThroughView.m */; };
 		D7C245D4174BEB67009C3CC2 /* DYNContainerTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7C245D2174BEB67009C3CC2 /* DYNContainerTestViewController.m */; };
 		D7C245D5174BEB67009C3CC2 /* DYNContainerTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7C245D3174BEB67009C3CC2 /* DYNContainerTestViewController.xib */; };
+		D7DE2A9F1756A9D7005072C5 /* UINavigationBar+DynUI.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DE2A9E1756A9D7005072C5 /* UINavigationBar+DynUI.m */; };
 		D7F8AABD173DAF67004ABF7E /* DYNStyleParameters.m in Sources */ = {isa = PBXBuildFile; fileRef = D7F8AABC173DAF67004ABF7E /* DYNStyleParameters.m */; };
 /* End PBXBuildFile section */
 
@@ -173,6 +174,8 @@
 		D7C245D1174BEB66009C3CC2 /* DYNContainerTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYNContainerTestViewController.h; sourceTree = "<group>"; };
 		D7C245D2174BEB67009C3CC2 /* DYNContainerTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYNContainerTestViewController.m; sourceTree = "<group>"; };
 		D7C245D3174BEB67009C3CC2 /* DYNContainerTestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DYNContainerTestViewController.xib; sourceTree = "<group>"; };
+		D7DE2A9D1756A9D7005072C5 /* UINavigationBar+DynUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+DynUI.h"; sourceTree = "<group>"; };
+		D7DE2A9E1756A9D7005072C5 /* UINavigationBar+DynUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+DynUI.m"; sourceTree = "<group>"; };
 		D7F8AABB173DAF67004ABF7E /* DYNStyleParameters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYNStyleParameters.h; sourceTree = "<group>"; };
 		D7F8AABC173DAF67004ABF7E /* DYNStyleParameters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYNStyleParameters.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -301,6 +304,8 @@
 		44FADD27173CEAAF00EB6BF4 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				D7DE2A9D1756A9D7005072C5 /* UINavigationBar+DynUI.h */,
+				D7DE2A9E1756A9D7005072C5 /* UINavigationBar+DynUI.m */,
 				44FADD28173CEAAF00EB6BF4 /* NSString+DynUI.h */,
 				44FADD29173CEAAF00EB6BF4 /* NSString+DynUI.m */,
 				44FADD2A173CEAAF00EB6BF4 /* UIColor+DynUI.h */,
@@ -505,6 +510,7 @@
 				445BD0C51751F4A0002AF374 /* DYNIconDemoViewController.m in Sources */,
 				445BD0CA1752AB1A002AF374 /* DYNBigIconViewController.m in Sources */,
 				445BD0CE1752AE44002AF374 /* UIBezierPath+DynUI.m in Sources */,
+				D7DE2A9F1756A9D7005072C5 /* UINavigationBar+DynUI.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

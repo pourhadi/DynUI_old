@@ -12,6 +12,7 @@
 @interface DYNRenderer : NSObject
 
 + (void)renderView:(UIView *)view withStyleNamed:(NSString *)styleName;
++ (void)renderBarButtonItem:(UIBarButtonItem*)item forNavigationBar:(UINavigationBar*)navigationBar withStyleNamed:(NSString*)styleName;
 + (void)renderNavigationBar:(UINavigationBar *)navigationBar withStyleNamed:(NSString *)styleName;
 + (void)renderTableCell:(UITableViewCell *)tableCell withStyleNamed:(NSString *)styleName;
 + (void)renderCollectionViewCell:(UICollectionViewCell*)cell withStyleNamed:(NSString*)styleName;
