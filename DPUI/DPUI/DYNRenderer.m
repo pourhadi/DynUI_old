@@ -249,6 +249,75 @@
     [toolbar setBackgroundImage:img forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];
 }
 
++ (void)renderBarButtonItem:(UIBarButtonItem*)item forNavigationBar:(UINavigationBar*)navigationBar withStyleNamed:(NSString*)styleName {
+    DYNViewStyle *style = [[DYNManager sharedInstance] styleForName:styleName];
+    UIImage *buttonImg = [style imageForStyleWithSize:CGSizeMake(18, 28) withOuterShadow:YES parameters:navigationBar.styleParameters];
+    [[UIBarButtonItem appearanceWhenContainedIn:[navigationBar class], nil] setBackgroundImage:buttonImg.dyn_resizableImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    UIImage *backImg = [DYNRenderer backBarButtonImageForStyle:styleName superStyle:nil parameters:navigationBar.styleParameters];
+   // [[UIBarButtonItem appearanceWhenContainedIn:[navigationBar class], nil] 
+    
+    [item setBackButtonBackgroundImage:backImg forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    if (style.controlStyle) {
+        NSDictionary *textAttr;
+        
+        if (style.controlStyle.normalTextStyle) {
+            textAttr = [style.controlStyle.normalTextStyle titleTextAttributes];
+           // [[UIBarButtonItem appearanceWhenContainedIn:[navigationBar class], nil] setTitleTextAttributes:textAttr forState:UIControlStateNormal];
+            [item setTitleTextAttributes:textAttr forState:UIControlStateNormal];
+        }
+        
+        if (style.controlStyle.highlightedTextStyle) {
+            textAttr = [style.controlStyle.highlightedTextStyle titleTextAttributes];
+//            [[UIBarButtonItem appearanceWhenContainedIn:[navigationBar class], nil] setTitleTextAttributes:textAttr forState:UIControlStateHighlighted];
+            [item setTitleTextAttributes:textAttr forState:UIControlStateHighlighted];
+        }
+        
+        if (style.controlStyle.selectedTextStyle) {
+            textAttr = [style.controlStyle.selectedTextStyle titleTextAttributes];
+       //     [[UIBarButtonItem appearanceWhenContainedIn:[navigationBar class], nil] setTitleTextAttributes:textAttr forState:UIControlStateSelected];
+            
+            [item setTitleTextAttributes:textAttr forState:UIControlStateHighlighted];
+        }
+        
+        if (style.controlStyle.disabledTextStyle) {
+            textAttr = [style.controlStyle.disabledTextStyle titleTextAttributes];
+     //       [[UIBarButtonItem appearanceWhenContainedIn:[navigationBar class], nil] setTitleTextAttributes:textAttr forState:UIControlStateDisabled];
+            [item setTitleTextAttributes:textAttr forState:UIControlStateDisabled];
+        }
+        
+        if (style.controlStyle.highlightedStyleName) {
+            UIImage *buttonImg = [self imageForSize:CGSizeMake(18, 28) controlStyleName:style.controlStyle.highlightedStyleName superStyle:style parameters:navigationBar.styleParameters];
+            
+        //    [[UIBarButtonItem appearanceWhenContainedIn:[navigationBar class], nil] setBackgroundImage:buttonImg.dyn_resizableImage forState:UIControlStateHighlighted barMetrics:UIBarMetricsDefault];
+            [item setBackgroundImage:buttonImg.dyn_resizableImage forState:UIControlStateHighlighted barMetrics:UIBarMetricsDefault];
+            UIImage *backImg = [DYNRenderer backBarButtonImageForStyle:style.controlStyle.highlightedStyleName superStyle:style parameters:navigationBar.styleParameters];
+        //    [[UIBarButtonItem appearanceWhenContainedIn:[navigationBar class], nil] setBackButtonBackgroundImage:backImg forState:UIControlStateHighlighted barMetrics:UIBarMetricsDefault];
+            [item setBackButtonBackgroundImage:backImg forState:UIControlStateHighlighted barMetrics:UIBarMetricsDefault];
+        }
+        
+        if (style.controlStyle.selectedStyleName) {
+            UIImage *buttonImg = [self imageForSize:CGSizeMake(18, 28) controlStyleName:style.controlStyle.selectedStyleName superStyle:style parameters:navigationBar.styleParameters];
+            
+            //[[UIBarButtonItem appearanceWhenContainedIn:[navigationBar class], nil] setBackgroundImage:buttonImg.dyn_resizableImage forState:UIControlStateSelected barMetrics:UIBarMetricsDefault];
+            [item setBackgroundImage:buttonImg.dyn_resizableImage forState:UIControlStateHighlighted barMetrics:UIBarMetricsDefault];
+            UIImage *backImg = [DYNRenderer backBarButtonImageForStyle:style.controlStyle.selectedStyleName superStyle:style parameters:navigationBar.styleParameters];
+            //[[UIBarButtonItem appearanceWhenContainedIn:[navigationBar class], nil] setBackButtonBackgroundImage:backImg forState:UIControlStateSelected barMetrics:UIBarMetricsDefault];
+            [item setBackButtonBackgroundImage:backImg forState:UIControlStateHighlighted barMetrics:UIBarMetricsDefault];
+        }
+        
+        if (style.controlStyle.disabledStyleName) {
+            UIImage *buttonImg = [self imageForSize:CGSizeMake(18, 28) controlStyleName:style.controlStyle.disabledStyleName superStyle:style parameters:navigationBar.styleParameters];
+            
+            //[[UIBarButtonItem appearanceWhenContainedIn:[navigationBar class], nil] setBackgroundImage:buttonImg.dyn_resizableImage forState:UIControlStateDisabled barMetrics:UIBarMetricsDefault];
+            [item  setBackgroundImage:buttonImg.dyn_resizableImage forState:UIControlStateDisabled barMetrics:UIBarMetricsDefault];
+            UIImage *backImg = [DYNRenderer backBarButtonImageForStyle:style.controlStyle.disabledStyleName superStyle:style parameters:navigationBar.styleParameters];
+            //[[UIBarButtonItem appearanceWhenContainedIn:[navigationBar class], nil] setBackButtonBackgroundImage:backImg forState:UIControlStateDisabled barMetrics:UIBarMetricsDefault];
+            [item setBackButtonBackgroundImage:backImg forState:UIControlStateDisabled barMetrics:UIBarMetricsDefault];
+        }
+    }
+
+}
+
 + (void)renderNavigationBar:(UINavigationBar *)navigationBar withStyleNamed:(NSString *)styleName {
     DYNViewStyle *navStyle = (DYNViewStyle *)[[DYNManager sharedInstance] styleForName:styleName];
     
@@ -271,60 +340,9 @@
     
     
     if (navStyle.barButtonItemStyleName) {
-        DYNViewStyle *style = [[DYNManager sharedInstance] styleForName:navStyle.barButtonItemStyleName];
-        UIImage *buttonImg = [style imageForStyleWithSize:CGSizeMake(18, 28) withOuterShadow:YES parameters:navigationBar.styleParameters];
-        [[UIBarButtonItem appearanceWhenContainedIn:[navigationBar class], nil] setBackgroundImage:buttonImg.dyn_resizableImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
-        UIImage *backImg = [DYNRenderer backBarButtonImageForStyle:navStyle.barButtonItemStyleName superStyle:nil parameters:navigationBar.styleParameters];
-        [[UIBarButtonItem appearanceWhenContainedIn:[navigationBar class], nil] setBackButtonBackgroundImage:backImg forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+                
+        [navigationBar applyStyleToBarButtonItems:navStyle.barButtonItemStyleName];
         
-        
-        if (style.controlStyle) {
-            NSDictionary *textAttr;
-            
-            if (style.controlStyle.normalTextStyle) {
-                textAttr = [style.controlStyle.normalTextStyle titleTextAttributes];
-                [[UIBarButtonItem appearanceWhenContainedIn:[navigationBar class], nil] setTitleTextAttributes:textAttr forState:UIControlStateNormal];
-            }
-            
-            if (style.controlStyle.highlightedTextStyle) {
-                textAttr = [style.controlStyle.highlightedTextStyle titleTextAttributes];
-                [[UIBarButtonItem appearanceWhenContainedIn:[navigationBar class], nil] setTitleTextAttributes:textAttr forState:UIControlStateHighlighted];
-            }
-            
-            if (style.controlStyle.selectedTextStyle) {
-                textAttr = [style.controlStyle.selectedTextStyle titleTextAttributes];
-                [[UIBarButtonItem appearanceWhenContainedIn:[navigationBar class], nil] setTitleTextAttributes:textAttr forState:UIControlStateSelected];
-            }
-            
-            if (style.controlStyle.disabledTextStyle) {
-                textAttr = [style.controlStyle.disabledTextStyle titleTextAttributes];
-                [[UIBarButtonItem appearanceWhenContainedIn:[navigationBar class], nil] setTitleTextAttributes:textAttr forState:UIControlStateDisabled];
-            }
-            
-            if (style.controlStyle.highlightedStyleName) {
-                UIImage *buttonImg = [self imageForSize:CGSizeMake(18, 28) controlStyleName:style.controlStyle.highlightedStyleName superStyle:style parameters:navigationBar.styleParameters];
-                
-                [[UIBarButtonItem appearanceWhenContainedIn:[navigationBar class], nil] setBackgroundImage:buttonImg.dyn_resizableImage forState:UIControlStateHighlighted barMetrics:UIBarMetricsDefault];
-                UIImage *backImg = [DYNRenderer backBarButtonImageForStyle:style.controlStyle.highlightedStyleName superStyle:style parameters:navigationBar.styleParameters];
-                [[UIBarButtonItem appearanceWhenContainedIn:[navigationBar class], nil] setBackButtonBackgroundImage:backImg forState:UIControlStateHighlighted barMetrics:UIBarMetricsDefault];
-            }
-            
-            if (style.controlStyle.selectedStyleName) {
-                UIImage *buttonImg = [self imageForSize:CGSizeMake(18, 28) controlStyleName:style.controlStyle.selectedStyleName superStyle:style parameters:navigationBar.styleParameters];
-                
-                [[UIBarButtonItem appearanceWhenContainedIn:[navigationBar class], nil] setBackgroundImage:buttonImg.dyn_resizableImage forState:UIControlStateSelected barMetrics:UIBarMetricsDefault];
-                UIImage *backImg = [DYNRenderer backBarButtonImageForStyle:style.controlStyle.selectedStyleName superStyle:style parameters:navigationBar.styleParameters];
-                [[UIBarButtonItem appearanceWhenContainedIn:[navigationBar class], nil] setBackButtonBackgroundImage:backImg forState:UIControlStateSelected barMetrics:UIBarMetricsDefault];
-            }
-            
-            if (style.controlStyle.disabledStyleName) {
-                UIImage *buttonImg = [self imageForSize:CGSizeMake(18, 28) controlStyleName:style.controlStyle.disabledStyleName superStyle:style parameters:navigationBar.styleParameters];
-                
-                [[UIBarButtonItem appearanceWhenContainedIn:[navigationBar class], nil] setBackgroundImage:buttonImg.dyn_resizableImage forState:UIControlStateDisabled barMetrics:UIBarMetricsDefault];
-                UIImage *backImg = [DYNRenderer backBarButtonImageForStyle:style.controlStyle.disabledStyleName superStyle:style parameters:navigationBar.styleParameters];
-                [[UIBarButtonItem appearanceWhenContainedIn:[navigationBar class], nil] setBackButtonBackgroundImage:backImg forState:UIControlStateDisabled barMetrics:UIBarMetricsDefault];
-            }
-        }
     }
 }
 

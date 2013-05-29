@@ -16,6 +16,7 @@
 #import "UITextField+DynUI.h"
 #import "UIPopoverController+DynUI.h"
 #import "UITableView+DynUI.h"
+#import "UINavigationBar+DynUI.h"
 
 #import "DYNBackgroundStyle.h"
 #import "DYNColor.h"
