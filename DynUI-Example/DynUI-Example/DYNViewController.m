@@ -78,9 +78,11 @@
 	self.testLabel.dyn_autoScroll = YES;
 	self.testLabel.dyn_scrollDuration = 8;
 	self.testLabel.dyn_scrollTextSeparatorWidth = 50;
-	self.testLabel.dyn_fadedEdgeInsets = [NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(0, 20, 0, 20)];
+	self.testLabel.dyn_fadedEdgeInsets = [NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(0, 10, 0, 10)];
 
 	self.customView.dyn_style = @"CustomView";
+	
+	self.tableView.tableHeaderView = self.searchBar;
 		
 }
 - (IBAction)go:(id)sender

@@ -154,9 +154,9 @@
       "canvasBackgroundColor" : "0 0 0 0",
       "shadow" : {
         "xOffset" : 0,
-        "color" : "1 1 1 0.5",
+        "color" : "0.682353 0.737255 0.780392 1",
         "yOffset" : 1,
-        "opacity" : 0.5,
+        "opacity" : 0.2,
         "radius" : 0
       },
       "strokeWidth" : 1,
@@ -208,100 +208,6 @@
       "cornerRadius" : 0,
       "name" : "SearchField",
       "isLeaf" : true
-    },
-    {
-      "leftInnerBorders" : [
-
-      ],
-      "canvasBackgroundType" : "Transparent",
-      "barButtonItemStyleName" : "NavBarButton",
-      "strokeColor" : {
-        "colorName" : "",
-        "colorString" : "0 0 0 1",
-        "colorVar" : "",
-        "definedAtRuntime" : false
-      },
-      "searchFieldStyleName" : "SearchField",
-      "background" : {
-        "gradientAngle" : 180,
-        "colors" : [
-          {
-            "colorName" : "",
-            "colorString" : "0.262745 0.337255 0.443137 1",
-            "colorVar" : "DemoNavTop",
-            "definedAtRuntime" : false
-          },
-          {
-            "colorName" : "",
-            "colorString" : "0.219608 0.290196 0.380392 1",
-            "colorVar" : "DemoColor",
-            "definedAtRuntime" : false
-          }
-        ]
-      },
-      "innerShadow" : {
-        "xOffset" : 0,
-        "color" : "0 0 0 1",
-        "yOffset" : -1,
-        "opacity" : 0,
-        "radius" : 0
-      },
-      "shadow" : {
-        "xOffset" : 0,
-        "color" : "0 0 0 1",
-        "yOffset" : -1,
-        "opacity" : 0,
-        "radius" : 0
-      },
-      "strokeWidth" : 0,
-      "cornerRadius" : 10,
-      "canvasBackgroundColor" : "0 0 0 0",
-      "drawAsynchronously" : false,
-      "maskToCorners" : false,
-      "name" : "SearchBar",
-      "topInnerBorders" : [
-        {
-          "height" : 1,
-          "color" : {
-            "colorName" : "",
-            "colorString" : "0.702253 0.702232 0.702243 0.75",
-            "colorVar" : "",
-            "definedAtRuntime" : false
-          },
-          "blendMode" : 3
-        }
-      ],
-      "searchFieldTextStyleName" : "SearchText",
-      "bottomInnerBorders" : [
-        {
-          "height" : 2,
-          "color" : {
-            "colorName" : "",
-            "colorString" : "1 0.999974 0.999991 0.15",
-            "colorVar" : "",
-            "definedAtRuntime" : false
-          },
-          "blendMode" : 0
-        },
-        {
-          "height" : 1,
-          "color" : {
-            "colorName" : "",
-            "colorString" : "0 0 0 1",
-            "colorVar" : "",
-            "definedAtRuntime" : false
-          },
-          "blendMode" : 0
-        }
-      ],
-      "controlStyle" : {
-
-      },
-      "rightInnerBorders" : [
-
-      ],
-      "isLeaf" : true,
-      "roundedCorners" : 0
     },
     {
       "rightInnerBorders" : [
@@ -1265,6 +1171,91 @@
       "cornerRadius" : 8,
       "name" : "DemoNavBarButton",
       "isLeaf" : true
+    },
+    {
+      "leftInnerBorders" : [
+
+      ],
+      "canvasBackgroundType" : "Transparent",
+      "barButtonItemStyleName" : "DemoNavBarButton",
+      "strokeColor" : {
+        "colorName" : "",
+        "colorString" : "0 0 0 1",
+        "colorVar" : "",
+        "definedAtRuntime" : false
+      },
+      "searchFieldStyleName" : "SearchField",
+      "background" : {
+        "gradientAngle" : 180,
+        "colors" : [
+          {
+            "colorName" : "",
+            "colorString" : "0.262745 0.337255 0.443137 1",
+            "colorVar" : "DemoNavTop",
+            "definedAtRuntime" : false
+          },
+          {
+            "colorName" : "",
+            "colorString" : "0.219608 0.290196 0.380392 1",
+            "colorVar" : "DemoColor",
+            "definedAtRuntime" : false
+          }
+        ]
+      },
+      "innerShadow" : {
+        "xOffset" : 0,
+        "color" : "0 0 0 1",
+        "yOffset" : -1,
+        "opacity" : 0,
+        "radius" : 0
+      },
+      "shadow" : {
+        "xOffset" : 0,
+        "color" : "0 0 0 1",
+        "yOffset" : -1,
+        "opacity" : 0,
+        "radius" : 0
+      },
+      "strokeWidth" : 0,
+      "cornerRadius" : 0,
+      "canvasBackgroundColor" : "0 0 0 0",
+      "drawAsynchronously" : false,
+      "maskToCorners" : false,
+      "name" : "SearchBar",
+      "topInnerBorders" : [
+        {
+          "height" : 1,
+          "color" : {
+            "colorName" : "",
+            "colorString" : "0.368289 0.481608 0.600594 0.5",
+            "colorVar" : "",
+            "definedAtRuntime" : false
+          },
+          "blendMode" : 0
+        }
+      ],
+      "searchFieldTextStyleName" : "SearchText",
+      "bottomInnerBorders" : [
+        {
+          "height" : 1,
+          "color" : {
+            "colorName" : "",
+            "colorString" : "0.100448 0.134277 0.182668 1",
+            "colorVar" : "DemoBorder",
+            "definedAtRuntime" : false
+          },
+          "blendMode" : 0
+        }
+      ],
+      "controlStyle" : {
+
+      },
+      "rightInnerBorders" : [
+
+      ],
+      "navBarTitleTextStyle" : "NavBarText",
+      "isLeaf" : true,
+      "roundedCorners" : 0
     }
   ],
   "imageStyles" : [

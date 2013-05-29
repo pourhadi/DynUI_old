@@ -42,6 +42,12 @@
     if (self.dyn_viewStyleApplied && (!CGSizeEqualToSize(currentSize, lastSavedSize))) {
         [self dyn_refreshStyle];
     }
+	
+	if (self.layer.mask) {
+		if (self.dyn_fadedEdgeInsets) {
+			self.dyn_fadedEdgeInsets = self.dyn_fadedEdgeInsets;
+		}
+	}
 }
 
 - (void)setDyn_viewStyleApplied:(BOOL)viewStyleApplied {
@@ -164,65 +170,84 @@ GET_AND_SET_CLASS_OBJ(swizzledDidAddSubview, @(NO));
 {
 	[self set_dyn_fadedEdgeInsets:dyn_fadedEdgeInsets];
 	
+	
+	id clear = (id)[UIColor clearColor].CGColor;
+	id black = (id)[UIColor blackColor].CGColor;
+	
+	UIEdgeInsets insets = dyn_fadedEdgeInsets.UIEdgeInsetsValue;
+	
+	CGFloat topStart = 0;
+	CGFloat topEnd = insets.top / self.layer.bounds.size.height;
+	CGFloat bottomStart = (self.layer.bounds.size.height - insets.bottom) / self.layer.bounds.size.height;
+	CGFloat bottomEnd = 1;
+	
+	CAGradientLayer *topBottomInsets = [CAGradientLayer layer];
+	NSArray *locations = @[@(topStart),
+						@(topEnd),
+						@(bottomStart),
+						@(bottomEnd)];
+	topBottomInsets.frame = self.bounds;
+	topBottomInsets.locations = locations;
+	topBottomInsets.colors = @[(topEnd > 0 ? clear : black),
+							black,
+							black,
+							(bottomStart > 0 ? clear : black)];
+	
+	CGFloat leftStart = 0;
+	CGFloat leftEnd = insets.left / self.layer.bounds.size.width;
+	CGFloat rightStart = (self.layer.bounds.size.width - insets.right) / self.layer.bounds.size.width;
+	CGFloat rightEnd = 1;
+	
+	CAGradientLayer *leftRightInsets = [CAGradientLayer layer];
+	locations = @[@(leftStart),
+			   @(leftEnd),
+			   @(rightStart),
+			   @(rightEnd)];
+	leftRightInsets.frame = self.bounds;
+	leftRightInsets.startPoint = CGPointMake(0, 0.5);
+	leftRightInsets.endPoint = CGPointMake(1, 0.5);
+	leftRightInsets.locations = locations;
+	leftRightInsets.colors = @[(leftEnd > 0 ? clear : black),
+							black,
+							black,
+							(rightStart > 0 ? clear : black)];
+	
+	CGRect topBottomFrame;
+	topBottomFrame.origin.x = insets.left;
+	topBottomFrame.origin.y = 0;
+	topBottomFrame.size.width = self.bounds.size.width - (insets.left + insets.right);
+	topBottomFrame.size.height = self.bounds.size.height;
+	topBottomInsets.frame = topBottomFrame;
+	
+	CGRect leftRightFrame;
+	leftRightFrame.origin.x = 0;
+	leftRightFrame.origin.y = insets.top;
+	leftRightFrame.size.width = self.bounds.size.width;
+	leftRightFrame.size.height = self.bounds.size.height - (insets.top + insets.bottom);
+	leftRightInsets.frame = leftRightFrame;
+	
+	UIImage *topBottomImage = [UIImage imageWithSize:topBottomFrame.size drawnWithBlock:^(CGContextRef context, CGRect rect) {
+		
+			[topBottomInsets renderInContext:context];
+		
+	}];
+	
+	UIImage *leftRightImage = [UIImage imageWithSize:leftRightFrame.size drawnWithBlock:^(CGContextRef context, CGRect rect) {
+		
+			[leftRightInsets renderInContext:context];
+		
+	}];
+	
+	
 	UIImage *maskImage = [UIImage imageWithSize:self.bounds.size drawnWithBlock:^(CGContextRef context, CGRect rect) {
 
-		id clear = (id)[UIColor clearColor].CGColor;
-		id black = (id)[UIColor blackColor].CGColor;
+		CGSize size = rect.size;
 		
-		UIEdgeInsets insets = dyn_fadedEdgeInsets.UIEdgeInsetsValue;
+		if (insets.top > 0 || insets.bottom > 0)
+			[topBottomImage drawInRect:CGRectMake((size.width-topBottomFrame.size.width)/2, (size.height-topBottomFrame.size.height)/2, topBottomFrame.size.width, topBottomFrame.size.height)];
 		
-		CGFloat topStart = 0;
-		CGFloat topEnd = insets.top / self.layer.bounds.size.height;
-		CGFloat bottomStart = (self.layer.bounds.size.height - insets.bottom) / self.layer.bounds.size.height;
-		CGFloat bottomEnd = 1;
-		
-		CAGradientLayer *topBottomInsets = [CAGradientLayer layer];
-		NSArray *locations = @[@(topStart),
-						 @(topEnd),
-						 @(bottomStart),
-						 @(bottomEnd)];
-		topBottomInsets.frame = self.bounds;
-		topBottomInsets.locations = locations;
-		topBottomInsets.colors = @[(topEnd > 0 ? clear : black),
-							 black,
-							 black,
-							 (bottomStart > 0 ? clear : black)];
-		
-		CGFloat leftStart = 0;
-		CGFloat leftEnd = insets.left / self.layer.bounds.size.width;
-		CGFloat rightStart = (self.layer.bounds.size.width - insets.right) / self.layer.bounds.size.width;
-		CGFloat rightEnd = 1;
-		
-		CAGradientLayer *leftRightInsets = [CAGradientLayer layer];
-		locations = @[@(leftStart),
-				@(leftEnd),
-				@(rightStart),
-				@(rightEnd)];
-		leftRightInsets.frame = self.bounds;
-		leftRightInsets.startPoint = CGPointMake(0, 0.5);
-		leftRightInsets.endPoint = CGPointMake(1, 0.5);
-		leftRightInsets.locations = locations;
-		leftRightInsets.colors = @[(leftEnd > 0 ? clear : black),
-							 black,
-							 black,
-							 (rightStart > 0 ? clear : black)];
-		
-		CGRect topBottomFrame;
-		topBottomFrame.origin.x = insets.left;
-		topBottomFrame.origin.y = 0;
-		topBottomFrame.size.width = self.bounds.size.width - (insets.left + insets.right);
-		topBottomFrame.size.height = self.bounds.size.height;
-		topBottomInsets.frame = topBottomFrame;
-		
-		CGRect leftRightFrame;
-		leftRightFrame.origin.x = 0;
-		leftRightFrame.origin.y = insets.top;
-		leftRightFrame.size.width = self.bounds.size.width;
-		leftRightFrame.size.height = self.bounds.size.height - (insets.top + insets.bottom);
-		leftRightInsets.frame = leftRightFrame;
-		
-		[leftRightInsets renderInContext:context];
-		[topBottomInsets renderInContext:context];
+		if (insets.left > 0 || insets.right > 0)
+			[leftRightImage drawInRect:CGRectMake((size.width-leftRightFrame.size.width)/2, (size.height-leftRightFrame.size.height)/2, leftRightFrame.size.width, leftRightFrame.size.height)];
 		
 	}];
 	
