@@ -13,6 +13,7 @@
 @class DPUIBackgroundStyle;
 @class DPUIColor;
 @class DPUIControlStyle;
+@class DPUIStyleParameters;
 @interface DPUIViewStyle : DPUIStyle
 
 @property (nonatomic, strong) DPUIBackgroundStyle *background;
@@ -32,6 +33,8 @@
 
 @property (nonatomic, strong) UIColor *canvasBackgroundColor;
 
+@property (nonatomic) BOOL drawAsynchronously;
+
 // Navigation bar
 
 @property (nonatomic, strong) DPUITextStyle *navBarTitleTextStyle;
@@ -49,9 +52,9 @@
 - (void)applyStyleToView:(UIView *)view;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
-- (UIImage *)imageForStyleWithSize:(CGSize)size;
-- (UIImage *)imageForStyleWithSize:(CGSize)size withOuterShadow:(BOOL)withOuterShadow;
-- (UIImage *)imageForStyleWithSize:(CGSize)size withOuterShadow:(BOOL)withOuterShadow flippedGradient:(BOOL)flippedGradient;
-- (UIImage *)imageForStyleWithSize:(CGSize)size path:(UIBezierPath*)path withOuterShadow:(BOOL)withOuterShadow;
-- (UIImage *)imageForStyleWithSize:(CGSize)size path:(UIBezierPath*)path withOuterShadow:(BOOL)withOuterShadow flippedGradient:(BOOL)gradient;
+- (UIImage *)imageForStyleWithSize:(CGSize)size parameters:(DPUIStyleParameters *)parameters;
+- (UIImage *)imageForStyleWithSize:(CGSize)size withOuterShadow:(BOOL)withOuterShadow parameters:(DPUIStyleParameters *)parameters;
+- (UIImage *)imageForStyleWithSize:(CGSize)size withOuterShadow:(BOOL)withOuterShadow flippedGradient:(BOOL)flippedGradient parameters:(DPUIStyleParameters *)parameters;
+- (UIImage *)imageForStyleWithSize:(CGSize)size path:(UIBezierPath *)path withOuterShadow:(BOOL)withOuterShadow parameters:(DPUIStyleParameters *)parameters;
+- (UIImage *)imageForStyleWithSize:(CGSize)size path:(UIBezierPath *)path withOuterShadow:(BOOL)withOuterShadow flippedGradient:(BOOL)gradient parameters:(DPUIStyleParameters *)parameters;
 @end

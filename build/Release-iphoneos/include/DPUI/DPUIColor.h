@@ -13,6 +13,8 @@
 @property (nonatomic, strong) NSString *variableName;
 @property (nonatomic, strong) UIColor *color;
 
+@property (nonatomic) BOOL definedAtRuntime;
+
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 
 @end

@@ -7,10 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-
+@class DPUIColor;
 @interface DPUIInnerBorderStyle : NSObject
 
-@property (nonatomic, strong) UIColor *color;
+@property (nonatomic, strong) DPUIColor *color;
 @property (nonatomic) CGBlendMode blendMode;
 @property (nonatomic) CGFloat height;
 

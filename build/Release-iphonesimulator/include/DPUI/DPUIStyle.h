@@ -10,4 +10,6 @@
 
 @interface DPUIStyle : NSObject
 @property (nonatomic, strong) NSString *name;
+
+@property (nonatomic, strong) NSArray *parameters;
 @end
