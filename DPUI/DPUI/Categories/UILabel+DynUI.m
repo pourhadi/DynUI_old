@@ -37,6 +37,11 @@ static const void *const kDYNSetTextSwizzledKey = "_DYNSetTextSwizzledKey";
     [textStyle applyToLabel:self];
     
     [[DYNManager sharedInstance] registerView:self];
+	
+	if (self.dyn_autoScroll) {
+		[textStyle applyToLabel:[self firstLabel]];
+		[textStyle applyToLabel:[self secondLabel]];
+	}
 }
 
 - (NSString *)dyn_textStyle {
@@ -51,6 +56,7 @@ static const void *const kDYNSetTextSwizzledKey = "_DYNSetTextSwizzledKey";
     if (self.dyn_style) {
         self.dyn_styleSizeApplied = self.frame.size;
         [DYNRenderer renderView:self withStyleNamed:self.dyn_style];
+		
     }
 }
 

@@ -87,51 +87,212 @@
 {
 	DYNViewStyle *style = (DYNViewStyle *)[[DYNManager sharedInstance] styleForName:styleName];
 	
-	UIImage *bgImg = [style imageForStyleWithSize:segmentedControl.frame.size withOuterShadow:NO parameters:segmentedControl.styleParameters];
+	UIImage *bgImg = [style imageForStyleWithSize:CGSizeMake(20, segmentedControl.frame.size.height) withOuterShadow:NO parameters:segmentedControl.styleParameters];
 	[segmentedControl setBackgroundImage:bgImg.dyn_resizableImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
 	if (style.segmentedControlStyle) {
 		if (style.segmentedControlStyle.normalTextStyle) {
+
 			[segmentedControl setTitleTextAttributes:style.segmentedControlStyle.normalTextStyle.titleTextAttributes forState:UIControlStateNormal];
 		}
 		
 		if (style.segmentedControlStyle.selectedTextStyle) {
-			[segmentedControl setTitleTextAttributes:style.segmentedControlStyle.selectedTextStyle.titleTextAttributes forState:UIControlStateSelected | UIControlStateHighlighted];
+			[segmentedControl setTitleTextAttributes:style.segmentedControlStyle.selectedTextStyle.titleTextAttributes forState:UIControlStateSelected];
 		}
-//		
-//		if (style.segmentedControlStyle.selectedStyleName) {
-//			DYNViewStyle *selectedStyle = [[DYNManager sharedInstance] styleForName:style.segmentedControlStyle.selectedStyleName];
-//			
-//			
-//		}
+		
+		if (style.segmentedControlStyle.selectedStyleName) {			
+			UIImage *bgImg = [self selectedSegmentImageForSize:CGSizeMake(20, segmentedControl.frame.size.height) style:style seletedStyle:style.segmentedControlStyle.selectedStyleName roundCorners:YES];
+			[segmentedControl setBackgroundImage:bgImg.dyn_resizableImage forState:UIControlStateSelected barMetrics:UIBarMetricsDefault];
+			
+			UIImage *leftSelectedRightUnselected = [self leftSelectedRightUnselectedImageForSegmentedControl:segmentedControl style:style selectedStyle:style.segmentedControlStyle.selectedStyleName];
+			UIImage *leftUnselectedRightSelected = [self rightSelectedLeftUnselectedImageForSegmentedControl:segmentedControl style:style selectedStyle:style.segmentedControlStyle.selectedStyleName];
+			UIImage *bothSelected = [self bothSelectedImageForSegmentedControl:segmentedControl style:style selectedStyle:style.segmentedControlStyle.selectedStyleName];
+			UIImage *bothUnselected = [self bothUnselectedImageForSegmentedControl:segmentedControl style:style selectedStyle:style.segmentedControlStyle.selectedStyleName];
+			
+			[segmentedControl setDividerImage:leftSelectedRightUnselected forLeftSegmentState:UIControlStateSelected rightSegmentState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+			[segmentedControl setDividerImage:leftUnselectedRightSelected forLeftSegmentState:UIControlStateNormal rightSegmentState:UIControlStateSelected barMetrics:UIBarMetricsDefault];
+			[segmentedControl setDividerImage:bothSelected forLeftSegmentState:UIControlStateSelected rightSegmentState:UIControlStateSelected barMetrics:UIBarMetricsDefault];
+			[segmentedControl setDividerImage:bothUnselected forLeftSegmentState:UIControlStateNormal rightSegmentState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+			
+			
+		}
 	}
 	
 	
 	
 }
  
- /*#pragma mark - Segment control renderers
+#pragma mark - Segment control renderers
+
++ (UIImage*)leftSelectedRightUnselectedImageForSegmentedControl:(UISegmentedControl*)segmentedControl style:(DYNViewStyle*)style selectedStyle:(NSString*)selectedStyle
+{
+	CGFloat dividerWidth = style.segmentDividerWidth;
+	UIColor *dividerColor = style.segmentDividerColor.color;
+	
+	UIImage *selectedImage = [self selectedSegmentImageForSize:CGSizeMake(20, segmentedControl.frame.size.height) style:style seletedStyle:selectedStyle roundCorners:NO];
+	selectedImage = [selectedImage imageCroppedToRect:CGRectMake((selectedImage.size.width/2)-1, 0, 2, selectedImage.size.height)];
+
+	UIImage *unselectedImage = [self unselectedSegmentImageForSize:CGSizeMake(20, segmentedControl.frame.size.height) style:style roundCorners:NO];
+	unselectedImage = [unselectedImage imageCroppedToRect:CGRectMake((unselectedImage.size.width/2)-1, 0, 2, unselectedImage.size.height)];
+
+	UIImage *image = [UIImage imageWithSize:CGSizeMake((selectedImage.size.width)+dividerWidth+(unselectedImage.size.width), segmentedControl.frame.size.height) drawnWithBlock:^(CGContextRef context, CGRect rect) {
+		
+		[selectedImage drawAtPoint:CGPointMake(0, 0)];
+		[dividerColor setFill];
+		UIRectFill(CGRectMake(selectedImage.size.width, 0, dividerWidth, rect.size.height));
+		[unselectedImage drawAtPoint:CGPointMake((selectedImage.size.width)+dividerWidth, 0)];
+		
+	}];
+	
+	return image;
+}
+
++ (UIImage*)rightSelectedLeftUnselectedImageForSegmentedControl:(UISegmentedControl*)segmentedControl style:(DYNViewStyle*)style selectedStyle:(NSString*)selectedStyle
+{
+	CGFloat dividerWidth = style.segmentDividerWidth;
+	UIColor *dividerColor = style.segmentDividerColor.color;
+	
+	UIImage *selectedImage = [self selectedSegmentImageForSize:CGSizeMake(20, segmentedControl.frame.size.height) style:style seletedStyle:selectedStyle roundCorners:NO];
+	selectedImage = [selectedImage imageCroppedToRect:CGRectMake((selectedImage.size.width/2)-1, 0, 2, selectedImage.size.height)];
+
+	UIImage *unselectedImage = [self unselectedSegmentImageForSize:CGSizeMake(20, segmentedControl.frame.size.height) style:style roundCorners:NO];
+	unselectedImage = [unselectedImage imageCroppedToRect:CGRectMake((unselectedImage.size.width/2)-1, 0, 2, unselectedImage.size.height)];
+
+	UIImage *image = [UIImage imageWithSize:CGSizeMake((selectedImage.size.width)+dividerWidth+(unselectedImage.size.width), segmentedControl.frame.size.height) drawnWithBlock:^(CGContextRef context, CGRect rect) {
+		
+		[unselectedImage drawAtPoint:CGPointMake(0, 0)];
+		[dividerColor setFill];
+		UIRectFill(CGRectMake(unselectedImage.size.width, 0, dividerWidth, rect.size.height));
+		[selectedImage drawAtPoint:CGPointMake((unselectedImage.size.width)+dividerWidth, 0)];
+		
+	}];
+	
+	return image;
+}
+
++ (UIImage*)bothUnselectedImageForSegmentedControl:(UISegmentedControl*)segmentedControl style:(DYNViewStyle*)style selectedStyle:(NSString*)selectedStyle
+{
+	CGFloat dividerWidth = style.segmentDividerWidth;
+	UIColor *dividerColor = style.segmentDividerColor.color;
+	
+	UIImage *unselectedImage = [self unselectedSegmentImageForSize:CGSizeMake(20, segmentedControl.frame.size.height) style:style roundCorners:NO];
+	unselectedImage = [unselectedImage imageCroppedToRect:CGRectMake((unselectedImage.size.width/2)-1, 0, 2, unselectedImage.size.height)];
+
+	UIImage *image = [UIImage imageWithSize:CGSizeMake((unselectedImage.size.width)+dividerWidth+(unselectedImage.size.width), segmentedControl.frame.size.height) drawnWithBlock:^(CGContextRef context, CGRect rect) {
+		
+		[unselectedImage drawAtPoint:CGPointMake(0, 0)];
+		[dividerColor setFill];
+		UIRectFill(CGRectMake((unselectedImage.size.width), 0, dividerWidth, rect.size.height));
+		[unselectedImage drawAtPoint:CGPointMake((unselectedImage.size.width)+dividerWidth, 0)];
+		
+	}];
+	
+	return image;
+}
+
++ (UIImage*)bothSelectedImageForSegmentedControl:(UISegmentedControl*)segmentedControl style:(DYNViewStyle*)style selectedStyle:(NSString*)selectedStyle
+{
+	CGFloat dividerWidth = style.segmentDividerWidth;
+	UIColor *dividerColor = style.segmentDividerColor.color;
+	
+	UIImage *selectedImage = [self selectedSegmentImageForSize:CGSizeMake(20, segmentedControl.frame.size.height) style:style seletedStyle:selectedStyle roundCorners:NO];
+	
+	selectedImage = [selectedImage imageCroppedToRect:CGRectMake((selectedImage.size.width/2)-1, 0, 2, selectedImage.size.height)];
+	UIImage *image = [UIImage imageWithSize:CGSizeMake((selectedImage.size.width)+dividerWidth+(selectedImage.size.width), segmentedControl.frame.size.height) drawnWithBlock:^(CGContextRef context, CGRect rect) {
+		
+		[selectedImage drawAtPoint:CGPointMake(0, 0)];
+		[dividerColor setFill];
+		UIRectFill(CGRectMake(selectedImage.size.width, 0, dividerWidth, rect.size.height));
+		[selectedImage drawAtPoint:CGPointMake((selectedImage.size.width)+dividerWidth, 0)];
+		
+	}];
+	
+	return image;
+}
+
+
++ (UIImage*)unselectedSegmentImageForSize:(CGSize)size style:(DYNViewStyle*)style roundCorners:(BOOL)roundCorners
+{
+	CGSize originalRadii = style.cornerRadii;
+	CornerRadiusType originalType = style.cornerRadiusType;
+	
+	if (!roundCorners) {
+		style.cornerRadii = CGSizeZero;
+		style.cornerRadiusType = CornerRadiusTypeCustom;
+	}
+	
+	UIImage *image = [style imageForStyleWithSize:size withOuterShadow:YES flippedGradient:NO parameters:nil];
+	if (!roundCorners) {
+		style.cornerRadii = originalRadii;
+		style.cornerRadiusType = originalType;
+	}
+
+	return image;
+}
+
++ (UIImage*)selectedSegmentImageForSize:(CGSize)size style:(DYNViewStyle*)style seletedStyle:(NSString*)selectedStyle roundCorners:(BOOL)roundCorners
+{
+	BOOL flipGrad = NO;
+    BOOL halfAlpha = NO;
+    BOOL makeLighter = NO;
+    BOOL makeDarker = NO;
+	DYNViewStyle *selectedStyleObject = nil;
+	
+    if ([selectedStyle isEqualToString:kDYNFlippedGradientKey]) {
+        flipGrad = YES;
+        selectedStyleObject = style;
+    } else if ([selectedStyle isEqualToString:kDYNMakeDarkerKey]) {
+        flipGrad = NO;
+        halfAlpha = NO;
+        makeLighter = NO;
+        makeDarker = YES;
+        selectedStyleObject = style;
+    } else if ([selectedStyle isEqualToString:kDYNMakeLigherKey]) {
+        flipGrad = NO;
+        halfAlpha = NO;
+        makeLighter = YES;
+        makeDarker = NO;
+        selectedStyleObject = style;
+    } else {
+        if ([selectedStyle isEqualToString:kDYNHalfOpacityKey]) {
+            selectedStyleObject = style;
+            halfAlpha = YES;
+        } else {
+            selectedStyleObject = (DYNViewStyle *)[[DYNManager sharedInstance] styleForName:selectedStyle];
+        }
+    }
+	
+	CGSize originalRadii = selectedStyleObject.cornerRadii;
+	CornerRadiusType originalType = selectedStyleObject.cornerRadiusType;
+	
+	if (!roundCorners) {
+		selectedStyleObject.cornerRadii = CGSizeZero;
+		selectedStyleObject.cornerRadiusType = CornerRadiusTypeCustom;
+	}
+	
+    UIImage *image = [selectedStyleObject imageForStyleWithSize:size withOuterShadow:YES flippedGradient:flipGrad parameters:nil];
+    
+	if (!roundCorners) {
+		selectedStyleObject.cornerRadii = originalRadii;
+		selectedStyleObject.cornerRadiusType = originalType;
+	}
+	
+	
+    if (halfAlpha) {
+        image = [image imageWithOpacity:0.5];
+    }
+    
+    if (makeDarker) {
+        image = [image imageOverlayedWithColor:[UIColor blackColor] opacity:0.3];
+    }
+    
+    if (makeLighter) {
+        image = [image imageOverlayedWithColor:[UIColor whiteColor] opacity:0.3];
+    }
+    
+    return image;
+}
+
  
- - (UIImage*)leftSelectedRightUnselectedImageForSegmentedControl:(UISegmentedControl*)segmentedControl style:(DYNViewStyle*)style selectedStyle:(DYNViewStyle*)selectedStyle
- {
- 
- }
- 
- - (UIImage*)rightSelectedLeftUnselectedImageForSegmentedControl:(UISegmentedControl*)segmentedControl style:(DYNViewStyle*)style selectedStyle:(DYNViewStyle*)selectedStyle
- {
- 
- }
- 
- - (UIImage*)bothUnselectedImageForSegmentedControl:(UISegmentedControl*)segmentedControl style:(DYNViewStyle*)style selectedStyle:(DYNViewStyle*)selectedStyle
- {
- 
- }
- 
- - (UIImage*)bothSelectedImageForSegmentedControl:(UISegmentedControl*)segmentedControl style:(DYNViewStyle*)style selectedStyle:(DYNViewStyle*)selectedStyle
- {
- 
- }
- 
- */
 + (void)renderSlider:(UISlider *)slider withSliderStyleNamed:(NSString *)name {
     DYNSliderStyle *style = [[DYNManager sharedInstance] sliderStyleForName:name];
     
@@ -249,70 +410,57 @@
     [toolbar setBackgroundImage:img forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];
 }
 
-+ (void)renderBarButtonItem:(UIBarButtonItem*)item forNavigationBar:(UINavigationBar*)navigationBar withStyleNamed:(NSString*)styleName {
++ (void)renderBarButtonItemsForNavigationBar:(UINavigationBar*)navigationBar withStyleNamed:(NSString*)styleName {
     DYNViewStyle *style = [[DYNManager sharedInstance] styleForName:styleName];
     UIImage *buttonImg = [style imageForStyleWithSize:CGSizeMake(18, 28) withOuterShadow:YES parameters:navigationBar.styleParameters];
-    [[UIBarButtonItem appearanceWhenContainedIn:[navigationBar class], nil] setBackgroundImage:buttonImg.dyn_resizableImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    [[UIBarButtonItem appearanceWhenContainedIn:navigationBar.dyn_metaClass, nil] setBackgroundImage:buttonImg.dyn_resizableImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     UIImage *backImg = [DYNRenderer backBarButtonImageForStyle:styleName superStyle:nil parameters:navigationBar.styleParameters];
-   // [[UIBarButtonItem appearanceWhenContainedIn:[navigationBar class], nil] 
-    
-    [item setBackButtonBackgroundImage:backImg forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    [[UIBarButtonItem appearanceWhenContainedIn:navigationBar.dyn_metaClass, nil] setBackButtonBackgroundImage:backImg forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     if (style.controlStyle) {
         NSDictionary *textAttr;
         
         if (style.controlStyle.normalTextStyle) {
             textAttr = [style.controlStyle.normalTextStyle titleTextAttributes];
-           // [[UIBarButtonItem appearanceWhenContainedIn:[navigationBar class], nil] setTitleTextAttributes:textAttr forState:UIControlStateNormal];
-            [item setTitleTextAttributes:textAttr forState:UIControlStateNormal];
+            [[UIBarButtonItem appearanceWhenContainedIn:navigationBar.dyn_metaClass, nil] setTitleTextAttributes:textAttr forState:UIControlStateNormal];
         }
         
         if (style.controlStyle.highlightedTextStyle) {
             textAttr = [style.controlStyle.highlightedTextStyle titleTextAttributes];
-//            [[UIBarButtonItem appearanceWhenContainedIn:[navigationBar class], nil] setTitleTextAttributes:textAttr forState:UIControlStateHighlighted];
-            [item setTitleTextAttributes:textAttr forState:UIControlStateHighlighted];
+            [[UIBarButtonItem appearanceWhenContainedIn:navigationBar.dyn_metaClass, nil] setTitleTextAttributes:textAttr forState:UIControlStateHighlighted];
         }
         
         if (style.controlStyle.selectedTextStyle) {
             textAttr = [style.controlStyle.selectedTextStyle titleTextAttributes];
-       //     [[UIBarButtonItem appearanceWhenContainedIn:[navigationBar class], nil] setTitleTextAttributes:textAttr forState:UIControlStateSelected];
             
-            [item setTitleTextAttributes:textAttr forState:UIControlStateHighlighted];
+            [[UIBarButtonItem appearanceWhenContainedIn:navigationBar.dyn_metaClass, nil] setTitleTextAttributes:textAttr forState:UIControlStateHighlighted];
         }
         
         if (style.controlStyle.disabledTextStyle) {
             textAttr = [style.controlStyle.disabledTextStyle titleTextAttributes];
-     //       [[UIBarButtonItem appearanceWhenContainedIn:[navigationBar class], nil] setTitleTextAttributes:textAttr forState:UIControlStateDisabled];
-            [item setTitleTextAttributes:textAttr forState:UIControlStateDisabled];
+            [[UIBarButtonItem appearanceWhenContainedIn:navigationBar.dyn_metaClass, nil] setTitleTextAttributes:textAttr forState:UIControlStateDisabled];
         }
         
         if (style.controlStyle.highlightedStyleName) {
             UIImage *buttonImg = [self imageForSize:CGSizeMake(18, 28) controlStyleName:style.controlStyle.highlightedStyleName superStyle:style parameters:navigationBar.styleParameters];
-            
-        //    [[UIBarButtonItem appearanceWhenContainedIn:[navigationBar class], nil] setBackgroundImage:buttonImg.dyn_resizableImage forState:UIControlStateHighlighted barMetrics:UIBarMetricsDefault];
-            [item setBackgroundImage:buttonImg.dyn_resizableImage forState:UIControlStateHighlighted barMetrics:UIBarMetricsDefault];
+			[[UIBarButtonItem appearanceWhenContainedIn:navigationBar.dyn_metaClass, nil] setBackgroundImage:buttonImg.dyn_resizableImage forState:UIControlStateHighlighted barMetrics:UIBarMetricsDefault];
             UIImage *backImg = [DYNRenderer backBarButtonImageForStyle:style.controlStyle.highlightedStyleName superStyle:style parameters:navigationBar.styleParameters];
-        //    [[UIBarButtonItem appearanceWhenContainedIn:[navigationBar class], nil] setBackButtonBackgroundImage:backImg forState:UIControlStateHighlighted barMetrics:UIBarMetricsDefault];
-            [item setBackButtonBackgroundImage:backImg forState:UIControlStateHighlighted barMetrics:UIBarMetricsDefault];
+            [[UIBarButtonItem appearanceWhenContainedIn:navigationBar.dyn_metaClass, nil] setBackButtonBackgroundImage:backImg.dyn_resizableImage forState:UIControlStateHighlighted barMetrics:UIBarMetricsDefault];
         }
         
         if (style.controlStyle.selectedStyleName) {
             UIImage *buttonImg = [self imageForSize:CGSizeMake(18, 28) controlStyleName:style.controlStyle.selectedStyleName superStyle:style parameters:navigationBar.styleParameters];
             
-            //[[UIBarButtonItem appearanceWhenContainedIn:[navigationBar class], nil] setBackgroundImage:buttonImg.dyn_resizableImage forState:UIControlStateSelected barMetrics:UIBarMetricsDefault];
-            [item setBackgroundImage:buttonImg.dyn_resizableImage forState:UIControlStateHighlighted barMetrics:UIBarMetricsDefault];
+            [[UIBarButtonItem appearanceWhenContainedIn:navigationBar.dyn_metaClass, nil] setBackgroundImage:buttonImg.dyn_resizableImage forState:UIControlStateHighlighted barMetrics:UIBarMetricsDefault];
             UIImage *backImg = [DYNRenderer backBarButtonImageForStyle:style.controlStyle.selectedStyleName superStyle:style parameters:navigationBar.styleParameters];
-            //[[UIBarButtonItem appearanceWhenContainedIn:[navigationBar class], nil] setBackButtonBackgroundImage:backImg forState:UIControlStateSelected barMetrics:UIBarMetricsDefault];
-            [item setBackButtonBackgroundImage:backImg forState:UIControlStateHighlighted barMetrics:UIBarMetricsDefault];
+            [[UIBarButtonItem appearanceWhenContainedIn:navigationBar.dyn_metaClass, nil] setBackButtonBackgroundImage:backImg.dyn_resizableImage forState:UIControlStateSelected barMetrics:UIBarMetricsDefault];
         }
         
         if (style.controlStyle.disabledStyleName) {
             UIImage *buttonImg = [self imageForSize:CGSizeMake(18, 28) controlStyleName:style.controlStyle.disabledStyleName superStyle:style parameters:navigationBar.styleParameters];
             
-            //[[UIBarButtonItem appearanceWhenContainedIn:[navigationBar class], nil] setBackgroundImage:buttonImg.dyn_resizableImage forState:UIControlStateDisabled barMetrics:UIBarMetricsDefault];
-            [item  setBackgroundImage:buttonImg.dyn_resizableImage forState:UIControlStateDisabled barMetrics:UIBarMetricsDefault];
+            [[UIBarButtonItem appearanceWhenContainedIn:navigationBar.dyn_metaClass, nil]  setBackgroundImage:buttonImg.dyn_resizableImage forState:UIControlStateDisabled barMetrics:UIBarMetricsDefault];
             UIImage *backImg = [DYNRenderer backBarButtonImageForStyle:style.controlStyle.disabledStyleName superStyle:style parameters:navigationBar.styleParameters];
-            //[[UIBarButtonItem appearanceWhenContainedIn:[navigationBar class], nil] setBackButtonBackgroundImage:backImg forState:UIControlStateDisabled barMetrics:UIBarMetricsDefault];
-            [item setBackButtonBackgroundImage:backImg forState:UIControlStateDisabled barMetrics:UIBarMetricsDefault];
+            [[UIBarButtonItem appearanceWhenContainedIn:navigationBar.dyn_metaClass, nil] setBackButtonBackgroundImage:backImg.dyn_resizableImage forState:UIControlStateDisabled barMetrics:UIBarMetricsDefault];
         }
     }
 
@@ -338,12 +486,28 @@
         }
     }
     
-    
     if (navStyle.barButtonItemStyleName) {
-                
-        [navigationBar applyStyleToBarButtonItems:navStyle.barButtonItemStyleName];
         
+		if (!navigationBar.dyn_metaClass) {
+			[navigationBar dyn_createMetaClass];
+		}
+		
+        [self renderBarButtonItemsForNavigationBar:navigationBar withStyleNamed:navStyle.barButtonItemStyleName];
     }
+	
+	NSArray *leftItems = [navigationBar.topItem.leftBarButtonItems copy];
+	NSArray *rightItems = [navigationBar.topItem.rightBarButtonItems copy];
+	NSString *title = navigationBar.topItem.title;
+	
+	navigationBar.topItem.leftBarButtonItems = nil;
+	navigationBar.topItem.rightBarButtonItems = nil;
+	navigationBar.topItem.title = nil;
+
+	navigationBar.topItem.leftBarButtonItems = leftItems;
+	navigationBar.topItem.rightBarButtonItems = rightItems;
+	navigationBar.topItem.title = title;
+	
+	
 }
 
 + (void)renderButton:(UIButton *)button withStyleNamed:(NSString *)styleName {

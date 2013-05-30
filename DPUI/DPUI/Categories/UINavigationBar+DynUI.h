@@ -10,6 +10,10 @@
 
 @interface UINavigationBar (DynUI)
 
-- (void)applyStyleToBarButtonItems:(NSString*)styleName;
+/** Applies the style specified by styleName to all the UIBarButtonItems associated with this navigation bar. */
+//- (void)applyStyleToBarButtonItems:(NSString*)styleName;
+
+@property (nonatomic, strong) Class dyn_metaClass;
+- (void)dyn_createMetaClass;
 
 @end

@@ -20,6 +20,7 @@
 @property (nonatomic, weak) IBOutlet UISlider *slider;
 @property (nonatomic, weak) IBOutlet UISearchBar *searchBar;
 @property (nonatomic, weak) IBOutlet UIImageView *imageView;
+@property (nonatomic, weak) IBOutlet UISegmentedControl *segmentedControl;
 
 @property (nonatomic, strong) UIPopoverController *popover;
 
@@ -31,6 +32,7 @@
 @property (nonatomic, strong) IBOutlet UITableViewCell *buttonCell;
 @property (nonatomic, strong) IBOutlet UITableViewCell *iconCell;
 @property (nonatomic, strong) IBOutlet UITableViewCell *labelCell;
+@property (nonatomic, strong) IBOutlet UITableViewCell *segmentCell;
 
 @property (nonatomic, strong) NSArray *cells;
 
@@ -55,11 +57,12 @@
 	self.cells = @[self.labelCell,
 				self.sliderCell,
 				self.buttonCell,
-				self.iconCell];
+				self.iconCell,
+				self.segmentCell];
 	
 	self.tableView.backgroundColor = [UIColor clearColor];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    self.view.backgroundColor = [UIColor colorForVariable:@"DemoColor"];
+    self.view.dyn_style = @"Container";
 
 	self.navigationItem.title = @"DynUI";
 	
@@ -83,6 +86,8 @@
 	self.customView.dyn_style = @"CustomView";
 	
 	self.tableView.tableHeaderView = self.searchBar;
+	
+	self.segmentedControl.dyn_style = @"Seg";
 		
 }
 - (IBAction)go:(id)sender
@@ -148,4 +153,17 @@
    // [tableView dyn_styleGroupedCell:cell forIndexPath:indexPath withStyle:@"GroupedTable"];
 }
 
+- (IBAction)segSelected:(id)sender
+{
+	if (self.segmentedControl.selectedSegmentIndex == 0) {
+		
+		[DYNManager loadStylesFromFile:@"Style.dpui" replaceExisting:YES];
+		
+	} else if (self.segmentedControl.selectedSegmentIndex == 1) {
+		[DYNManager loadStylesFromFile:@"Style_White.dpui" replaceExisting:YES];
+
+	} else if (self.segmentedControl.selectedSegmentIndex == 2) {
+		[DYNManager loadStylesFromFile:@"Style_Dark.dpui" replaceExisting:YES];
+	}
+}
 @end

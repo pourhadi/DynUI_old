@@ -11,6 +11,43 @@
 #import "DynUI.h"
 @implementation UITableViewCell (DynUI)
 
+- (void)dyn_refreshStyle
+{
+	[super dyn_refreshStyle];
+	
+	DYNViewStyle *style = (DYNViewStyle *)[[DYNManager sharedInstance] styleForName:self.dyn_style];
+
+	if (self.accessoryType == UITableViewCellAccessoryCheckmark) {
+		UIColor *accessoryColor;
+		
+		if (style.tableCellTitleTextStyle) {
+			accessoryColor = style.tableCellTitleTextStyle.textColor.color;
+		} else if (style.tableCellDetailTextStyle) {
+			accessoryColor = style.tableCellDetailTextStyle.textColor.color;
+		}
+		
+		UIImage *check = [UIImage iconImage:kDYNIconCheckKey forHeight:13 color:accessoryColor];
+		UIImageView *checkView = [[UIImageView alloc] initWithImage:check];
+		checkView.frame = CGRectMake(0, 0, check.size.width, check.size.height);
+		
+		self.accessoryView = checkView;
+	} else if (self.accessoryType == UITableViewCellAccessoryDisclosureIndicator) {
+		UIColor *accessoryColor;
+		
+		if (style.tableCellTitleTextStyle) {
+			accessoryColor = style.tableCellTitleTextStyle.textColor.color;
+		} else if (style.tableCellDetailTextStyle) {
+			accessoryColor = style.tableCellDetailTextStyle.textColor.color;
+		}
+		
+		UIImage *chevron = [UIImage iconImage:kDYNIconArrowright2Key forHeight:13 color:accessoryColor];
+		UIImageView *chevronView = [[UIImageView alloc] initWithImage:chevron];
+		chevronView.frame = CGRectMake(0, 0, chevron.size.width, chevron.size.height);
+		
+		self.accessoryView = chevronView;
+	}
+}
+
 - (void)setDyn_style:(NSString*)styleName
 {
 	[super setDyn_style:styleName];

@@ -13,6 +13,8 @@
 		4403A8D4175184A700BE3A39 /* icons.json in Resources */ = {isa = PBXBuildFile; fileRef = 4403A8D3175184A700BE3A39 /* icons.json */; };
 		4403A8D7175184D500BE3A39 /* UIBezierPath+SVG.m in Sources */ = {isa = PBXBuildFile; fileRef = 4403A8D6175184D500BE3A39 /* UIBezierPath+SVG.m */; };
 		4403A8DA1751853200BE3A39 /* DYNIcons.m in Sources */ = {isa = PBXBuildFile; fileRef = 4403A8D91751853200BE3A39 /* DYNIcons.m */; };
+		440487F51757080600372FD6 /* Style_White.dpui in Resources */ = {isa = PBXBuildFile; fileRef = 440487F41757080500372FD6 /* Style_White.dpui */; };
+		440487F7175729E300372FD6 /* Style_Dark.dpui in Resources */ = {isa = PBXBuildFile; fileRef = 440487F6175729E200372FD6 /* Style_Dark.dpui */; };
 		443D2E0D17406DBC008F4162 /* DYNSliderStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 443D2E0C17406DBC008F4162 /* DYNSliderStyle.m */; };
 		445BD0C51751F4A0002AF374 /* DYNIconDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 445BD0C31751F4A0002AF374 /* DYNIconDemoViewController.m */; };
 		445BD0C61751F4A0002AF374 /* DYNIconDemoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 445BD0C41751F4A0002AF374 /* DYNIconDemoViewController.xib */; };
@@ -82,6 +84,8 @@
 		4403A8D6175184D500BE3A39 /* UIBezierPath+SVG.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBezierPath+SVG.m"; sourceTree = "<group>"; };
 		4403A8D81751853200BE3A39 /* DYNIcons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DYNIcons.h; path = ../../DPUI/DPUI/Tools/DYNIcons.h; sourceTree = "<group>"; };
 		4403A8D91751853200BE3A39 /* DYNIcons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DYNIcons.m; path = ../../DPUI/DPUI/Tools/DYNIcons.m; sourceTree = "<group>"; };
+		440487F41757080500372FD6 /* Style_White.dpui */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Style_White.dpui; sourceTree = "<group>"; };
+		440487F6175729E200372FD6 /* Style_Dark.dpui */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Style_Dark.dpui; sourceTree = "<group>"; };
 		443D2E0B17406DBC008F4162 /* DYNSliderStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYNSliderStyle.h; sourceTree = "<group>"; };
 		443D2E0C17406DBC008F4162 /* DYNSliderStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYNSliderStyle.m; sourceTree = "<group>"; };
 		445BD0C21751F4A0002AF374 /* DYNIconDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYNIconDemoViewController.h; sourceTree = "<group>"; };
@@ -285,6 +289,8 @@
 		44FADD26173CEA9E00EB6BF4 /* DynUI */ = {
 			isa = PBXGroup;
 			children = (
+				440487F6175729E200372FD6 /* Style_Dark.dpui */,
+				440487F41757080500372FD6 /* Style_White.dpui */,
 				4403A8D2175184A600BE3A39 /* Resources */,
 				D7C245CA174BE66C009C3CC2 /* Tools */,
 				44FADD61173CEC1000EB6BF4 /* Style.dpui */,
@@ -460,6 +466,8 @@
 				4403A8D4175184A700BE3A39 /* icons.json in Resources */,
 				445BD0C61751F4A0002AF374 /* DYNIconDemoViewController.xib in Resources */,
 				445BD0CB1752AB1A002AF374 /* DYNBigIconViewController.xib in Resources */,
+				440487F51757080600372FD6 /* Style_White.dpui in Resources */,
+				440487F7175729E300372FD6 /* Style_Dark.dpui in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

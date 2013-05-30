@@ -406,6 +406,17 @@
     }];
 }
 
+- (UIImage *)imageCroppedToRect:(CGRect)newRect
+{
+	UIImage *new = [UIImage imageWithSize:newRect.size drawnWithBlock:^(CGContextRef context, CGRect rect) {
+		
+		CGRect drawRect = CGRectMake(-newRect.origin.x, -newRect.origin.y, self.size.width, self.size.height);
+		[self drawInRect:drawRect];
+		
+	}];
+	return new;
+}
+
 // style parameters
 
 #pragma mark - Parameters
