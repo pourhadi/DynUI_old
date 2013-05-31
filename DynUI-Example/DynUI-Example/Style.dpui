@@ -27,7 +27,7 @@
           "height" : 0.5,
           "color" : {
             "definedAtRuntime" : false,
-            "colorString" : "0.99999 1 1 0.3",
+            "colorString" : "0.999988 1 1 0.3",
             "colorVar" : "",
             "colorName" : ""
           },
@@ -46,13 +46,13 @@
         "colors" : [
           {
             "definedAtRuntime" : false,
-            "colorString" : "1 0.15 0 1",
+            "colorString" : "1 0.249264 0 1",
             "colorVar" : "ButtonColor",
             "colorName" : ""
           },
           {
             "definedAtRuntime" : false,
-            "colorString" : "0.635294 0.0745098 0 1",
+            "colorString" : "0.703398 0.140164 0 1",
             "colorVar" : "",
             "colorName" : ""
           }
@@ -93,7 +93,7 @@
       "maskToCorners" : false,
       "strokeColor" : {
         "definedAtRuntime" : false,
-        "colorString" : "0.238645 0.299452 0.404482 1",
+        "colorString" : "0.202606 0.25907 0.345426 1",
         "colorVar" : "DemoBorder",
         "colorName" : ""
       },
@@ -113,13 +113,13 @@
         "colors" : [
           {
             "definedAtRuntime" : false,
-            "colorString" : "0.343307 0.433355 0.58531 1",
+            "colorString" : "0.24216 0.309647 0.412863 1",
             "colorVar" : "DemoColor",
             "colorName" : ""
           },
           {
             "definedAtRuntime" : false,
-            "colorString" : "0.3894 0.48862 0.66 1",
+            "colorString" : "0.293377 0.375138 0.500185 1",
             "colorVar" : "DemoNavTop",
             "colorName" : ""
           }
@@ -177,13 +177,13 @@
         "colors" : [
           {
             "definedAtRuntime" : false,
-            "colorString" : "0.343307 0.433355 0.58531 1",
+            "colorString" : "0.24216 0.309647 0.412863 1",
             "colorVar" : "DemoColor",
             "colorName" : ""
           },
           {
             "definedAtRuntime" : false,
-            "colorString" : "0.3894 0.48862 0.66 1",
+            "colorString" : "0.293377 0.375138 0.500185 1",
             "colorVar" : "DemoNavTop",
             "colorName" : ""
           }
@@ -221,7 +221,7 @@
       "maskToCorners" : false,
       "strokeColor" : {
         "definedAtRuntime" : false,
-        "colorString" : "0.99999 1 1 1",
+        "colorString" : "0.999988 1 1 1",
         "colorVar" : "",
         "colorName" : ""
       },
@@ -241,13 +241,13 @@
         "colors" : [
           {
             "definedAtRuntime" : false,
-            "colorString" : "0.999354 0.965966 0 1",
+            "colorString" : "0.999606 0.959413 0 1",
             "colorVar" : "StarTopColor",
             "colorName" : ""
           },
           {
             "definedAtRuntime" : false,
-            "colorString" : "1 0.15 0 1",
+            "colorString" : "1 0.249264 0 1",
             "colorVar" : "ButtonColor",
             "colorName" : ""
           }
@@ -312,7 +312,7 @@
         "colors" : [
           {
             "definedAtRuntime" : false,
-            "colorString" : "0.958357 0.958411 0.958384 1",
+            "colorString" : "0.96687 0.966936 0.966904 1",
             "colorVar" : "",
             "colorName" : ""
           }
@@ -360,7 +360,7 @@
             "colors" : [
               {
                 "definedAtRuntime" : false,
-                "colorString" : "0.343307 0.433355 0.58531 1",
+                "colorString" : "0.24216 0.309647 0.412863 1",
                 "colorVar" : "DemoColor",
                 "colorName" : ""
               }
@@ -368,25 +368,25 @@
           },
           "tableCellTitleTextStyle" : {
             "fontSize" : 12,
-            "fontSizeString" : "12",
+            "shadowXOffset" : 0,
             "fontSizeType" : 0,
             "shadowColor" : {
+              "definedAtRuntime" : false,
               "colorVar" : "",
               "colorString" : "0 0 0 1",
-              "colorName" : "",
-              "definedAtRuntime" : false
+              "colorName" : ""
             },
             "fontName" : "Helvetica-Bold",
             "styleName" : "ButtonText",
             "shadowYOffset" : 1,
             "alignment" : 0,
+            "fontSizeString" : "12",
             "textColor" : {
+              "definedAtRuntime" : false,
               "colorVar" : "ButtonTextColor",
               "colorString" : "1 1 1 1",
-              "colorName" : "",
-              "definedAtRuntime" : false
-            },
-            "shadowXOffset" : 0
+              "colorName" : ""
+            }
           },
           "innerShadow" : {
             "xOffset" : 0,
@@ -433,7 +433,7 @@
               "height" : 1,
               "color" : {
                 "definedAtRuntime" : false,
-                "colorString" : "0.238645 0.299452 0.404482 1",
+                "colorString" : "0.202606 0.25907 0.345426 1",
                 "colorVar" : "DemoBorder",
                 "colorName" : ""
               },
@@ -452,7 +452,7 @@
             "colors" : [
               {
                 "definedAtRuntime" : false,
-                "colorString" : "0.3894 0.48862 0.66 1",
+                "colorString" : "0.293377 0.375138 0.500185 1",
                 "colorVar" : "DemoNavTop",
                 "colorName" : ""
               }
@@ -485,7 +485,7 @@
               "height" : 1,
               "color" : {
                 "definedAtRuntime" : false,
-                "colorString" : "0.238645 0.299452 0.404482 1",
+                "colorString" : "0.202606 0.25907 0.345426 1",
                 "colorVar" : "DemoBorder",
                 "colorName" : ""
               },
@@ -497,7 +497,7 @@
               "height" : 1,
               "color" : {
                 "definedAtRuntime" : false,
-                "colorString" : "0.238645 0.299452 0.404482 1",
+                "colorString" : "0.202606 0.25907 0.345426 1",
                 "colorVar" : "DemoBorder",
                 "colorName" : ""
               },
@@ -512,7 +512,7 @@
               "height" : 1,
               "color" : {
                 "definedAtRuntime" : false,
-                "colorString" : "0.238645 0.299452 0.404482 1",
+                "colorString" : "0.202606 0.25907 0.345426 1",
                 "colorVar" : "DemoBorder",
                 "colorName" : ""
               },
@@ -528,7 +528,7 @@
               "height" : 1,
               "color" : {
                 "definedAtRuntime" : false,
-                "colorString" : "0.238645 0.299452 0.404482 1",
+                "colorString" : "0.202606 0.25907 0.345426 1",
                 "colorVar" : "DemoBorder",
                 "colorName" : ""
               },
@@ -547,7 +547,7 @@
             "colors" : [
               {
                 "definedAtRuntime" : false,
-                "colorString" : "0.3894 0.48862 0.66 1",
+                "colorString" : "0.293377 0.375138 0.500185 1",
                 "colorVar" : "DemoNavTop",
                 "colorName" : ""
               }
@@ -580,7 +580,7 @@
               "height" : 1,
               "color" : {
                 "definedAtRuntime" : false,
-                "colorString" : "0.238645 0.299452 0.404482 1",
+                "colorString" : "0.202606 0.25907 0.345426 1",
                 "colorVar" : "DemoBorder",
                 "colorName" : ""
               },
@@ -598,7 +598,7 @@
               "height" : 1,
               "color" : {
                 "definedAtRuntime" : false,
-                "colorString" : "0.238645 0.299452 0.404482 1",
+                "colorString" : "0.202606 0.25907 0.345426 1",
                 "colorVar" : "DemoBorder",
                 "colorName" : ""
               },
@@ -614,7 +614,7 @@
               "height" : 1,
               "color" : {
                 "definedAtRuntime" : false,
-                "colorString" : "0.238645 0.299452 0.404482 1",
+                "colorString" : "0.202606 0.25907 0.345426 1",
                 "colorVar" : "DemoBorder",
                 "colorName" : ""
               },
@@ -633,7 +633,7 @@
             "colors" : [
               {
                 "definedAtRuntime" : false,
-                "colorString" : "0.3894 0.48862 0.66 1",
+                "colorString" : "0.293377 0.375138 0.500185 1",
                 "colorVar" : "DemoNavTop",
                 "colorName" : ""
               }
@@ -666,7 +666,7 @@
               "height" : 1,
               "color" : {
                 "definedAtRuntime" : false,
-                "colorString" : "0.238645 0.299452 0.404482 1",
+                "colorString" : "0.202606 0.25907 0.345426 1",
                 "colorVar" : "DemoBorder",
                 "colorName" : ""
               },
@@ -684,7 +684,7 @@
               "height" : 1,
               "color" : {
                 "definedAtRuntime" : false,
-                "colorString" : "0.238645 0.299452 0.404482 1",
+                "colorString" : "0.202606 0.25907 0.345426 1",
                 "colorVar" : "DemoBorder",
                 "colorName" : ""
               },
@@ -700,7 +700,7 @@
               "height" : 1,
               "color" : {
                 "definedAtRuntime" : false,
-                "colorString" : "0.238645 0.299452 0.404482 1",
+                "colorString" : "0.202606 0.25907 0.345426 1",
                 "colorVar" : "DemoBorder",
                 "colorName" : ""
               },
@@ -719,7 +719,7 @@
             "colors" : [
               {
                 "definedAtRuntime" : false,
-                "colorString" : "0.3894 0.48862 0.66 1",
+                "colorString" : "0.293377 0.375138 0.500185 1",
                 "colorVar" : "DemoNavTop",
                 "colorName" : ""
               }
@@ -752,7 +752,7 @@
               "height" : 1,
               "color" : {
                 "definedAtRuntime" : false,
-                "colorString" : "0.238645 0.299452 0.404482 1",
+                "colorString" : "0.202606 0.25907 0.345426 1",
                 "colorVar" : "DemoBorder",
                 "colorName" : ""
               },
@@ -764,7 +764,7 @@
               "height" : 1,
               "color" : {
                 "definedAtRuntime" : false,
-                "colorString" : "0.238645 0.299452 0.404482 1",
+                "colorString" : "0.202606 0.25907 0.345426 1",
                 "colorVar" : "DemoBorder",
                 "colorName" : ""
               },
@@ -779,7 +779,7 @@
               "height" : 1,
               "color" : {
                 "definedAtRuntime" : false,
-                "colorString" : "0.238645 0.299452 0.404482 1",
+                "colorString" : "0.202606 0.25907 0.345426 1",
                 "colorVar" : "DemoBorder",
                 "colorName" : ""
               },
@@ -822,7 +822,7 @@
               "height" : 1,
               "color" : {
                 "definedAtRuntime" : false,
-                "colorString" : "0.99999 1 1 1",
+                "colorString" : "0.999988 1 1 1",
                 "colorVar" : "",
                 "colorName" : ""
               },
@@ -954,7 +954,7 @@
         "colors" : [
           {
             "definedAtRuntime" : false,
-            "colorString" : "0.343307 0.433355 0.58531 1",
+            "colorString" : "0.24216 0.309647 0.412863 1",
             "colorVar" : "DemoColor",
             "colorName" : ""
           }
@@ -987,7 +987,7 @@
           "height" : 1,
           "color" : {
             "definedAtRuntime" : false,
-            "colorString" : "0.3835 0.481217 0.65 0.5",
+            "colorString" : "0.304734 0.38966 0.519547 1",
             "colorVar" : "DemoHighlight",
             "colorName" : ""
           },
@@ -999,7 +999,7 @@
           "height" : 1,
           "color" : {
             "definedAtRuntime" : false,
-            "colorString" : "0.238645 0.299452 0.404482 1",
+            "colorString" : "0.202606 0.25907 0.345426 1",
             "colorVar" : "DemoBorder",
             "colorName" : ""
           },
@@ -1032,13 +1032,13 @@
         "colors" : [
           {
             "definedAtRuntime" : false,
-            "colorString" : "0.3894 0.48862 0.66 1",
+            "colorString" : "0.293377 0.375138 0.500185 1",
             "colorVar" : "DemoNavTop",
             "colorName" : ""
           },
           {
             "definedAtRuntime" : false,
-            "colorString" : "0.343307 0.433355 0.58531 1",
+            "colorString" : "0.24216 0.309647 0.412863 1",
             "colorVar" : "DemoColor",
             "colorName" : ""
           }
@@ -1069,7 +1069,7 @@
           "height" : 1,
           "color" : {
             "definedAtRuntime" : false,
-            "colorString" : "0.581373 0.689383 0.772182 0.5",
+            "colorString" : "0.644869 0.743939 0.814402 0.5",
             "colorVar" : "",
             "colorName" : ""
           },
@@ -1081,7 +1081,7 @@
           "height" : 1,
           "color" : {
             "definedAtRuntime" : false,
-            "colorString" : "0.238645 0.299452 0.404482 1",
+            "colorString" : "0.202606 0.25907 0.345426 1",
             "colorVar" : "DemoBorder",
             "colorName" : ""
           },
@@ -1116,7 +1116,7 @@
       "maskToCorners" : true,
       "strokeColor" : {
         "definedAtRuntime" : false,
-        "colorString" : "0.238645 0.299452 0.404482 1",
+        "colorString" : "0.202606 0.25907 0.345426 1",
         "colorVar" : "DemoBorder",
         "colorName" : ""
       },
@@ -1135,13 +1135,13 @@
         "colors" : [
           {
             "definedAtRuntime" : false,
-            "colorString" : "0.3894 0.48862 0.66 1",
+            "colorString" : "0.293377 0.375138 0.500185 1",
             "colorVar" : "DemoNavTop",
             "colorName" : ""
           },
           {
             "definedAtRuntime" : false,
-            "colorString" : "0.343307 0.433355 0.58531 1",
+            "colorString" : "0.24216 0.309647 0.412863 1",
             "colorVar" : "DemoColor",
             "colorName" : ""
           }
@@ -1181,13 +1181,13 @@
         "colors" : [
           {
             "definedAtRuntime" : false,
-            "colorString" : "0.3894 0.48862 0.66 1",
+            "colorString" : "0.293377 0.375138 0.500185 1",
             "colorVar" : "DemoNavTop",
             "colorName" : ""
           },
           {
             "definedAtRuntime" : false,
-            "colorString" : "0.343307 0.433355 0.58531 1",
+            "colorString" : "0.24216 0.309647 0.412863 1",
             "colorVar" : "DemoColor",
             "colorName" : ""
           }
@@ -1218,7 +1218,7 @@
           "height" : 1,
           "color" : {
             "definedAtRuntime" : false,
-            "colorString" : "0.581373 0.689383 0.772182 0.5",
+            "colorString" : "0.644869 0.743939 0.814402 0.5",
             "colorVar" : "",
             "colorName" : ""
           },
@@ -1231,7 +1231,7 @@
           "height" : 1,
           "color" : {
             "definedAtRuntime" : false,
-            "colorString" : "0.238645 0.299452 0.404482 1",
+            "colorString" : "0.202606 0.25907 0.345426 1",
             "colorVar" : "DemoBorder",
             "colorName" : ""
           },
@@ -1258,7 +1258,7 @@
           "canvasBackgroundType" : "Transparent",
           "strokeColor" : {
             "definedAtRuntime" : false,
-            "colorString" : "0.238645 0.299452 0.404482 1",
+            "colorString" : "0.202606 0.25907 0.345426 1",
             "colorVar" : "DemoBorder",
             "colorName" : ""
           },
@@ -1268,13 +1268,13 @@
             "colors" : [
               {
                 "definedAtRuntime" : false,
-                "colorString" : "0.343307 0.433355 0.58531 1",
+                "colorString" : "0.24216 0.309647 0.412863 1",
                 "colorVar" : "DemoColor",
                 "colorName" : ""
               },
               {
                 "definedAtRuntime" : false,
-                "colorString" : "0.3894 0.48862 0.66 1",
+                "colorString" : "0.293377 0.375138 0.500185 1",
                 "colorVar" : "DemoNavTop",
                 "colorName" : ""
               }
@@ -1310,7 +1310,7 @@
           ],
           "segmentDividerColor" : {
             "definedAtRuntime" : false,
-            "colorString" : "0.284714 0.380333 0.450619 1",
+            "colorString" : "0.353364 0.456754 0.525577 1",
             "colorVar" : "",
             "colorName" : ""
           },
@@ -1333,7 +1333,7 @@
           "canvasBackgroundType" : "Transparent",
           "strokeColor" : {
             "definedAtRuntime" : false,
-            "colorString" : "0.238645 0.299452 0.404482 1",
+            "colorString" : "0.202606 0.25907 0.345426 1",
             "colorVar" : "DemoBorder",
             "colorName" : ""
           },
@@ -1343,13 +1343,13 @@
             "colors" : [
               {
                 "definedAtRuntime" : false,
-                "colorString" : "0.3894 0.48862 0.66 1",
+                "colorString" : "0.293377 0.375138 0.500185 1",
                 "colorVar" : "DemoNavTop",
                 "colorName" : ""
               },
               {
                 "definedAtRuntime" : false,
-                "colorString" : "0.343307 0.433355 0.58531 1",
+                "colorString" : "0.24216 0.309647 0.412863 1",
                 "colorVar" : "DemoColor",
                 "colorName" : ""
               }
@@ -1385,7 +1385,7 @@
               "height" : 2,
               "color" : {
                 "definedAtRuntime" : false,
-                "colorString" : "0.3835 0.481217 0.65 0.5",
+                "colorString" : "0.304734 0.38966 0.519547 1",
                 "colorVar" : "DemoHighlight",
                 "colorName" : ""
               },
@@ -1394,7 +1394,7 @@
           ],
           "segmentDividerColor" : {
             "definedAtRuntime" : false,
-            "colorString" : "0.340126 0.433355 0.527359 1",
+            "colorString" : "0.412327 0.510129 0.598261 1",
             "colorVar" : "",
             "colorName" : ""
           },
@@ -1450,7 +1450,7 @@
         "colors" : [
           {
             "definedAtRuntime" : false,
-            "colorString" : "0.343307 0.433355 0.58531 1",
+            "colorString" : "0.24216 0.309647 0.412863 1",
             "colorVar" : "DemoColor",
             "colorName" : ""
           }
@@ -1509,13 +1509,13 @@
         "colors" : [
           {
             "definedAtRuntime" : false,
-            "colorString" : "0.999354 0.965966 0 1",
+            "colorString" : "0.999606 0.959413 0 1",
             "colorVar" : "StarTopColor",
             "colorName" : ""
           },
           {
             "definedAtRuntime" : false,
-            "colorString" : "1 0.700948 0 1",
+            "colorString" : "1 0.748066 0 1",
             "colorVar" : "StarBottomColor",
             "colorName" : ""
           }
@@ -1572,13 +1572,13 @@
         "colors" : [
           {
             "definedAtRuntime" : false,
-            "colorString" : "0.929331 0.929369 0.929348 1",
+            "colorString" : "0.94357 0.943622 0.943594 1",
             "colorVar" : "",
             "colorName" : ""
           },
           {
             "definedAtRuntime" : false,
-            "colorString" : "0.744601 0.744632 0.744616 1",
+            "colorString" : "0.790655 0.7907 0.790677 1",
             "colorVar" : "",
             "colorName" : ""
           }
@@ -1602,61 +1602,61 @@
   "colors" : [
     {
       "definedAtRuntime" : false,
-      "colorString" : "0.99999 1 1 1",
+      "colorString" : "0.999988 1 1 1",
       "colorVar" : "",
       "colorName" : "ButtonTextColor"
     },
     {
       "definedAtRuntime" : false,
-      "colorString" : "1 0.15 0 1",
+      "colorString" : "1 0.249264 0 1",
       "colorVar" : "",
       "colorName" : "ButtonColor"
     },
     {
       "definedAtRuntime" : false,
-      "colorString" : "0.999354 0.965966 0 1",
+      "colorString" : "0.999606 0.959413 0 1",
       "colorVar" : "",
       "colorName" : "StarTopColor"
     },
     {
       "definedAtRuntime" : false,
-      "colorString" : "1 0.700948 0 1",
+      "colorString" : "1 0.748066 0 1",
       "colorVar" : "",
       "colorName" : "StarBottomColor"
     },
     {
       "definedAtRuntime" : false,
-      "colorString" : "0.699166 0.699207 0.699187 1",
+      "colorString" : "0.751651 0.751704 0.751678 1",
       "colorVar" : "",
       "colorName" : "GroupedCell"
     },
     {
       "definedAtRuntime" : false,
-      "colorString" : "0.343307 0.433355 0.58531 1",
+      "colorString" : "0.24216 0.309647 0.412863 1",
       "colorVar" : "",
       "colorName" : "DemoColor"
     },
     {
       "definedAtRuntime" : false,
-      "colorString" : "0.3835 0.481217 0.65 0.5",
+      "colorString" : "0.304734 0.38966 0.519547 1",
       "colorVar" : "",
       "colorName" : "DemoHighlight"
     },
     {
       "definedAtRuntime" : false,
-      "colorString" : "0.238645 0.299452 0.404482 1",
+      "colorString" : "0.202606 0.25907 0.345426 1",
       "colorVar" : "",
       "colorName" : "DemoBorder"
     },
     {
       "definedAtRuntime" : false,
-      "colorString" : "0.3894 0.48862 0.66 1",
+      "colorString" : "0.293377 0.375138 0.500185 1",
       "colorVar" : "",
       "colorName" : "DemoNavTop"
     },
     {
       "definedAtRuntime" : false,
-      "colorString" : "0.986276 0.986331 0.986303 1",
+      "colorString" : "0.989117 0.989183 0.98915 1",
       "colorVar" : "",
       "colorName" : "TextColor"
     }
@@ -1678,7 +1678,7 @@
       "alignment" : 0,
       "textColor" : {
         "definedAtRuntime" : false,
-        "colorString" : "0.99999 1 1 1",
+        "colorString" : "0.999988 1 1 1",
         "colorVar" : "ButtonTextColor",
         "colorName" : ""
       },
@@ -1700,7 +1700,7 @@
       "alignment" : 0,
       "textColor" : {
         "definedAtRuntime" : false,
-        "colorString" : "0.935013 0.935066 0.93504 1",
+        "colorString" : "0.948145 0.948209 0.948178 1",
         "colorVar" : "",
         "colorName" : ""
       },
@@ -1722,7 +1722,7 @@
       "alignment" : 0,
       "textColor" : {
         "definedAtRuntime" : false,
-        "colorString" : "0.999991 1 1 1",
+        "colorString" : "0.999989 1 1 1",
         "colorVar" : "",
         "colorName" : ""
       },
@@ -1744,7 +1744,7 @@
       "alignment" : 1,
       "textColor" : {
         "definedAtRuntime" : false,
-        "colorString" : "0.99999 1 1 1",
+        "colorString" : "0.999988 1 1 1",
         "colorVar" : "ButtonTextColor",
         "colorName" : ""
       },
@@ -1766,7 +1766,7 @@
       "alignment" : 1,
       "textColor" : {
         "definedAtRuntime" : false,
-        "colorString" : "0.99999 1 1 1",
+        "colorString" : "0.999988 1 1 1",
         "colorVar" : "",
         "colorName" : ""
       },
@@ -1788,7 +1788,7 @@
       "alignment" : 0,
       "textColor" : {
         "definedAtRuntime" : false,
-        "colorString" : "0.99999 1 1 1",
+        "colorString" : "0.999988 1 1 1",
         "colorVar" : "",
         "colorName" : ""
       },
@@ -1810,7 +1810,7 @@
       "alignment" : 0,
       "textColor" : {
         "definedAtRuntime" : false,
-        "colorString" : "0.821559 0.858341 0.883389 1",
+        "colorString" : "0.854637 0.88592 0.906438 1",
         "colorVar" : "",
         "colorName" : ""
       },
@@ -1832,7 +1832,7 @@
       "alignment" : 0,
       "textColor" : {
         "definedAtRuntime" : false,
-        "colorString" : "0.986276 0.986331 0.986303 1",
+        "colorString" : "0.989117 0.989183 0.98915 1",
         "colorVar" : "TextColor",
         "colorName" : ""
       },
@@ -1854,7 +1854,7 @@
       "alignment" : 0,
       "textColor" : {
         "definedAtRuntime" : false,
-        "colorString" : "0.986276 0.986331 0.986303 1",
+        "colorString" : "0.989117 0.989183 0.98915 1",
         "colorVar" : "TextColor",
         "colorName" : ""
       },
@@ -1868,13 +1868,13 @@
       "maxTrackBgColors" : [
         {
           "definedAtRuntime" : false,
-          "colorString" : "0.343307 0.433355 0.58531 1",
+          "colorString" : "0.24216 0.309647 0.412863 1",
           "colorVar" : "DemoColor",
           "colorName" : ""
         },
         {
           "definedAtRuntime" : false,
-          "colorString" : "0.3894 0.48862 0.66 1",
+          "colorString" : "0.293377 0.375138 0.500185 1",
           "colorVar" : "DemoNavTop",
           "colorName" : ""
         }
@@ -1883,13 +1883,13 @@
       "minTrackBgColors" : [
         {
           "definedAtRuntime" : false,
-          "colorString" : "0.3894 0.48862 0.66 1",
+          "colorString" : "0.293377 0.375138 0.500185 1",
           "colorVar" : "DemoNavTop",
           "colorName" : ""
         },
         {
           "definedAtRuntime" : false,
-          "colorString" : "0.343307 0.433355 0.58531 1",
+          "colorString" : "0.24216 0.309647 0.412863 1",
           "colorVar" : "DemoColor",
           "colorName" : ""
         }
@@ -1911,7 +1911,7 @@
       },
       "strokeColor" : {
         "definedAtRuntime" : false,
-        "colorString" : "0.238645 0.299452 0.404482 1",
+        "colorString" : "0.202606 0.25907 0.345426 1",
         "colorVar" : "DemoBorder",
         "colorName" : ""
       },
