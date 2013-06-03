@@ -157,13 +157,13 @@
 {
 	if (self.segmentedControl.selectedSegmentIndex == 0) {
 		
-		[DYNManager loadStylesFromFile:@"Style.dpui" replaceExisting:YES];
+		[DYNManager loadStylesFromFile:@"Style.dyn" replaceExisting:YES];
 		
 	} else if (self.segmentedControl.selectedSegmentIndex == 1) {
-		[DYNManager loadStylesFromFile:@"Style_White.dpui" replaceExisting:YES];
+		[DYNManager loadStylesFromFile:@"Style_White.dyn" replaceExisting:YES];
 
 	} else if (self.segmentedControl.selectedSegmentIndex == 2) {
-		[DYNManager loadStylesFromFile:@"Style_Dark.dpui" replaceExisting:YES];
+		[DYNManager loadStylesFromFile:@"Style_Dark.dyn" replaceExisting:YES];
 	}
 }
 @end

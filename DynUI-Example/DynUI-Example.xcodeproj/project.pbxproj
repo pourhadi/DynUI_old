@@ -13,9 +13,12 @@
 		4403A8D4175184A700BE3A39 /* icons.json in Resources */ = {isa = PBXBuildFile; fileRef = 4403A8D3175184A700BE3A39 /* icons.json */; };
 		4403A8D7175184D500BE3A39 /* UIBezierPath+SVG.m in Sources */ = {isa = PBXBuildFile; fileRef = 4403A8D6175184D500BE3A39 /* UIBezierPath+SVG.m */; };
 		4403A8DA1751853200BE3A39 /* DYNIcons.m in Sources */ = {isa = PBXBuildFile; fileRef = 4403A8D91751853200BE3A39 /* DYNIcons.m */; };
-		440487F51757080600372FD6 /* Style_White.dpui in Resources */ = {isa = PBXBuildFile; fileRef = 440487F41757080500372FD6 /* Style_White.dpui */; };
-		440487F7175729E300372FD6 /* Style_Dark.dpui in Resources */ = {isa = PBXBuildFile; fileRef = 440487F6175729E200372FD6 /* Style_Dark.dpui */; };
+		440ABB32175C1EC80030C325 /* DYNClassStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 440ABB31175C1EC80030C325 /* DYNClassStyle.m */; };
+		440ABB35175C1F630030C325 /* NSObject+DynUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 440ABB34175C1F630030C325 /* NSObject+DynUI.m */; };
 		443D2E0D17406DBC008F4162 /* DYNSliderStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 443D2E0C17406DBC008F4162 /* DYNSliderStyle.m */; };
+		4448AFDC1759966700725765 /* Style_Dark.dyn in Resources */ = {isa = PBXBuildFile; fileRef = 4448AFD91759966700725765 /* Style_Dark.dyn */; };
+		4448AFDD1759966700725765 /* Style_White.dyn in Resources */ = {isa = PBXBuildFile; fileRef = 4448AFDA1759966700725765 /* Style_White.dyn */; };
+		4448AFDE1759966700725765 /* Style.dyn in Resources */ = {isa = PBXBuildFile; fileRef = 4448AFDB1759966700725765 /* Style.dyn */; };
 		445BD0C51751F4A0002AF374 /* DYNIconDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 445BD0C31751F4A0002AF374 /* DYNIconDemoViewController.m */; };
 		445BD0C61751F4A0002AF374 /* DYNIconDemoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 445BD0C41751F4A0002AF374 /* DYNIconDemoViewController.xib */; };
 		445BD0CA1752AB1A002AF374 /* DYNBigIconViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 445BD0C81752AB19002AF374 /* DYNBigIconViewController.m */; };
@@ -51,7 +54,6 @@
 		44FADD5E173CEAAF00EB6BF4 /* DYNStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 44FADD4A173CEAAF00EB6BF4 /* DYNStyle.m */; };
 		44FADD5F173CEAAF00EB6BF4 /* DYNTextStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 44FADD4C173CEAAF00EB6BF4 /* DYNTextStyle.m */; };
 		44FADD60173CEAAF00EB6BF4 /* DYNViewStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 44FADD4E173CEAAF00EB6BF4 /* DYNViewStyle.m */; };
-		44FADD62173CEC1000EB6BF4 /* Style.dpui in Resources */ = {isa = PBXBuildFile; fileRef = 44FADD61173CEC1000EB6BF4 /* Style.dpui */; };
 		44FADD65173CECDF00EB6BF4 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44FADD64173CECDF00EB6BF4 /* QuartzCore.framework */; };
 		44FADD67173CECE500EB6BF4 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44FADD66173CECE500EB6BF4 /* CoreImage.framework */; };
 		D71B085E174542E4003440E4 /* UIPopoverController+DynUI.m in Sources */ = {isa = PBXBuildFile; fileRef = D71B085D174542E4003440E4 /* UIPopoverController+DynUI.m */; };
@@ -84,10 +86,15 @@
 		4403A8D6175184D500BE3A39 /* UIBezierPath+SVG.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBezierPath+SVG.m"; sourceTree = "<group>"; };
 		4403A8D81751853200BE3A39 /* DYNIcons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DYNIcons.h; path = ../../DPUI/DPUI/Tools/DYNIcons.h; sourceTree = "<group>"; };
 		4403A8D91751853200BE3A39 /* DYNIcons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DYNIcons.m; path = ../../DPUI/DPUI/Tools/DYNIcons.m; sourceTree = "<group>"; };
-		440487F41757080500372FD6 /* Style_White.dpui */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Style_White.dpui; sourceTree = "<group>"; };
-		440487F6175729E200372FD6 /* Style_Dark.dpui */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Style_Dark.dpui; sourceTree = "<group>"; };
+		440ABB30175C1EC80030C325 /* DYNClassStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYNClassStyle.h; sourceTree = "<group>"; };
+		440ABB31175C1EC80030C325 /* DYNClassStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYNClassStyle.m; sourceTree = "<group>"; };
+		440ABB33175C1F630030C325 /* NSObject+DynUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+DynUI.h"; sourceTree = "<group>"; };
+		440ABB34175C1F630030C325 /* NSObject+DynUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+DynUI.m"; sourceTree = "<group>"; };
 		443D2E0B17406DBC008F4162 /* DYNSliderStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYNSliderStyle.h; sourceTree = "<group>"; };
 		443D2E0C17406DBC008F4162 /* DYNSliderStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYNSliderStyle.m; sourceTree = "<group>"; };
+		4448AFD91759966700725765 /* Style_Dark.dyn */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Style_Dark.dyn; sourceTree = "<group>"; };
+		4448AFDA1759966700725765 /* Style_White.dyn */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Style_White.dyn; sourceTree = "<group>"; };
+		4448AFDB1759966700725765 /* Style.dyn */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Style.dyn; sourceTree = "<group>"; };
 		445BD0C21751F4A0002AF374 /* DYNIconDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYNIconDemoViewController.h; sourceTree = "<group>"; };
 		445BD0C31751F4A0002AF374 /* DYNIconDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYNIconDemoViewController.m; sourceTree = "<group>"; };
 		445BD0C41751F4A0002AF374 /* DYNIconDemoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DYNIconDemoViewController.xib; sourceTree = "<group>"; };
@@ -150,7 +157,6 @@
 		44FADD4C173CEAAF00EB6BF4 /* DYNTextStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYNTextStyle.m; sourceTree = "<group>"; };
 		44FADD4D173CEAAF00EB6BF4 /* DYNViewStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYNViewStyle.h; sourceTree = "<group>"; };
 		44FADD4E173CEAAF00EB6BF4 /* DYNViewStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYNViewStyle.m; sourceTree = "<group>"; };
-		44FADD61173CEC1000EB6BF4 /* Style.dpui */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Style.dpui; sourceTree = "<group>"; };
 		44FADD63173CEC9700EB6BF4 /* DPUIConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPUIConstants.h; sourceTree = "<group>"; };
 		44FADD64173CECDF00EB6BF4 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		44FADD66173CECE500EB6BF4 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
@@ -241,6 +247,9 @@
 		44FADCCC173CE99700EB6BF4 /* DynUI-Example */ = {
 			isa = PBXGroup;
 			children = (
+				4448AFD91759966700725765 /* Style_Dark.dyn */,
+				4448AFDA1759966700725765 /* Style_White.dyn */,
+				4448AFDB1759966700725765 /* Style.dyn */,
 				44FADD63173CEC9700EB6BF4 /* DPUIConstants.h */,
 				44FADD26173CEA9E00EB6BF4 /* DynUI */,
 				44FADCD5173CE99700EB6BF4 /* DYNAppDelegate.h */,
@@ -289,11 +298,8 @@
 		44FADD26173CEA9E00EB6BF4 /* DynUI */ = {
 			isa = PBXGroup;
 			children = (
-				440487F6175729E200372FD6 /* Style_Dark.dpui */,
-				440487F41757080500372FD6 /* Style_White.dpui */,
 				4403A8D2175184A600BE3A39 /* Resources */,
 				D7C245CA174BE66C009C3CC2 /* Tools */,
-				44FADD61173CEC1000EB6BF4 /* Style.dpui */,
 				44FADD27173CEAAF00EB6BF4 /* Categories */,
 				44FADD33173CEAAF00EB6BF4 /* DynUI.h */,
 				44FADD34173CEAAF00EB6BF4 /* DYNDefines.h */,
@@ -332,6 +338,8 @@
 				4403A8D01750A74B00BE3A39 /* UITableViewCell+DynUI.m */,
 				445BD0CC1752AE44002AF374 /* UIBezierPath+DynUI.h */,
 				445BD0CD1752AE44002AF374 /* UIBezierPath+DynUI.m */,
+				440ABB33175C1F630030C325 /* NSObject+DynUI.h */,
+				440ABB34175C1F630030C325 /* NSObject+DynUI.m */,
 			);
 			name = Categories;
 			path = ../../DPUI/DPUI/Categories;
@@ -379,6 +387,8 @@
 				44FADD4E173CEAAF00EB6BF4 /* DYNViewStyle.m */,
 				D71B085F174542FA003440E4 /* DYNPopoverStyle.h */,
 				D71B0860174542FA003440E4 /* DYNPopoverStyle.m */,
+				440ABB30175C1EC80030C325 /* DYNClassStyle.h */,
+				440ABB31175C1EC80030C325 /* DYNClassStyle.m */,
 			);
 			name = Styles;
 			path = ../../DPUI/DPUI/Styles;
@@ -456,7 +466,6 @@
 				44FADCDB173CE99700EB6BF4 /* Default@2x.png in Resources */,
 				44FADCDD173CE99700EB6BF4 /* Default-568h@2x.png in Resources */,
 				44FADCE3173CE99700EB6BF4 /* DYNViewController_iPhone.xib in Resources */,
-				44FADD62173CEC1000EB6BF4 /* Style.dpui in Resources */,
 				D71B087617455958003440E4 /* DYNTooltipViewController.xib in Resources */,
 				D71B087917455B41003440E4 /* DYNViewController_iPad.xib in Resources */,
 				4477CFDF17460D090002033A /* star.png in Resources */,
@@ -466,8 +475,9 @@
 				4403A8D4175184A700BE3A39 /* icons.json in Resources */,
 				445BD0C61751F4A0002AF374 /* DYNIconDemoViewController.xib in Resources */,
 				445BD0CB1752AB1A002AF374 /* DYNBigIconViewController.xib in Resources */,
-				440487F51757080600372FD6 /* Style_White.dpui in Resources */,
-				440487F7175729E300372FD6 /* Style_Dark.dpui in Resources */,
+				4448AFDC1759966700725765 /* Style_Dark.dyn in Resources */,
+				4448AFDD1759966700725765 /* Style_White.dyn in Resources */,
+				4448AFDE1759966700725765 /* Style.dyn in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -519,6 +529,8 @@
 				445BD0CA1752AB1A002AF374 /* DYNBigIconViewController.m in Sources */,
 				445BD0CE1752AE44002AF374 /* UIBezierPath+DynUI.m in Sources */,
 				D7DE2A9F1756A9D7005072C5 /* UINavigationBar+DynUI.m in Sources */,
+				440ABB32175C1EC80030C325 /* DYNClassStyle.m in Sources */,
+				440ABB35175C1F630030C325 /* NSObject+DynUI.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

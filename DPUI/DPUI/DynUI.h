@@ -17,6 +17,7 @@
 #import "UIPopoverController+DynUI.h"
 #import "UITableView+DynUI.h"
 #import "UINavigationBar+DynUI.h"
+#import "NSObject+DynUI.h"
 
 #import "DYNBackgroundStyle.h"
 #import "DYNColor.h"
@@ -32,4 +33,5 @@
 #import "DYNPopoverStyle.h"
 #import "DYNCustomSetting.h"
 #import "DYNIcons.h"
+#import "DYNClassStyle.h"
 #endif

@@ -27,6 +27,9 @@ typedef NS_ENUM (NSUInteger, DYNFontSizeType) {
 @property (nonatomic, strong) NSString *fontSizeString;
 @property (nonatomic) DYNFontSizeType fontSizeType;
 
+@property (nonatomic) BOOL inheritFontSize;
+@property (nonatomic) BOOL inheritAlignment;
+
 - (void)applyToLabel:(UILabel *)label;
 - (void)applyToTextField:(UITextField *)textField;
 - (NSDictionary *)titleTextAttributes;

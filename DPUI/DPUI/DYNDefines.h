@@ -97,6 +97,8 @@ static NSString *const kDYNShadowYOffsetKey = @"shadowYOffset";
 static NSString *const kDYNAlignmentKey = @"alignment";
 static NSString *const kDYNFontSizeTypeKey = @"fontSizeType";
 static NSString *const kDYNFontSizeStringKey = @"fontSizeString";
+static NSString *const kDYNInheritFontSizeKey = @"inheritFontSize";
+static NSString *const kDYNInheritAlignmentKey = @"inheritAlignment";
 
 // DYNViewStyle
 

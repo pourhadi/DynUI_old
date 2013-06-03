@@ -22,8 +22,8 @@
 	
 	
 	//@"/Users/danpourhadi/Projects/DPUI/DynUI-Example/DynUI-Example/Style.dpui"
-	[DYNManager loadStylesFromFile:@"Style.dpui" replaceExisting:YES];
-	//[DYNManager setAutoUpdatePath:@"/Users/danpourhadi/Projects/DPUI/DynUI-Example/DynUI-Example/Style.dpui"];
+	[DYNManager loadStylesFromFile:@"Style.dyn" replaceExisting:YES];
+	[DYNManager setAutoUpdatePath:@"/Users/danpourhadi/Projects/DPUI/DynUI-Example/DynUI-Example/Style.dyn"];
 	
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.

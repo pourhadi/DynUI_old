@@ -23,6 +23,7 @@
 @property (nonatomic, strong) NSMutableArray *colorVariables;
 @property (nonatomic, strong) NSMutableArray *textStyles;
 @property (nonatomic, strong) NSMutableArray *imageStyles;
+@property (nonatomic, strong) NSArray *classStyles;
 
 @property (nonatomic, strong) NSDictionary *defaultParameterValues;
 
