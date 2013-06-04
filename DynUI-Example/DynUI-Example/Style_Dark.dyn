@@ -9,7 +9,12 @@
       "canvasBackgroundColor" : "0 0 0 0",
       "shadow" : {
         "xOffset" : 0,
-        "color" : "0 0 0 1",
+        "color" : {
+          "definedAtRuntime" : false,
+          "colorString" : "0 0 0 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
         "yOffset" : 1,
         "opacity" : 2.775557561562891e-17,
         "radius" : 2
@@ -36,7 +41,12 @@
       ],
       "innerShadow" : {
         "xOffset" : 0,
-        "color" : "1 1 1 1",
+        "color" : {
+          "definedAtRuntime" : false,
+          "colorString" : "1 1 1 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
         "yOffset" : -1,
         "opacity" : 1,
         "radius" : 2
@@ -84,7 +94,12 @@
       "canvasBackgroundColor" : "0 0 0 0",
       "shadow" : {
         "xOffset" : 0,
-        "color" : "0 0 0 1",
+        "color" : {
+          "definedAtRuntime" : false,
+          "colorString" : "0 0 0 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
         "yOffset" : 1,
         "opacity" : 0.199999988079071,
         "radius" : 1
@@ -103,7 +118,12 @@
       ],
       "innerShadow" : {
         "xOffset" : 0,
-        "color" : "1 0.999974 0.999991 1",
+        "color" : {
+          "definedAtRuntime" : false,
+          "colorString" : "1 0.999974 0.999991 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
         "yOffset" : -1,
         "opacity" : 0.1000000014901161,
         "radius" : 3
@@ -148,7 +168,12 @@
       "canvasBackgroundColor" : "0 0 0 0",
       "shadow" : {
         "xOffset" : 0,
-        "color" : "1 0.996078 1 1",
+        "color" : {
+          "definedAtRuntime" : false,
+          "colorString" : "1 0.996078 1 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
         "yOffset" : 1,
         "opacity" : 0.1000000014901161,
         "radius" : 0
@@ -167,7 +192,12 @@
       ],
       "innerShadow" : {
         "xOffset" : 0,
-        "color" : "0 0 0 1",
+        "color" : {
+          "definedAtRuntime" : false,
+          "colorString" : "0 0 0 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
         "yOffset" : -1,
         "opacity" : 0.300000011920929,
         "radius" : 3
@@ -212,7 +242,12 @@
       "canvasBackgroundColor" : "0 0 0 0",
       "shadow" : {
         "xOffset" : 0,
-        "color" : "0 0 0 1",
+        "color" : {
+          "definedAtRuntime" : false,
+          "colorString" : "0 0 0 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
         "yOffset" : 4,
         "opacity" : 0.5,
         "radius" : 8
@@ -231,7 +266,12 @@
       ],
       "innerShadow" : {
         "xOffset" : 0,
-        "color" : "1 1 1 1",
+        "color" : {
+          "definedAtRuntime" : false,
+          "colorString" : "1 1 1 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
         "yOffset" : 0,
         "opacity" : 1,
         "radius" : 2
@@ -285,7 +325,12 @@
       "canvasBackgroundColor" : "0 0 0 0",
       "shadow" : {
         "xOffset" : 0,
-        "color" : "0 0 0 1",
+        "color" : {
+          "definedAtRuntime" : false,
+          "colorString" : "0 0 0 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
         "yOffset" : -1,
         "opacity" : 0,
         "radius" : 0
@@ -302,7 +347,12 @@
       ],
       "innerShadow" : {
         "xOffset" : 0,
-        "color" : "0 0 0 1",
+        "color" : {
+          "definedAtRuntime" : false,
+          "colorString" : "0 0 0 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
         "yOffset" : -5,
         "opacity" : 0.5,
         "radius" : 16
@@ -369,14 +419,24 @@
           "tableCellTitleTextStyle" : "CellText",
           "innerShadow" : {
             "xOffset" : 0,
-            "color" : "0 0 0 1",
+            "color" : {
+              "definedAtRuntime" : false,
+              "colorString" : "0 0 0 1",
+              "colorVar" : "",
+              "colorName" : ""
+            },
             "yOffset" : -1,
             "opacity" : 0,
             "radius" : 0
           },
           "shadow" : {
             "xOffset" : 0,
-            "color" : "0 0 0 1",
+            "color" : {
+              "definedAtRuntime" : false,
+              "colorString" : "0 0 0 1",
+              "colorVar" : "",
+              "colorName" : ""
+            },
             "yOffset" : -1,
             "opacity" : 0,
             "radius" : 0
@@ -441,14 +501,24 @@
           "tableCellTitleTextStyle" : "GroupedCellText",
           "innerShadow" : {
             "xOffset" : 0,
-            "color" : "1 0.999974 0.999991 1",
+            "color" : {
+              "definedAtRuntime" : false,
+              "colorString" : "1 0.999974 0.999991 1",
+              "colorVar" : "",
+              "colorName" : ""
+            },
             "yOffset" : -2,
             "opacity" : 0.1000000014901161,
             "radius" : 1
           },
           "shadow" : {
             "xOffset" : 0,
-            "color" : "0 0 0 1",
+            "color" : {
+              "definedAtRuntime" : false,
+              "colorString" : "0 0 0 1",
+              "colorVar" : "",
+              "colorName" : ""
+            },
             "yOffset" : 1,
             "opacity" : 0,
             "radius" : 2
@@ -536,14 +606,24 @@
           "tableCellTitleTextStyle" : "GroupedCellText",
           "innerShadow" : {
             "xOffset" : 0,
-            "color" : "1 0.999974 0.999991 1",
+            "color" : {
+              "definedAtRuntime" : false,
+              "colorString" : "1 0.999974 0.999991 1",
+              "colorVar" : "",
+              "colorName" : ""
+            },
             "yOffset" : -2,
             "opacity" : 0.1000000014901161,
             "radius" : 1
           },
           "shadow" : {
             "xOffset" : 0,
-            "color" : "0 0 0 1",
+            "color" : {
+              "definedAtRuntime" : false,
+              "colorString" : "0 0 0 1",
+              "colorVar" : "",
+              "colorName" : ""
+            },
             "yOffset" : 1,
             "opacity" : 0,
             "radius" : 2
@@ -622,14 +702,24 @@
           "tableCellTitleTextStyle" : "GroupedCellText",
           "innerShadow" : {
             "xOffset" : 0,
-            "color" : "1 0.999974 0.999991 1",
+            "color" : {
+              "definedAtRuntime" : false,
+              "colorString" : "1 0.999974 0.999991 1",
+              "colorVar" : "",
+              "colorName" : ""
+            },
             "yOffset" : -2,
             "opacity" : 0.1000000014901161,
             "radius" : 1
           },
           "shadow" : {
             "xOffset" : 0,
-            "color" : "0 0 0 1",
+            "color" : {
+              "definedAtRuntime" : false,
+              "colorString" : "0 0 0 1",
+              "colorVar" : "",
+              "colorName" : ""
+            },
             "yOffset" : 1,
             "opacity" : 0,
             "radius" : 2
@@ -708,14 +798,24 @@
           "tableCellTitleTextStyle" : "GroupedCellText",
           "innerShadow" : {
             "xOffset" : 0,
-            "color" : "1 0.999974 0.999991 1",
+            "color" : {
+              "definedAtRuntime" : false,
+              "colorString" : "1 0.999974 0.999991 1",
+              "colorVar" : "",
+              "colorName" : ""
+            },
             "yOffset" : -2,
             "opacity" : 0.1000000014901161,
             "radius" : 1
           },
           "shadow" : {
             "xOffset" : 0,
-            "color" : "0 0 0 1",
+            "color" : {
+              "definedAtRuntime" : false,
+              "colorString" : "0 0 0 1",
+              "colorVar" : "",
+              "colorName" : ""
+            },
             "yOffset" : 1,
             "opacity" : 0,
             "radius" : 1
@@ -783,7 +883,12 @@
           "canvasBackgroundColor" : "0 0 0 0",
           "shadow" : {
             "xOffset" : 0,
-            "color" : "0 0 0 1",
+            "color" : {
+              "definedAtRuntime" : false,
+              "colorString" : "0 0 0 1",
+              "colorVar" : "",
+              "colorName" : ""
+            },
             "yOffset" : 1,
             "opacity" : 0.2000000029802322,
             "radius" : 4
@@ -810,7 +915,12 @@
           ],
           "innerShadow" : {
             "xOffset" : 0,
-            "color" : "0 0 0 1",
+            "color" : {
+              "definedAtRuntime" : false,
+              "colorString" : "0 0 0 1",
+              "colorVar" : "",
+              "colorName" : ""
+            },
             "yOffset" : -1,
             "opacity" : 0,
             "radius" : 0
@@ -855,7 +965,12 @@
           "canvasBackgroundColor" : "0 0 0 0",
           "shadow" : {
             "xOffset" : 0,
-            "color" : "0 0 0 1",
+            "color" : {
+              "definedAtRuntime" : false,
+              "colorString" : "0 0 0 1",
+              "colorVar" : "",
+              "colorName" : ""
+            },
             "yOffset" : 1,
             "opacity" : 0.4000000059604645,
             "radius" : 3
@@ -873,7 +988,12 @@
           ],
           "innerShadow" : {
             "xOffset" : 0,
-            "color" : "0 0 0 1",
+            "color" : {
+              "definedAtRuntime" : false,
+              "colorString" : "0 0 0 1",
+              "colorVar" : "",
+              "colorName" : ""
+            },
             "yOffset" : -1,
             "opacity" : 0,
             "radius" : 0
@@ -943,14 +1063,24 @@
       "tableCellTitleTextStyle" : "CellText",
       "innerShadow" : {
         "xOffset" : 0,
-        "color" : "0 0 0 1",
+        "color" : {
+          "definedAtRuntime" : false,
+          "colorString" : "0 0 0 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
         "yOffset" : -1,
         "opacity" : 0,
         "radius" : 0
       },
       "shadow" : {
         "xOffset" : 0,
-        "color" : "0 0 0 1",
+        "color" : {
+          "definedAtRuntime" : false,
+          "colorString" : "0 0 0 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
         "yOffset" : -1,
         "opacity" : 0,
         "radius" : 0
@@ -1025,14 +1155,24 @@
       },
       "innerShadow" : {
         "xOffset" : 0,
-        "color" : "0 0 0 1",
+        "color" : {
+          "definedAtRuntime" : false,
+          "colorString" : "0 0 0 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
         "yOffset" : -1,
         "opacity" : 0,
         "radius" : 0
       },
       "shadow" : {
         "xOffset" : 0,
-        "color" : "0 0 0 1",
+        "color" : {
+          "definedAtRuntime" : false,
+          "colorString" : "0 0 0 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
         "yOffset" : -1,
         "opacity" : 0,
         "radius" : 0
@@ -1086,7 +1226,12 @@
       "canvasBackgroundColor" : "0 0 0 0",
       "shadow" : {
         "xOffset" : 0,
-        "color" : "1 1 1 1",
+        "color" : {
+          "definedAtRuntime" : false,
+          "colorString" : "1 1 1 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
         "yOffset" : 1,
         "opacity" : 0.1000000014901161,
         "radius" : 0
@@ -1113,7 +1258,12 @@
       ],
       "innerShadow" : {
         "xOffset" : 0,
-        "color" : "1 1 1 1",
+        "color" : {
+          "definedAtRuntime" : false,
+          "colorString" : "1 1 1 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
         "yOffset" : -2,
         "opacity" : 0.1000000014901161,
         "radius" : 0
@@ -1183,14 +1333,24 @@
       },
       "innerShadow" : {
         "xOffset" : 0,
-        "color" : "0 0 0 1",
+        "color" : {
+          "definedAtRuntime" : false,
+          "colorString" : "0 0 0 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
         "yOffset" : -1,
         "opacity" : 0,
         "radius" : 0
       },
       "shadow" : {
         "xOffset" : 0,
-        "color" : "0 0 0 1",
+        "color" : {
+          "definedAtRuntime" : false,
+          "colorString" : "0 0 0 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
         "yOffset" : -1,
         "opacity" : 0,
         "radius" : 0
@@ -1270,14 +1430,24 @@
           },
           "innerShadow" : {
             "xOffset" : 0,
-            "color" : "0 0 0 1",
+            "color" : {
+              "definedAtRuntime" : false,
+              "colorString" : "0 0 0 1",
+              "colorVar" : "",
+              "colorName" : ""
+            },
             "yOffset" : -1,
             "opacity" : 0.300000011920929,
             "radius" : 2
           },
           "shadow" : {
             "xOffset" : 0,
-            "color" : "0 0 0 1",
+            "color" : {
+              "definedAtRuntime" : false,
+              "colorString" : "0 0 0 1",
+              "colorVar" : "",
+              "colorName" : ""
+            },
             "yOffset" : 0,
             "opacity" : 0,
             "radius" : 0
@@ -1345,14 +1515,24 @@
           },
           "innerShadow" : {
             "xOffset" : 0,
-            "color" : "1 0.99994 0.99998 1",
+            "color" : {
+              "definedAtRuntime" : false,
+              "colorString" : "1 0.99994 0.99998 1",
+              "colorVar" : "",
+              "colorName" : ""
+            },
             "yOffset" : -3,
             "opacity" : 0,
             "radius" : 0
           },
           "shadow" : {
             "xOffset" : 0,
-            "color" : "1 0.999806 0.999933 1",
+            "color" : {
+              "definedAtRuntime" : false,
+              "colorString" : "1 0.999806 0.999933 1",
+              "colorVar" : "",
+              "colorName" : ""
+            },
             "yOffset" : 3,
             "opacity" : 0,
             "radius" : 0
@@ -1410,7 +1590,12 @@
       "canvasBackgroundColor" : "0 0 0 0",
       "shadow" : {
         "xOffset" : 0,
-        "color" : "0 0 0 1",
+        "color" : {
+          "definedAtRuntime" : false,
+          "colorString" : "0 0 0 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
         "yOffset" : -1,
         "opacity" : 0,
         "radius" : 0
@@ -1428,7 +1613,12 @@
       ],
       "innerShadow" : {
         "xOffset" : 0,
-        "color" : "0 0 0 1",
+        "color" : {
+          "definedAtRuntime" : false,
+          "colorString" : "0 0 0 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
         "yOffset" : -1,
         "opacity" : 0,
         "radius" : 0
@@ -1469,7 +1659,12 @@
       "canvasBackgroundColor" : "0 0 0 0",
       "shadow" : {
         "xOffset" : 0,
-        "color" : "0 0 0 1",
+        "color" : {
+          "definedAtRuntime" : false,
+          "colorString" : "0 0 0 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
         "yOffset" : 5,
         "opacity" : 0.5,
         "radius" : 10
@@ -1487,7 +1682,12 @@
       ],
       "innerShadow" : {
         "xOffset" : 0,
-        "color" : "1 1 1 1",
+        "color" : {
+          "definedAtRuntime" : false,
+          "colorString" : "1 1 1 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
         "yOffset" : -5,
         "opacity" : 1,
         "radius" : 10
@@ -1532,7 +1732,12 @@
       "canvasBackgroundColor" : "0 0 0 0",
       "shadow" : {
         "xOffset" : 0,
-        "color" : "0 0 0 1",
+        "color" : {
+          "definedAtRuntime" : false,
+          "colorString" : "0 0 0 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
         "yOffset" : 1,
         "opacity" : 0.2000000029802322,
         "radius" : 3
@@ -1550,7 +1755,12 @@
       ],
       "innerShadow" : {
         "xOffset" : 0,
-        "color" : "1 0.999974 0.999991 1",
+        "color" : {
+          "definedAtRuntime" : false,
+          "colorString" : "1 0.999974 0.999991 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
         "yOffset" : -1,
         "opacity" : 1,
         "radius" : 2
@@ -1645,249 +1855,274 @@
   ],
   "textStyles" : [
     {
-      "fontSize" : 12,
-      "fontSizeString" : "12",
-      "fontSizeType" : 0,
-      "shadowColor" : {
-        "definedAtRuntime" : false,
-        "colorString" : "1 0.99994 0.99998 1",
-        "colorVar" : "",
-        "colorName" : ""
-      },
-      "fontName" : "Helvetica-Bold",
       "styleName" : "ButtonText",
-      "shadowYOffset" : -1,
-      "alignment" : 0,
+      "inheritFontSize" : false,
       "textColor" : {
         "definedAtRuntime" : false,
         "colorString" : "1 0.999974 0.999991 1",
         "colorVar" : "ButtonTextColor",
         "colorName" : ""
       },
-      "shadowXOffset" : 0
-    },
-    {
-      "fontSize" : 12,
-      "fontSizeString" : "12",
-      "fontSizeType" : 0,
+      "shadowYOffset" : -1,
+      "inheritAlignment" : false,
+      "alignment" : 0,
       "shadowColor" : {
         "definedAtRuntime" : false,
         "colorString" : "1 0.99994 0.99998 1",
         "colorVar" : "",
         "colorName" : ""
       },
-      "fontName" : "Helvetica",
-      "styleName" : "SearchText",
-      "shadowYOffset" : -1,
-      "alignment" : 0,
-      "textColor" : {
-        "definedAtRuntime" : false,
-        "colorString" : "0.755913 0.755868 0.755897 1",
-        "colorVar" : "TextColor",
-        "colorName" : ""
-      },
-      "shadowXOffset" : 0
-    },
-    {
-      "fontSize" : 18,
-      "fontSizeString" : "18",
-      "fontSizeType" : 0,
-      "shadowColor" : {
-        "definedAtRuntime" : false,
-        "colorString" : "0 0 0 1",
-        "colorVar" : "",
-        "colorName" : ""
-      },
-      "fontName" : "Helvetica-Bold",
-      "styleName" : "NavBarText",
-      "shadowYOffset" : 1,
-      "alignment" : 0,
-      "textColor" : {
-        "definedAtRuntime" : false,
-        "colorString" : "0.755913 0.755868 0.755897 1",
-        "colorVar" : "TextColor",
-        "colorName" : ""
-      },
-      "shadowXOffset" : 0
-    },
-    {
-      "fontSize" : 12,
       "fontSizeString" : "12",
-      "fontSizeType" : 0,
+      "fontSize" : 12,
+      "fontName" : "Helvetica-Bold",
+      "shadowXOffset" : 0,
+      "fontSizeType" : 0
+    },
+    {
+      "styleName" : "SearchText",
+      "inheritFontSize" : false,
+      "textColor" : {
+        "definedAtRuntime" : false,
+        "colorString" : "0.755913 0.755868 0.755897 1",
+        "colorVar" : "TextColor",
+        "colorName" : ""
+      },
+      "shadowYOffset" : -1,
+      "inheritAlignment" : false,
+      "alignment" : 0,
+      "shadowColor" : {
+        "definedAtRuntime" : false,
+        "colorString" : "1 0.99994 0.99998 1",
+        "colorVar" : "",
+        "colorName" : ""
+      },
+      "fontSizeString" : "12",
+      "fontSize" : 12,
+      "fontName" : "Helvetica",
+      "shadowXOffset" : 0,
+      "fontSizeType" : 0
+    },
+    {
+      "styleName" : "NavBarText",
+      "inheritFontSize" : false,
+      "textColor" : {
+        "definedAtRuntime" : false,
+        "colorString" : "0.755913 0.755868 0.755897 1",
+        "colorVar" : "TextColor",
+        "colorName" : ""
+      },
+      "shadowYOffset" : 1,
+      "inheritAlignment" : false,
+      "alignment" : 0,
       "shadowColor" : {
         "definedAtRuntime" : false,
         "colorString" : "0 0 0 1",
         "colorVar" : "",
         "colorName" : ""
       },
-      "fontName" : "Helvetica",
+      "fontSizeString" : "18",
+      "fontSize" : 18,
+      "fontName" : "Helvetica-Bold",
+      "shadowXOffset" : 0,
+      "fontSizeType" : 0
+    },
+    {
       "styleName" : "CustomViewText",
-      "shadowYOffset" : -1,
-      "alignment" : 1,
+      "inheritFontSize" : false,
       "textColor" : {
         "definedAtRuntime" : false,
         "colorString" : "1 0.999974 0.999991 1",
         "colorVar" : "ButtonTextColor",
         "colorName" : ""
       },
-      "shadowXOffset" : 0
-    },
-    {
-      "fontSize" : 16,
-      "fontSizeString" : "16",
-      "fontSizeType" : 0,
-      "shadowColor" : {
-        "definedAtRuntime" : false,
-        "colorString" : "0 0 0 1",
-        "colorVar" : "",
-        "colorName" : ""
-      },
-      "fontName" : "Helvetica",
-      "styleName" : "ScrollLabelText",
-      "shadowYOffset" : 1,
+      "shadowYOffset" : -1,
+      "inheritAlignment" : false,
       "alignment" : 1,
-      "textColor" : {
-        "definedAtRuntime" : false,
-        "colorString" : "0.755913 0.755868 0.755897 1",
-        "colorVar" : "TextColor",
-        "colorName" : ""
-      },
-      "shadowXOffset" : 0
-    },
-    {
-      "fontSize" : 20,
-      "fontSizeString" : "20",
-      "fontSizeType" : 0,
       "shadowColor" : {
         "definedAtRuntime" : false,
         "colorString" : "0 0 0 1",
         "colorVar" : "",
         "colorName" : ""
       },
-      "fontName" : "Helvetica-Bold",
-      "styleName" : "CellText",
-      "shadowYOffset" : 1,
-      "alignment" : 0,
-      "textColor" : {
-        "definedAtRuntime" : false,
-        "colorString" : "0.755913 0.755868 0.755897 1",
-        "colorVar" : "TextColor",
-        "colorName" : ""
-      },
-      "shadowXOffset" : 0
-    },
-    {
-      "fontSize" : 12,
       "fontSizeString" : "12",
-      "fontSizeType" : 0,
+      "fontSize" : 12,
+      "fontName" : "Helvetica",
+      "shadowXOffset" : 0,
+      "fontSizeType" : 0
+    },
+    {
+      "styleName" : "ScrollLabelText",
+      "inheritFontSize" : false,
+      "textColor" : {
+        "definedAtRuntime" : false,
+        "colorString" : "0.755913 0.755868 0.755897 1",
+        "colorVar" : "TextColor",
+        "colorName" : ""
+      },
+      "shadowYOffset" : 1,
+      "inheritAlignment" : false,
+      "alignment" : 1,
       "shadowColor" : {
         "definedAtRuntime" : false,
         "colorString" : "0 0 0 1",
         "colorVar" : "",
         "colorName" : ""
       },
-      "fontName" : "Helvetica-Bold",
-      "styleName" : "SegUnselected",
+      "fontSizeString" : "16",
+      "fontSize" : 16,
+      "fontName" : "Helvetica",
+      "shadowXOffset" : 0,
+      "fontSizeType" : 0
+    },
+    {
+      "styleName" : "CellText",
+      "inheritFontSize" : false,
+      "textColor" : {
+        "definedAtRuntime" : false,
+        "colorString" : "0.755913 0.755868 0.755897 1",
+        "colorVar" : "TextColor",
+        "colorName" : ""
+      },
       "shadowYOffset" : 1,
+      "inheritAlignment" : false,
       "alignment" : 0,
+      "shadowColor" : {
+        "definedAtRuntime" : false,
+        "colorString" : "0 0 0 1",
+        "colorVar" : "",
+        "colorName" : ""
+      },
+      "fontSizeString" : "20",
+      "fontSize" : 20,
+      "fontName" : "Helvetica-Bold",
+      "shadowXOffset" : 0,
+      "fontSizeType" : 0
+    },
+    {
+      "styleName" : "SegUnselected",
+      "inheritFontSize" : false,
       "textColor" : {
         "definedAtRuntime" : false,
         "colorString" : "0.497739 0.497726 0.497735 1",
         "colorVar" : "",
         "colorName" : ""
       },
-      "shadowXOffset" : 0
-    },
-    {
-      "fontSize" : 12,
-      "fontSizeString" : "12",
-      "fontSizeType" : 0,
+      "shadowYOffset" : 1,
+      "inheritAlignment" : false,
+      "alignment" : 0,
       "shadowColor" : {
         "definedAtRuntime" : false,
         "colorString" : "0 0 0 1",
         "colorVar" : "",
         "colorName" : ""
       },
-      "fontName" : "Helvetica",
+      "fontSizeString" : "12",
+      "fontSize" : 12,
+      "fontName" : "Helvetica-Bold",
+      "shadowXOffset" : 0,
+      "fontSizeType" : 0
+    },
+    {
       "styleName" : "SegSelected",
-      "shadowYOffset" : 1,
-      "alignment" : 0,
+      "inheritFontSize" : false,
       "textColor" : {
         "definedAtRuntime" : false,
         "colorString" : "0.755913 0.755868 0.755897 1",
         "colorVar" : "TextColor",
         "colorName" : ""
       },
-      "shadowXOffset" : 0
-    },
-    {
-      "fontSize" : 12,
-      "fontSizeString" : "12",
-      "fontSizeType" : 0,
+      "shadowYOffset" : 1,
+      "inheritAlignment" : false,
+      "alignment" : 0,
       "shadowColor" : {
         "definedAtRuntime" : false,
         "colorString" : "0 0 0 1",
         "colorVar" : "",
         "colorName" : ""
       },
-      "fontName" : "Helvetica-Bold",
+      "fontSizeString" : "12",
+      "fontSize" : 12,
+      "fontName" : "Helvetica",
+      "shadowXOffset" : 0,
+      "fontSizeType" : 0
+    },
+    {
       "styleName" : "BarButtonText",
-      "shadowYOffset" : 1,
-      "alignment" : 0,
+      "inheritFontSize" : false,
       "textColor" : {
         "definedAtRuntime" : false,
         "colorString" : "0.755913 0.755868 0.755897 1",
         "colorVar" : "TextColor",
         "colorName" : ""
       },
-      "shadowXOffset" : 0
-    },
-    {
-      "fontSize" : 12,
-      "fontSizeString" : "12",
-      "fontSizeType" : 0,
+      "shadowYOffset" : 1,
+      "inheritAlignment" : false,
+      "alignment" : 0,
       "shadowColor" : {
         "definedAtRuntime" : false,
         "colorString" : "0 0 0 1",
         "colorVar" : "",
         "colorName" : ""
       },
+      "fontSizeString" : "12",
+      "fontSize" : 12,
       "fontName" : "Helvetica-Bold",
+      "shadowXOffset" : 0,
+      "fontSizeType" : 0
+    },
+    {
       "styleName" : "RedButtonText",
-      "shadowYOffset" : 1,
-      "alignment" : 0,
+      "inheritFontSize" : false,
       "textColor" : {
         "definedAtRuntime" : false,
         "colorString" : "1 0.999974 0.999991 1",
         "colorVar" : "",
         "colorName" : ""
       },
-      "shadowXOffset" : 0
-    },
-    {
-      "fontSize" : 12,
-      "fontSizeString" : "12",
-      "fontSizeType" : 0,
+      "shadowYOffset" : 1,
+      "inheritAlignment" : false,
+      "alignment" : 0,
       "shadowColor" : {
         "definedAtRuntime" : false,
         "colorString" : "0 0 0 1",
         "colorVar" : "",
         "colorName" : ""
       },
+      "fontSizeString" : "12",
+      "fontSize" : 12,
       "fontName" : "Helvetica-Bold",
+      "shadowXOffset" : 0,
+      "fontSizeType" : 0
+    },
+    {
       "styleName" : "GroupedCellText",
-      "shadowYOffset" : 1,
-      "alignment" : 0,
+      "inheritFontSize" : false,
       "textColor" : {
         "definedAtRuntime" : false,
         "colorString" : "0.755913 0.755868 0.755897 1",
         "colorVar" : "TextColor",
         "colorName" : ""
       },
-      "shadowXOffset" : 0
+      "shadowYOffset" : 1,
+      "inheritAlignment" : false,
+      "alignment" : 0,
+      "shadowColor" : {
+        "definedAtRuntime" : false,
+        "colorString" : "0 0 0 1",
+        "colorVar" : "",
+        "colorName" : ""
+      },
+      "fontSizeString" : "12",
+      "fontSize" : 12,
+      "fontName" : "Helvetica-Bold",
+      "shadowXOffset" : 0,
+      "fontSizeType" : 0
     }
   ],
   "textExampleContainerBgColor" : "0.30286 0.302841 0.302853 1",
+  "classStyles" : [
+
+  ],
   "exampleContainerBgColor" : "0.113725 0.113725 0.113725 1",
   "sliderStyles" : [
     {
@@ -1923,14 +2158,24 @@
       "thumbHeight" : 1.5,
       "outerShadow" : {
         "xOffset" : 0,
-        "color" : "1 0.999974 0.999991 1",
+        "color" : {
+          "definedAtRuntime" : false,
+          "colorString" : "1 0.999974 0.999991 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
         "yOffset" : -1,
         "opacity" : 0.1000000014901161,
         "radius" : 0
       },
       "minimumTrackInnerShadow" : {
         "xOffset" : 0,
-        "color" : "1 0.999974 0.999991 1",
+        "color" : {
+          "definedAtRuntime" : false,
+          "colorString" : "1 0.999974 0.999991 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
         "yOffset" : -2,
         "opacity" : 0.1000000014901161,
         "radius" : 1
@@ -1946,7 +2191,12 @@
       "strokeWidth" : 1,
       "maximumTrackInnerShadow" : {
         "xOffset" : 0,
-        "color" : "1 0.99994 0.99998 0.2",
+        "color" : {
+          "definedAtRuntime" : false,
+          "colorString" : "1 0.99994 0.99998 0.2",
+          "colorVar" : "",
+          "colorName" : ""
+        },
         "yOffset" : -1,
         "opacity" : 0.1000000238418579,
         "radius" : 1

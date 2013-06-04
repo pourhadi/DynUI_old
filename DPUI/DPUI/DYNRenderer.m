@@ -477,7 +477,7 @@
     }
     
     if (navStyle.shadow) {
-        CIColor *color = [CIColor colorWithCGColor:navStyle.shadow.color.CGColor];
+        CIColor *color = [CIColor colorWithCGColor:navStyle.shadow.color.color.CGColor];
         if (!(CGSizeEqualToSize(navStyle.shadow.offset, CGSizeZero) && navStyle.shadow.radius == 0) && color.alpha != 0 && navStyle.shadow.opacity != 0) {
             UIImage *shadowImage = [navStyle.shadow getImageForWidth:navigationBar.frame.size.width];
             [navigationBar setShadowImage:shadowImage];

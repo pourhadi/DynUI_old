@@ -51,15 +51,6 @@
     return _textStyles;
 }
 
-- (void)setClassStyles:(NSArray *)classStyles
-{
-	_classStyles = classStyles;
-	
-	for (DYNClassStyle *style in classStyles) {
-		
-	}
-}
-
 - (DYNSliderStyle *)sliderStyleForName:(NSString *)name {
     NSPredicate *pred = [NSPredicate predicateWithFormat:@"name == %@", name];
     NSArray *filtered = [self.sliderStyles filteredArrayUsingPredicate:pred];
@@ -385,20 +376,6 @@
         } else {
             [self.imageStyles addObjectsFromArray:imgTemp];
         }
-	
-	NSArray *classStyles = [json objectForKey:@"classStyles"];
-	NSMutableArray *classTmp = [NSMutableArray new];
-	for (NSDictionary *style in classStyles)	 {
-		[classTmp addObject:[[DYNClassStyle alloc] initWithDictionary:style]];
-	}
-	
-	if (replaceExisting) {
-		self.classStyles = classTmp;
-	} else {
-		NSMutableArray *newClassTmp = [self.classStyles mutableCopy];
-		[newClassTmp addObjectsFromArray:classTmp];
-		self.classStyles = newClassTmp;
-	}
     
         dispatch_async(dispatch_get_main_queue(), ^{
             [self sendUpdateNotification];

@@ -7,10 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-
+@class DYNColor;
 @interface DYNShadowStyle : NSObject
 
-@property (nonatomic, strong) UIColor *color;
+@property (nonatomic, strong) DYNColor *color;
 @property (nonatomic) CGFloat radius;
 @property (nonatomic) CGSize offset;
 @property (nonatomic) CGFloat opacity;

@@ -13,7 +13,6 @@
 		4403A8D4175184A700BE3A39 /* icons.json in Resources */ = {isa = PBXBuildFile; fileRef = 4403A8D3175184A700BE3A39 /* icons.json */; };
 		4403A8D7175184D500BE3A39 /* UIBezierPath+SVG.m in Sources */ = {isa = PBXBuildFile; fileRef = 4403A8D6175184D500BE3A39 /* UIBezierPath+SVG.m */; };
 		4403A8DA1751853200BE3A39 /* DYNIcons.m in Sources */ = {isa = PBXBuildFile; fileRef = 4403A8D91751853200BE3A39 /* DYNIcons.m */; };
-		440ABB32175C1EC80030C325 /* DYNClassStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 440ABB31175C1EC80030C325 /* DYNClassStyle.m */; };
 		440ABB35175C1F630030C325 /* NSObject+DynUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 440ABB34175C1F630030C325 /* NSObject+DynUI.m */; };
 		443D2E0D17406DBC008F4162 /* DYNSliderStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 443D2E0C17406DBC008F4162 /* DYNSliderStyle.m */; };
 		4448AFDC1759966700725765 /* Style_Dark.dyn in Resources */ = {isa = PBXBuildFile; fileRef = 4448AFD91759966700725765 /* Style_Dark.dyn */; };
@@ -86,8 +85,6 @@
 		4403A8D6175184D500BE3A39 /* UIBezierPath+SVG.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBezierPath+SVG.m"; sourceTree = "<group>"; };
 		4403A8D81751853200BE3A39 /* DYNIcons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DYNIcons.h; path = ../../DPUI/DPUI/Tools/DYNIcons.h; sourceTree = "<group>"; };
 		4403A8D91751853200BE3A39 /* DYNIcons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DYNIcons.m; path = ../../DPUI/DPUI/Tools/DYNIcons.m; sourceTree = "<group>"; };
-		440ABB30175C1EC80030C325 /* DYNClassStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYNClassStyle.h; sourceTree = "<group>"; };
-		440ABB31175C1EC80030C325 /* DYNClassStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYNClassStyle.m; sourceTree = "<group>"; };
 		440ABB33175C1F630030C325 /* NSObject+DynUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+DynUI.h"; sourceTree = "<group>"; };
 		440ABB34175C1F630030C325 /* NSObject+DynUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+DynUI.m"; sourceTree = "<group>"; };
 		443D2E0B17406DBC008F4162 /* DYNSliderStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYNSliderStyle.h; sourceTree = "<group>"; };
@@ -387,8 +384,6 @@
 				44FADD4E173CEAAF00EB6BF4 /* DYNViewStyle.m */,
 				D71B085F174542FA003440E4 /* DYNPopoverStyle.h */,
 				D71B0860174542FA003440E4 /* DYNPopoverStyle.m */,
-				440ABB30175C1EC80030C325 /* DYNClassStyle.h */,
-				440ABB31175C1EC80030C325 /* DYNClassStyle.m */,
 			);
 			name = Styles;
 			path = ../../DPUI/DPUI/Styles;
@@ -529,7 +524,6 @@
 				445BD0CA1752AB1A002AF374 /* DYNBigIconViewController.m in Sources */,
 				445BD0CE1752AE44002AF374 /* UIBezierPath+DynUI.m in Sources */,
 				D7DE2A9F1756A9D7005072C5 /* UINavigationBar+DynUI.m in Sources */,
-				440ABB32175C1EC80030C325 /* DYNClassStyle.m in Sources */,
 				440ABB35175C1F630030C325 /* NSObject+DynUI.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -9,7 +9,12 @@
       "canvasBackgroundColor" : "0 0 0 0",
       "shadow" : {
         "xOffset" : 0,
-        "color" : "0 0 0 1",
+        "color" : {
+          "definedAtRuntime" : false,
+          "colorString" : "0 0 0 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
         "yOffset" : 1,
         "opacity" : 0.5,
         "radius" : 2
@@ -36,7 +41,12 @@
       ],
       "innerShadow" : {
         "xOffset" : 0,
-        "color" : "1 1 1 1",
+        "color" : {
+          "definedAtRuntime" : false,
+          "colorString" : "1 1 1 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
         "yOffset" : -1,
         "opacity" : 1,
         "radius" : 2
@@ -84,7 +94,12 @@
       "canvasBackgroundColor" : "0 0 0 0",
       "shadow" : {
         "xOffset" : 0,
-        "color" : "0 0 0 1",
+        "color" : {
+          "definedAtRuntime" : false,
+          "colorString" : "0 0 0 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
         "yOffset" : 1,
         "opacity" : 0.2000000029802322,
         "radius" : 2
@@ -103,7 +118,12 @@
       ],
       "innerShadow" : {
         "xOffset" : 0,
-        "color" : "1 0.999974 0.999991 1",
+        "color" : {
+          "definedAtRuntime" : false,
+          "colorString" : "1 0.999974 0.999991 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
         "yOffset" : -1,
         "opacity" : 0.2000000029802322,
         "radius" : 3
@@ -148,7 +168,12 @@
       "canvasBackgroundColor" : "0 0 0 0",
       "shadow" : {
         "xOffset" : 0,
-        "color" : "0.682353 0.737255 0.780392 1",
+        "color" : {
+          "definedAtRuntime" : false,
+          "colorString" : "0.682353 0.737255 0.780392 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
         "yOffset" : 1,
         "opacity" : 0.2000000029802322,
         "radius" : 0
@@ -167,7 +192,12 @@
       ],
       "innerShadow" : {
         "xOffset" : 0,
-        "color" : "0 0 0 1",
+        "color" : {
+          "definedAtRuntime" : false,
+          "colorString" : "0 0 0 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
         "yOffset" : -1,
         "opacity" : 0.300000011920929,
         "radius" : 3
@@ -212,7 +242,12 @@
       "canvasBackgroundColor" : "0 0 0 0",
       "shadow" : {
         "xOffset" : 0,
-        "color" : "0 0 0 1",
+        "color" : {
+          "definedAtRuntime" : false,
+          "colorString" : "0 0 0 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
         "yOffset" : 4,
         "opacity" : 0.5,
         "radius" : 8
@@ -231,7 +266,12 @@
       ],
       "innerShadow" : {
         "xOffset" : 0,
-        "color" : "1 1 1 1",
+        "color" : {
+          "definedAtRuntime" : false,
+          "colorString" : "1 1 1 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
         "yOffset" : 0,
         "opacity" : 1,
         "radius" : 2
@@ -285,7 +325,12 @@
       "canvasBackgroundColor" : "0 0 0 0",
       "shadow" : {
         "xOffset" : 0,
-        "color" : "0 0 0 1",
+        "color" : {
+          "definedAtRuntime" : false,
+          "colorString" : "0 0 0 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
         "yOffset" : -1,
         "opacity" : 0,
         "radius" : 0
@@ -302,7 +347,12 @@
       ],
       "innerShadow" : {
         "xOffset" : 0,
-        "color" : "0 0 0 1",
+        "color" : {
+          "definedAtRuntime" : false,
+          "colorString" : "0 0 0 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
         "yOffset" : -5,
         "opacity" : 0.5,
         "radius" : 16
@@ -371,33 +421,43 @@
             "shadowXOffset" : 0,
             "fontSizeType" : 0,
             "shadowColor" : {
-              "colorName" : "",
-              "colorString" : "0 0 0 1",
               "definedAtRuntime" : false,
-              "colorVar" : ""
+              "colorVar" : "",
+              "colorString" : "0 0 0 1",
+              "colorName" : ""
             },
             "fontName" : "Helvetica-Bold",
             "styleName" : "ButtonText",
             "shadowYOffset" : 1,
             "alignment" : 0,
-            "fontSizeString" : "12",
             "textColor" : {
-              "colorName" : "",
-              "colorString" : "1 1 1 1",
               "definedAtRuntime" : false,
-              "colorVar" : "ButtonTextColor"
-            }
+              "colorVar" : "ButtonTextColor",
+              "colorString" : "1 1 1 1",
+              "colorName" : ""
+            },
+            "fontSizeString" : "12"
           },
           "innerShadow" : {
             "xOffset" : 0,
-            "color" : "0 0 0 1",
+            "color" : {
+              "definedAtRuntime" : false,
+              "colorString" : "0 0 0 1",
+              "colorVar" : "",
+              "colorName" : ""
+            },
             "yOffset" : -1,
             "opacity" : 0,
             "radius" : 0
           },
           "shadow" : {
             "xOffset" : 0,
-            "color" : "0 0 0 1",
+            "color" : {
+              "definedAtRuntime" : false,
+              "colorString" : "0 0 0 1",
+              "colorVar" : "",
+              "colorName" : ""
+            },
             "yOffset" : -1,
             "opacity" : 0,
             "radius" : 0
@@ -462,14 +522,24 @@
           "tableCellTitleTextStyle" : "ButtonText",
           "innerShadow" : {
             "xOffset" : 0,
-            "color" : "0.682353 0.737255 0.780392 1",
+            "color" : {
+              "definedAtRuntime" : false,
+              "colorString" : "0.682353 0.737255 0.780392 1",
+              "colorVar" : "",
+              "colorName" : ""
+            },
             "yOffset" : -2,
             "opacity" : 0.2000000029802322,
             "radius" : 1
           },
           "shadow" : {
             "xOffset" : 0,
-            "color" : "0 0 0 1",
+            "color" : {
+              "definedAtRuntime" : false,
+              "colorString" : "0 0 0 1",
+              "colorVar" : "",
+              "colorName" : ""
+            },
             "yOffset" : 1,
             "opacity" : 0,
             "radius" : 2
@@ -557,14 +627,24 @@
           "tableCellTitleTextStyle" : "ButtonText",
           "innerShadow" : {
             "xOffset" : 0,
-            "color" : "0.682353 0.737255 0.780392 1",
+            "color" : {
+              "definedAtRuntime" : false,
+              "colorString" : "0.682353 0.737255 0.780392 1",
+              "colorVar" : "",
+              "colorName" : ""
+            },
             "yOffset" : -2,
             "opacity" : 0.2000000029802322,
             "radius" : 1
           },
           "shadow" : {
             "xOffset" : 0,
-            "color" : "0 0 0 1",
+            "color" : {
+              "definedAtRuntime" : false,
+              "colorString" : "0 0 0 1",
+              "colorVar" : "",
+              "colorName" : ""
+            },
             "yOffset" : 1,
             "opacity" : 0,
             "radius" : 2
@@ -643,14 +723,24 @@
           "tableCellTitleTextStyle" : "ButtonText",
           "innerShadow" : {
             "xOffset" : 0,
-            "color" : "0.682353 0.737255 0.780392 1",
+            "color" : {
+              "definedAtRuntime" : false,
+              "colorString" : "0.682353 0.737255 0.780392 1",
+              "colorVar" : "",
+              "colorName" : ""
+            },
             "yOffset" : -2,
             "opacity" : 0.2000000029802322,
             "radius" : 1
           },
           "shadow" : {
             "xOffset" : 0,
-            "color" : "0 0 0 1",
+            "color" : {
+              "definedAtRuntime" : false,
+              "colorString" : "0 0 0 1",
+              "colorVar" : "",
+              "colorName" : ""
+            },
             "yOffset" : 1,
             "opacity" : 0,
             "radius" : 2
@@ -729,14 +819,24 @@
           "tableCellTitleTextStyle" : "ButtonText",
           "innerShadow" : {
             "xOffset" : 0,
-            "color" : "0.682353 0.737255 0.780392 1",
+            "color" : {
+              "definedAtRuntime" : false,
+              "colorString" : "0.682353 0.737255 0.780392 1",
+              "colorVar" : "",
+              "colorName" : ""
+            },
             "yOffset" : -2,
             "opacity" : 0.2000000029802322,
             "radius" : 1
           },
           "shadow" : {
             "xOffset" : 0,
-            "color" : "0 0 0 1",
+            "color" : {
+              "definedAtRuntime" : false,
+              "colorString" : "0 0 0 1",
+              "colorVar" : "",
+              "colorName" : ""
+            },
             "yOffset" : 1,
             "opacity" : 0,
             "radius" : 1
@@ -818,14 +918,24 @@
       "tableCellTitleTextStyle" : "CellText",
       "innerShadow" : {
         "xOffset" : 0,
-        "color" : "0 0 0 1",
+        "color" : {
+          "definedAtRuntime" : false,
+          "colorString" : "0 0 0 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
         "yOffset" : -1,
         "opacity" : 0,
         "radius" : 0
       },
       "shadow" : {
         "xOffset" : 0,
-        "color" : "0 0 0 1",
+        "color" : {
+          "definedAtRuntime" : false,
+          "colorString" : "0 0 0 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
         "yOffset" : -1,
         "opacity" : 0,
         "radius" : 0
@@ -900,14 +1010,24 @@
       },
       "innerShadow" : {
         "xOffset" : 0,
-        "color" : "0 0 0 1",
+        "color" : {
+          "definedAtRuntime" : false,
+          "colorString" : "0 0 0 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
         "yOffset" : -1,
         "opacity" : 0,
         "radius" : 0
       },
       "shadow" : {
         "xOffset" : 0,
-        "color" : "0 0 0 1",
+        "color" : {
+          "definedAtRuntime" : false,
+          "colorString" : "0 0 0 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
         "yOffset" : -1,
         "opacity" : 0,
         "radius" : 0
@@ -961,7 +1081,12 @@
       "canvasBackgroundColor" : "0 0 0 0",
       "shadow" : {
         "xOffset" : 0,
-        "color" : "1 1 1 1",
+        "color" : {
+          "definedAtRuntime" : false,
+          "colorString" : "1 1 1 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
         "yOffset" : 1,
         "opacity" : 0.1000000014901161,
         "radius" : 0
@@ -979,7 +1104,12 @@
       ],
       "innerShadow" : {
         "xOffset" : 0,
-        "color" : "1 1 1 1",
+        "color" : {
+          "definedAtRuntime" : false,
+          "colorString" : "1 1 1 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
         "yOffset" : -2,
         "opacity" : 0.1000000014901161,
         "radius" : 0
@@ -1049,14 +1179,24 @@
       },
       "innerShadow" : {
         "xOffset" : 0,
-        "color" : "0 0 0 1",
+        "color" : {
+          "definedAtRuntime" : false,
+          "colorString" : "0 0 0 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
         "yOffset" : -1,
         "opacity" : 0,
         "radius" : 0
       },
       "shadow" : {
         "xOffset" : 0,
-        "color" : "0 0 0 1",
+        "color" : {
+          "definedAtRuntime" : false,
+          "colorString" : "0 0 0 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
         "yOffset" : -1,
         "opacity" : 0,
         "radius" : 0
@@ -1136,14 +1276,24 @@
           },
           "innerShadow" : {
             "xOffset" : 0,
-            "color" : "0 0 0 1",
+            "color" : {
+              "definedAtRuntime" : false,
+              "colorString" : "0 0 0 1",
+              "colorVar" : "",
+              "colorName" : ""
+            },
             "yOffset" : -1,
             "opacity" : 0.300000011920929,
             "radius" : 2
           },
           "shadow" : {
             "xOffset" : 0,
-            "color" : "0 0 0 1",
+            "color" : {
+              "definedAtRuntime" : false,
+              "colorString" : "0 0 0 1",
+              "colorVar" : "",
+              "colorName" : ""
+            },
             "yOffset" : 0,
             "opacity" : 0,
             "radius" : 0
@@ -1211,14 +1361,24 @@
           },
           "innerShadow" : {
             "xOffset" : 0,
-            "color" : "0 0 0 1",
+            "color" : {
+              "definedAtRuntime" : false,
+              "colorString" : "0 0 0 1",
+              "colorVar" : "",
+              "colorName" : ""
+            },
             "yOffset" : -1,
             "opacity" : 0,
             "radius" : 0
           },
           "shadow" : {
             "xOffset" : 0,
-            "color" : "0 0 0 1",
+            "color" : {
+              "definedAtRuntime" : false,
+              "colorString" : "0 0 0 1",
+              "colorVar" : "",
+              "colorName" : ""
+            },
             "yOffset" : -1,
             "opacity" : 0,
             "radius" : 0
@@ -1276,7 +1436,12 @@
       "canvasBackgroundColor" : "0 0 0 0",
       "shadow" : {
         "xOffset" : 0,
-        "color" : "0 0 0 1",
+        "color" : {
+          "definedAtRuntime" : false,
+          "colorString" : "0 0 0 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
         "yOffset" : -1,
         "opacity" : 0,
         "radius" : 0
@@ -1294,7 +1459,12 @@
       ],
       "innerShadow" : {
         "xOffset" : 0,
-        "color" : "0 0 0 1",
+        "color" : {
+          "definedAtRuntime" : false,
+          "colorString" : "0 0 0 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
         "yOffset" : -1,
         "opacity" : 0,
         "radius" : 0
@@ -1335,7 +1505,12 @@
       "canvasBackgroundColor" : "0 0 0 0",
       "shadow" : {
         "xOffset" : 0,
-        "color" : "0 0 0 1",
+        "color" : {
+          "definedAtRuntime" : false,
+          "colorString" : "0 0 0 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
         "yOffset" : 5,
         "opacity" : 0.5,
         "radius" : 10
@@ -1353,7 +1528,12 @@
       ],
       "innerShadow" : {
         "xOffset" : 0,
-        "color" : "1 1 1 1",
+        "color" : {
+          "definedAtRuntime" : false,
+          "colorString" : "1 1 1 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
         "yOffset" : -5,
         "opacity" : 1,
         "radius" : 10
@@ -1398,7 +1578,12 @@
       "canvasBackgroundColor" : "0 0 0 0",
       "shadow" : {
         "xOffset" : 0,
-        "color" : "0 0 0 1",
+        "color" : {
+          "definedAtRuntime" : false,
+          "colorString" : "0 0 0 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
         "yOffset" : 1,
         "opacity" : 0.4000000059604645,
         "radius" : 3
@@ -1416,7 +1601,12 @@
       ],
       "innerShadow" : {
         "xOffset" : 0,
-        "color" : "1 0.999974 0.999991 1",
+        "color" : {
+          "definedAtRuntime" : false,
+          "colorString" : "1 0.999974 0.999991 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
         "yOffset" : -1,
         "opacity" : 1,
         "radius" : 2
@@ -1774,14 +1964,24 @@
       "thumbHeight" : 1.5,
       "outerShadow" : {
         "xOffset" : 0,
-        "color" : "0.682353 0.737255 0.780392 1",
+        "color" : {
+          "definedAtRuntime" : false,
+          "colorString" : "0.682353 0.737255 0.780392 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
         "yOffset" : -1,
         "opacity" : 0.2000000029802322,
         "radius" : 0
       },
       "minimumTrackInnerShadow" : {
         "xOffset" : 0,
-        "color" : "0.682353 0.737255 0.780392 1",
+        "color" : {
+          "definedAtRuntime" : false,
+          "colorString" : "0.682353 0.737255 0.780392 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
         "yOffset" : -2,
         "opacity" : 0.2000000178813934,
         "radius" : 1
@@ -1797,7 +1997,12 @@
       "strokeWidth" : 1,
       "maximumTrackInnerShadow" : {
         "xOffset" : 0,
-        "color" : "0 0 0 1",
+        "color" : {
+          "definedAtRuntime" : false,
+          "colorString" : "0 0 0 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
         "yOffset" : -1,
         "opacity" : 0.300000011920929,
         "radius" : 2

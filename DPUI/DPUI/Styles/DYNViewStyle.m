@@ -500,7 +500,7 @@
 			CGSize size = rect.size;
             CGContextTranslateCTM(context, 0.0f, size.height);
             CGContextScaleCTM(context, 1.0f, -1.0f);
-            CGContextSetShadowWithColor(context, outerShadow.offset, outerShadow.radius, [outerShadow.color colorWithAlphaComponent:outerShadow.opacity].CGColor);
+            CGContextSetShadowWithColor(context, outerShadow.offset, outerShadow.radius, [outerShadow.color.color colorWithAlphaComponent:outerShadow.opacity].CGColor);
             CGContextDrawImage(context, CGRectMake(floorf((size.width - image.size.width) / 2), floorf((size.height - image.size.height) / 2), image.size.width, image.size.height), image.CGImage);
         }];
     }
