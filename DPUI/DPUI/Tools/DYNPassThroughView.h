@@ -6,8 +6,8 @@
 //  Copyright (c) 2013 Dan Pourhadi. All rights reserved.
 //
 
+#import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-
 @interface DYNPassThroughView : UIView
 
 @end

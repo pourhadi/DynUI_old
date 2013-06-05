@@ -6,7 +6,8 @@
 //  Copyright (c) 2013 Dan Pourhadi. All rights reserved.
 //
 
-#import "DYNStyle.h"
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 #import <UIKit/UIPopoverBackgroundView.h>
 @class DYNViewStyle;
 @interface DYNPopoverStyle : UIPopoverBackgroundView

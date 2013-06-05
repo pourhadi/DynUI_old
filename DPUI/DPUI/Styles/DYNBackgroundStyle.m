@@ -9,7 +9,6 @@
 #import "DYNBackgroundStyle.h"
 #import "DYNDefines.h"
 #import "DynUI.h"
-#import "DYNGradient.h"
 @implementation DYNBackgroundStyle
 
 - (id)init {

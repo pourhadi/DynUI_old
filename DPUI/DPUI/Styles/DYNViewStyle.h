@@ -5,8 +5,8 @@
 //  Created by Dan Pourhadi on 4/27/13.
 //
 //
-
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 #import "DYNStyle.h"
 @class DYNShadowStyle;
 @class DYNTextStyle;

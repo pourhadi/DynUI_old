@@ -1,11 +1,13 @@
+
+#ifndef _dyn_
+#define _dyn_
+#define _dyn_version_0_1_
+
 #import <Foundation/Foundation.h>
 #import <QuartzCore/QuartzCore.h>
 #import <CoreImage/CoreImage.h>
 #import <UIKit/UIKit.h>
 
-#ifndef _dyn_
-#define _dyn_
-#define _dyn_version_0_1_
 #import "DYNManager.h"
 #import "DYNRenderer.h"
 #import "NSString+DynUI.h"
@@ -32,4 +34,5 @@
 #import "DYNPopoverStyle.h"
 #import "DYNCustomSetting.h"
 #import "DYNIcons.h"
+#import "DYNGradient.h"
 #endif

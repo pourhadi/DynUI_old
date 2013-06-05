@@ -5,7 +5,8 @@
 //  Created by Daniel Pourhadi on 5/9/13.
 //  Copyright (c) 2013 Daniel Pourhadi. All rights reserved.
 //
-
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 #import "DYNStyle.h"
 @class DYNTextStyle;
 @interface DYNControlStyle : DYNStyle

@@ -6,8 +6,10 @@
 //
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 #import <QuartzCore/QuartzCore.h>
+#import <UIKit/UIKit.h>
+
 @class DYNStyleParameters;
 typedef void (^DYNDrawImageBlock)(CGContextRef context, CGRect rect);
 

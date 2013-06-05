@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import <UIKit/UIKit.h>
 static NSString * const kDYNKeyPathTypeView = @"UIView";
 static NSString * const kDYNKeyPathTypeLabel = @"UILabel";
 static NSString * const kDYNKeyPathTypeFont = @"UIFont";

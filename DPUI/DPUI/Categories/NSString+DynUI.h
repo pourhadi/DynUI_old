@@ -5,8 +5,8 @@
 //  Created by Dan Pourhadi on 5/6/13.
 //
 //
-
-#import <UIKit/NSStringDrawing.h>
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 @class DYNTextStyle;
 @interface NSString (DynUI)
 - (void)dyn_drawAtPoint:(CGPoint)point forWidth:(CGFloat)width lineBreakMode:(NSLineBreakMode)lineBreakMode withStyleNamed:(NSString *)DYNTextStyle;
