@@ -11,7 +11,7 @@
 			isa = PBXAggregateTarget;
 			buildConfigurationList = 443BE6AA17604B5F00244333 /* Build configuration list for PBXAggregateTarget "DynUI-Universal" */;
 			buildPhases = (
-				443BE6AD17604B6600244333 /* ShellScript */,
+				443BE6AD17604B6600244333 /* Run Script */,
 			);
 			dependencies = (
 			);
@@ -668,13 +668,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		443BE6AD17604B6600244333 /* ShellScript */ = {
+		443BE6AD17604B6600244333 /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
+			name = "Run Script";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -966,6 +967,7 @@
 				443BE6191760465C00244333 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		443BE6AA17604B5F00244333 /* Build configuration list for PBXAggregateTarget "DynUI-Universal" */ = {
 			isa = XCConfigurationList;
@@ -974,6 +976,7 @@
 				443BE6AC17604B5F00244333 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		44FADCBE173CE99700EB6BF4 /* Build configuration list for PBXProject "DynUI-Example" */ = {
 			isa = XCConfigurationList;

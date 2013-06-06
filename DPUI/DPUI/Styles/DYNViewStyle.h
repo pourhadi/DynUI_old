@@ -121,7 +121,7 @@ typedef NS_OPTIONS (NSUInteger, CornerRadiusType) {
 @property (nonatomic, strong) DYNTextStyle *textFieldTextStyle;
 
 ///---------------------------------------------------------------------------------------
-/// @name UISegmentControl Style Properties
+/// @name UISegmentedControl Style Properties
 ///---------------------------------------------------------------------------------------
 @property (nonatomic, strong) DYNControlStyle *segmentedControlStyle;
 @property (nonatomic) CGFloat segmentDividerWidth;

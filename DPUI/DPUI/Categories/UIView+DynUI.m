@@ -160,7 +160,7 @@ GET_AND_SET_CLASS_OBJ(swizzledDidAddSubview, @(NO));
     }
     
     if (dyn_overlayView) {
-        if (![UIView swizzledDidAddSubview]) {
+        if (![[UIView swizzledDidAddSubview] boolValue]) {
             [UIView swizzleDidAddSubview];
         }
     }

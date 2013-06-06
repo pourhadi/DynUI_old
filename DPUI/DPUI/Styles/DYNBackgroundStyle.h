@@ -11,7 +11,7 @@
 @class DYNStyleParameters;
 @interface DYNBackgroundStyle : NSObject
 
-/** The background colors, represented as DYNColor objects. If there is more than one color in the array, the colors are rednered as a gradient. */
+/** The background colors, represented as DYNColor objects. If there is more than one color in the array, the colors are extrapolated equidistant across the frame as a gradient. */
 @property (nonatomic, strong) NSArray *colors;
 
 @property (nonatomic, strong) NSArray *locations;
