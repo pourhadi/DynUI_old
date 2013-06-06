@@ -418,25 +418,25 @@
           },
           "tableCellTitleTextStyle" : {
             "fontSize" : 12,
-            "shadowXOffset" : 0,
+            "fontSizeString" : "12",
             "fontSizeType" : 0,
             "shadowColor" : {
-              "definedAtRuntime" : false,
+              "colorName" : "",
               "colorVar" : "",
-              "colorString" : "0 0 0 1",
-              "colorName" : ""
+              "definedAtRuntime" : false,
+              "colorString" : "0 0 0 1"
             },
             "fontName" : "Helvetica-Bold",
             "styleName" : "ButtonText",
             "shadowYOffset" : 1,
             "alignment" : 0,
             "textColor" : {
-              "definedAtRuntime" : false,
+              "colorName" : "",
               "colorVar" : "ButtonTextColor",
-              "colorString" : "1 1 1 1",
-              "colorName" : ""
+              "definedAtRuntime" : false,
+              "colorString" : "1 1 1 1"
             },
-            "fontSizeString" : "12"
+            "shadowXOffset" : 0
           },
           "innerShadow" : {
             "xOffset" : 0,
@@ -993,6 +993,7 @@
       },
       "background" : {
         "gradientAngle" : 180,
+        "noiseOpacity" : 0.03000000000000003,
         "colors" : [
           {
             "definedAtRuntime" : false,

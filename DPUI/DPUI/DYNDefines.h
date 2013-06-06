@@ -65,9 +65,11 @@ static NSString *const kDYNThemeChangedNotification = @"_DYNThemeChangedNotifica
 
 // key strings for DYN files
 
-// DYNBackgroundColor
+// DYNBackgroundStyle
 
 static NSString *const kDYNGradientAngle = @"gradientAngle";
+static NSString *const kDYNNoiseOpacityKey = @"noiseOpacity";
+static NSString *const kDYNNoiseBlendModeKey = @"noiseBlendMode";
 
 // DYNColor
 static NSString *const kDYNColorKey = @"color";

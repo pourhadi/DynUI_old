@@ -9,6 +9,8 @@
 #import "DYNBackgroundStyle.h"
 #import "DYNDefines.h"
 #import "DynUI.h"
+#import "KGNoise.h"
+
 @implementation DYNBackgroundStyle
 
 - (id)init {
@@ -31,6 +33,14 @@
             DYNColor *dpColor = [[DYNColor alloc] initWithDictionary:color];
             [tmp addObject:dpColor];
         }
+		
+		if ([dictionary objectForKey:kDYNNoiseOpacityKey]) {
+			self.noiseOpacity = [[dictionary objectForKey:kDYNNoiseOpacityKey] floatValue];
+		}
+		
+		if ([dictionary objectForKey:kDYNNoiseBlendModeKey]) {
+			self.noiseBlendMode = [[dictionary objectForKey:kDYNNoiseBlendModeKey] intValue];
+		}
         
         self.colors = tmp;
     }
@@ -64,6 +74,10 @@
         [color setFill];
         [path fill];
     }
+	
+	if (self.noiseOpacity > 0) {
+		[KGNoise drawNoiseWithOpacity:self.noiseOpacity andBlendMode:self.noiseBlendMode];
+	}
     
     CGContextRestoreGState(context);
 }

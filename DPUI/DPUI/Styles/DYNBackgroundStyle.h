@@ -19,6 +19,9 @@
 /** The angle of the gradient if colors.count > 1, in degrees. 180 degrees represents a vertical gradient, with a startPoint of [0.5, 0] and an endPoint of [0.5, 1] (in unit coordinates). */
 @property (nonatomic) CGFloat gradientAngle;
 
+@property (nonatomic) CGFloat noiseOpacity;
+@property (nonatomic) CGBlendMode noiseBlendMode;
+
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 
 ///---------------------------------------------------------------------------------------
