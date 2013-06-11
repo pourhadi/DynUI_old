@@ -51,6 +51,14 @@
     return _textStyles;
 }
 
+- (NSMutableArray*)gradients
+{
+	if (!_gradients) {
+		_gradients = [NSMutableArray new];
+	}
+	return _gradients;
+}
+
 - (DYNSliderStyle *)sliderStyleForName:(NSString *)name {
     NSPredicate *pred = [NSPredicate predicateWithFormat:@"name == %@", name];
     NSArray *filtered = [self.sliderStyles filteredArrayUsingPredicate:pred];
@@ -98,6 +106,18 @@
 - (DYNImageStyle *)imageStyleForName:(NSString *)name {
     NSPredicate *pred = [NSPredicate predicateWithFormat:@"name == %@", name];
     NSArray *filtered = [self.imageStyles filteredArrayUsingPredicate:pred];
+    if (filtered) {
+        if (filtered.count > 0) {
+            return filtered[0];
+        }
+    }
+    return nil;
+}
+
+- (DYNGradient*)gradientForName:(NSString *)name
+{
+	NSPredicate *pred = [NSPredicate predicateWithFormat:@"gradientName == %@", name];
+    NSArray *filtered = [self.gradients filteredArrayUsingPredicate:pred];
     if (filtered) {
         if (filtered.count > 0) {
             return filtered[0];
@@ -325,6 +345,18 @@
         } else {
             [self.colorVariables addObjectsFromArray:colorTmp];
         }
+	
+	NSArray *grads = [json objectForKey:@"gradients"];
+	NSMutableArray *gradientTmp = [NSMutableArray new];
+	for (NSDictionary *dict in grads) {
+		[gradientTmp addObject:[[DYNGradient alloc] initWithDictionary:dict]];
+	}
+	
+	if (replaceExisting) {
+		self.gradients = gradientTmp;
+	} else {
+		[self.gradients addObjectsFromArray:gradientTmp];
+	}
         
         NSArray *textStyles = [json objectForKey:@"textStyles"];
         NSMutableArray *textStylesTmp = [NSMutableArray arrayWithCapacity:1];

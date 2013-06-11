@@ -14,6 +14,7 @@
 @class DYNSliderStyle;
 @class DYNImageStyle;
 @class DYNColor;
+@class DYNGradient;
 @interface DYNManager : NSObject
 
 + (DYNManager *)sharedInstance;
@@ -23,6 +24,7 @@
 @property (nonatomic, strong) NSMutableArray *colorVariables;
 @property (nonatomic, strong) NSMutableArray *textStyles;
 @property (nonatomic, strong) NSMutableArray *imageStyles;
+@property (nonatomic, strong) NSMutableArray *gradients;
 
 @property (nonatomic, strong) NSDictionary *defaultParameterValues;
 
@@ -39,6 +41,7 @@
 - (UIColor *)colorForVariableName:(NSString *)variableName;
 - (DYNTextStyle *)textStyleForName:(NSString *)name;
 - (DYNImageStyle *)imageStyleForName:(NSString *)styleName;
+- (DYNGradient *)gradientForName:(NSString*)name;
 
 - (void)addSliderStyle:(DYNSliderStyle *)sliderStyle;
 - (void)addViewStyle:(DYNViewStyle *)viewStyle;

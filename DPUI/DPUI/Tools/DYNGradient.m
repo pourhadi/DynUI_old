@@ -9,14 +9,27 @@
 #import "DYNGradient.h"
 #import "DYNColor.h"
 #import "DYNStyleParameters.h"
+#import "DynUI.h"
 #import <QuartzCore/QuartzCore.h>
 @interface DYNGradient ()
 
 @property (nonatomic, strong) NSArray *colors;
+@property (nonatomic, strong) NSArray *locations;
+@property (nonatomic, strong) NSNumber *gradientAngle;
 
 @end
 
 @implementation DYNGradient
+
+- (id)initWithColors:(NSArray *)colors locations:(NSArray *)locations {
+    self = [super init];
+    if (self) {
+        self.colors = colors;
+		self.locations = locations;
+    }
+    
+    return self;
+}
 
 - (id)initWithColors:(NSArray *)colors {
     self = [super init];
@@ -25,6 +38,36 @@
     }
     
     return self;
+}
+
+- (id)initWithDictionary:(NSDictionary*)dictionary
+{
+	self = [self init];
+	
+	if (self) {
+		NSMutableArray *tmpColors = [NSMutableArray new];
+		for (NSDictionary *color in [dictionary objectForKey:@"colors"]) {
+			[tmpColors addObject:[[DYNColor alloc] initWithDictionary:color]];
+		}
+		
+		self.colors = tmpColors;
+		self.locations = [dictionary objectForKey:@"locations"];
+		self.gradientAngle = [dictionary objectForKey:@"gradientAngle"];
+		
+		if ([dictionary objectForKey:@"gradientName"]) {
+			self.gradientName = [dictionary objectForKey:@"gradientName"];
+		}
+		
+		if ([dictionary objectForKey:@"gradientVariableName"]) {
+			self.gradientVariableName = [dictionary objectForKey:@"gradientVariableName"];
+		}
+	}
+	return self;
+}
+
++ (DYNGradient*)gradientForName:(NSString *)name
+{
+	return [[DYNManager sharedInstance] gradientForName:name];
 }
 
 - (void)drawInPath:(UIBezierPath *)path angle:(CGFloat)angle parameters:(DYNStyleParameters *)parameters {
@@ -96,6 +139,10 @@
         gradient.colors = colors;
         gradient.startPoint = startPoint;
         gradient.endPoint = endPoint;
+		
+		if (self.locations) {
+			gradient.locations = self.locations;
+		}
         
         gradient.frame = bounds;
         [gradient renderInContext:context];

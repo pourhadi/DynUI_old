@@ -42,6 +42,12 @@ NS_INLINE float oppositeSign(float x) {
     return (x > 0 ? -x : fabs(x));
 }
 
+typedef NS_ENUM(NSUInteger, DYNFillType) {
+	DYNFillTypeColor,
+	DYNFillTypeGradient,
+	DYNFillTypeTitle,
+};
+
 static const void *const kDPViewStyleKey = "_DPViewStyle";
 static const void *const kDPTextStyleKey = "_DPTextStyle";
 static const void *const kDPViewStyleSizeAppliedKey = "_DPViewStyleSizeApplied";
@@ -70,6 +76,9 @@ static NSString *const kDYNThemeChangedNotification = @"_DYNThemeChangedNotifica
 static NSString *const kDYNGradientAngle = @"gradientAngle";
 static NSString *const kDYNNoiseOpacityKey = @"noiseOpacity";
 static NSString *const kDYNNoiseBlendModeKey = @"noiseBlendMode";
+static NSString *const kDYNFillColorKey = @"fillColor";
+static NSString *const kDYNFillTypeKey = @"fillType";
+
 
 // DYNColor
 static NSString *const kDYNColorKey = @"color";

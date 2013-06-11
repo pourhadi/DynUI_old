@@ -153,6 +153,15 @@
    // [tableView dyn_styleGroupedCell:cell forIndexPath:indexPath withStyle:@"GroupedTable"];
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+	if (cell == self.iconCell) {
+		DYNIconDemoViewController *vc = [[DYNIconDemoViewController alloc] initWithNibName:@"DYNIconDemoViewController" bundle:nil];
+		[self.navigationController pushViewController:vc animated:YES];
+	}
+}
+
 - (IBAction)segSelected:(id)sender
 {
 	if (self.segmentedControl.selectedSegmentIndex == 0) {

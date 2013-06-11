@@ -52,21 +52,36 @@
         "radius" : 2
       },
       "background" : {
-        "gradientAngle" : 180,
-        "colors" : [
-          {
-            "definedAtRuntime" : false,
-            "colorString" : "1 0.343615 0 1",
-            "colorVar" : "ButtonColor",
-            "colorName" : ""
-          },
-          {
-            "definedAtRuntime" : false,
-            "colorString" : "0.895926 0.282985 0 1",
-            "colorVar" : "",
-            "colorName" : ""
-          }
-        ]
+        "fillColor" : {
+          "definedAtRuntime" : false,
+          "colorString" : "0 0 0 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
+        "fillType" : 1,
+        "gradient" : {
+          "gradientVariableName" : "Red",
+          "gradientName" : "Gradient1",
+          "colors" : [
+            {
+              "definedAtRuntime" : false,
+              "colorString" : "1 0 0 1",
+              "colorVar" : "ButtonColor",
+              "colorName" : ""
+            },
+            {
+              "definedAtRuntime" : false,
+              "colorString" : "0.726405 0 0 1",
+              "colorVar" : "",
+              "colorName" : ""
+            }
+          ],
+          "gradientAngle" : 180,
+          "locations" : [
+            0,
+            1
+          ]
+        }
       },
       "leftInnerBorders" : [
 
@@ -108,7 +123,7 @@
       "maskToCorners" : false,
       "strokeColor" : {
         "definedAtRuntime" : false,
-        "colorString" : "0.433071 0.512889 0.586779 1",
+        "colorString" : "0.0987662 0.137223 0.18526 1",
         "colorVar" : "DemoBorder",
         "colorName" : ""
       },
@@ -129,21 +144,36 @@
         "radius" : 3
       },
       "background" : {
-        "gradientAngle" : 180,
-        "colors" : [
-          {
-            "definedAtRuntime" : false,
-            "colorString" : "0.506893 0.59187 0.671134 1",
-            "colorVar" : "DemoColor",
-            "colorName" : ""
-          },
-          {
-            "definedAtRuntime" : false,
-            "colorString" : "0.578541 0.668627 0.753153 1",
-            "colorVar" : "DemoNavTop",
-            "colorName" : ""
-          }
-        ]
+        "fillColor" : {
+          "definedAtRuntime" : false,
+          "colorString" : "0 0 0 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
+        "fillType" : 1,
+        "gradient" : {
+          "gradientVariableName" : "MainFlipped",
+          "gradientName" : "Gradient1",
+          "colors" : [
+            {
+              "definedAtRuntime" : false,
+              "colorString" : "0.158613 0.226768 0.314329 1",
+              "colorVar" : "DemoColor",
+              "colorName" : ""
+            },
+            {
+              "definedAtRuntime" : false,
+              "colorString" : "0.237545 0.305531 0.386764 1",
+              "colorVar" : "DemoNavTop",
+              "colorName" : ""
+            }
+          ],
+          "gradientAngle" : 180,
+          "locations" : [
+            0,
+            1
+          ]
+        }
       },
       "leftInnerBorders" : [
 
@@ -203,21 +233,36 @@
         "radius" : 3
       },
       "background" : {
-        "gradientAngle" : 180,
-        "colors" : [
-          {
-            "definedAtRuntime" : false,
-            "colorString" : "0.506893 0.59187 0.671134 1",
-            "colorVar" : "DemoColor",
-            "colorName" : ""
-          },
-          {
-            "definedAtRuntime" : false,
-            "colorString" : "0.578541 0.668627 0.753153 1",
-            "colorVar" : "DemoNavTop",
-            "colorName" : ""
-          }
-        ]
+        "fillColor" : {
+          "definedAtRuntime" : false,
+          "colorString" : "0 0 0 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
+        "fillType" : 1,
+        "gradient" : {
+          "gradientVariableName" : "MainFlipped",
+          "gradientName" : "Gradient1",
+          "colors" : [
+            {
+              "definedAtRuntime" : false,
+              "colorString" : "0.158613 0.226768 0.314329 1",
+              "colorVar" : "DemoColor",
+              "colorName" : ""
+            },
+            {
+              "definedAtRuntime" : false,
+              "colorString" : "0.237545 0.305531 0.386764 1",
+              "colorVar" : "DemoNavTop",
+              "colorName" : ""
+            }
+          ],
+          "gradientAngle" : 180,
+          "locations" : [
+            0,
+            1
+          ]
+        }
       },
       "leftInnerBorders" : [
 
@@ -277,21 +322,35 @@
         "radius" : 2
       },
       "background" : {
-        "gradientAngle" : 180,
-        "colors" : [
-          {
-            "definedAtRuntime" : false,
-            "colorString" : "1 0.945122 0 1",
-            "colorVar" : "StarTopColor",
-            "colorName" : ""
-          },
-          {
-            "definedAtRuntime" : false,
-            "colorString" : "1 0.343615 0 1",
-            "colorVar" : "ButtonColor",
-            "colorName" : ""
-          }
-        ]
+        "fillColor" : {
+          "definedAtRuntime" : false,
+          "colorString" : "0 0 0 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
+        "fillType" : 1,
+        "gradient" : {
+          "gradientName" : "Gradient1",
+          "colors" : [
+            {
+              "definedAtRuntime" : false,
+              "colorString" : "1 0.945122 0 1",
+              "colorVar" : "StarTopColor",
+              "colorName" : ""
+            },
+            {
+              "definedAtRuntime" : false,
+              "colorString" : "1 0.598822 0 1",
+              "colorVar" : "",
+              "colorName" : ""
+            }
+          ],
+          "gradientAngle" : 180,
+          "locations" : [
+            0,
+            1
+          ]
+        }
       },
       "leftInnerBorders" : [
 
@@ -358,15 +417,35 @@
         "radius" : 16
       },
       "background" : {
-        "gradientAngle" : 180,
-        "colors" : [
-          {
-            "definedAtRuntime" : false,
-            "colorString" : "0.986838 0.986931 0.986888 1",
-            "colorVar" : "",
-            "colorName" : ""
-          }
-        ]
+        "fillColor" : {
+          "definedAtRuntime" : false,
+          "colorString" : "0 0 0 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
+        "fillType" : 1,
+        "gradient" : {
+          "gradientName" : "Gradient1",
+          "colors" : [
+            {
+              "definedAtRuntime" : false,
+              "colorString" : "1 1 1 1",
+              "colorVar" : "",
+              "colorName" : ""
+            },
+            {
+              "definedAtRuntime" : false,
+              "colorString" : "1 1 1 1",
+              "colorVar" : "",
+              "colorName" : ""
+            }
+          ],
+          "gradientAngle" : 180,
+          "locations" : [
+            0,
+            1
+          ]
+        }
       },
       "leftInnerBorders" : [
         {
@@ -406,36 +485,56 @@
             "colorName" : ""
           },
           "background" : {
-            "gradientAngle" : 180,
-            "colors" : [
-              {
-                "definedAtRuntime" : false,
-                "colorString" : "0.506893 0.59187 0.671134 1",
-                "colorVar" : "DemoColor",
-                "colorName" : ""
-              }
-            ]
+            "fillColor" : {
+              "definedAtRuntime" : false,
+              "colorString" : "0.158613 0.226768 0.314329 1",
+              "colorVar" : "DemoColor",
+              "colorName" : ""
+            },
+            "fillType" : 0,
+            "gradient" : {
+              "gradientName" : "Gradient1",
+              "colors" : [
+                {
+                  "definedAtRuntime" : false,
+                  "colorString" : "1 1 1 1",
+                  "colorVar" : "",
+                  "colorName" : ""
+                },
+                {
+                  "definedAtRuntime" : false,
+                  "colorString" : "1 1 1 1",
+                  "colorVar" : "",
+                  "colorName" : ""
+                }
+              ],
+              "gradientAngle" : 180,
+              "locations" : [
+                0,
+                1
+              ]
+            }
           },
           "tableCellTitleTextStyle" : {
             "fontSize" : 12,
-            "fontSizeString" : "12",
+            "textColor" : {
+              "definedAtRuntime" : false,
+              "colorString" : "1 1 1 1",
+              "colorVar" : "ButtonTextColor",
+              "colorName" : ""
+            },
             "fontSizeType" : 0,
             "shadowColor" : {
-              "colorName" : "",
-              "colorVar" : "",
               "definedAtRuntime" : false,
-              "colorString" : "0 0 0 1"
+              "colorString" : "0 0 0 1",
+              "colorVar" : "",
+              "colorName" : ""
             },
             "fontName" : "Helvetica-Bold",
             "styleName" : "ButtonText",
             "shadowYOffset" : 1,
             "alignment" : 0,
-            "textColor" : {
-              "colorName" : "",
-              "colorVar" : "ButtonTextColor",
-              "definedAtRuntime" : false,
-              "colorString" : "1 1 1 1"
-            },
+            "fontSizeString" : "12",
             "shadowXOffset" : 0
           },
           "innerShadow" : {
@@ -493,7 +592,7 @@
               "height" : 1,
               "color" : {
                 "definedAtRuntime" : false,
-                "colorString" : "0.433071 0.512889 0.586779 1",
+                "colorString" : "0.0987662 0.137223 0.18526 1",
                 "colorVar" : "DemoBorder",
                 "colorName" : ""
               },
@@ -508,15 +607,35 @@
             "colorName" : ""
           },
           "background" : {
-            "gradientAngle" : 180,
-            "colors" : [
-              {
-                "definedAtRuntime" : false,
-                "colorString" : "0.578541 0.668627 0.753153 1",
-                "colorVar" : "DemoNavTop",
-                "colorName" : ""
-              }
-            ]
+            "fillColor" : {
+              "definedAtRuntime" : false,
+              "colorString" : "0.237545 0.305531 0.386764 1",
+              "colorVar" : "DemoNavTop",
+              "colorName" : ""
+            },
+            "fillType" : 0,
+            "gradient" : {
+              "gradientName" : "Gradient1",
+              "colors" : [
+                {
+                  "definedAtRuntime" : false,
+                  "colorString" : "1 1 1 1",
+                  "colorVar" : "",
+                  "colorName" : ""
+                },
+                {
+                  "definedAtRuntime" : false,
+                  "colorString" : "1 1 1 1",
+                  "colorVar" : "",
+                  "colorName" : ""
+                }
+              ],
+              "gradientAngle" : 180,
+              "locations" : [
+                0,
+                1
+              ]
+            }
           },
           "tableCellSelectedStyleName" : "Current - Make Darker",
           "tableCellTitleTextStyle" : "ButtonText",
@@ -555,7 +674,7 @@
               "height" : 1,
               "color" : {
                 "definedAtRuntime" : false,
-                "colorString" : "0.433071 0.512889 0.586779 1",
+                "colorString" : "0.0987662 0.137223 0.18526 1",
                 "colorVar" : "DemoBorder",
                 "colorName" : ""
               },
@@ -567,7 +686,7 @@
               "height" : 1,
               "color" : {
                 "definedAtRuntime" : false,
-                "colorString" : "0.433071 0.512889 0.586779 1",
+                "colorString" : "0.0987662 0.137223 0.18526 1",
                 "colorVar" : "DemoBorder",
                 "colorName" : ""
               },
@@ -582,7 +701,7 @@
               "height" : 1,
               "color" : {
                 "definedAtRuntime" : false,
-                "colorString" : "0.433071 0.512889 0.586779 1",
+                "colorString" : "0.0987662 0.137223 0.18526 1",
                 "colorVar" : "DemoBorder",
                 "colorName" : ""
               },
@@ -598,7 +717,7 @@
               "height" : 1,
               "color" : {
                 "definedAtRuntime" : false,
-                "colorString" : "0.433071 0.512889 0.586779 1",
+                "colorString" : "0.0987662 0.137223 0.18526 1",
                 "colorVar" : "DemoBorder",
                 "colorName" : ""
               },
@@ -613,15 +732,35 @@
             "colorName" : ""
           },
           "background" : {
-            "gradientAngle" : 180,
-            "colors" : [
-              {
-                "definedAtRuntime" : false,
-                "colorString" : "0.578541 0.668627 0.753153 1",
-                "colorVar" : "DemoNavTop",
-                "colorName" : ""
-              }
-            ]
+            "fillColor" : {
+              "definedAtRuntime" : false,
+              "colorString" : "0.237545 0.305531 0.386764 1",
+              "colorVar" : "DemoNavTop",
+              "colorName" : ""
+            },
+            "fillType" : 0,
+            "gradient" : {
+              "gradientName" : "Gradient1",
+              "colors" : [
+                {
+                  "definedAtRuntime" : false,
+                  "colorString" : "1 1 1 1",
+                  "colorVar" : "",
+                  "colorName" : ""
+                },
+                {
+                  "definedAtRuntime" : false,
+                  "colorString" : "1 1 1 1",
+                  "colorVar" : "",
+                  "colorName" : ""
+                }
+              ],
+              "gradientAngle" : 180,
+              "locations" : [
+                0,
+                1
+              ]
+            }
           },
           "tableCellSelectedStyleName" : "Current - Make Darker",
           "tableCellTitleTextStyle" : "ButtonText",
@@ -660,7 +799,7 @@
               "height" : 1,
               "color" : {
                 "definedAtRuntime" : false,
-                "colorString" : "0.433071 0.512889 0.586779 1",
+                "colorString" : "0.0987662 0.137223 0.18526 1",
                 "colorVar" : "DemoBorder",
                 "colorName" : ""
               },
@@ -678,7 +817,7 @@
               "height" : 1,
               "color" : {
                 "definedAtRuntime" : false,
-                "colorString" : "0.433071 0.512889 0.586779 1",
+                "colorString" : "0.0987662 0.137223 0.18526 1",
                 "colorVar" : "DemoBorder",
                 "colorName" : ""
               },
@@ -694,7 +833,7 @@
               "height" : 1,
               "color" : {
                 "definedAtRuntime" : false,
-                "colorString" : "0.433071 0.512889 0.586779 1",
+                "colorString" : "0.0987662 0.137223 0.18526 1",
                 "colorVar" : "DemoBorder",
                 "colorName" : ""
               },
@@ -709,15 +848,35 @@
             "colorName" : ""
           },
           "background" : {
-            "gradientAngle" : 180,
-            "colors" : [
-              {
-                "definedAtRuntime" : false,
-                "colorString" : "0.578541 0.668627 0.753153 1",
-                "colorVar" : "DemoNavTop",
-                "colorName" : ""
-              }
-            ]
+            "fillColor" : {
+              "definedAtRuntime" : false,
+              "colorString" : "0.237545 0.305531 0.386764 1",
+              "colorVar" : "DemoNavTop",
+              "colorName" : ""
+            },
+            "fillType" : 0,
+            "gradient" : {
+              "gradientName" : "Gradient1",
+              "colors" : [
+                {
+                  "definedAtRuntime" : false,
+                  "colorString" : "1 1 1 1",
+                  "colorVar" : "",
+                  "colorName" : ""
+                },
+                {
+                  "definedAtRuntime" : false,
+                  "colorString" : "1 1 1 1",
+                  "colorVar" : "",
+                  "colorName" : ""
+                }
+              ],
+              "gradientAngle" : 180,
+              "locations" : [
+                0,
+                1
+              ]
+            }
           },
           "tableCellSelectedStyleName" : "Current - Make Lighter",
           "tableCellTitleTextStyle" : "ButtonText",
@@ -756,7 +915,7 @@
               "height" : 1,
               "color" : {
                 "definedAtRuntime" : false,
-                "colorString" : "0.433071 0.512889 0.586779 1",
+                "colorString" : "0.0987662 0.137223 0.18526 1",
                 "colorVar" : "DemoBorder",
                 "colorName" : ""
               },
@@ -774,7 +933,7 @@
               "height" : 1,
               "color" : {
                 "definedAtRuntime" : false,
-                "colorString" : "0.433071 0.512889 0.586779 1",
+                "colorString" : "0.0987662 0.137223 0.18526 1",
                 "colorVar" : "DemoBorder",
                 "colorName" : ""
               },
@@ -790,7 +949,7 @@
               "height" : 1,
               "color" : {
                 "definedAtRuntime" : false,
-                "colorString" : "0.433071 0.512889 0.586779 1",
+                "colorString" : "0.0987662 0.137223 0.18526 1",
                 "colorVar" : "DemoBorder",
                 "colorName" : ""
               },
@@ -805,15 +964,35 @@
             "colorName" : ""
           },
           "background" : {
-            "gradientAngle" : 180,
-            "colors" : [
-              {
-                "definedAtRuntime" : false,
-                "colorString" : "0.578541 0.668627 0.753153 1",
-                "colorVar" : "DemoNavTop",
-                "colorName" : ""
-              }
-            ]
+            "fillColor" : {
+              "definedAtRuntime" : false,
+              "colorString" : "0.237545 0.305531 0.386764 1",
+              "colorVar" : "DemoNavTop",
+              "colorName" : ""
+            },
+            "fillType" : 0,
+            "gradient" : {
+              "gradientName" : "Gradient1",
+              "colors" : [
+                {
+                  "definedAtRuntime" : false,
+                  "colorString" : "1 1 1 1",
+                  "colorVar" : "",
+                  "colorName" : ""
+                },
+                {
+                  "definedAtRuntime" : false,
+                  "colorString" : "1 1 1 1",
+                  "colorVar" : "",
+                  "colorName" : ""
+                }
+              ],
+              "gradientAngle" : 180,
+              "locations" : [
+                0,
+                1
+              ]
+            }
           },
           "tableCellSelectedStyleName" : "Current - Make Lighter",
           "tableCellTitleTextStyle" : "ButtonText",
@@ -852,7 +1031,7 @@
               "height" : 1,
               "color" : {
                 "definedAtRuntime" : false,
-                "colorString" : "0.433071 0.512889 0.586779 1",
+                "colorString" : "0.0987662 0.137223 0.18526 1",
                 "colorVar" : "DemoBorder",
                 "colorName" : ""
               },
@@ -864,7 +1043,7 @@
               "height" : 1,
               "color" : {
                 "definedAtRuntime" : false,
-                "colorString" : "0.433071 0.512889 0.586779 1",
+                "colorString" : "0.0987662 0.137223 0.18526 1",
                 "colorVar" : "DemoBorder",
                 "colorName" : ""
               },
@@ -879,7 +1058,7 @@
               "height" : 1,
               "color" : {
                 "definedAtRuntime" : false,
-                "colorString" : "0.433071 0.512889 0.586779 1",
+                "colorString" : "0.0987662 0.137223 0.18526 1",
                 "colorVar" : "DemoBorder",
                 "colorName" : ""
               },
@@ -904,15 +1083,35 @@
         "colorName" : ""
       },
       "background" : {
-        "gradientAngle" : 180,
-        "colors" : [
-          {
-            "definedAtRuntime" : false,
-            "colorString" : "0.506893 0.59187 0.671134 1",
-            "colorVar" : "DemoColor",
-            "colorName" : ""
-          }
-        ]
+        "fillColor" : {
+          "definedAtRuntime" : false,
+          "colorString" : "0.237545 0.305531 0.386764 1",
+          "colorVar" : "DemoNavTop",
+          "colorName" : ""
+        },
+        "fillType" : 0,
+        "gradient" : {
+          "gradientName" : "Gradient1",
+          "colors" : [
+            {
+              "definedAtRuntime" : false,
+              "colorString" : "1 1 1 1",
+              "colorVar" : "",
+              "colorName" : ""
+            },
+            {
+              "definedAtRuntime" : false,
+              "colorString" : "1 1 1 1",
+              "colorVar" : "",
+              "colorName" : ""
+            }
+          ],
+          "gradientAngle" : 180,
+          "locations" : [
+            0,
+            1
+          ]
+        }
       },
       "tableCellSelectedStyleName" : "Current - Make Lighter",
       "tableCellTitleTextStyle" : "CellText",
@@ -951,7 +1150,7 @@
           "height" : 1,
           "color" : {
             "definedAtRuntime" : false,
-            "colorString" : "0.558809 0.64659 0.728944 1",
+            "colorString" : "0.254464 0.313382 0.392116 1",
             "colorVar" : "DemoHighlight",
             "colorName" : ""
           },
@@ -963,7 +1162,7 @@
           "height" : 1,
           "color" : {
             "definedAtRuntime" : false,
-            "colorString" : "0.433071 0.512889 0.586779 1",
+            "colorString" : "0.0987662 0.137223 0.18526 1",
             "colorVar" : "DemoBorder",
             "colorName" : ""
           },
@@ -992,22 +1191,37 @@
         "colorName" : ""
       },
       "background" : {
-        "gradientAngle" : 180,
-        "noiseOpacity" : 0.03000000000000003,
-        "colors" : [
-          {
-            "definedAtRuntime" : false,
-            "colorString" : "0.578541 0.668627 0.753153 1",
-            "colorVar" : "DemoNavTop",
-            "colorName" : ""
-          },
-          {
-            "definedAtRuntime" : false,
-            "colorString" : "0.506893 0.59187 0.671134 1",
-            "colorVar" : "DemoColor",
-            "colorName" : ""
-          }
-        ]
+        "fillType" : 1,
+        "fillColor" : {
+          "definedAtRuntime" : false,
+          "colorString" : "0 0 0 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
+        "gradient" : {
+          "gradientVariableName" : "MainGradient",
+          "gradientName" : "Gradient1",
+          "colors" : [
+            {
+              "definedAtRuntime" : false,
+              "colorString" : "0.237545 0.305531 0.386764 1",
+              "colorVar" : "DemoNavTop",
+              "colorName" : ""
+            },
+            {
+              "definedAtRuntime" : false,
+              "colorString" : "0.237545 0.305531 0.386764 1",
+              "colorVar" : "DemoNavTop",
+              "colorName" : ""
+            }
+          ],
+          "gradientAngle" : 180,
+          "locations" : [
+            0,
+            1
+          ]
+        },
+        "noiseOpacity" : 0
       },
       "innerShadow" : {
         "xOffset" : 0,
@@ -1044,8 +1258,8 @@
           "height" : 1,
           "color" : {
             "definedAtRuntime" : false,
-            "colorString" : "0.647413 0.74402 0.834894 1",
-            "colorVar" : "",
+            "colorString" : "0.254464 0.313382 0.392116 1",
+            "colorVar" : "DemoHighlight",
             "colorName" : ""
           },
           "blendMode" : 0
@@ -1056,7 +1270,7 @@
           "height" : 1,
           "color" : {
             "definedAtRuntime" : false,
-            "colorString" : "0.433071 0.512889 0.586779 1",
+            "colorString" : "0.0987662 0.137223 0.18526 1",
             "colorVar" : "DemoBorder",
             "colorName" : ""
           },
@@ -1096,7 +1310,7 @@
       "maskToCorners" : true,
       "strokeColor" : {
         "definedAtRuntime" : false,
-        "colorString" : "0.433071 0.512889 0.586779 1",
+        "colorString" : "0.0987662 0.137223 0.18526 1",
         "colorVar" : "DemoBorder",
         "colorName" : ""
       },
@@ -1116,21 +1330,36 @@
         "radius" : 0
       },
       "background" : {
-        "gradientAngle" : 180,
-        "colors" : [
-          {
-            "definedAtRuntime" : false,
-            "colorString" : "0.578541 0.668627 0.753153 1",
-            "colorVar" : "DemoNavTop",
-            "colorName" : ""
-          },
-          {
-            "definedAtRuntime" : false,
-            "colorString" : "0.506893 0.59187 0.671134 1",
-            "colorVar" : "DemoColor",
-            "colorName" : ""
-          }
-        ]
+        "fillColor" : {
+          "definedAtRuntime" : false,
+          "colorString" : "0 0 0 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
+        "fillType" : 1,
+        "gradient" : {
+          "gradientVariableName" : "MainGradient",
+          "gradientName" : "Gradient1",
+          "colors" : [
+            {
+              "definedAtRuntime" : false,
+              "colorString" : "0.237545 0.305531 0.386764 1",
+              "colorVar" : "DemoNavTop",
+              "colorName" : ""
+            },
+            {
+              "definedAtRuntime" : false,
+              "colorString" : "0.237545 0.305531 0.386764 1",
+              "colorVar" : "DemoNavTop",
+              "colorName" : ""
+            }
+          ],
+          "gradientAngle" : 180,
+          "locations" : [
+            0,
+            1
+          ]
+        }
       },
       "leftInnerBorders" : [
 
@@ -1162,21 +1391,36 @@
       },
       "searchFieldStyleName" : "SearchField",
       "background" : {
-        "gradientAngle" : 180,
-        "colors" : [
-          {
-            "definedAtRuntime" : false,
-            "colorString" : "0.578541 0.668627 0.753153 1",
-            "colorVar" : "DemoNavTop",
-            "colorName" : ""
-          },
-          {
-            "definedAtRuntime" : false,
-            "colorString" : "0.506893 0.59187 0.671134 1",
-            "colorVar" : "DemoColor",
-            "colorName" : ""
-          }
-        ]
+        "fillColor" : {
+          "definedAtRuntime" : false,
+          "colorString" : "0 0 0 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
+        "fillType" : 1,
+        "gradient" : {
+          "gradientVariableName" : "MainGradient",
+          "gradientName" : "Gradient1",
+          "colors" : [
+            {
+              "definedAtRuntime" : false,
+              "colorString" : "0.237545 0.305531 0.386764 1",
+              "colorVar" : "DemoNavTop",
+              "colorName" : ""
+            },
+            {
+              "definedAtRuntime" : false,
+              "colorString" : "0.237545 0.305531 0.386764 1",
+              "colorVar" : "DemoNavTop",
+              "colorName" : ""
+            }
+          ],
+          "gradientAngle" : 180,
+          "locations" : [
+            0,
+            1
+          ]
+        }
       },
       "innerShadow" : {
         "xOffset" : 0,
@@ -1213,8 +1457,8 @@
           "height" : 1,
           "color" : {
             "definedAtRuntime" : false,
-            "colorString" : "0.647231 0.743819 0.834677 1",
-            "colorVar" : "",
+            "colorString" : "0.254464 0.313382 0.392116 1",
+            "colorVar" : "DemoHighlight",
             "colorName" : ""
           },
           "blendMode" : 0
@@ -1226,7 +1470,7 @@
           "height" : 1,
           "color" : {
             "definedAtRuntime" : false,
-            "colorString" : "0.433071 0.512889 0.586779 1",
+            "colorString" : "0.0987662 0.137223 0.18526 1",
             "colorVar" : "DemoBorder",
             "colorName" : ""
           },
@@ -1253,27 +1497,42 @@
           "canvasBackgroundType" : "Transparent",
           "strokeColor" : {
             "definedAtRuntime" : false,
-            "colorString" : "0.433071 0.512889 0.586779 1",
+            "colorString" : "0.0987662 0.137223 0.18526 1",
             "colorVar" : "DemoBorder",
             "colorName" : ""
           },
           "segmentDividerWidth" : 1,
           "background" : {
-            "gradientAngle" : 180,
-            "colors" : [
-              {
-                "definedAtRuntime" : false,
-                "colorString" : "0.506893 0.59187 0.671134 1",
-                "colorVar" : "DemoColor",
-                "colorName" : ""
-              },
-              {
-                "definedAtRuntime" : false,
-                "colorString" : "0.578541 0.668627 0.753153 1",
-                "colorVar" : "DemoNavTop",
-                "colorName" : ""
-              }
-            ]
+            "fillColor" : {
+              "definedAtRuntime" : false,
+              "colorString" : "0 0 0 1",
+              "colorVar" : "",
+              "colorName" : ""
+            },
+            "fillType" : 1,
+            "gradient" : {
+              "gradientVariableName" : "MainFlipped",
+              "gradientName" : "Gradient1",
+              "colors" : [
+                {
+                  "definedAtRuntime" : false,
+                  "colorString" : "0.158613 0.226768 0.314329 1",
+                  "colorVar" : "DemoColor",
+                  "colorName" : ""
+                },
+                {
+                  "definedAtRuntime" : false,
+                  "colorString" : "0.237545 0.305531 0.386764 1",
+                  "colorVar" : "DemoNavTop",
+                  "colorName" : ""
+                }
+              ],
+              "gradientAngle" : 180,
+              "locations" : [
+                0,
+                1
+              ]
+            }
           },
           "innerShadow" : {
             "xOffset" : 0,
@@ -1338,27 +1597,42 @@
           "canvasBackgroundType" : "Transparent",
           "strokeColor" : {
             "definedAtRuntime" : false,
-            "colorString" : "0.433071 0.512889 0.586779 1",
+            "colorString" : "0.0987662 0.137223 0.18526 1",
             "colorVar" : "DemoBorder",
             "colorName" : ""
           },
           "segmentDividerWidth" : 1,
           "background" : {
-            "gradientAngle" : 180,
-            "colors" : [
-              {
-                "definedAtRuntime" : false,
-                "colorString" : "0.578541 0.668627 0.753153 1",
-                "colorVar" : "DemoNavTop",
-                "colorName" : ""
-              },
-              {
-                "definedAtRuntime" : false,
-                "colorString" : "0.506893 0.59187 0.671134 1",
-                "colorVar" : "DemoColor",
-                "colorName" : ""
-              }
-            ]
+            "fillColor" : {
+              "definedAtRuntime" : false,
+              "colorString" : "0 0 0 1",
+              "colorVar" : "",
+              "colorName" : ""
+            },
+            "fillType" : 1,
+            "gradient" : {
+              "gradientVariableName" : "MainGradient",
+              "gradientName" : "Gradient1",
+              "colors" : [
+                {
+                  "definedAtRuntime" : false,
+                  "colorString" : "0.237545 0.305531 0.386764 1",
+                  "colorVar" : "DemoNavTop",
+                  "colorName" : ""
+                },
+                {
+                  "definedAtRuntime" : false,
+                  "colorString" : "0.237545 0.305531 0.386764 1",
+                  "colorVar" : "DemoNavTop",
+                  "colorName" : ""
+                }
+              ],
+              "gradientAngle" : 180,
+              "locations" : [
+                0,
+                1
+              ]
+            }
           },
           "innerShadow" : {
             "xOffset" : 0,
@@ -1400,8 +1674,8 @@
               "height" : 2,
               "color" : {
                 "definedAtRuntime" : false,
-                "colorString" : "0.65051 0.74743 0.838606 1",
-                "colorVar" : "",
+                "colorString" : "0.254464 0.313382 0.392116 1",
+                "colorVar" : "DemoHighlight",
                 "colorName" : ""
               },
               "blendMode" : 0
@@ -1409,7 +1683,7 @@
           ],
           "segmentDividerColor" : {
             "definedAtRuntime" : false,
-            "colorString" : "0.428658 0.512131 0.58003 1",
+            "colorString" : "0.0987662 0.137223 0.18526 1",
             "colorVar" : "",
             "colorName" : ""
           },
@@ -1471,15 +1745,35 @@
         "radius" : 0
       },
       "background" : {
-        "gradientAngle" : 180,
-        "colors" : [
-          {
-            "definedAtRuntime" : false,
-            "colorString" : "0.506893 0.59187 0.671134 1",
-            "colorVar" : "DemoColor",
-            "colorName" : ""
-          }
-        ]
+        "fillColor" : {
+          "definedAtRuntime" : false,
+          "colorString" : "0.158613 0.226768 0.314329 1",
+          "colorVar" : "DemoColor",
+          "colorName" : ""
+        },
+        "fillType" : 0,
+        "gradient" : {
+          "gradientName" : "Gradient1",
+          "colors" : [
+            {
+              "definedAtRuntime" : false,
+              "colorString" : "1 1 1 1",
+              "colorVar" : "",
+              "colorName" : ""
+            },
+            {
+              "definedAtRuntime" : false,
+              "colorString" : "1 1 1 1",
+              "colorVar" : "",
+              "colorName" : ""
+            }
+          ],
+          "gradientAngle" : 180,
+          "locations" : [
+            0,
+            1
+          ]
+        }
       },
       "leftInnerBorders" : [
 
@@ -1540,21 +1834,35 @@
         "radius" : 10
       },
       "background" : {
-        "gradientAngle" : 180,
-        "colors" : [
-          {
-            "definedAtRuntime" : false,
-            "colorString" : "1 0.945122 0 1",
-            "colorVar" : "StarTopColor",
-            "colorName" : ""
-          },
-          {
-            "definedAtRuntime" : false,
-            "colorString" : "1 0.863518 0 1",
-            "colorVar" : "StarBottomColor",
-            "colorName" : ""
-          }
-        ]
+        "fillColor" : {
+          "definedAtRuntime" : false,
+          "colorString" : "0 0 0 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
+        "fillType" : 0,
+        "gradient" : {
+          "gradientName" : "Gradient1",
+          "colors" : [
+            {
+              "definedAtRuntime" : false,
+              "colorString" : "1 1 1 1",
+              "colorVar" : "",
+              "colorName" : ""
+            },
+            {
+              "definedAtRuntime" : false,
+              "colorString" : "1 1 1 1",
+              "colorVar" : "",
+              "colorName" : ""
+            }
+          ],
+          "gradientAngle" : 180,
+          "locations" : [
+            0,
+            1
+          ]
+        }
       },
       "leftInnerBorders" : [
 
@@ -1613,21 +1921,36 @@
         "radius" : 2
       },
       "background" : {
-        "gradientAngle" : 180,
-        "colors" : [
-          {
-            "definedAtRuntime" : false,
-            "colorString" : "0.977395 0.977481 0.97744 1",
-            "colorVar" : "",
-            "colorName" : ""
-          },
-          {
-            "definedAtRuntime" : false,
-            "colorString" : "0.910764 0.910846 0.910807 1",
-            "colorVar" : "",
-            "colorName" : ""
-          }
-        ]
+        "fillColor" : {
+          "definedAtRuntime" : false,
+          "colorString" : "0 0 0 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
+        "fillType" : 1,
+        "gradient" : {
+          "gradientVariableName" : "IconGradient",
+          "gradientName" : "Gradient1",
+          "colors" : [
+            {
+              "definedAtRuntime" : false,
+              "colorString" : "0.771288 0.771265 0.771278 1",
+              "colorVar" : "",
+              "colorName" : ""
+            },
+            {
+              "definedAtRuntime" : false,
+              "colorString" : "0.600451 0.600433 0.600443 1",
+              "colorVar" : "",
+              "colorName" : ""
+            }
+          ],
+          "gradientAngle" : 180,
+          "locations" : [
+            0,
+            1
+          ]
+        }
       },
       "leftInnerBorders" : [
 
@@ -1647,7 +1970,7 @@
   "colors" : [
     {
       "definedAtRuntime" : false,
-      "colorString" : "1 0.343615 0 1",
+      "colorString" : "1 0 0 1",
       "colorVar" : "",
       "colorName" : "ButtonColor"
     },
@@ -1671,25 +1994,25 @@
     },
     {
       "definedAtRuntime" : false,
-      "colorString" : "0.506893 0.59187 0.671134 1",
+      "colorString" : "0.158613 0.226768 0.314329 1",
       "colorVar" : "",
       "colorName" : "DemoColor"
     },
     {
       "definedAtRuntime" : false,
-      "colorString" : "0.558809 0.64659 0.728944 1",
+      "colorString" : "0.254464 0.313382 0.392116 1",
       "colorVar" : "",
       "colorName" : "DemoHighlight"
     },
     {
       "definedAtRuntime" : false,
-      "colorString" : "0.433071 0.512889 0.586779 1",
+      "colorString" : "0.0987662 0.137223 0.18526 1",
       "colorVar" : "",
       "colorName" : "DemoBorder"
     },
     {
       "definedAtRuntime" : false,
-      "colorString" : "0.578541 0.668627 0.753153 1",
+      "colorString" : "0.237545 0.305531 0.386764 1",
       "colorVar" : "",
       "colorName" : "DemoNavTop"
     },
@@ -1705,9 +2028,10 @@
       "styleName" : "ButtonText",
       "inheritFontSize" : false,
       "textColor" : {
-        "colorVar" : "ButtonTextColor",
-        "colorName" : "",
-        "definedAtRuntime" : false
+        "definedAtRuntime" : false,
+        "colorString" : "1 0.999896 0.999959 1",
+        "colorVar" : "",
+        "colorName" : ""
       },
       "shadowYOffset" : 1,
       "inheritAlignment" : false,
@@ -1916,33 +2240,20 @@
       "fontSizeType" : 0
     }
   ],
-  "textExampleContainerBgColor" : "0.117408 0.117401 0.117405 1",
-  "classStyles" : [
-    {
-      "className" : "ClassStyle",
-      "attributes" : [
-        {
-          "keyPath" : "cool",
-          "keyPathType" : "UIView",
-          "value" : "SegSelected"
-        }
-      ],
-      "autoApply" : true
-    }
-  ],
+  "textExampleContainerBgColor" : "1 0.999896 0.999959 1",
   "exampleContainerBgColor" : "0.315266 0.315266 0.315266 1",
   "sliderStyles" : [
     {
       "maxTrackBgColors" : [
         {
           "definedAtRuntime" : false,
-          "colorString" : "0.506893 0.59187 0.671134 1",
+          "colorString" : "0.158613 0.226768 0.314329 1",
           "colorVar" : "DemoColor",
           "colorName" : ""
         },
         {
           "definedAtRuntime" : false,
-          "colorString" : "0.578541 0.668627 0.753153 1",
+          "colorString" : "0.237545 0.305531 0.386764 1",
           "colorVar" : "DemoNavTop",
           "colorName" : ""
         }
@@ -1951,13 +2262,13 @@
       "minTrackBgColors" : [
         {
           "definedAtRuntime" : false,
-          "colorString" : "0.578541 0.668627 0.753153 1",
+          "colorString" : "0.237545 0.305531 0.386764 1",
           "colorVar" : "DemoNavTop",
           "colorName" : ""
         },
         {
           "definedAtRuntime" : false,
-          "colorString" : "0.506893 0.59187 0.671134 1",
+          "colorString" : "0.158613 0.226768 0.314329 1",
           "colorVar" : "DemoColor",
           "colorName" : ""
         }
@@ -1989,7 +2300,7 @@
       },
       "strokeColor" : {
         "definedAtRuntime" : false,
-        "colorString" : "0.433071 0.512889 0.586779 1",
+        "colorString" : "0.0987662 0.137223 0.18526 1",
         "colorVar" : "DemoBorder",
         "colorName" : ""
       },
@@ -2008,6 +2319,96 @@
         "opacity" : 0.300000011920929,
         "radius" : 2
       }
+    }
+  ],
+  "gradients" : [
+    {
+      "gradientName" : "MainGradient",
+      "colors" : [
+        {
+          "definedAtRuntime" : false,
+          "colorString" : "0.237545 0.305531 0.386764 1",
+          "colorVar" : "DemoNavTop",
+          "colorName" : ""
+        },
+        {
+          "definedAtRuntime" : false,
+          "colorString" : "0.237545 0.305531 0.386764 1",
+          "colorVar" : "DemoNavTop",
+          "colorName" : ""
+        }
+      ],
+      "gradientAngle" : 180,
+      "locations" : [
+        0,
+        1
+      ]
+    },
+    {
+      "gradientName" : "MainFlipped",
+      "colors" : [
+        {
+          "definedAtRuntime" : false,
+          "colorString" : "0.158613 0.226768 0.314329 1",
+          "colorVar" : "DemoColor",
+          "colorName" : ""
+        },
+        {
+          "definedAtRuntime" : false,
+          "colorString" : "0.237545 0.305531 0.386764 1",
+          "colorVar" : "DemoNavTop",
+          "colorName" : ""
+        }
+      ],
+      "gradientAngle" : 180,
+      "locations" : [
+        0,
+        1
+      ]
+    },
+    {
+      "gradientName" : "Red",
+      "colors" : [
+        {
+          "definedAtRuntime" : false,
+          "colorString" : "1 0 0 1",
+          "colorVar" : "ButtonColor",
+          "colorName" : ""
+        },
+        {
+          "definedAtRuntime" : false,
+          "colorString" : "0.726405 0 0 1",
+          "colorVar" : "",
+          "colorName" : ""
+        }
+      ],
+      "gradientAngle" : 180,
+      "locations" : [
+        0,
+        1
+      ]
+    },
+    {
+      "gradientName" : "IconGradient",
+      "colors" : [
+        {
+          "definedAtRuntime" : false,
+          "colorString" : "0.771288 0.771265 0.771278 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
+        {
+          "definedAtRuntime" : false,
+          "colorString" : "0.600451 0.600433 0.600443 1",
+          "colorVar" : "",
+          "colorName" : ""
+        }
+      ],
+      "gradientAngle" : 180,
+      "locations" : [
+        0,
+        1
+      ]
     }
   ]
 }
