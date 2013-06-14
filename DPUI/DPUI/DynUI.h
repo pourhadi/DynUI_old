@@ -35,4 +35,5 @@
 #import "DYNCustomSetting.h"
 #import "DYNIcons.h"
 #import "DYNGradient.h"
+#import "DYNInsets.h"
 #endif

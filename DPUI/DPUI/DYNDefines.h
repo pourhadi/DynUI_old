@@ -78,7 +78,7 @@ static NSString *const kDYNNoiseOpacityKey = @"noiseOpacity";
 static NSString *const kDYNNoiseBlendModeKey = @"noiseBlendMode";
 static NSString *const kDYNFillColorKey = @"fillColor";
 static NSString *const kDYNFillTypeKey = @"fillType";
-
+static NSString *const kDYNFillInsetsKey = @"fillInsets";
 
 // DYNColor
 static NSString *const kDYNColorKey = @"color";
@@ -147,6 +147,8 @@ static NSString *const kDYNGroupedTableMiddleCellKey = @"groupedTableMiddleCell"
 static NSString *const kDYNGroupedTableBottomCellKey = @"groupedTableBottomCell";
 static NSString *const kDYNGroupedTableSingleCellKey = @"groupedTableSingleCell";
 static NSString *const kDYNCustomSettingsKey = @"customSettings";
+static NSString *const kDYNTintColorKey = @"tintColor";
+static NSString *const kDYNUseCustomTintColorKey = @"useCustomTintColor";
 
 // DYNControlStyle
 static NSString *const kDYNNormalTextStyle = @"normalTextStyle";

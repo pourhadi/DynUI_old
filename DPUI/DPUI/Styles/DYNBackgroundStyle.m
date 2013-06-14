@@ -10,6 +10,7 @@
 #import "DYNDefines.h"
 #import "DynUI.h"
 #import "KGNoise.h"
+#import "UIBezierPath+DynUI.h"
 
 @implementation DYNBackgroundStyle
 
@@ -18,6 +19,7 @@
     if (self) {
         self.gradientAngle = 180;
         self.locations = nil;
+		self.fillInsets = [[DYNInsets alloc] init];
     }
     return self;
 }
@@ -59,6 +61,10 @@
 		if ([dictionary objectForKey:kDYNNoiseBlendModeKey]) {
 			self.noiseBlendMode = [[dictionary objectForKey:kDYNNoiseBlendModeKey] intValue];
 		}
+		
+		if ([dictionary objectForKey:kDYNFillInsetsKey]) {
+			self.fillInsets = [[DYNInsets alloc] initWithDictionary:[dictionary objectForKey:kDYNFillInsetsKey]];
+		}
         
     }
     return self;
@@ -72,6 +78,11 @@
     CGContextRef context = UIGraphicsGetCurrentContext();
     
     CGContextSaveGState(context);
+	
+	if (self.fillInsets.anySideGreaterThanZero)	{
+		[path insetPathRelativeToCurrentBounds:self.fillInsets.edgeInsets];
+	}
+	
     [path addClip];
     
     if (self.colors.count > 1) {

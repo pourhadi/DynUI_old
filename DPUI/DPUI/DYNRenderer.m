@@ -30,10 +30,20 @@
 	}
 }
 
++ (void)applyTintFromStyle:(DYNViewStyle*)style toView:(UIView*)view
+{
+	if (style.useCustomTintColor) {
+		if ([view respondsToSelector:@selector(setTintColor:)]) {
+			view.tintColor = style.tintColor.color;
+		}
+	}
+}
+
 + (void)renderView:(UIView *)view withStyleNamed:(NSString *)styleName {
 	DYNViewStyle *style = (DYNViewStyle *)[[DYNManager sharedInstance] styleForName:styleName];
 
 	[self applyCustomSettingsFromStyle:style toView:view];
+	[self applyTintFromStyle:style toView:view];
 	
     if ([view isKindOfClass:[UIButton class]]) {
         [self renderButton:(UIButton *)view withStyleNamed:styleName];

@@ -24,5 +24,22 @@
 	[path applyTransform:transform];
 }
 
+- (void)insetPathRelativeToCurrentBounds:(UIEdgeInsets)insets
+{
+	CGFloat xScale = 1 / self.bounds.size.width;
+    CGFloat yScale = 1 / self.bounds.size.height;
+	
+	CGFloat xDiff = insets.left + insets.right;
+	CGFloat yDiff = insets.top + insets.bottom;
+	
+    xScale = 1 - (xDiff * xScale);
+    yScale = 1 - (yDiff * yScale);
+	
+    CGAffineTransform transform = CGAffineTransformMakeScale(xScale, yScale);
+	
+    transform = CGAffineTransformTranslate(transform, insets.left, insets.top);
+	
+	[self applyTransform:transform];
+}
 
 @end

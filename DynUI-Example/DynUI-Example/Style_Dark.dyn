@@ -1,64 +1,25 @@
 {
   "styles" : [
     {
-      "rightInnerBorders" : [
+      "leftInnerBorders" : [
 
       ],
       "canvasBackgroundType" : "Transparent",
-      "roundedCorners" : 15,
-      "canvasBackgroundColor" : "0 0 0 0",
-      "shadow" : {
-        "xOffset" : 0,
-        "color" : {
-          "definedAtRuntime" : false,
-          "colorString" : "0 0 0 1",
-          "colorVar" : "",
-          "colorName" : ""
-        },
-        "yOffset" : 1,
-        "opacity" : 2.775557561562891e-17,
-        "radius" : 2
-      },
-      "strokeWidth" : 0.5,
-      "maskToCorners" : false,
       "strokeColor" : {
         "definedAtRuntime" : false,
         "colorString" : "0.0814005 0.0813906 0.081397 1",
         "colorVar" : "DemoBorder",
         "colorName" : ""
       },
-      "topInnerBorders" : [
-        {
-          "height" : 0.5,
-          "color" : {
-            "definedAtRuntime" : false,
-            "colorString" : "1 1 1 0.3",
-            "colorVar" : "",
-            "colorName" : ""
-          },
-          "blendMode" : 3
-        }
-      ],
-      "innerShadow" : {
-        "xOffset" : 0,
-        "color" : {
-          "definedAtRuntime" : false,
-          "colorString" : "1 1 1 1",
-          "colorVar" : "",
-          "colorName" : ""
-        },
-        "yOffset" : -1,
-        "opacity" : 1,
-        "radius" : 2
-      },
+      "useCustomTintColor" : false,
       "background" : {
+        "fillType" : 1,
         "fillColor" : {
           "definedAtRuntime" : false,
           "colorString" : "0 0 0 1",
           "colorVar" : "",
           "colorName" : ""
         },
-        "fillType" : 1,
         "gradient" : {
           "gradientVariableName" : "Red",
           "gradientName" : "Gradient1",
@@ -81,9 +42,63 @@
             0,
             1
           ]
+        },
+        "fillInsets" : {
+          "right" : 0,
+          "top" : 0,
+          "left" : 0,
+          "bottom" : 0
         }
       },
-      "leftInnerBorders" : [
+      "innerShadow" : {
+        "xOffset" : 0,
+        "color" : {
+          "definedAtRuntime" : false,
+          "colorString" : "1 1 1 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
+        "yOffset" : -1,
+        "opacity" : 1,
+        "radius" : 2
+      },
+      "shadow" : {
+        "xOffset" : 0,
+        "color" : {
+          "definedAtRuntime" : false,
+          "colorString" : "0 0 0 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
+        "yOffset" : 1,
+        "opacity" : 2.775557561562891e-17,
+        "radius" : 2
+      },
+      "strokeWidth" : 0.5,
+      "cornerRadius" : 12,
+      "canvasBackgroundColor" : "0 0 0 0",
+      "drawAsynchronously" : false,
+      "maskToCorners" : false,
+      "name" : "RedButton",
+      "tintColor" : {
+        "definedAtRuntime" : false,
+        "colorString" : "0 0 0 1",
+        "colorVar" : "",
+        "colorName" : ""
+      },
+      "topInnerBorders" : [
+        {
+          "height" : 0.5,
+          "color" : {
+            "definedAtRuntime" : false,
+            "colorString" : "1 1 1 0.3",
+            "colorVar" : "",
+            "colorName" : ""
+          },
+          "blendMode" : 3
+        }
+      ],
+      "bottomInnerBorders" : [
 
       ],
       "controlStyle" : {
@@ -92,21 +107,75 @@
         "highlightedStyleName" : "Current - Flipped Gradient",
         "selectedStyleName" : "Current - Flipped Gradient"
       },
-      "drawAsynchronously" : false,
-      "bottomInnerBorders" : [
-
-      ],
-      "cornerRadius" : 12,
-      "name" : "RedButton",
-      "isLeaf" : true
-    },
-    {
       "rightInnerBorders" : [
 
       ],
+      "isLeaf" : true,
+      "roundedCorners" : 15
+    },
+    {
+      "leftInnerBorders" : [
+
+      ],
       "canvasBackgroundType" : "Transparent",
-      "roundedCorners" : 15,
-      "canvasBackgroundColor" : "0 0 0 0",
+      "strokeColor" : {
+        "definedAtRuntime" : false,
+        "colorString" : "0.0814005 0.0813906 0.081397 1",
+        "colorVar" : "DemoBorder",
+        "colorName" : ""
+      },
+      "cornerRadiusType" : 1,
+      "useCustomTintColor" : false,
+      "background" : {
+        "fillType" : 1,
+        "fillColor" : {
+          "definedAtRuntime" : false,
+          "colorString" : "0 0 0 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
+        "gradient" : {
+          "gradientVariableName" : "MainFlipped",
+          "gradientName" : "Gradient1",
+          "colors" : [
+            {
+              "definedAtRuntime" : false,
+              "colorString" : "0.199563 0.199557 0.19956 1",
+              "colorVar" : "DemoColor",
+              "colorName" : ""
+            },
+            {
+              "definedAtRuntime" : false,
+              "colorString" : "0.279545 0.279493 0.279526 1",
+              "colorVar" : "DemoNavTop",
+              "colorName" : ""
+            }
+          ],
+          "gradientAngle" : 180,
+          "locations" : [
+            0,
+            1
+          ]
+        },
+        "fillInsets" : {
+          "right" : 0,
+          "top" : 0,
+          "left" : 0,
+          "bottom" : 0
+        }
+      },
+      "innerShadow" : {
+        "xOffset" : 0,
+        "color" : {
+          "definedAtRuntime" : false,
+          "colorString" : "1 0.999974 0.999991 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
+        "yOffset" : -1,
+        "opacity" : 0.1000000014901161,
+        "radius" : 3
+      },
       "shadow" : {
         "xOffset" : 0,
         "color" : {
@@ -120,7 +189,37 @@
         "radius" : 1
       },
       "strokeWidth" : 0.5,
+      "cornerRadius" : 0,
+      "canvasBackgroundColor" : "0 0 0 0",
+      "drawAsynchronously" : false,
       "maskToCorners" : false,
+      "name" : "Thumb",
+      "tintColor" : {
+        "definedAtRuntime" : false,
+        "colorString" : "0 0 0 1",
+        "colorVar" : "",
+        "colorName" : ""
+      },
+      "topInnerBorders" : [
+
+      ],
+      "bottomInnerBorders" : [
+
+      ],
+      "controlStyle" : {
+
+      },
+      "rightInnerBorders" : [
+
+      ],
+      "isLeaf" : true,
+      "roundedCorners" : 15
+    },
+    {
+      "leftInnerBorders" : [
+
+      ],
+      "canvasBackgroundType" : "Transparent",
       "strokeColor" : {
         "definedAtRuntime" : false,
         "colorString" : "0.0814005 0.0813906 0.081397 1",
@@ -128,29 +227,15 @@
         "colorName" : ""
       },
       "cornerRadiusType" : 1,
-      "topInnerBorders" : [
-
-      ],
-      "innerShadow" : {
-        "xOffset" : 0,
-        "color" : {
-          "definedAtRuntime" : false,
-          "colorString" : "1 0.999974 0.999991 1",
-          "colorVar" : "",
-          "colorName" : ""
-        },
-        "yOffset" : -1,
-        "opacity" : 0.1000000014901161,
-        "radius" : 3
-      },
+      "useCustomTintColor" : false,
       "background" : {
+        "fillType" : 1,
         "fillColor" : {
           "definedAtRuntime" : false,
           "colorString" : "0 0 0 1",
           "colorVar" : "",
           "colorName" : ""
         },
-        "fillType" : 1,
         "gradient" : {
           "gradientVariableName" : "MainFlipped",
           "gradientName" : "Gradient1",
@@ -173,29 +258,26 @@
             0,
             1
           ]
+        },
+        "fillInsets" : {
+          "right" : 0,
+          "top" : 0,
+          "left" : 0,
+          "bottom" : 0
         }
       },
-      "leftInnerBorders" : [
-
-      ],
-      "controlStyle" : {
-
+      "innerShadow" : {
+        "xOffset" : 0,
+        "color" : {
+          "definedAtRuntime" : false,
+          "colorString" : "0 0 0 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
+        "yOffset" : -1,
+        "opacity" : 0.300000011920929,
+        "radius" : 3
       },
-      "drawAsynchronously" : false,
-      "bottomInnerBorders" : [
-
-      ],
-      "cornerRadius" : 0,
-      "name" : "Thumb",
-      "isLeaf" : true
-    },
-    {
-      "rightInnerBorders" : [
-
-      ],
-      "canvasBackgroundType" : "Transparent",
-      "roundedCorners" : 15,
-      "canvasBackgroundColor" : "0 0 0 0",
       "shadow" : {
         "xOffset" : 0,
         "color" : {
@@ -209,96 +291,37 @@
         "radius" : 0
       },
       "strokeWidth" : 1,
+      "cornerRadius" : 0,
+      "canvasBackgroundColor" : "0 0 0 0",
+      "drawAsynchronously" : false,
       "maskToCorners" : false,
-      "strokeColor" : {
+      "name" : "SearchField",
+      "tintColor" : {
         "definedAtRuntime" : false,
-        "colorString" : "0.0814005 0.0813906 0.081397 1",
-        "colorVar" : "DemoBorder",
+        "colorString" : "0 0 0 1",
+        "colorVar" : "",
         "colorName" : ""
       },
-      "cornerRadiusType" : 1,
       "topInnerBorders" : [
 
       ],
-      "innerShadow" : {
-        "xOffset" : 0,
-        "color" : {
-          "definedAtRuntime" : false,
-          "colorString" : "0 0 0 1",
-          "colorVar" : "",
-          "colorName" : ""
-        },
-        "yOffset" : -1,
-        "opacity" : 0.300000011920929,
-        "radius" : 3
-      },
-      "background" : {
-        "fillColor" : {
-          "definedAtRuntime" : false,
-          "colorString" : "0 0 0 1",
-          "colorVar" : "",
-          "colorName" : ""
-        },
-        "fillType" : 1,
-        "gradient" : {
-          "gradientVariableName" : "MainFlipped",
-          "gradientName" : "Gradient1",
-          "colors" : [
-            {
-              "definedAtRuntime" : false,
-              "colorString" : "0.199563 0.199557 0.19956 1",
-              "colorVar" : "DemoColor",
-              "colorName" : ""
-            },
-            {
-              "definedAtRuntime" : false,
-              "colorString" : "0.279545 0.279493 0.279526 1",
-              "colorVar" : "DemoNavTop",
-              "colorName" : ""
-            }
-          ],
-          "gradientAngle" : 180,
-          "locations" : [
-            0,
-            1
-          ]
-        }
-      },
-      "leftInnerBorders" : [
+      "bottomInnerBorders" : [
 
       ],
       "controlStyle" : {
 
       },
-      "drawAsynchronously" : false,
-      "bottomInnerBorders" : [
-
-      ],
-      "cornerRadius" : 0,
-      "name" : "SearchField",
-      "isLeaf" : true
-    },
-    {
       "rightInnerBorders" : [
 
       ],
+      "isLeaf" : true,
+      "roundedCorners" : 15
+    },
+    {
+      "leftInnerBorders" : [
+
+      ],
       "canvasBackgroundType" : "Transparent",
-      "roundedCorners" : 15,
-      "canvasBackgroundColor" : "0 0 0 0",
-      "shadow" : {
-        "xOffset" : 0,
-        "color" : {
-          "definedAtRuntime" : false,
-          "colorString" : "0 0 0 1",
-          "colorVar" : "",
-          "colorName" : ""
-        },
-        "yOffset" : 4,
-        "opacity" : 0.5,
-        "radius" : 8
-      },
-      "strokeWidth" : 0,
-      "maskToCorners" : false,
       "strokeColor" : {
         "definedAtRuntime" : false,
         "colorString" : "1 1 1 1",
@@ -306,29 +329,15 @@
         "colorName" : ""
       },
       "cornerRadiusType" : 0,
-      "topInnerBorders" : [
-
-      ],
-      "innerShadow" : {
-        "xOffset" : 0,
-        "color" : {
-          "definedAtRuntime" : false,
-          "colorString" : "1 1 1 1",
-          "colorVar" : "",
-          "colorName" : ""
-        },
-        "yOffset" : 0,
-        "opacity" : 1,
-        "radius" : 2
-      },
+      "useCustomTintColor" : false,
       "background" : {
+        "fillType" : 1,
         "fillColor" : {
           "definedAtRuntime" : false,
           "colorString" : "0 0 0 1",
           "colorVar" : "",
           "colorName" : ""
         },
-        "fillType" : 1,
         "gradient" : {
           "gradientName" : "Gradient1",
           "colors" : [
@@ -350,24 +359,67 @@
             0,
             1
           ]
+        },
+        "fillInsets" : {
+          "right" : 0,
+          "top" : 0,
+          "left" : 0,
+          "bottom" : 0
         }
       },
-      "leftInnerBorders" : [
+      "innerShadow" : {
+        "xOffset" : 0,
+        "color" : {
+          "definedAtRuntime" : false,
+          "colorString" : "1 1 1 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
+        "yOffset" : 0,
+        "opacity" : 1,
+        "radius" : 2
+      },
+      "shadow" : {
+        "xOffset" : 0,
+        "color" : {
+          "definedAtRuntime" : false,
+          "colorString" : "0 0 0 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
+        "yOffset" : 4,
+        "opacity" : 0.5,
+        "radius" : 8
+      },
+      "strokeWidth" : 0,
+      "cornerRadius" : 30,
+      "canvasBackgroundColor" : "0 0 0 0",
+      "drawAsynchronously" : false,
+      "maskToCorners" : false,
+      "name" : "Tooltip",
+      "tintColor" : {
+        "definedAtRuntime" : false,
+        "colorString" : "0 0 0 1",
+        "colorVar" : "",
+        "colorName" : ""
+      },
+      "topInnerBorders" : [
+
+      ],
+      "bottomInnerBorders" : [
 
       ],
       "controlStyle" : {
 
       },
-      "drawAsynchronously" : false,
-      "bottomInnerBorders" : [
+      "rightInnerBorders" : [
 
       ],
-      "cornerRadius" : 30,
-      "name" : "Tooltip",
-      "isLeaf" : true
+      "isLeaf" : true,
+      "roundedCorners" : 15
     },
     {
-      "rightInnerBorders" : [
+      "leftInnerBorders" : [
         {
           "height" : 20,
           "color" : {
@@ -380,50 +432,20 @@
         }
       ],
       "canvasBackgroundType" : "Transparent",
-      "roundedCorners" : 15,
-      "canvasBackgroundColor" : "0 0 0 0",
-      "shadow" : {
-        "xOffset" : 0,
-        "color" : {
-          "definedAtRuntime" : false,
-          "colorString" : "0 0 0 1",
-          "colorVar" : "",
-          "colorName" : ""
-        },
-        "yOffset" : -1,
-        "opacity" : 0,
-        "radius" : 0
-      },
-      "strokeWidth" : 6,
-      "maskToCorners" : true,
       "strokeColor" : {
         "colorVar" : "NavBarTop",
         "colorName" : "",
         "definedAtRuntime" : false
       },
-      "topInnerBorders" : [
-
-      ],
-      "innerShadow" : {
-        "xOffset" : 0,
-        "color" : {
-          "definedAtRuntime" : false,
-          "colorString" : "0 0 0 1",
-          "colorVar" : "",
-          "colorName" : ""
-        },
-        "yOffset" : -5,
-        "opacity" : 0.5,
-        "radius" : 16
-      },
+      "useCustomTintColor" : false,
       "background" : {
+        "fillType" : 1,
         "fillColor" : {
           "definedAtRuntime" : false,
           "colorString" : "0 0 0 1",
           "colorVar" : "",
           "colorName" : ""
         },
-        "fillType" : 1,
         "gradient" : {
           "gradientName" : "Gradient1",
           "colors" : [
@@ -438,9 +460,60 @@
           "locations" : [
             0
           ]
+        },
+        "fillInsets" : {
+          "right" : 0,
+          "top" : 0,
+          "left" : 0,
+          "bottom" : 0
         }
       },
-      "leftInnerBorders" : [
+      "innerShadow" : {
+        "xOffset" : 0,
+        "color" : {
+          "definedAtRuntime" : false,
+          "colorString" : "0 0 0 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
+        "yOffset" : -5,
+        "opacity" : 0.5,
+        "radius" : 16
+      },
+      "shadow" : {
+        "xOffset" : 0,
+        "color" : {
+          "definedAtRuntime" : false,
+          "colorString" : "0 0 0 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
+        "yOffset" : -1,
+        "opacity" : 0,
+        "radius" : 0
+      },
+      "strokeWidth" : 6,
+      "cornerRadius" : 10,
+      "canvasBackgroundColor" : "0 0 0 0",
+      "drawAsynchronously" : false,
+      "maskToCorners" : true,
+      "name" : "RoundContainer",
+      "tintColor" : {
+        "definedAtRuntime" : false,
+        "colorString" : "0 0 0 1",
+        "colorVar" : "",
+        "colorName" : ""
+      },
+      "topInnerBorders" : [
+
+      ],
+      "bottomInnerBorders" : [
+
+      ],
+      "controlStyle" : {
+
+      },
+      "rightInnerBorders" : [
         {
           "height" : 20,
           "color" : {
@@ -452,16 +525,8 @@
           "blendMode" : 0
         }
       ],
-      "controlStyle" : {
-
-      },
-      "drawAsynchronously" : false,
-      "bottomInnerBorders" : [
-
-      ],
-      "cornerRadius" : 10,
-      "name" : "RoundContainer",
-      "isLeaf" : true
+      "isLeaf" : true,
+      "roundedCorners" : 15
     },
     {
       "name" : "GroupedTable",
@@ -477,14 +542,15 @@
             "colorVar" : "",
             "colorName" : ""
           },
+          "useCustomTintColor" : false,
           "background" : {
+            "fillType" : 0,
             "fillColor" : {
               "definedAtRuntime" : false,
               "colorString" : "0.199563 0.199557 0.19956 1",
               "colorVar" : "DemoColor",
               "colorName" : ""
             },
-            "fillType" : 0,
             "gradient" : {
               "gradientName" : "Gradient1",
               "colors" : [
@@ -499,6 +565,12 @@
               "locations" : [
                 0
               ]
+            },
+            "fillInsets" : {
+              "right" : 0,
+              "top" : 0,
+              "left" : 0,
+              "bottom" : 0
             }
           },
           "tableCellTitleTextStyle" : "CellText",
@@ -536,6 +608,12 @@
           "topInnerBorders" : [
 
           ],
+          "tintColor" : {
+            "definedAtRuntime" : false,
+            "colorString" : "0 0 0 1",
+            "colorVar" : "",
+            "colorName" : ""
+          },
           "bottomInnerBorders" : [
 
           ],
@@ -571,14 +649,15 @@
             "colorVar" : "",
             "colorName" : ""
           },
+          "useCustomTintColor" : false,
           "background" : {
+            "fillType" : 0,
             "fillColor" : {
               "definedAtRuntime" : false,
               "colorString" : "0.199563 0.199557 0.19956 1",
               "colorVar" : "DemoColor",
               "colorName" : ""
             },
-            "fillType" : 0,
             "gradient" : {
               "gradientName" : "Gradient1",
               "colors" : [
@@ -593,6 +672,12 @@
               "locations" : [
                 0
               ]
+            },
+            "fillInsets" : {
+              "right" : 0,
+              "top" : 0,
+              "left" : 0,
+              "bottom" : 0
             }
           },
           "tableCellSelectedStyleName" : "Current - Make Darker",
@@ -627,6 +712,12 @@
           "drawAsynchronously" : false,
           "maskToCorners" : true,
           "name" : "BottomCell",
+          "tintColor" : {
+            "definedAtRuntime" : false,
+            "colorString" : "0 0 0 1",
+            "colorVar" : "",
+            "colorName" : ""
+          },
           "topInnerBorders" : [
             {
               "height" : 1,
@@ -689,14 +780,15 @@
             "colorVar" : "",
             "colorName" : ""
           },
+          "useCustomTintColor" : false,
           "background" : {
+            "fillType" : 0,
             "fillColor" : {
               "definedAtRuntime" : false,
               "colorString" : "0.199563 0.199557 0.19956 1",
               "colorVar" : "DemoColor",
               "colorName" : ""
             },
-            "fillType" : 0,
             "gradient" : {
               "gradientName" : "Gradient1",
               "colors" : [
@@ -711,6 +803,12 @@
               "locations" : [
                 0
               ]
+            },
+            "fillInsets" : {
+              "right" : 0,
+              "top" : 0,
+              "left" : 0,
+              "bottom" : 0
             }
           },
           "tableCellSelectedStyleName" : "Current - Make Darker",
@@ -745,6 +843,12 @@
           "drawAsynchronously" : false,
           "maskToCorners" : true,
           "name" : "MiddleCell",
+          "tintColor" : {
+            "definedAtRuntime" : false,
+            "colorString" : "0 0 0 1",
+            "colorVar" : "",
+            "colorName" : ""
+          },
           "topInnerBorders" : [
             {
               "height" : 1,
@@ -798,14 +902,15 @@
             "colorVar" : "",
             "colorName" : ""
           },
+          "useCustomTintColor" : false,
           "background" : {
+            "fillType" : 0,
             "fillColor" : {
               "definedAtRuntime" : false,
               "colorString" : "0.199563 0.199557 0.19956 1",
               "colorVar" : "DemoColor",
               "colorName" : ""
             },
-            "fillType" : 0,
             "gradient" : {
               "gradientName" : "Gradient1",
               "colors" : [
@@ -820,6 +925,12 @@
               "locations" : [
                 0
               ]
+            },
+            "fillInsets" : {
+              "right" : 0,
+              "top" : 0,
+              "left" : 0,
+              "bottom" : 0
             }
           },
           "tableCellSelectedStyleName" : "Current - Make Lighter",
@@ -854,6 +965,12 @@
           "drawAsynchronously" : false,
           "maskToCorners" : true,
           "name" : "TopCell",
+          "tintColor" : {
+            "definedAtRuntime" : false,
+            "colorString" : "0 0 0 1",
+            "colorVar" : "",
+            "colorName" : ""
+          },
           "topInnerBorders" : [
             {
               "height" : 1,
@@ -907,14 +1024,15 @@
             "colorVar" : "",
             "colorName" : ""
           },
+          "useCustomTintColor" : false,
           "background" : {
+            "fillType" : 0,
             "fillColor" : {
               "definedAtRuntime" : false,
               "colorString" : "0.199563 0.199557 0.19956 1",
               "colorVar" : "DemoColor",
               "colorName" : ""
             },
-            "fillType" : 0,
             "gradient" : {
               "gradientName" : "Gradient1",
               "colors" : [
@@ -929,6 +1047,12 @@
               "locations" : [
                 0
               ]
+            },
+            "fillInsets" : {
+              "right" : 10,
+              "top" : 0,
+              "left" : 10,
+              "bottom" : 0
             }
           },
           "tableCellSelectedStyleName" : "Current - Make Lighter",
@@ -963,6 +1087,12 @@
           "drawAsynchronously" : false,
           "maskToCorners" : true,
           "name" : "SingleCell",
+          "tintColor" : {
+            "definedAtRuntime" : false,
+            "colorString" : "0 0 0 1",
+            "colorVar" : "",
+            "colorName" : ""
+          },
           "topInnerBorders" : [
             {
               "height" : 1,
@@ -1012,64 +1142,25 @@
       "name" : "CustomView",
       "children" : [
         {
-          "rightInnerBorders" : [
+          "leftInnerBorders" : [
 
           ],
           "canvasBackgroundType" : "Transparent",
-          "roundedCorners" : 15,
-          "canvasBackgroundColor" : "0 0 0 0",
-          "shadow" : {
-            "xOffset" : 0,
-            "color" : {
-              "definedAtRuntime" : false,
-              "colorString" : "0 0 0 1",
-              "colorVar" : "",
-              "colorName" : ""
-            },
-            "yOffset" : 1,
-            "opacity" : 0.2000000029802322,
-            "radius" : 4
-          },
-          "strokeWidth" : 0.5,
-          "maskToCorners" : false,
           "strokeColor" : {
             "definedAtRuntime" : false,
             "colorString" : "0 0 0 1",
             "colorVar" : "",
             "colorName" : ""
           },
-          "topInnerBorders" : [
-            {
-              "height" : 1,
-              "color" : {
-                "definedAtRuntime" : false,
-                "colorString" : "1 1 1 1",
-                "colorVar" : "",
-                "colorName" : ""
-              },
-              "blendMode" : 0
-            }
-          ],
-          "innerShadow" : {
-            "xOffset" : 0,
-            "color" : {
-              "definedAtRuntime" : false,
-              "colorString" : "0 0 0 1",
-              "colorVar" : "",
-              "colorName" : ""
-            },
-            "yOffset" : -1,
-            "opacity" : 0,
-            "radius" : 0
-          },
+          "useCustomTintColor" : false,
           "background" : {
+            "fillType" : 0,
             "fillColor" : {
               "definedAtRuntime" : false,
               "colorString" : "0 0 0 1",
               "colorVar" : "",
               "colorName" : ""
             },
-            "fillType" : 0,
             "gradient" : {
               "gradientName" : "Gradient1",
               "colors" : [
@@ -1089,54 +1180,14 @@
                 0,
                 1
               ]
+            },
+            "fillInsets" : {
+              "right" : 0,
+              "top" : 0,
+              "left" : 0,
+              "bottom" : 0
             }
           },
-          "leftInnerBorders" : [
-
-          ],
-          "controlStyle" : {
-            "highlightedStyleName" : "Current - Flipped Gradient",
-            "normalTextStyle" : "ButtonText",
-            "selectedStyleName" : "Current - Flipped Gradient"
-          },
-          "drawAsynchronously" : false,
-          "bottomInnerBorders" : [
-
-          ],
-          "cornerRadius" : 10,
-          "name" : "CustomViewButton",
-          "isLeaf" : true
-        },
-        {
-          "rightInnerBorders" : [
-
-          ],
-          "canvasBackgroundType" : "Transparent",
-          "roundedCorners" : 0,
-          "canvasBackgroundColor" : "0 0 0 0",
-          "shadow" : {
-            "xOffset" : 0,
-            "color" : {
-              "definedAtRuntime" : false,
-              "colorString" : "0 0 0 1",
-              "colorVar" : "",
-              "colorName" : ""
-            },
-            "yOffset" : 1,
-            "opacity" : 0.4000000059604645,
-            "radius" : 3
-          },
-          "strokeWidth" : 0.5,
-          "maskToCorners" : false,
-          "strokeColor" : {
-            "definedAtRuntime" : false,
-            "colorString" : "0 0 0 1",
-            "colorVar" : "",
-            "colorName" : ""
-          },
-          "topInnerBorders" : [
-
-          ],
           "innerShadow" : {
             "xOffset" : 0,
             "color" : {
@@ -1149,14 +1200,88 @@
             "opacity" : 0,
             "radius" : 0
           },
+          "shadow" : {
+            "xOffset" : 0,
+            "color" : {
+              "definedAtRuntime" : false,
+              "colorString" : "0 0 0 1",
+              "colorVar" : "",
+              "colorName" : ""
+            },
+            "yOffset" : 1,
+            "opacity" : 0.2000000029802322,
+            "radius" : 4
+          },
+          "strokeWidth" : 0.5,
+          "cornerRadius" : 10,
+          "canvasBackgroundColor" : "0 0 0 0",
+          "drawAsynchronously" : false,
+          "maskToCorners" : false,
+          "name" : "CustomViewButton",
+          "tintColor" : {
+            "definedAtRuntime" : false,
+            "colorString" : "0 0 0 1",
+            "colorVar" : "",
+            "colorName" : ""
+          },
+          "topInnerBorders" : [
+            {
+              "height" : 1,
+              "color" : {
+                "definedAtRuntime" : false,
+                "colorString" : "1 1 1 1",
+                "colorVar" : "",
+                "colorName" : ""
+              },
+              "blendMode" : 0
+            }
+          ],
+          "bottomInnerBorders" : [
+
+          ],
+          "controlStyle" : {
+            "highlightedStyleName" : "Current - Flipped Gradient",
+            "normalTextStyle" : "ButtonText",
+            "selectedStyleName" : "Current - Flipped Gradient"
+          },
+          "rightInnerBorders" : [
+
+          ],
+          "isLeaf" : true,
+          "roundedCorners" : 15
+        },
+        {
+          "leftInnerBorders" : [
+
+          ],
+          "canvasBackgroundType" : "Transparent",
+          "strokeColor" : {
+            "definedAtRuntime" : false,
+            "colorString" : "0 0 0 1",
+            "colorVar" : "",
+            "colorName" : ""
+          },
+          "customSettings" : [
+            {
+              "keyPath" : "testButton",
+              "keyPathType" : "UIView",
+              "value" : "CustomViewButton"
+            },
+            {
+              "keyPath" : "testLabel",
+              "keyPathType" : "UILabel",
+              "value" : "CustomViewText"
+            }
+          ],
+          "useCustomTintColor" : false,
           "background" : {
+            "fillType" : 0,
             "fillColor" : {
               "definedAtRuntime" : false,
               "colorString" : "0 0 0 1",
               "colorVar" : "",
               "colorName" : ""
             },
-            "fillType" : 0,
             "gradient" : {
               "gradientName" : "Gradient1",
               "colors" : [
@@ -1170,33 +1295,64 @@
               "locations" : [
                 0
               ]
+            },
+            "fillInsets" : {
+              "right" : 0,
+              "top" : 0,
+              "left" : 0,
+              "bottom" : 0
             }
           },
-          "leftInnerBorders" : [
+          "innerShadow" : {
+            "xOffset" : 0,
+            "color" : {
+              "definedAtRuntime" : false,
+              "colorString" : "0 0 0 1",
+              "colorVar" : "",
+              "colorName" : ""
+            },
+            "yOffset" : -1,
+            "opacity" : 0,
+            "radius" : 0
+          },
+          "shadow" : {
+            "xOffset" : 0,
+            "color" : {
+              "definedAtRuntime" : false,
+              "colorString" : "0 0 0 1",
+              "colorVar" : "",
+              "colorName" : ""
+            },
+            "yOffset" : 1,
+            "opacity" : 0.4000000059604645,
+            "radius" : 3
+          },
+          "strokeWidth" : 0.5,
+          "cornerRadius" : 0,
+          "canvasBackgroundColor" : "0 0 0 0",
+          "drawAsynchronously" : false,
+          "maskToCorners" : false,
+          "name" : "CustomView",
+          "tintColor" : {
+            "definedAtRuntime" : false,
+            "colorString" : "0 0 0 1",
+            "colorVar" : "",
+            "colorName" : ""
+          },
+          "topInnerBorders" : [
+
+          ],
+          "bottomInnerBorders" : [
 
           ],
           "controlStyle" : {
 
           },
-          "drawAsynchronously" : false,
-          "customSettings" : [
-            {
-              "keyPath" : "testButton",
-              "keyPathType" : "UIView",
-              "value" : "CustomViewButton"
-            },
-            {
-              "keyPath" : "testLabel",
-              "keyPathType" : "UILabel",
-              "value" : "CustomViewText"
-            }
-          ],
-          "bottomInnerBorders" : [
+          "rightInnerBorders" : [
 
           ],
-          "cornerRadius" : 0,
-          "name" : "CustomView",
-          "isLeaf" : true
+          "isLeaf" : true,
+          "roundedCorners" : 0
         }
       ],
       "isLeaf" : false
@@ -1212,14 +1368,15 @@
         "colorVar" : "",
         "colorName" : ""
       },
+      "useCustomTintColor" : false,
       "background" : {
+        "fillType" : 0,
         "fillColor" : {
           "definedAtRuntime" : false,
           "colorString" : "0.199563 0.199557 0.19956 1",
           "colorVar" : "DemoColor",
           "colorName" : ""
         },
-        "fillType" : 0,
         "gradient" : {
           "gradientName" : "Gradient1",
           "colors" : [
@@ -1234,6 +1391,12 @@
           "locations" : [
             0
           ]
+        },
+        "fillInsets" : {
+          "right" : 0,
+          "top" : 0,
+          "left" : 0,
+          "bottom" : 0
         }
       },
       "tableCellSelectedStyleName" : "Current - Make Darker",
@@ -1268,6 +1431,12 @@
       "drawAsynchronously" : false,
       "maskToCorners" : false,
       "name" : "IconDemoCell",
+      "tintColor" : {
+        "definedAtRuntime" : false,
+        "colorString" : "0 0 0 1",
+        "colorVar" : "",
+        "colorName" : ""
+      },
       "topInnerBorders" : [
         {
           "height" : 1,
@@ -1313,14 +1482,15 @@
         "colorVar" : "",
         "colorName" : ""
       },
+      "useCustomTintColor" : false,
       "background" : {
+        "fillType" : 1,
         "fillColor" : {
           "definedAtRuntime" : false,
           "colorString" : "0 0 0 1",
           "colorVar" : "",
           "colorName" : ""
         },
-        "fillType" : 1,
         "gradient" : {
           "gradientVariableName" : "MainGradient",
           "gradientName" : "Gradient1",
@@ -1343,6 +1513,12 @@
             0,
             1
           ]
+        },
+        "fillInsets" : {
+          "right" : 0,
+          "top" : 0,
+          "left" : 0,
+          "bottom" : 0
         }
       },
       "innerShadow" : {
@@ -1375,6 +1551,12 @@
       "drawAsynchronously" : false,
       "maskToCorners" : false,
       "name" : "DemoNavBar",
+      "tintColor" : {
+        "definedAtRuntime" : false,
+        "colorString" : "0 0 0 1",
+        "colorVar" : "",
+        "colorName" : ""
+      },
       "topInnerBorders" : [
         {
           "height" : 1,
@@ -1410,12 +1592,67 @@
       "roundedCorners" : 0
     },
     {
-      "rightInnerBorders" : [
+      "leftInnerBorders" : [
 
       ],
       "canvasBackgroundType" : "Transparent",
-      "roundedCorners" : 15,
-      "canvasBackgroundColor" : "0 0 0 0",
+      "strokeColor" : {
+        "definedAtRuntime" : false,
+        "colorString" : "0.0814005 0.0813906 0.081397 1",
+        "colorVar" : "DemoBorder",
+        "colorName" : ""
+      },
+      "useCustomTintColor" : false,
+      "background" : {
+        "fillType" : 1,
+        "fillColor" : {
+          "definedAtRuntime" : false,
+          "colorString" : "0 0 0 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
+        "gradient" : {
+          "gradientVariableName" : "MainGradient",
+          "gradientName" : "Gradient1",
+          "colors" : [
+            {
+              "definedAtRuntime" : false,
+              "colorString" : "0.279545 0.279493 0.279526 1",
+              "colorVar" : "DemoNavTop",
+              "colorName" : ""
+            },
+            {
+              "definedAtRuntime" : false,
+              "colorString" : "0.199563 0.199557 0.19956 1",
+              "colorVar" : "DemoColor",
+              "colorName" : ""
+            }
+          ],
+          "gradientAngle" : 180,
+          "locations" : [
+            0,
+            1
+          ]
+        },
+        "fillInsets" : {
+          "right" : 0,
+          "top" : 0,
+          "left" : 0,
+          "bottom" : 0
+        }
+      },
+      "innerShadow" : {
+        "xOffset" : 0,
+        "color" : {
+          "definedAtRuntime" : false,
+          "colorString" : "1 1 1 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
+        "yOffset" : -2,
+        "opacity" : 0.1000000014901161,
+        "radius" : 0
+      },
       "shadow" : {
         "xOffset" : 0,
         "color" : {
@@ -1429,11 +1666,15 @@
         "radius" : 0
       },
       "strokeWidth" : 1,
+      "cornerRadius" : 8,
+      "canvasBackgroundColor" : "0 0 0 0",
+      "drawAsynchronously" : false,
       "maskToCorners" : true,
-      "strokeColor" : {
+      "name" : "DemoNavBarButton",
+      "tintColor" : {
         "definedAtRuntime" : false,
-        "colorString" : "0.0814005 0.0813906 0.081397 1",
-        "colorVar" : "DemoBorder",
+        "colorString" : "0 0 0 1",
+        "colorVar" : "",
         "colorName" : ""
       },
       "topInnerBorders" : [
@@ -1448,51 +1689,7 @@
           "blendMode" : 0
         }
       ],
-      "innerShadow" : {
-        "xOffset" : 0,
-        "color" : {
-          "definedAtRuntime" : false,
-          "colorString" : "1 1 1 1",
-          "colorVar" : "",
-          "colorName" : ""
-        },
-        "yOffset" : -2,
-        "opacity" : 0.1000000014901161,
-        "radius" : 0
-      },
-      "background" : {
-        "fillColor" : {
-          "definedAtRuntime" : false,
-          "colorString" : "0 0 0 1",
-          "colorVar" : "",
-          "colorName" : ""
-        },
-        "fillType" : 1,
-        "gradient" : {
-          "gradientVariableName" : "MainGradient",
-          "gradientName" : "Gradient1",
-          "colors" : [
-            {
-              "definedAtRuntime" : false,
-              "colorString" : "0.279545 0.279493 0.279526 1",
-              "colorVar" : "DemoNavTop",
-              "colorName" : ""
-            },
-            {
-              "definedAtRuntime" : false,
-              "colorString" : "0.199563 0.199557 0.19956 1",
-              "colorVar" : "DemoColor",
-              "colorName" : ""
-            }
-          ],
-          "gradientAngle" : 180,
-          "locations" : [
-            0,
-            1
-          ]
-        }
-      },
-      "leftInnerBorders" : [
+      "bottomInnerBorders" : [
 
       ],
       "controlStyle" : {
@@ -1500,13 +1697,11 @@
         "normalTextStyle" : "BarButtonText",
         "selectedStyleName" : "Current - Flipped Gradient"
       },
-      "drawAsynchronously" : false,
-      "bottomInnerBorders" : [
+      "rightInnerBorders" : [
 
       ],
-      "cornerRadius" : 8,
-      "name" : "DemoNavBarButton",
-      "isLeaf" : true
+      "isLeaf" : true,
+      "roundedCorners" : 15
     },
     {
       "leftInnerBorders" : [
@@ -1520,15 +1715,16 @@
         "colorVar" : "",
         "colorName" : ""
       },
+      "useCustomTintColor" : false,
       "searchFieldStyleName" : "SearchField",
       "background" : {
+        "fillType" : 1,
         "fillColor" : {
           "definedAtRuntime" : false,
           "colorString" : "0 0 0 1",
           "colorVar" : "",
           "colorName" : ""
         },
-        "fillType" : 1,
         "gradient" : {
           "gradientVariableName" : "MainGradient",
           "gradientName" : "Gradient1",
@@ -1551,6 +1747,12 @@
             0,
             1
           ]
+        },
+        "fillInsets" : {
+          "right" : 0,
+          "top" : 0,
+          "left" : 0,
+          "bottom" : 0
         }
       },
       "innerShadow" : {
@@ -1583,6 +1785,12 @@
       "drawAsynchronously" : false,
       "maskToCorners" : false,
       "name" : "SearchBar",
+      "tintColor" : {
+        "definedAtRuntime" : false,
+        "colorString" : "0 0 0 1",
+        "colorVar" : "",
+        "colorName" : ""
+      },
       "topInnerBorders" : [
         {
           "height" : 1,
@@ -1633,14 +1841,15 @@
             "colorName" : ""
           },
           "segmentDividerWidth" : 1,
+          "useCustomTintColor" : false,
           "background" : {
+            "fillType" : 1,
             "fillColor" : {
               "definedAtRuntime" : false,
               "colorString" : "0 0 0 1",
               "colorVar" : "",
               "colorName" : ""
             },
-            "fillType" : 1,
             "gradient" : {
               "gradientVariableName" : "MainFlipped",
               "gradientName" : "Gradient1",
@@ -1663,6 +1872,12 @@
                 0,
                 1
               ]
+            },
+            "fillInsets" : {
+              "right" : 0,
+              "top" : 0,
+              "left" : 0,
+              "bottom" : 0
             }
           },
           "innerShadow" : {
@@ -1703,6 +1918,12 @@
           "topInnerBorders" : [
 
           ],
+          "tintColor" : {
+            "definedAtRuntime" : false,
+            "colorString" : "0 0 0 1",
+            "colorVar" : "",
+            "colorName" : ""
+          },
           "segmentDividerColor" : {
             "definedAtRuntime" : false,
             "colorString" : "0.129412 0.180392 0.235294 1",
@@ -1733,14 +1954,15 @@
             "colorName" : ""
           },
           "segmentDividerWidth" : 1,
+          "useCustomTintColor" : false,
           "background" : {
+            "fillType" : 1,
             "fillColor" : {
               "definedAtRuntime" : false,
               "colorString" : "0 0 0 1",
               "colorVar" : "",
               "colorName" : ""
             },
-            "fillType" : 1,
             "gradient" : {
               "gradientVariableName" : "MainGradient",
               "gradientName" : "Gradient1",
@@ -1763,6 +1985,12 @@
                 0,
                 1
               ]
+            },
+            "fillInsets" : {
+              "right" : 0,
+              "top" : 0,
+              "left" : 0,
+              "bottom" : 0
             }
           },
           "innerShadow" : {
@@ -1812,6 +2040,12 @@
               "blendMode" : 0
             }
           ],
+          "tintColor" : {
+            "definedAtRuntime" : false,
+            "colorString" : "0 0 0 1",
+            "colorVar" : "",
+            "colorName" : ""
+          },
           "segmentDividerColor" : {
             "definedAtRuntime" : false,
             "colorString" : "0.107236 0.107214 0.107228 1",
@@ -1834,55 +2068,25 @@
       "isLeaf" : false
     },
     {
-      "rightInnerBorders" : [
+      "leftInnerBorders" : [
 
       ],
       "canvasBackgroundType" : "Transparent",
-      "roundedCorners" : 0,
-      "canvasBackgroundColor" : "0 0 0 0",
-      "shadow" : {
-        "xOffset" : 0,
-        "color" : {
-          "definedAtRuntime" : false,
-          "colorString" : "0 0 0 1",
-          "colorVar" : "",
-          "colorName" : ""
-        },
-        "yOffset" : -1,
-        "opacity" : 0,
-        "radius" : 0
-      },
-      "strokeWidth" : 0,
-      "maskToCorners" : false,
       "strokeColor" : {
         "definedAtRuntime" : false,
         "colorString" : "0 0 0 1",
         "colorVar" : "",
         "colorName" : ""
       },
-      "topInnerBorders" : [
-
-      ],
-      "innerShadow" : {
-        "xOffset" : 0,
-        "color" : {
-          "definedAtRuntime" : false,
-          "colorString" : "0 0 0 1",
-          "colorVar" : "",
-          "colorName" : ""
-        },
-        "yOffset" : -1,
-        "opacity" : 0,
-        "radius" : 0
-      },
+      "useCustomTintColor" : false,
       "background" : {
+        "fillType" : 0,
         "fillColor" : {
           "definedAtRuntime" : false,
           "colorString" : "0 0 0 1",
           "colorVar" : "",
           "colorName" : ""
         },
-        "fillType" : 0,
         "gradient" : {
           "gradientName" : "Gradient1",
           "colors" : [
@@ -1897,31 +2101,26 @@
           "locations" : [
             0
           ]
+        },
+        "fillInsets" : {
+          "right" : 0,
+          "top" : 0,
+          "left" : 0,
+          "bottom" : 0
         }
       },
-      "leftInnerBorders" : [
-
-      ],
-      "controlStyle" : {
-
+      "innerShadow" : {
+        "xOffset" : 0,
+        "color" : {
+          "definedAtRuntime" : false,
+          "colorString" : "0 0 0 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
+        "yOffset" : -1,
+        "opacity" : 0,
+        "radius" : 0
       },
-      "drawAsynchronously" : false,
-      "bottomInnerBorders" : [
-
-      ],
-      "cornerRadius" : 0,
-      "name" : "Container",
-      "isLeaf" : true
-    }
-  ],
-  "imageStyles" : [
-    {
-      "rightInnerBorders" : [
-
-      ],
-      "canvasBackgroundType" : "Transparent",
-      "roundedCorners" : 0,
-      "canvasBackgroundColor" : "0 0 0 0",
       "shadow" : {
         "xOffset" : 0,
         "color" : {
@@ -1930,13 +2129,17 @@
           "colorVar" : "",
           "colorName" : ""
         },
-        "yOffset" : 5,
-        "opacity" : 0.5,
-        "radius" : 10
+        "yOffset" : -1,
+        "opacity" : 0,
+        "radius" : 0
       },
-      "strokeWidth" : 0.5,
+      "strokeWidth" : 0,
+      "cornerRadius" : 0,
+      "canvasBackgroundColor" : "0 0 0 0",
+      "drawAsynchronously" : false,
       "maskToCorners" : false,
-      "strokeColor" : {
+      "name" : "Container",
+      "tintColor" : {
         "definedAtRuntime" : false,
         "colorString" : "0 0 0 1",
         "colorVar" : "",
@@ -1945,26 +2148,40 @@
       "topInnerBorders" : [
 
       ],
-      "innerShadow" : {
-        "xOffset" : 0,
-        "color" : {
-          "definedAtRuntime" : false,
-          "colorString" : "1 1 1 1",
-          "colorVar" : "",
-          "colorName" : ""
-        },
-        "yOffset" : -5,
-        "opacity" : 1,
-        "radius" : 10
+      "bottomInnerBorders" : [
+
+      ],
+      "controlStyle" : {
+
       },
+      "rightInnerBorders" : [
+
+      ],
+      "isLeaf" : true,
+      "roundedCorners" : 0
+    }
+  ],
+  "imageStyles" : [
+    {
+      "leftInnerBorders" : [
+
+      ],
+      "canvasBackgroundType" : "Transparent",
+      "strokeColor" : {
+        "definedAtRuntime" : false,
+        "colorString" : "0 0 0 1",
+        "colorVar" : "",
+        "colorName" : ""
+      },
+      "useCustomTintColor" : false,
       "background" : {
+        "fillType" : 1,
         "fillColor" : {
           "definedAtRuntime" : false,
           "colorString" : "0 0 0 1",
           "colorVar" : "",
           "colorName" : ""
         },
-        "fillType" : 1,
         "gradient" : {
           "gradientName" : "Gradient1",
           "colors" : [
@@ -1986,29 +2203,26 @@
             0,
             1
           ]
+        },
+        "fillInsets" : {
+          "right" : 0,
+          "top" : 0,
+          "left" : 0,
+          "bottom" : 0
         }
       },
-      "leftInnerBorders" : [
-
-      ],
-      "controlStyle" : {
-
+      "innerShadow" : {
+        "xOffset" : 0,
+        "color" : {
+          "definedAtRuntime" : false,
+          "colorString" : "1 1 1 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
+        "yOffset" : -5,
+        "opacity" : 1,
+        "radius" : 10
       },
-      "drawAsynchronously" : false,
-      "bottomInnerBorders" : [
-
-      ],
-      "cornerRadius" : 0,
-      "name" : "StarStyle",
-      "isLeaf" : true
-    },
-    {
-      "rightInnerBorders" : [
-
-      ],
-      "canvasBackgroundType" : "Transparent",
-      "roundedCorners" : 0,
-      "canvasBackgroundColor" : "0 0 0 0",
       "shadow" : {
         "xOffset" : 0,
         "color" : {
@@ -2017,41 +2231,57 @@
           "colorVar" : "",
           "colorName" : ""
         },
-        "yOffset" : 1,
-        "opacity" : 0.2000000029802322,
-        "radius" : 3
+        "yOffset" : 5,
+        "opacity" : 0.5,
+        "radius" : 10
       },
       "strokeWidth" : 0.5,
+      "cornerRadius" : 0,
+      "canvasBackgroundColor" : "0 0 0 0",
+      "drawAsynchronously" : false,
       "maskToCorners" : false,
+      "name" : "StarStyle",
+      "tintColor" : {
+        "definedAtRuntime" : false,
+        "colorString" : "0 0 0 1",
+        "colorVar" : "",
+        "colorName" : ""
+      },
+      "topInnerBorders" : [
+
+      ],
+      "bottomInnerBorders" : [
+
+      ],
+      "controlStyle" : {
+
+      },
+      "rightInnerBorders" : [
+
+      ],
+      "isLeaf" : true,
+      "roundedCorners" : 0
+    },
+    {
+      "leftInnerBorders" : [
+
+      ],
+      "canvasBackgroundType" : "Transparent",
       "strokeColor" : {
         "definedAtRuntime" : false,
         "colorString" : "0.0814005 0.0813906 0.081397 1",
         "colorVar" : "DemoBorder",
         "colorName" : ""
       },
-      "topInnerBorders" : [
-
-      ],
-      "innerShadow" : {
-        "xOffset" : 0,
-        "color" : {
-          "definedAtRuntime" : false,
-          "colorString" : "1 0.999974 0.999991 1",
-          "colorVar" : "",
-          "colorName" : ""
-        },
-        "yOffset" : -1,
-        "opacity" : 1,
-        "radius" : 2
-      },
+      "useCustomTintColor" : false,
       "background" : {
+        "fillType" : 1,
         "fillColor" : {
           "definedAtRuntime" : false,
           "colorString" : "0 0 0 1",
           "colorVar" : "",
           "colorName" : ""
         },
-        "fillType" : 1,
         "gradient" : {
           "gradientVariableName" : "IconGradient",
           "gradientName" : "Gradient1",
@@ -2074,21 +2304,64 @@
             0,
             1
           ]
+        },
+        "fillInsets" : {
+          "right" : 0,
+          "top" : 0,
+          "left" : 0,
+          "bottom" : 0
         }
       },
-      "leftInnerBorders" : [
+      "innerShadow" : {
+        "xOffset" : 0,
+        "color" : {
+          "definedAtRuntime" : false,
+          "colorString" : "1 0.999974 0.999991 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
+        "yOffset" : -1,
+        "opacity" : 1,
+        "radius" : 2
+      },
+      "shadow" : {
+        "xOffset" : 0,
+        "color" : {
+          "definedAtRuntime" : false,
+          "colorString" : "0 0 0 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
+        "yOffset" : 1,
+        "opacity" : 0.2000000029802322,
+        "radius" : 3
+      },
+      "strokeWidth" : 0.5,
+      "cornerRadius" : 0,
+      "canvasBackgroundColor" : "0 0 0 0",
+      "drawAsynchronously" : false,
+      "maskToCorners" : false,
+      "name" : "Demo",
+      "tintColor" : {
+        "definedAtRuntime" : false,
+        "colorString" : "0 0 0 1",
+        "colorVar" : "",
+        "colorName" : ""
+      },
+      "topInnerBorders" : [
+
+      ],
+      "bottomInnerBorders" : [
 
       ],
       "controlStyle" : {
 
       },
-      "drawAsynchronously" : false,
-      "bottomInnerBorders" : [
+      "rightInnerBorders" : [
 
       ],
-      "cornerRadius" : 0,
-      "name" : "Demo",
-      "isLeaf" : true
+      "isLeaf" : true,
+      "roundedCorners" : 0
     }
   ],
   "colors" : [

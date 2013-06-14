@@ -12,5 +12,7 @@
 @interface UIBezierPath (DynUI)
 
 - (void)centerInRect:(CGRect)rect;
+- (void)insetPathRelativeToCurrentBounds:(UIEdgeInsets)insets;
+
 
 @end

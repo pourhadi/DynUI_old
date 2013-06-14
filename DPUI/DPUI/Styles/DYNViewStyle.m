@@ -171,6 +171,14 @@
 			
 			self.customSettings = tmpSettings;
 		}
+		
+		if ([dictionary objectForKey:kDYNUseCustomTintColorKey]) {
+			self.useCustomTintColor = [[dictionary objectForKey:kDYNUseCustomTintColorKey] boolValue];
+			if ([dictionary objectForKey:kDYNTintColorKey]) {
+				self.tintColor = [[DYNColor alloc] initWithDictionary:[dictionary objectForKey:kDYNTintColorKey]];
+			}
+		}
+		
     }
     return self;
 }

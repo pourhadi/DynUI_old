@@ -28,6 +28,8 @@
 		4403A8D7175184D500BE3A39 /* UIBezierPath+SVG.m in Sources */ = {isa = PBXBuildFile; fileRef = 4403A8D6175184D500BE3A39 /* UIBezierPath+SVG.m */; };
 		4403A8DA1751853200BE3A39 /* DYNIcons.m in Sources */ = {isa = PBXBuildFile; fileRef = 4403A8D91751853200BE3A39 /* DYNIcons.m */; };
 		440ABB35175C1F630030C325 /* NSObject+DynUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 440ABB34175C1F630030C325 /* NSObject+DynUI.m */; };
+		440ABD84176AC02A00AE9E87 /* DYNInsets.m in Sources */ = {isa = PBXBuildFile; fileRef = 440ABD83176ABFEB00AE9E87 /* DYNInsets.m */; };
+		440ABD85176AC02E00AE9E87 /* DYNInsets.m in Sources */ = {isa = PBXBuildFile; fileRef = 440ABD83176ABFEB00AE9E87 /* DYNInsets.m */; };
 		443BE6601760486D00244333 /* DYNGradient.h in Headers */ = {isa = PBXBuildFile; fileRef = D71B08621745438F003440E4 /* DYNGradient.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		443BE6611760486D00244333 /* DYNPassThroughView.h in Headers */ = {isa = PBXBuildFile; fileRef = D7C245CB174BE6DD009C3CC2 /* DYNPassThroughView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		443BE6621760486D00244333 /* DYNCustomSetting.h in Headers */ = {isa = PBXBuildFile; fileRef = 4403A8C91750417B00BE3A39 /* DYNCustomSetting.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -172,6 +174,8 @@
 		4403A8D91751853200BE3A39 /* DYNIcons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DYNIcons.m; path = ../../DPUI/DPUI/Tools/DYNIcons.m; sourceTree = "<group>"; };
 		440ABB33175C1F630030C325 /* NSObject+DynUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+DynUI.h"; sourceTree = "<group>"; };
 		440ABB34175C1F630030C325 /* NSObject+DynUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+DynUI.m"; sourceTree = "<group>"; };
+		440ABD82176ABFEB00AE9E87 /* DYNInsets.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DYNInsets.h; path = ../../DPUI/DPUI/Tools/DYNInsets.h; sourceTree = "<group>"; };
+		440ABD83176ABFEB00AE9E87 /* DYNInsets.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = DYNInsets.m; path = ../../DPUI/DPUI/Tools/DYNInsets.m; sourceTree = "<group>"; };
 		443BE60E1760465C00244333 /* DynUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DynUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		443BE60F1760465C00244333 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		443BE6831760489A00244333 /* KGNoise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGNoise.h; sourceTree = "<group>"; };
@@ -516,6 +520,8 @@
 				4403A8CA1750417B00BE3A39 /* DYNCustomSetting.m */,
 				4403A8D81751853200BE3A39 /* DYNIcons.h */,
 				4403A8D91751853200BE3A39 /* DYNIcons.m */,
+				440ABD82176ABFEB00AE9E87 /* DYNInsets.h */,
+				440ABD83176ABFEB00AE9E87 /* DYNInsets.m */,
 			);
 			name = Tools;
 			sourceTree = "<group>";
@@ -693,6 +699,7 @@
 				443BE68917604AB900244333 /* DYNPassThroughView.m in Sources */,
 				443BE68A17604AB900244333 /* DYNCustomSetting.m in Sources */,
 				443BE68B17604AB900244333 /* DYNIcons.m in Sources */,
+				440ABD85176AC02E00AE9E87 /* DYNInsets.m in Sources */,
 				443BE68C17604AB900244333 /* UINavigationBar+DynUI.m in Sources */,
 				443BE68D17604AB900244333 /* NSString+DynUI.m in Sources */,
 				443BE68E17604AB900244333 /* UIColor+DynUI.m in Sources */,
@@ -733,6 +740,7 @@
 				44FADCD3173CE99700EB6BF4 /* main.m in Sources */,
 				44FADCD7173CE99700EB6BF4 /* DYNAppDelegate.m in Sources */,
 				44FADCE0173CE99700EB6BF4 /* DYNViewController.m in Sources */,
+				440ABD84176AC02A00AE9E87 /* DYNInsets.m in Sources */,
 				44FADD4F173CEAAF00EB6BF4 /* NSString+DynUI.m in Sources */,
 				44FADD50173CEAAF00EB6BF4 /* UIColor+DynUI.m in Sources */,
 				44FADD51173CEAAF00EB6BF4 /* UIImage+DynUI.m in Sources */,

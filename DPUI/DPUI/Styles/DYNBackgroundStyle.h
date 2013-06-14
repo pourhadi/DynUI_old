@@ -9,7 +9,11 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 @class DYNStyleParameters;
+@class DYNInsets;
+
 @interface DYNBackgroundStyle : NSObject
+
+@property (nonatomic, strong) DYNInsets *fillInsets;
 
 /** The background colors, represented as DYNColor objects. If there is more than one color in the array, the colors are extrapolated equidistant across the frame as a gradient. */
 @property (nonatomic, strong) NSArray *colors;

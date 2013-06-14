@@ -14,6 +14,7 @@
 @class DYNColor;
 @class DYNControlStyle;
 @class DYNStyleParameters;
+@class DYNInsets;
 
 typedef NS_OPTIONS (NSUInteger, CornerRadiusType) {
     CornerRadiusTypeCustom,
@@ -31,6 +32,9 @@ typedef NS_OPTIONS (NSUInteger, CornerRadiusType) {
 /// @name General Style Properties
 ///---------------------------------------------------------------------------------------
 @property (nonatomic, strong) DYNBackgroundStyle *background;
+
+@property (nonatomic) BOOL useCustomTintColor;
+@property (nonatomic, strong) DYNColor *tintColor;
 
 /** NSArray of DYNInnerBorderStyle objects that specify the borders to draw on the top side of the view.
  
