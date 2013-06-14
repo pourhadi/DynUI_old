@@ -156,6 +156,8 @@
 		D7C245CD174BE6DD009C3CC2 /* DYNPassThroughView.m in Sources */ = {isa = PBXBuildFile; fileRef = D7C245CC174BE6DD009C3CC2 /* DYNPassThroughView.m */; };
 		D7C245D4174BEB67009C3CC2 /* DYNContainerTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7C245D2174BEB67009C3CC2 /* DYNContainerTestViewController.m */; };
 		D7C245D5174BEB67009C3CC2 /* DYNContainerTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7C245D3174BEB67009C3CC2 /* DYNContainerTestViewController.xib */; };
+		D7D3FFEF176BA0D400F4E734 /* icons.json in Resources */ = {isa = PBXBuildFile; fileRef = 4403A8D3175184A700BE3A39 /* icons.json */; };
+		D7D3FFF2176BA17F00F4E734 /* DYNInsets.h in Headers */ = {isa = PBXBuildFile; fileRef = 440ABD82176ABFEB00AE9E87 /* DYNInsets.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D7DE2A9F1756A9D7005072C5 /* UINavigationBar+DynUI.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DE2A9E1756A9D7005072C5 /* UINavigationBar+DynUI.m */; };
 		D7F8AABD173DAF67004ABF7E /* DYNStyleParameters.m in Sources */ = {isa = PBXBuildFile; fileRef = D7F8AABC173DAF67004ABF7E /* DYNStyleParameters.m */; };
 /* End PBXBuildFile section */
@@ -568,6 +570,7 @@
 				443BE6801760486D00244333 /* DYNTextStyle.h in Headers */,
 				443BE6811760486D00244333 /* DYNViewStyle.h in Headers */,
 				443BE6821760486D00244333 /* DYNPopoverStyle.h in Headers */,
+				D7D3FFF2176BA17F00F4E734 /* DYNInsets.h in Headers */,
 				443BE6851760489A00244333 /* KGNoise.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -644,6 +647,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7D3FFEF176BA0D400F4E734 /* icons.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

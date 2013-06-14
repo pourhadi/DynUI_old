@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import <UIKit/UIKit.h>
 @interface DYNInsets : NSObject
 
 @property (nonatomic, strong) NSNumber *top;

@@ -35,7 +35,7 @@
 - (NSDictionary*)iconDictionary
 {
 	if (!_iconDictionary) {
-		
+        
 		NSData *data = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"icons" ofType:@"json"] options:0 error:nil];
 		if (data) {
 			_iconDictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];

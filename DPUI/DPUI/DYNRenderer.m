@@ -34,7 +34,8 @@
 {
 	if (style.useCustomTintColor) {
 		if ([view respondsToSelector:@selector(setTintColor:)]) {
-			view.tintColor = style.tintColor.color;
+            [view performSelector:@selector(setTintColor:) withObject:style.tintColor.color];
+			
 		}
 	}
 }
