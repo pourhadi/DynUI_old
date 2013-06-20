@@ -151,10 +151,12 @@ GET_AND_SET_CLASS_OBJ(swizzledDidAddSubview, @(NO));
     [self addSubview:dyn_overlayView];
     
     if (self.constraints) {
-        NSDictionary *vars = NSDictionaryOfVariableBindings(dyn_overlayView);
-        NSArray *constraints = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[dyn_overlayView]-0-|" options:0 metrics:nil views:vars];
-        constraints = [constraints arrayByAddingObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[dyn_overlayView]-0-|" options:0 metrics:nil views:vars]];
-        [self addConstraints:constraints];
+        dyn_overlayView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+
+//        NSDictionary *vars = NSDictionaryOfVariableBindings(dyn_overlayView);
+//        NSArray *constraints = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[dyn_overlayView]-0-|" options:0 metrics:nil views:vars];
+//        constraints = [constraints arrayByAddingObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[dyn_overlayView]-0-|" options:0 metrics:nil views:vars]];
+//        [self addConstraints:constraints];
     } else {
         dyn_overlayView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     }

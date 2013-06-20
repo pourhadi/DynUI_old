@@ -481,7 +481,12 @@
     DYNViewStyle *navStyle = (DYNViewStyle *)[[DYNManager sharedInstance] styleForName:styleName];
     
     UIImage *img = [navStyle imageForStyleWithSize:navigationBar.frame.size parameters:navigationBar.styleParameters];
-    [navigationBar setBackgroundImage:img forBarMetrics:UIBarMetricsDefault];
+    
+    if ([navigationBar respondsToSelector:@selector(setBackgroundImage:forBarPosition:barMetrics:)]) {
+        [navigationBar setBackgroundImage:img.dyn_resizableImage forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
+    } else {
+        [navigationBar setBackgroundImage:img forBarMetrics:UIBarMetricsDefault];
+    }
     
     if (navStyle.navBarTitleTextStyle) {
         [navigationBar setTitleTextAttributes:navStyle.navBarTitleTextStyle.titleTextAttributes];
