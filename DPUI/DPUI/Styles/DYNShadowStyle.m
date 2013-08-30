@@ -122,4 +122,10 @@
     return image;
 }
 
+- (void)set
+{
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSetShadowWithColor(context, self.offset, self.radius, [[self.color.color colorWithAlphaComponent:self.opacity] CGColor]);
+}
+
 @end

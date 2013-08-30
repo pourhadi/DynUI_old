@@ -61,6 +61,9 @@ static const void *const kDYNSetTextSwizzledKey = "_DYNSetTextSwizzledKey";
 }
 
 - (void)setDyn_autoScroll:(BOOL)dyn_autoScroll {
+    @autoreleasepool {
+        
+
     objc_setAssociatedObject(self, kDYNLabelAutoScrollKey, @(dyn_autoScroll), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     
     if (dyn_autoScroll) {
@@ -72,10 +75,11 @@ static const void *const kDYNSetTextSwizzledKey = "_DYNSetTextSwizzledKey";
         }
 
         self.adjustsFontSizeToFitWidth = NO;
-        self.adjustsLetterSpacingToFitWidth = NO;
+      //  self.adjustsLetterSpacingToFitWidth = NO;
         
         if (![self scrollerView]) {
             UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:self.bounds];
+            [scrollView setAutoresizingToFlexibleWidthAndHeight];
             scrollView.backgroundColor = [UIColor clearColor];
             [self addSubview:scrollView];
             [self set_scrollerView:scrollView];
@@ -101,6 +105,11 @@ static const void *const kDYNSetTextSwizzledKey = "_DYNSetTextSwizzledKey";
         if ([[self class] dyn_swizzledSetText]) {
             [[self class] dyn_swizzleSetText];
         }
+        
+        if ([self scrollerView]) {
+            [[self scrollerView] removeFromSuperview];
+        }
+    }
     }
 }
 
@@ -133,7 +142,7 @@ static const void *const kDYNSetTextSwizzledKey = "_DYNSetTextSwizzledKey";
 }
 
 - (void)dyn_drawTextInRect:(CGRect)rect {
-    if (self.dyn_autoScroll) { // && [[self isScrolling] boolValue] && ![[self isPaused] boolValue]) {
+    if (self.dyn_autoScroll && [[self isScrolling] boolValue] && ![[self isPaused] boolValue]) {
     } else {
         [self dyn_drawTextInRect:rect];
     }
@@ -155,6 +164,7 @@ static const void *const kDYNSetTextSwizzledKey = "_DYNSetTextSwizzledKey";
     [self set_isScrolling:@(NO)];
     [[[self scrollerView] layer] removeAllAnimations];
     [self set_scrollAnimation:nil];
+   
     
     UILabel *firstLabel = [self firstLabel];
     UILabel *secondLabel = [self secondLabel];
@@ -162,15 +172,27 @@ static const void *const kDYNSetTextSwizzledKey = "_DYNSetTextSwizzledKey";
     [self applyLabelAttributesToLabel:secondLabel];
     
     [[self scrollerView] setContentOffset:CGPointZero];
+    CGRect b = [[self scrollerView] bounds];
+    b.origin.x = 0;
+    [[self scrollerView] setBounds:b];
 }
 
 - (void)checkTextSize {
-    CGSize size = [self.text sizeWithFont:self.font];
+    @autoreleasepool {
+        
+    
+    CGSize size = [self.text sizeWithAttributes:@{NSFontAttributeName:self.font}];
     [self set_totalTextLength:@(size.width)];
     if (size.width >= self.frame.size.width) {
         CGFloat totalDistance = size.width;
         
-        UIScrollView *scrollView = [self scrollerView];
+        
+        [[self scrollerView] removeFromSuperview];
+        [self set_scrollerView:nil];
+        
+        UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:self.bounds];
+        [self set_scrollerView:scrollView];
+        
         if (!scrollView.window) {
             scrollView.frame = self.bounds;
             [self addSubview:scrollView];
@@ -183,6 +205,8 @@ static const void *const kDYNSetTextSwizzledKey = "_DYNSetTextSwizzledKey";
         [self applyLabelAttributesToLabel:secondLabel];
         
         CGRect frame = self.bounds;
+        frame.origin.x =0;
+        frame.origin.y = 0;
         frame.size.width = totalDistance;
         firstLabel.frame = frame;
         
@@ -200,30 +224,44 @@ static const void *const kDYNSetTextSwizzledKey = "_DYNSetTextSwizzledKey";
         }
         
         [scrollView setContentOffset:CGPointZero];
-        
-        [self startScrolling];
+        CGRect b = scrollView.bounds;
+        b.origin.x = 0;
+        scrollView.bounds = b;
+            [self startScrolling];
+
     } else {
         [self set_isScrolling:@(NO)];
         
-        if ([[self scrollerView] window]) {
-            [[self scrollerView] removeFromSuperview];
-        }
+       // dispatch_async(dispatch_get_main_queue(), ^{
+            if ([self scrollerView]) {
+                [[self scrollerView] removeFromSuperview];
+            }
+       // });
+       
         [self setNeedsDisplay];
+    }
     }
 }
 
 - (void)startScrolling {
     if (![self scrollAnimation]) {
-        [self set_isScrolling:@(YES)];
+      //  dispatch_async(dispatch_get_main_queue(), ^{
+            [self set_isScrolling:@(YES)];
+            
+            CABasicAnimation *anim = [CABasicAnimation animationWithKeyPath:@"bounds.origin.x"];
+            anim.fromValue = @(0);
+            UILabel *secondLabel = [self secondLabel];
+            anim.toValue = @(secondLabel.frame.origin.x);
+            anim.delegate = self;
+            CGSize size = [self.text sizeWithAttributes:@{NSFontAttributeName:self.font}];
+            
+            anim.duration = MAX(4,[[self scrollDuration] doubleValue] / (size.width/self.frame.size.width));
         
-        CABasicAnimation *anim = [CABasicAnimation animationWithKeyPath:@"bounds.origin.x"];
-        anim.fromValue = @(0);
-        UILabel *secondLabel = [self secondLabel];
-        anim.toValue = @(secondLabel.frame.origin.x);
-        anim.delegate = self;
-        anim.duration = [[self scrollDuration] doubleValue];
-        [[[self scrollerView] layer] addAnimation:anim forKey:@"animation"];
-        [self set_scrollAnimation:anim];
+                [[[self scrollerView] layer] addAnimation:anim forKey:@"animation"];
+
+            [self set_scrollAnimation:anim];
+      ///  });
+        
     }
 }
 
@@ -283,6 +321,6 @@ GET_AND_SET_ASSOCIATED_OBJ(isPaused, @(NO));
 GET_AND_SET_ASSOCIATED_OBJ(isScrolling, @(NO))
 GET_AND_SET_ASSOCIATED_OBJ(scrollDuration, @(5))
 GET_AND_SET_ASSOCIATED_OBJ(scrollPauseDuration, @(5))
-GET_AND_SET_ASSOCIATED_OBJ(scrollTextSeparatorWidth, @(30))
+GET_AND_SET_ASSOCIATED_OBJ(scrollTextSeparatorWidth, @(45))
 
 @end

@@ -31,6 +31,7 @@ typedef NS_OPTIONS (NSUInteger, CornerRadiusType) {
 ///---------------------------------------------------------------------------------------
 /// @name General Style Properties
 ///---------------------------------------------------------------------------------------
+@property (nonatomic) BOOL drawBackground;
 @property (nonatomic, strong) DYNBackgroundStyle *background;
 
 @property (nonatomic) BOOL useCustomTintColor;

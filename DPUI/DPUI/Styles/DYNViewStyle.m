@@ -17,6 +17,7 @@
     self = [super init];
     if (self) {
         self.cornerRadii = CGSizeZero;
+        self.drawBackground = YES;
     }
     return self;
 }
@@ -243,6 +244,9 @@
 }
 
 - (void)applyStyleToView:(UIView *)view {
+    @autoreleasepool {
+        
+    
     CGSize size = view.frame.size;
 	
     UIBezierPath *path = [self pathForStyleForRect:CGRectMake(0, 0, size.width, size.height)];
@@ -270,9 +274,13 @@
 
 		
     }
+    }
 }
 
 - (UIImage *)imageForStyleWithSize:(CGSize)size path:(UIBezierPath *)path withOuterShadow:(BOOL)withOuterShadow flippedGradient:(BOOL)flippedGradient parameters:(DYNStyleParameters *)parameters {
+    @autoreleasepool {
+        
+    
     UIImage *image = [UIImage imageWithSize:size drawnWithBlock:^(CGContextRef context, CGRect rect) {
 		CGSize size = rect.size;
         CGContextSetInterpolationQuality(context, kCGInterpolationHigh);
@@ -514,6 +522,7 @@
     }
 	
     return image;
+    }
 }
 
 - (UIImage *)imageForStyleWithSize:(CGSize)size path:(UIBezierPath *)path withOuterShadow:(BOOL)withOuterShadow parameters:(DYNStyleParameters *)parameters {
@@ -556,6 +565,9 @@
 }
 
 - (UIImage *)borderImageForSize:(CGSize)size parameters:(DYNStyleParameters *)parameters {
+    @autoreleasepool {
+        
+    
     UIBezierPath *path = [self pathForStyleForRect:CGRectMake(0, 0, size.width, size.height)];
     return [UIImage imageWithSize:size drawnWithBlock:^(CGContextRef context, CGRect rect) {
 		CGSize size = rect.size;
@@ -773,6 +785,7 @@
             CGContextRestoreGState(context);
         }
     }];
+    }
 }
 
 @end

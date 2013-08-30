@@ -11,11 +11,14 @@
 @implementation NSObject (DynUI)
 
 
-- (void)setDyn_classStyle:(NSString *)dyn_classStyle
+- (void)dyn_setAutoUpdateBlock:(DYNAutoUpdateBlock)block
 {
-	[self set_dyn_classStyle:dyn_classStyle];
+    [[DYNManager sharedInstance] attachAutoUpdateBlockToObject:self block:block];
 }
 
-GET_AND_SET_ASSOCIATED_OBJ(dyn_classStyle, nil);
+- (void)dyn_removeAutoUpdateBlock
+{
+    [[DYNManager sharedInstance] removeAutoUpdateBlockFromObject:self];
+}
 
 @end

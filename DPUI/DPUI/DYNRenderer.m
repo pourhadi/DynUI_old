@@ -321,7 +321,7 @@
     
     UIImage *bgImage = [style imageForStyleWithSize:searchBar.frame.size withOuterShadow:NO flippedGradient:NO parameters:searchBar.styleParameters];
     
-    [searchBar setBackgroundImage:bgImage];
+    [searchBar setBackgroundImage:bgImage forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
     
     if (style.shadow) {
         [style.shadow addShadowToView:searchBar];
@@ -482,12 +482,13 @@
     
     UIImage *img = [navStyle imageForStyleWithSize:navigationBar.frame.size parameters:navigationBar.styleParameters];
     
-    if ([navigationBar respondsToSelector:@selector(setBackgroundImage:forBarPosition:barMetrics:)]) {
-        [navigationBar setBackgroundImage:img.dyn_resizableImage forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
-    } else {
-        [navigationBar setBackgroundImage:img forBarMetrics:UIBarMetricsDefault];
+    if (navStyle.drawBackground) {
+        if ([navigationBar respondsToSelector:@selector(setBackgroundImage:forBarPosition:barMetrics:)]) {
+            [navigationBar setBackgroundImage:img.dyn_resizableImage forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
+        } else {
+            [navigationBar setBackgroundImage:img forBarMetrics:UIBarMetricsDefault];
+        }
     }
-    
     if (navStyle.navBarTitleTextStyle) {
         [navigationBar setTitleTextAttributes:navStyle.navBarTitleTextStyle.titleTextAttributes];
     }

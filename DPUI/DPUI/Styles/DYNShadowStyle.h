@@ -24,5 +24,5 @@
 - (UIImage *)applyShadowToImage:(UIImage *)image;
 
 - (void)drawAsInnerShadowInPath:(UIBezierPath *)path context:(CGContextRef)context;
-
+- (void)set;
 @end

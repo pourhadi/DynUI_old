@@ -19,6 +19,9 @@
 
 
 - (UIImage *)applyToImage:(UIImage *)image {
+    @autoreleasepool {
+        
+    
     DYNBackgroundStyle *background = self.background;
     
     
@@ -82,6 +85,7 @@
         }];
     }
     return newImage;
+    }
 }
 
 @end

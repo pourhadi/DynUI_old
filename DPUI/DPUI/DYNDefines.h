@@ -38,6 +38,39 @@ return obj; \
 
 #define GET_AND_SET_CLASS_OBJ(NAME, DEFAULTVAL)      GET_CLASS_OBJ(NAME, DEFAULTVAL) SET_CLASS_OBJ(NAME)
 
+#define SET_ASSOCIATED_BOOL(NAME) \
+- (void)set_## NAME : (BOOL)val \
+{ \
+objc_setAssociatedObject(self, #NAME, @(val), OBJC_ASSOCIATION_RETAIN_NONATOMIC); \
+} \
+
+#define GET_ASSOCIATED_BOOL(NAME) \
+- (BOOL)NAME \
+{ \
+NSNumber *obj = objc_getAssociatedObject(self, #NAME); \
+if (!obj) return NO; \
+return obj.boolValue; \
+} \
+
+#define SET_ASSOCIATED_CLASS_BOOL(NAME) \
++ (void)set_## NAME : (BOOL)val \
+{ \
+objc_setAssociatedObject(self, #NAME, @(val), OBJC_ASSOCIATION_RETAIN_NONATOMIC); \
+} \
+
+#define GET_ASSOCIATED_CLASS_BOOL(NAME) \
++ (BOOL)NAME \
+{ \
+NSNumber *obj = objc_getAssociatedObject(self, #NAME); \
+if (!obj) return NO; \
+return obj.boolValue; \
+} \
+
+
+#define GET_AND_SET_BOOL(NAME)      GET_ASSOCIATED_BOOL(NAME) SET_ASSOCIATED_BOOL(NAME)
+#define GET_AND_SET_CLASS_BOOL(NAME)      GET_ASSOCIATED_CLASS_BOOL(NAME) SET_ASSOCIATED_CLASS_BOOL(NAME)
+
+
 NS_INLINE float oppositeSign(float x) {
     return (x > 0 ? -x : fabs(x));
 }

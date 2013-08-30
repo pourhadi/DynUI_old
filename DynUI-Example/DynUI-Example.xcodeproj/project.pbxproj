@@ -112,6 +112,12 @@
 		445BD0CE1752AE44002AF374 /* UIBezierPath+DynUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 445BD0CD1752AE44002AF374 /* UIBezierPath+DynUI.m */; };
 		4477CFDF17460D090002033A /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = 4477CFDD17460D090002033A /* star.png */; };
 		4477CFE017460D090002033A /* star@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4477CFDE17460D090002033A /* star@2x.png */; };
+		44F11BB91779475B009D198B /* DYNBlurredView.h in Headers */ = {isa = PBXBuildFile; fileRef = 44F11BB71779475B009D198B /* DYNBlurredView.h */; };
+		44F11BBA1779475B009D198B /* DYNBlurredView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44F11BB81779475B009D198B /* DYNBlurredView.m */; };
+		44F11BBB1779475B009D198B /* DYNBlurredView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44F11BB81779475B009D198B /* DYNBlurredView.m */; };
+		44F11BBE17794782009D198B /* UIImage+ImageEffects.h in Headers */ = {isa = PBXBuildFile; fileRef = 44F11BBC17794782009D198B /* UIImage+ImageEffects.h */; };
+		44F11BBF17794782009D198B /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 44F11BBD17794782009D198B /* UIImage+ImageEffects.m */; };
+		44F11BC017794782009D198B /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 44F11BBD17794782009D198B /* UIImage+ImageEffects.m */; };
 		44FADCC7173CE99700EB6BF4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44FADCC6173CE99700EB6BF4 /* UIKit.framework */; };
 		44FADCC9173CE99700EB6BF4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44FADCC8173CE99700EB6BF4 /* Foundation.framework */; };
 		44FADCCB173CE99700EB6BF4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44FADCCA173CE99700EB6BF4 /* CoreGraphics.framework */; };
@@ -197,6 +203,10 @@
 		445BD0CD1752AE44002AF374 /* UIBezierPath+DynUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBezierPath+DynUI.m"; sourceTree = "<group>"; };
 		4477CFDD17460D090002033A /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
 		4477CFDE17460D090002033A /* star@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star@2x.png"; sourceTree = "<group>"; };
+		44F11BB71779475B009D198B /* DYNBlurredView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DYNBlurredView.h; path = ../../DPUI/DPUI/Tools/DYNBlurredView.h; sourceTree = "<group>"; };
+		44F11BB81779475B009D198B /* DYNBlurredView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DYNBlurredView.m; path = ../../DPUI/DPUI/Tools/DYNBlurredView.m; sourceTree = "<group>"; };
+		44F11BBC17794782009D198B /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
+		44F11BBD17794782009D198B /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
 		44FADCC3173CE99700EB6BF4 /* DynUI-Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DynUI-Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		44FADCC6173CE99700EB6BF4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		44FADCC8173CE99700EB6BF4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -465,6 +475,8 @@
 		44FADD39173CEAAF00EB6BF4 /* External */ = {
 			isa = PBXGroup;
 			children = (
+				44F11BBC17794782009D198B /* UIImage+ImageEffects.h */,
+				44F11BBD17794782009D198B /* UIImage+ImageEffects.m */,
 				443BE6831760489A00244333 /* KGNoise.h */,
 				443BE6841760489A00244333 /* KGNoise.m */,
 				4403A8D5175184D500BE3A39 /* UIBezierPath+SVG.h */,
@@ -524,6 +536,8 @@
 				4403A8D91751853200BE3A39 /* DYNIcons.m */,
 				440ABD82176ABFEB00AE9E87 /* DYNInsets.h */,
 				440ABD83176ABFEB00AE9E87 /* DYNInsets.m */,
+				44F11BB71779475B009D198B /* DYNBlurredView.h */,
+				44F11BB81779475B009D198B /* DYNBlurredView.m */,
 			);
 			name = Tools;
 			sourceTree = "<group>";
@@ -563,6 +577,7 @@
 				443BE6791760486D00244333 /* DYNBackgroundStyle.h in Headers */,
 				443BE67A1760486D00244333 /* DYNColor.h in Headers */,
 				443BE67B1760486D00244333 /* DYNControlStyle.h in Headers */,
+				44F11BB91779475B009D198B /* DYNBlurredView.h in Headers */,
 				443BE67C1760486D00244333 /* DYNImageStyle.h in Headers */,
 				443BE67D1760486D00244333 /* DYNInnerBorderStyle.h in Headers */,
 				443BE67E1760486D00244333 /* DYNShadowStyle.h in Headers */,
@@ -571,6 +586,7 @@
 				443BE6811760486D00244333 /* DYNViewStyle.h in Headers */,
 				443BE6821760486D00244333 /* DYNPopoverStyle.h in Headers */,
 				D7D3FFF2176BA17F00F4E734 /* DYNInsets.h in Headers */,
+				44F11BBE17794782009D198B /* UIImage+ImageEffects.h in Headers */,
 				443BE6851760489A00244333 /* KGNoise.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -720,6 +736,8 @@
 				443BE69917604AB900244333 /* DYNRenderer.m in Sources */,
 				443BE69A17604AB900244333 /* UIBezierPath+SVG.m in Sources */,
 				443BE69B17604AB900244333 /* SVProgressHUD.m in Sources */,
+				44F11BBB1779475B009D198B /* DYNBlurredView.m in Sources */,
+				44F11BC017794782009D198B /* UIImage+ImageEffects.m in Sources */,
 				443BE69C17604AB900244333 /* JRSwizzle.m in Sources */,
 				443BE69D17604AB900244333 /* DYNSliderStyle.m in Sources */,
 				443BE69E17604AB900244333 /* DYNStyleParameters.m in Sources */,
@@ -779,7 +797,9 @@
 				4403A8D11750A74B00BE3A39 /* UITableViewCell+DynUI.m in Sources */,
 				4403A8D7175184D500BE3A39 /* UIBezierPath+SVG.m in Sources */,
 				4403A8DA1751853200BE3A39 /* DYNIcons.m in Sources */,
+				44F11BBF17794782009D198B /* UIImage+ImageEffects.m in Sources */,
 				445BD0C51751F4A0002AF374 /* DYNIconDemoViewController.m in Sources */,
+				44F11BBA1779475B009D198B /* DYNBlurredView.m in Sources */,
 				445BD0CA1752AB1A002AF374 /* DYNBigIconViewController.m in Sources */,
 				445BD0CE1752AE44002AF374 /* UIBezierPath+DynUI.m in Sources */,
 				D7DE2A9F1756A9D7005072C5 /* UINavigationBar+DynUI.m in Sources */,

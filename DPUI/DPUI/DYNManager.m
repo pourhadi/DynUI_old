@@ -12,6 +12,11 @@
 #import "SVProgressHUD.h"
 #include "TargetConditionals.h"
 
+@interface DYNManager ()
+@property (nonatomic, strong) NSMutableArray *updateBlocks;
+@property (nonatomic, strong) NSMutableArray *updateObservers;
+@end
+
 @implementation DYNManager
 
 + (DYNManager *)sharedInstance {
@@ -60,7 +65,7 @@
 }
 
 - (DYNSliderStyle *)sliderStyleForName:(NSString *)name {
-    NSPredicate *pred = [NSPredicate predicateWithFormat:@"name == %@", name];
+    NSPredicate *pred = [NSPredicate predicateWithFormat:@"name LIKE %@", name];
     NSArray *filtered = [self.sliderStyles filteredArrayUsingPredicate:pred];
     if (filtered) {
         if (filtered.count > 0) {
@@ -71,7 +76,10 @@
 }
 
 - (DYNViewStyle *)styleForName:(NSString *)name {
-    NSPredicate *pred = [NSPredicate predicateWithFormat:@"name == %@", name];
+    @autoreleasepool {
+        
+    
+    NSPredicate *pred = [NSPredicate predicateWithFormat:@"name LIKE %@", name];
     NSArray *filtered = [self.styles filteredArrayUsingPredicate:pred];
     if (filtered) {
         if (filtered.count > 0) {
@@ -79,10 +87,14 @@
         }
     }
     return nil;
+    }
 }
 
 - (UIColor *)colorForVariableName:(NSString *)variableName {
-    NSPredicate *pred = [NSPredicate predicateWithFormat:@"variableName == %@", variableName];
+    @autoreleasepool {
+        
+    
+    NSPredicate *pred = [NSPredicate predicateWithFormat:@"variableName LIKE %@", variableName];
     NSArray *filtered = [self.colorVariables filteredArrayUsingPredicate:pred];
     if (filtered) {
         if (filtered.count > 0) {
@@ -90,10 +102,14 @@
         }
     }
     return nil;
+    }
 }
 
 - (DYNTextStyle *)textStyleForName:(NSString *)name {
-    NSPredicate *pred = [NSPredicate predicateWithFormat:@"name == %@", name];
+    @autoreleasepool {
+        
+    
+    NSPredicate *pred = [NSPredicate predicateWithFormat:@"name LIKE %@", name];
     NSArray *filtered = [self.textStyles filteredArrayUsingPredicate:pred];
     if (filtered) {
         if (filtered.count > 0) {
@@ -101,10 +117,14 @@
         }
     }
     return nil;
+    }
 }
 
 - (DYNImageStyle *)imageStyleForName:(NSString *)name {
-    NSPredicate *pred = [NSPredicate predicateWithFormat:@"name == %@", name];
+    @autoreleasepool {
+        
+    
+    NSPredicate *pred = [NSPredicate predicateWithFormat:@"name LIKE %@", name];
     NSArray *filtered = [self.imageStyles filteredArrayUsingPredicate:pred];
     if (filtered) {
         if (filtered.count > 0) {
@@ -112,11 +132,12 @@
         }
     }
     return nil;
+    }
 }
 
 - (DYNGradient*)gradientForName:(NSString *)name
 {
-	NSPredicate *pred = [NSPredicate predicateWithFormat:@"gradientName == %@", name];
+	NSPredicate *pred = [NSPredicate predicateWithFormat:@"gradientName LIKE %@", name];
     NSArray *filtered = [self.gradients filteredArrayUsingPredicate:pred];
     if (filtered) {
         if (filtered.count > 0) {
@@ -153,7 +174,7 @@
 	
 	
     if (![self.registeredViews containsObject:view]) {
-        NSMutableArray *mutable = [self.registeredViews mutableCopy];
+        NSMutableArray *mutable = [NSMutableArray arrayWithArray:self.registeredViews];
         [mutable addObject:view];
         [view addObserver:self forKeyPath:@"frame" options:0 context:nil];
         self.registeredViews = mutable;
@@ -164,7 +185,7 @@
     if (self.registeredViews) {
         if ([self.registeredViews containsObject:view]) {
             [view removeObserver:self forKeyPath:@"frame"];
-            NSMutableArray *mutable = [self.registeredViews mutableCopy];
+            NSMutableArray *mutable = [NSMutableArray arrayWithArray:self.registeredViews];
             [mutable removeObject:view];
             self.registeredViews = mutable;
         }
@@ -194,6 +215,9 @@
 
 + (void)loadStylesFromFile:(NSString*)styleFileName replaceExisting:(BOOL)replaceExisting
 {
+    @autoreleasepool {
+        
+    
     NSData *data = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:styleFileName ofType:nil]];
     NSError *error;
 
@@ -203,6 +227,7 @@
     }
     if (json) {
         [[DYNManager sharedInstance] processStyleDictionary:json replaceExisting:replaceExisting];
+    }
     }
 
 }
@@ -335,6 +360,9 @@
 
 - (void)processStyleDictionary:(NSDictionary*)json replaceExisting:(BOOL)replaceExisting
 {
+    @autoreleasepool {
+        
+    
         NSArray *colors = [json objectForKey:@"colors"];
         NSMutableArray *colorTmp = [NSMutableArray arrayWithCapacity:1];
         for (NSDictionary *dict in colors) {
@@ -413,7 +441,7 @@
             [self sendUpdateNotification];
             [SVProgressHUD dismiss];
         });
-
+        }
 }
 
 - (void)watch:(NSString *)path withCallback:(void (^)())callback {
@@ -444,6 +472,53 @@
 	
     for (id obj in self.registeredViews) {
         [obj dyn_refreshStyle];
+    }
+    
+    for (DYNAutoUpdateBlock block in self.updateBlocks) {
+        if (block) {
+            block();
+        }
+    }
+}
+
+- (NSMutableArray*)updateBlocks
+{
+    if (!_updateBlocks) {
+        _updateBlocks = [NSMutableArray new];
+    }
+    
+    return _updateBlocks;
+}
+
+- (NSMutableArray*)updateObservers
+{
+    if (!_updateObservers) {
+        _updateObservers = [NSMutableArray new];
+    }
+    return _updateObservers;
+}
+
+- (void)attachAutoUpdateBlockToObject:(id)obj block:(DYNAutoUpdateBlock)block
+{
+    if (block && obj) {
+        [self removeAutoUpdateBlockFromObject:obj];
+        
+        [self.updateBlocks addObject:block];
+        [self.updateObservers addObject:obj];
+        
+        block();
+    }
+}
+
+- (void)removeAutoUpdateBlockFromObject:(id)obj
+{
+    if ([self.updateObservers containsObject: obj]) {
+        int x = [self.updateObservers indexOfObject:obj];
+        if (x < self.updateBlocks.count) {
+            [self.updateBlocks removeObjectAtIndex:x];
+        }
+        
+        [self.updateObservers removeObject:obj];
     }
 }
 

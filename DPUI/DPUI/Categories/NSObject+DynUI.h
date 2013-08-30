@@ -10,9 +10,7 @@
 
 @interface NSObject (DynUI)
 
-@property (nonatomic, strong) NSString *dyn_classStyle;
-
-//+ (NSString*)dyn_classStyle;
-//+ (void)setDyn_classStyle:(NSString*)classStyle;
+- (void)dyn_setAutoUpdateBlock:(DYNAutoUpdateBlock)block;
+- (void)dyn_removeAutoUpdateBlock;
 
 @end

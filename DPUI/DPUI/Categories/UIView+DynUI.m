@@ -293,4 +293,23 @@ GET_AND_SET_CLASS_OBJ(dyn_didMoveToSuperviewSwizzled, @(NO));
     [self dyn_refreshStyle];
 }
 
+- (UIImage*)imageFromSnapshot
+{
+    return [UIImage imageWithSize:self.frame.size drawnWithBlock:^(CGContextRef context, CGRect rect) {
+        [self drawViewHierarchyInRect:rect afterScreenUpdates:NO];
+    }];
+}
+
+- (UIImage*)imageFromSnapshotInRect:(CGRect)innerRect
+{
+    return [UIImage imageWithSize:innerRect.size drawnWithBlock:^(CGContextRef context, CGRect rect) {
+       
+        CGRect convertRect = rect;
+        convertRect.origin.x = -innerRect.origin.x;
+        convertRect.origin.y = -innerRect.origin.y;
+        [self drawViewHierarchyInRect:convertRect afterScreenUpdates:NO];
+        
+    }];
+}
+
 @end

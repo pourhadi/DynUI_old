@@ -15,6 +15,8 @@
 @class DYNImageStyle;
 @class DYNColor;
 @class DYNGradient;
+
+typedef void(^DYNAutoUpdateBlock)();
 @interface DYNManager : NSObject
 
 + (DYNManager *)sharedInstance;
@@ -35,6 +37,9 @@
 @property (nonatomic, readonly) BOOL liveUpdating;
 
 @property (nonatomic, strong) CIContext *sharedCIContext;
+
+- (void)attachAutoUpdateBlockToObject:(id)obj block:(DYNAutoUpdateBlock)block;
+- (void)removeAutoUpdateBlockFromObject:(id)obj;
 
 - (DYNSliderStyle *)sliderStyleForName:(NSString *)name;
 - (DYNViewStyle *)styleForName:(NSString *)name;

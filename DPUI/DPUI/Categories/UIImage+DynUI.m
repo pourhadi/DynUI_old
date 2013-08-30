@@ -35,16 +35,23 @@
 
 + (UIImage*)iconImage:(NSString*)iconKey forHeight:(CGFloat)height withStyle:(NSString*)styleName
 {
+    @autoreleasepool {
+        
+    
 	UIBezierPath *iconPath = [DYNIcons iconPathForKey:iconKey forHeight:height];
 	DYNImageStyle *style = [DYNImageStyle imageStyleForName:styleName];
 	UIImage *image = [style imageForStyleWithSize:iconPath.bounds.size path:iconPath withOuterShadow:YES flippedGradient:NO parameters:nil];
 	
 	return image;
+    }
 
 }
 
 + (UIImage*)iconImage:(NSString *)iconKey forHeight:(CGFloat)height color:(UIColor*)color
 {
+    @autoreleasepool {
+        
+    
 	UIBezierPath *iconPath = [DYNIcons iconPathForKey:iconKey forHeight:height];
 	UIImage *image = [UIImage imageWithSize:iconPath.bounds.size drawnWithBlock:^(CGContextRef context, CGRect rect) {
 		
@@ -53,6 +60,7 @@
 		
 	}];
 	return image;
+    }
 }
 
 + (UIImage*)iconImage:(NSString *)iconKey forWidth:(CGFloat)width color:(UIColor*)color
@@ -112,7 +120,7 @@
     
     CIImage *outputImage = [compositingFilter valueForKey:@"outputImage"];
     CGImageRef outputRef = [context createCGImage:outputImage fromRect:[outputImage extent]];
-    
+    CGImageRelease(outputRef);
     return [UIImage imageWithCGImage:outputRef];
 }
 
@@ -180,7 +188,8 @@
     
     image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
-    
+    CGColorSpaceRelease(myColorspace);
+    CGGradientRelease(myGradient);
     return image;
 }
 
@@ -209,7 +218,8 @@
     
     image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
-    
+    CGColorSpaceRelease(myColorspace);
+    CGGradientRelease(myGradient);
     return image;
 }
 
@@ -352,6 +362,7 @@
                alpha:1.];
     UIImage *croppedImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
+    
     return croppedImage;
 }
 
@@ -369,7 +380,7 @@
     CIContext *context = [CIContext contextWithOptions:nil];
     CIImage *output = [filter valueForKey:kCIOutputImageKey];
     CGImageRef imageRef = [context createCGImage:output fromRect:output.extent];
-    
+
     return [UIImage imageWithCGImage:imageRef];
 }
 
@@ -417,6 +428,39 @@
 	return new;
 }
 
+- (UIImage*)scaleToFill:(CGSize)size
+{
+    if (!self) return nil;
+    if (CGSizeEqualToSize(size, CGSizeZero)) return nil;
+    UIImage *image = self;
+    CGSize finalImageSize = size;
+    CGImageRef sourceImageRef = image.CGImage;
+    CGFloat horizontalRatio = finalImageSize.width / CGImageGetWidth(sourceImageRef);
+    CGFloat verticalRatio = finalImageSize.height / CGImageGetHeight(sourceImageRef);
+    CGFloat ratio = MAX(horizontalRatio, verticalRatio); //AspectFill
+    CGSize aspectFillSize = CGSizeMake(CGImageGetWidth(sourceImageRef) * ratio, CGImageGetHeight(sourceImageRef) * ratio);
+    CGContextRef context = CGBitmapContextCreate(NULL,
+                                                 finalImageSize.width,
+                                                 finalImageSize.height,
+                                                 CGImageGetBitsPerComponent(sourceImageRef),
+                                                 0,
+                                                 CGImageGetColorSpace(sourceImageRef),
+                                                 CGImageGetBitmapInfo(sourceImageRef));
+    //Draw our image centered vertically and horizontally in our context.
+    CGContextDrawImage(context,
+                       CGRectMake((finalImageSize.width-aspectFillSize.width)/2,
+                                  (finalImageSize.height-aspectFillSize.height)/2,
+                                  aspectFillSize.width,
+                                  aspectFillSize.height),
+                       sourceImageRef);
+    //Start cleaning up..
+    // CGImageRelease(sourceImageRef);
+    CGImageRef finalImageRef = CGBitmapContextCreateImage(context);
+    UIImage *finalImage = [UIImage imageWithCGImage:finalImageRef];
+    CGContextRelease(context);
+    CGImageRelease(finalImageRef);
+    return finalImage;
+}
 // style parameters
 
 #pragma mark - Parameters

@@ -11,6 +11,13 @@
 #import "DynUI.h"
 @implementation DYNColor
 
++ (DYNColor*)colorForUIColor:(UIColor*)color
+{
+    DYNColor *dyn = [[DYNColor alloc] init];
+    dyn.color = color;
+    return dyn;
+}
+
 - (id)copyWithZone:(NSZone *)zone {
     DYNColor* theCopy = [[[self class] allocWithZone:zone] init];  // use designated initializer
     

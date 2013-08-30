@@ -34,4 +34,7 @@ typedef void (^DYNAppearanceBlock)(DYNManager *styleManager, UIView *view);
 
 - (void)dyn_dealloc;
 
+- (UIImage*)imageFromSnapshot;
+- (UIImage*)imageFromSnapshotInRect:(CGRect)rect;
+
 @end

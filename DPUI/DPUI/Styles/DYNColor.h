@@ -18,4 +18,6 @@
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 
++ (DYNColor*)colorForUIColor:(UIColor*)color;
+
 @end

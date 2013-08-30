@@ -60,6 +60,8 @@ typedef void (^DYNDrawImageBlock)(CGContextRef context, CGRect rect);
 
 - (UIImage *)imageWithOpacity:(CGFloat)opacity;
 
+- (UIImage*)scaleToFill:(CGSize)size;
+
 - (UIImage *)imageWithBlackMasked;
 
 - (UIImage *)dyn_resizableImage;

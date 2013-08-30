@@ -26,7 +26,7 @@ GET_AND_SET_CLASS_OBJ(dyn_navBarClasses, nil);
 		[self set_dyn_navBarClasses:[NSDictionary dictionary]];
 	}
 	
-	return [[self dyn_navBarClasses] mutableCopy];
+	return [NSMutableDictionary dictionaryWithDictionary:[self dyn_navBarClasses]];
 }
 
 - (void)dyn_createMetaClass
