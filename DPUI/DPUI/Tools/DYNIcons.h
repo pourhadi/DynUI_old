@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import <UIKit/UIKit.h>
 @interface DYNIcons : NSObject
 
 + (NSArray*)availableIconKeys;
@@ -286,3 +286,18 @@ static NSString * const kDYNIconPlayKey = @"play";
 static NSString * const kDYNIconLandingKey = @"landing";
 static NSString * const kDYNIconSettingsaltKey = @"settingsalt";
 static NSString * const kDYNIconUserKey = @"user";
+static NSString * const kDYNIconSortKey = @"sort";
+static NSString * const kDYNIconXKey = @"x";
+static NSString * const kDYNIconArrowright3Key = @"arrowright3";
+static NSString * const kDYNIconFastForwardKey = @"fastforward";
+static NSString * const kDYNIconRewindKey = @"rewind";
+static NSString * const kDYNIconScrubKey = @"scrub";
+static NSString * const kDYNIconShareKey = @"share";
+static NSString * const kDYNIconPauseKey = @"pause";
+static NSString * const kDYNIconEllipseKey = @"ellipse";
+static NSString * const kDYNIconNextKey = @"next";
+static NSString * const kDYNIconThumbsUpKey = @"thumbsUp";
+static NSString * const kDYNIconThumbsDownKey = @"thumbsDown";
+static NSString * const kDYNIconArtistsKey = @"artists";
+static NSString * const kDYNIconAlbumsKey = @"albums";
+static NSString * const kDYNIconPlaylistsKey = @"playlists";

@@ -8,7 +8,6 @@
 #import "DYNPopoverStyle.h"
 #import <QuartzCore/QuartzCore.h>
 #import <objc/runtime.h>
-
 #import "DynUI.h"
 #import "DYNDefines.h"
 #define CONTENT_INSET 10.0

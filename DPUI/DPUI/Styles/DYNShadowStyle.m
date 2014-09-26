@@ -16,14 +16,14 @@
     if (self) {
         self.offset = CGSizeMake(0, 1);
         self.radius = 0;
-        self.color = [UIColor blackColor];
+        self.color = [[DYNColor alloc] init];
         self.opacity = 1;
     }
     return self;
 }
 
 - (void)addShadowToView:(UIView *)view withPath:(UIBezierPath *)path {
-    view.layer.shadowColor = self.color.CGColor;
+    view.layer.shadowColor = self.color.color.CGColor;
     view.layer.shadowRadius = self.radius;
     view.layer.shadowOpacity = self.opacity;
     view.layer.shadowOffset = self.offset;
@@ -31,7 +31,7 @@
 }
 
 - (void)addShadowToView:(UIView *)view {
-    view.layer.shadowColor = self.color.CGColor;
+    view.layer.shadowColor = self.color.color.CGColor;
     view.layer.shadowRadius = self.radius;
     view.layer.shadowOpacity = self.opacity;
     view.layer.shadowOffset = self.offset;
@@ -49,8 +49,8 @@
         self.offset = CGSizeMake(xOffset, yOffset);
         self.radius = [[dictionary objectForKey:kDYNRadiusKey] floatValue];
         self.opacity = [[dictionary objectForKey:kDYNOpacityKey] floatValue];
-        CIColor *ciColor = [CIColor colorWithString:[dictionary objectForKey:kDYNColorKey]];
-        self.color = [UIColor colorWithRed:ciColor.red green:ciColor.green blue:ciColor.blue alpha:ciColor.alpha];
+		// CIColor *ciColor = [CIColor colorWithString:[dictionary objectForKey:kDYNColorKey]];
+        self.color = [[DYNColor alloc] initWithDictionary:[dictionary objectForKey:kDYNColorKey]];
         //self.color = [UIColor colorWithCIColor:ciColor];
     }
     return self;
@@ -69,14 +69,14 @@
     
     UIImage *masked = [image imageWithBlackMasked];
     image = [UIImage cropTransparencyFromImage:masked];
-    image = [image imageOverlayedWithColor:self.color opacity:1];
+    image = [image imageOverlayedWithColor:self.color.color opacity:1];
     image = [image imageWithOpacity:self.opacity];
     return image;
 }
 
 - (void)drawAsInnerShadowInPath:(UIBezierPath *)path context:(CGContextRef)context {
     //// Shadow Declarations
-    UIColor *shadow = [self.color colorWithAlphaComponent:self.opacity];
+    UIColor *shadow = [self.color.color colorWithAlphaComponent:self.opacity];
     CGSize shadowOffset = CGSizeMake(oppositeSign(self.offset.width), oppositeSign(self.offset.height));
     CGFloat shadowBlurRadius = self.radius;
     
@@ -116,10 +116,16 @@
 		CGSize size = rect.size;
         CGContextTranslateCTM(context, 0.0f, size.height);
         CGContextScaleCTM(context, 1.0f, -1.0f);
-        CGContextSetShadowWithColor(context, CGSizeMake(outerShadow.offset.width, oppositeSign(outerShadow.offset.height)), outerShadow.radius, [outerShadow.color colorWithAlphaComponent:outerShadow.opacity].CGColor);
+        CGContextSetShadowWithColor(context, CGSizeMake(outerShadow.offset.width, oppositeSign(outerShadow.offset.height)), outerShadow.radius, [outerShadow.color.color colorWithAlphaComponent:outerShadow.opacity].CGColor);
         CGContextDrawImage(context, CGRectMake(floorf((size.width - image.size.width) / 2), floorf((size.height - image.size.height) / 2), image.size.width, image.size.height), image.CGImage);
     }];
     return image;
+}
+
+- (void)set
+{
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSetShadowWithColor(context, self.offset, self.radius, [[self.color.color colorWithAlphaComponent:self.opacity] CGColor]);
 }
 
 @end

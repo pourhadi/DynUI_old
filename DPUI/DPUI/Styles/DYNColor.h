@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface DYNColor : NSObject <NSCopying>
 
@@ -16,5 +17,7 @@
 @property (nonatomic) BOOL definedAtRuntime;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
+
++ (DYNColor*)colorForUIColor:(UIColor*)color;
 
 @end

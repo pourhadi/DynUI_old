@@ -7,13 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import <UIKit/UIKit.h>
 @class DYNStyle;
 @class DYNTextStyle;
 @class DYNViewStyle;
 @class DYNSliderStyle;
 @class DYNImageStyle;
 @class DYNColor;
+@class DYNGradient;
+
+typedef void(^DYNAutoUpdateBlock)();
+typedef void(^DYNAutoUpdateBlockWithObject) (id weakObj);
 @interface DYNManager : NSObject
 
 + (DYNManager *)sharedInstance;
@@ -23,6 +27,7 @@
 @property (nonatomic, strong) NSMutableArray *colorVariables;
 @property (nonatomic, strong) NSMutableArray *textStyles;
 @property (nonatomic, strong) NSMutableArray *imageStyles;
+@property (nonatomic, strong) NSMutableArray *gradients;
 
 @property (nonatomic, strong) NSDictionary *defaultParameterValues;
 
@@ -34,11 +39,15 @@
 
 @property (nonatomic, strong) CIContext *sharedCIContext;
 
+- (void)attachAutoUpdateBlockToObject:(id)obj block:(DYNAutoUpdateBlockWithObject)block;
+- (void)removeAutoUpdateBlockFromObject:(id)obj;
+
 - (DYNSliderStyle *)sliderStyleForName:(NSString *)name;
 - (DYNViewStyle *)styleForName:(NSString *)name;
 - (UIColor *)colorForVariableName:(NSString *)variableName;
 - (DYNTextStyle *)textStyleForName:(NSString *)name;
 - (DYNImageStyle *)imageStyleForName:(NSString *)styleName;
+- (DYNGradient *)gradientForName:(NSString*)name;
 
 - (void)addSliderStyle:(DYNSliderStyle *)sliderStyle;
 - (void)addViewStyle:(DYNViewStyle *)viewStyle;

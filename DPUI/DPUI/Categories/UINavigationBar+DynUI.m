@@ -26,7 +26,7 @@ GET_AND_SET_CLASS_OBJ(dyn_navBarClasses, nil);
 		[self set_dyn_navBarClasses:[NSDictionary dictionary]];
 	}
 	
-	return [[self dyn_navBarClasses] mutableCopy];
+	return [NSMutableDictionary dictionaryWithDictionary:[self dyn_navBarClasses]];
 }
 
 - (void)dyn_createMetaClass
@@ -51,105 +51,56 @@ GET_AND_SET_CLASS_OBJ(dyn_navBarClasses, nil);
 	object_setClass(self, newClass);
 }
 
-
-/*
-
-- (void)applyStyleToBarButtonItems:(NSString*)styleName
+- (void)setEffectBackgroundColor:(UIColor*)color
 {
-	NSLog(@"apply to bar button items");
-    [self set_barButtonItemStyleName:styleName];
-    
-    for (UIBarButtonItem *item in self.topItem.leftBarButtonItems) {
-        [DYNRenderer renderBarButtonItem:item forNavigationBar:self withStyleNamed:styleName];
-    }
-    
-    for (UIBarButtonItem *item in self.topItem.rightBarButtonItems) {
-        [DYNRenderer renderBarButtonItem:item forNavigationBar:self withStyleNamed:styleName];
-    }
-    
-	[DYNRenderer renderBarButtonItem:self.topItem.backBarButtonItem forNavigationBar:self withStyleNamed:[self barButtonItemStyleName]];
-
-	
-    [self addObserversForBarButtonItems];
-//	
-//	if (![[UINavigationBar pushNavigationItemSwizzled] boolValue]) {
-//		
-//		[UINavigationBar jr_swizzleMethod:@selector(pushNavigationItem:animated:) withMethod:@selector(dyn_pushNavigationItem:animated:) error:nil];
-//		[UINavigationBar set_pushNavigationItemSwizzled:@(YES)];
-//		
-//	}
-}
-
-- (void)dyn_pushNavigationItem:(UINavigationItem*)navItem animated:(BOOL)animated
-{
-	if ([self barButtonItemStyleName]) {
-		for (UIBarButtonItem *item in navItem.leftBarButtonItems) {
-			[DYNRenderer renderBarButtonItem:item forNavigationBar:self withStyleNamed:[self barButtonItemStyleName]];
-		}
-		
-		for (UIBarButtonItem *item in navItem.rightBarButtonItems) {
-			[DYNRenderer renderBarButtonItem:item forNavigationBar:self withStyleNamed:[self barButtonItemStyleName]];
-		}
-		
-		[DYNRenderer renderBarButtonItem:navItem.backBarButtonItem forNavigationBar:self withStyleNamed:[self barButtonItemStyleName]];
-	}
-	[self dyn_pushNavigationItem:navItem animated:animated];
-}
-
-- (void)addObserversForBarButtonItems
-{
-    [self removeObserversForBarButtonItems];
-    [self addObserver:self forKeyPath:@"items" options:0 context:nil];
-    [self addObserver:self forKeyPath:@"topItem.leftBarButtonItems" options:0 context:nil];
-    [self addObserver:self forKeyPath:@"topItem.rightBarButtonItems" options:0 context:nil];
-    [self set_styleObservationArray:@[@"items",@"topItem.leftBarButtonItems", @"topItem.rightBarButtonItems"]];
-}
-
-- (void)removeObserversForBarButtonItems
-{
-    if ([self styleObservationArray]){
-        NSArray *obsArray = [self styleObservationArray];
-        for (NSString *keypath in obsArray) {
-            [self removeObserver:self forKeyPath:keypath];
-        }
-    }
-    
-    [self set_styleObservationArray:nil];
-}
-
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
-{
-    if ([keyPath isEqualToString:@"topItem.leftBarButtonItems"]) {
-        
-        for (UIBarButtonItem *item in self.topItem.leftBarButtonItems) {
-            [DYNRenderer renderBarButtonItem:item forNavigationBar:self withStyleNamed:[self barButtonItemStyleName]];
+    self.barStyle = UIBarStyleBlack;
+    __block UIView *effectBg = nil;
+    [self performRecursiveActionForSubviews:^(UIView *subview, BOOL *stop) {
+       
+        if (subview.hidden || subview.tag == 101) {
+            effectBg = subview;
+            *stop = YES;
         }
         
-    } else if ([keyPath isEqualToString:@"topItem.rightBarButtonItems"]) {
+    }];
+    
+    if (effectBg) {
+        effectBg.tag = 101;
         
-        for (UIBarButtonItem *item in self.topItem.rightBarButtonItems) {
-            [DYNRenderer renderBarButtonItem:item forNavigationBar:self withStyleNamed:[self barButtonItemStyleName]];
-        }
+        effectBg.hidden = NO;
+        effectBg.layer.backgroundColor = color.CGColor;
+    }
+}
+
+#define BORDER_VIEW_TAG 909
+- (void)setBorderColor:(UIColor*)color
+{
+    UIView *borderView = [self viewWithTag:BORDER_VIEW_TAG];
+    if (!borderView) {
         
-    } else if ([keyPath isEqualToString:@"items"]) {
-        
-        for (UINavigationItem *navItem in self.items) {
-            for (UIBarButtonItem *item in self.topItem.leftBarButtonItems) {
-                [DYNRenderer renderBarButtonItem:item forNavigationBar:self withStyleNamed:[self barButtonItemStyleName]];
+        __block UIImageView *viewToHide;
+        [self performRecursiveActionForSubviews:^(UIView *subview, BOOL *stop) {
+            if (subview.frame.size.height == 0.5) {
+                viewToHide = (UIImageView*)subview;
+                *stop = YES;
             }
-            
-            for (UIBarButtonItem *item in self.topItem.rightBarButtonItems) {
-                [DYNRenderer renderBarButtonItem:item forNavigationBar:self withStyleNamed:[self barButtonItemStyleName]];
-            }
-            
-            [DYNRenderer renderBarButtonItem:navItem.backBarButtonItem forNavigationBar:self withStyleNamed:[self barButtonItemStyleName]];
-            
+        }];
+        
+        if (viewToHide) {
+            viewToHide.alpha = 0.001;
+        
+            CGRect f = [viewToHide.superview convertRect:viewToHide.frame toView:self];
+            borderView = [[UIView alloc] initWithFrame:f];
+            [self addSubview:borderView];
+            borderView.tag = BORDER_VIEW_TAG;
+            borderView.backgroundColor = color;
+            borderView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;
+        
         }
+    } else {
+        borderView.backgroundColor = color;
     }
 }
 
-GET_AND_SET_CLASS_OBJ(pushNavigationItemSwizzled, @(NO));
-GET_AND_SET_ASSOCIATED_OBJ(barButtonItemStyleName, nil);
-GET_AND_SET_ASSOCIATED_OBJ(styleObservationArray, nil);
-*/
+
 @end

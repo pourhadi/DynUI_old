@@ -9,7 +9,9 @@
 #import "DYNBackgroundStyle.h"
 #import "DYNDefines.h"
 #import "DynUI.h"
-#import "DYNGradient.h"
+#import "KGNoise.h"
+#import "UIBezierPath+DynUI.h"
+
 @implementation DYNBackgroundStyle
 
 - (id)init {
@@ -17,6 +19,7 @@
     if (self) {
         self.gradientAngle = 180;
         self.locations = nil;
+		self.fillInsets = [[DYNInsets alloc] init];
     }
     return self;
 }
@@ -24,16 +27,45 @@
 - (id)initWithDictionary:(NSDictionary *)dictionary {
     self = [super init];
     if (self) {
-        self.gradientAngle = [[dictionary objectForKey:kDYNGradientAngle] floatValue];
+		
+		NSDictionary *grad = [dictionary objectForKey:@"gradient"];
+		
+        self.gradientAngle = [[grad objectForKey:kDYNGradientAngle] floatValue];
         self.locations = nil;
-        NSArray *colors = [dictionary objectForKey:@"colors"];
+		
+		DYNFillType fillType = DYNFillTypeGradient;
+		if ([dictionary objectForKey:kDYNFillTypeKey]) {
+			fillType = [[dictionary objectForKey:kDYNFillTypeKey] intValue];
+		}
+		
+		if (fillType == DYNFillTypeGradient) {
+        NSArray *colors = [grad objectForKey:@"colors"];
         NSMutableArray *tmp = [NSMutableArray new];
         for (NSDictionary *color in colors) {
             DYNColor *dpColor = [[DYNColor alloc] initWithDictionary:color];
             [tmp addObject:dpColor];
+			self.colors = tmp;
+
         }
+		
+		self.locations = [grad objectForKey:@"locations"];
+		} else {
+			DYNColor *color = [[DYNColor alloc] initWithDictionary:[dictionary objectForKey:kDYNFillColorKey]];
+			self.colors = @[color];
+		}
+		
+		if ([dictionary objectForKey:kDYNNoiseOpacityKey]) {
+			self.noiseOpacity = [[dictionary objectForKey:kDYNNoiseOpacityKey] floatValue];
+		}
+		
+		if ([dictionary objectForKey:kDYNNoiseBlendModeKey]) {
+			self.noiseBlendMode = [[dictionary objectForKey:kDYNNoiseBlendModeKey] intValue];
+		}
+		
+		if ([dictionary objectForKey:kDYNFillInsetsKey]) {
+			self.fillInsets = [[DYNInsets alloc] initWithDictionary:[dictionary objectForKey:kDYNFillInsetsKey]];
+		}
         
-        self.colors = tmp;
     }
     return self;
 }
@@ -46,10 +78,15 @@
     CGContextRef context = UIGraphicsGetCurrentContext();
     
     CGContextSaveGState(context);
+	
+	if (self.fillInsets.anySideGreaterThanZero)	{
+		[path insetPathRelativeToCurrentBounds:self.fillInsets.edgeInsets];
+	}
+	
     [path addClip];
     
     if (self.colors.count > 1) {
-        DYNGradient *gradient = [[DYNGradient alloc] initWithColors:self.colors];
+        DYNGradient *gradient = [[DYNGradient alloc] initWithColors:self.colors locations:self.locations];
         //[gradient drawInPath:path flipped:flippedGradient angle:self.gradientAngle parameters:parameters];
         [gradient drawInFrame:frame clippedToPath:path angle:self.gradientAngle flippedGradient:flippedGradient parameters:parameters];
     } else {
@@ -65,6 +102,10 @@
         [color setFill];
         [path fill];
     }
+	
+	if (self.noiseOpacity > 0) {
+		[KGNoise drawNoiseWithOpacity:self.noiseOpacity andBlendMode:self.noiseBlendMode];
+	}
     
     CGContextRestoreGState(context);
 }

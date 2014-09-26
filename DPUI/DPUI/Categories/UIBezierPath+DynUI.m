@@ -24,5 +24,58 @@
 	[path applyTransform:transform];
 }
 
+- (void)insetPathRelativeToCurrentBounds:(UIEdgeInsets)insets
+{
+	CGFloat xScale = 1 / self.bounds.size.width;
+    CGFloat yScale = 1 / self.bounds.size.height;
+	
+	CGFloat xDiff = insets.left + insets.right;
+	CGFloat yDiff = insets.top + insets.bottom;
+	
+    xScale = 1 - (xDiff * xScale);
+    yScale = 1 - (yDiff * yScale);
+	
+    CGAffineTransform transform = CGAffineTransformMakeScale(xScale, yScale);
+	
+    transform = CGAffineTransformTranslate(transform, insets.left, insets.top);
+	
+	[self applyTransform:transform];
+}
+
+- (void)fitInSize:(CGSize)size
+{
+    UIBezierPath *path = self;
+   	if (path.bounds.size.width > path.bounds.size.height) {
+		if (path.bounds.size.height > size.height) {
+			CGFloat scale = size.height / path.bounds.size.height;
+			
+			CGAffineTransform transform = CGAffineTransformMakeScale(scale, scale);
+			
+			[path applyTransform:transform];
+			
+			transform = CGAffineTransformMakeTranslation(-(path.bounds.origin.x)*(1-(1/path.bounds.size.width)), -(path.bounds.origin.y) *(1-(1 / path.bounds.size.height)));
+			
+			[path applyTransform:transform];
+		}
+		[path centerInRect:CGRectMake(0, 0, size.width, size.height)];
+        return;
+	}
+	
+	if (path.bounds.size.width > size.width) {
+		
+		CGFloat scale = size.width / path.bounds.size.width;
+		
+		CGAffineTransform transform = CGAffineTransformMakeScale(scale, scale);
+		
+		[path applyTransform:transform];
+		
+		transform = CGAffineTransformMakeTranslation(-(path.bounds.origin.x)*(1-(1/path.bounds.size.width)), -(path.bounds.origin.y) *(1-(1 / path.bounds.size.height)));
+		
+		[path applyTransform:transform];
+	}
+	[path centerInRect:CGRectMake(0, 0, size.width, size.height)];
+
+
+}
 
 @end

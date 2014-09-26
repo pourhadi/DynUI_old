@@ -1,11 +1,13 @@
+
+#ifndef _dyn_
+#define _dyn_
+#define _dyn_version_0_1_
+
 #import <Foundation/Foundation.h>
 #import <QuartzCore/QuartzCore.h>
 #import <CoreImage/CoreImage.h>
 #import <UIKit/UIKit.h>
 
-#ifndef _dyn_
-#define _dyn_
-#define _dyn_version_0_1_
 #import "DYNManager.h"
 #import "DYNRenderer.h"
 #import "NSString+DynUI.h"
@@ -17,6 +19,7 @@
 #import "UIPopoverController+DynUI.h"
 #import "UITableView+DynUI.h"
 #import "UINavigationBar+DynUI.h"
+#import "NSObject+DynUI.h"
 
 #import "DYNBackgroundStyle.h"
 #import "DYNColor.h"
@@ -32,4 +35,7 @@
 #import "DYNPopoverStyle.h"
 #import "DYNCustomSetting.h"
 #import "DYNIcons.h"
+#import "DYNGradient.h"
+#import "DYNInsets.h"
+#import "DYNBlurredView.h"
 #endif

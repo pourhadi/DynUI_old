@@ -38,9 +38,49 @@ return obj; \
 
 #define GET_AND_SET_CLASS_OBJ(NAME, DEFAULTVAL)      GET_CLASS_OBJ(NAME, DEFAULTVAL) SET_CLASS_OBJ(NAME)
 
+#define SET_ASSOCIATED_BOOL(NAME) \
+- (void)set_## NAME : (BOOL)val \
+{ \
+objc_setAssociatedObject(self, #NAME, @(val), OBJC_ASSOCIATION_RETAIN_NONATOMIC); \
+} \
+
+#define GET_ASSOCIATED_BOOL(NAME) \
+- (BOOL)NAME \
+{ \
+NSNumber *obj = objc_getAssociatedObject(self, #NAME); \
+if (!obj) return NO; \
+return obj.boolValue; \
+} \
+
+#define SET_ASSOCIATED_CLASS_BOOL(NAME) \
++ (void)set_## NAME : (BOOL)val \
+{ \
+objc_setAssociatedObject(self, #NAME, @(val), OBJC_ASSOCIATION_RETAIN_NONATOMIC); \
+} \
+
+#define GET_ASSOCIATED_CLASS_BOOL(NAME) \
++ (BOOL)NAME \
+{ \
+NSNumber *obj = objc_getAssociatedObject(self, #NAME); \
+if (!obj) return NO; \
+return obj.boolValue; \
+} \
+
+
+#define GET_AND_SET_BOOL(NAME)      GET_ASSOCIATED_BOOL(NAME) SET_ASSOCIATED_BOOL(NAME)
+#define GET_AND_SET_CLASS_BOOL(NAME)      GET_ASSOCIATED_CLASS_BOOL(NAME) SET_ASSOCIATED_CLASS_BOOL(NAME)
+
+
+
 NS_INLINE float oppositeSign(float x) {
     return (x > 0 ? -x : fabs(x));
 }
+
+typedef NS_ENUM(NSUInteger, DYNFillType) {
+	DYNFillTypeColor,
+	DYNFillTypeGradient,
+	DYNFillTypeTitle,
+};
 
 static const void *const kDPViewStyleKey = "_DPViewStyle";
 static const void *const kDPTextStyleKey = "_DPTextStyle";
@@ -65,9 +105,14 @@ static NSString *const kDYNThemeChangedNotification = @"_DYNThemeChangedNotifica
 
 // key strings for DYN files
 
-// DYNBackgroundColor
+// DYNBackgroundStyle
 
 static NSString *const kDYNGradientAngle = @"gradientAngle";
+static NSString *const kDYNNoiseOpacityKey = @"noiseOpacity";
+static NSString *const kDYNNoiseBlendModeKey = @"noiseBlendMode";
+static NSString *const kDYNFillColorKey = @"fillColor";
+static NSString *const kDYNFillTypeKey = @"fillType";
+static NSString *const kDYNFillInsetsKey = @"fillInsets";
 
 // DYNColor
 static NSString *const kDYNColorKey = @"color";
@@ -97,6 +142,8 @@ static NSString *const kDYNShadowYOffsetKey = @"shadowYOffset";
 static NSString *const kDYNAlignmentKey = @"alignment";
 static NSString *const kDYNFontSizeTypeKey = @"fontSizeType";
 static NSString *const kDYNFontSizeStringKey = @"fontSizeString";
+static NSString *const kDYNInheritFontSizeKey = @"inheritFontSize";
+static NSString *const kDYNInheritAlignmentKey = @"inheritAlignment";
 
 // DYNViewStyle
 
@@ -134,6 +181,8 @@ static NSString *const kDYNGroupedTableMiddleCellKey = @"groupedTableMiddleCell"
 static NSString *const kDYNGroupedTableBottomCellKey = @"groupedTableBottomCell";
 static NSString *const kDYNGroupedTableSingleCellKey = @"groupedTableSingleCell";
 static NSString *const kDYNCustomSettingsKey = @"customSettings";
+static NSString *const kDYNTintColorKey = @"tintColor";
+static NSString *const kDYNUseCustomTintColorKey = @"useCustomTintColor";
 
 // DYNControlStyle
 static NSString *const kDYNNormalTextStyle = @"normalTextStyle";

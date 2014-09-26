@@ -11,6 +11,35 @@
 #import "DynUI.h"
 @implementation UIColor (DynUI)
 
++(NSString *)hexValuesFromUIColor:(UIColor *)color {
+    
+    if (!color) {
+        return nil;
+    }
+    
+    if (color == [UIColor whiteColor]) {
+        // Special case, as white doesn't fall into the RGB color space
+        return @"ffffff";
+    }
+    
+    CGFloat red;
+    CGFloat blue;
+    CGFloat green;
+    CGFloat alpha;
+    
+    [color getRed:&red green:&green blue:&blue alpha:&alpha];
+    
+    int redDec = (int)(red * 255);
+    int greenDec = (int)(green * 255);
+    int blueDec = (int)(blue * 255);
+    
+    NSString *returnString = [NSString stringWithFormat:@"%02x%02x%02x", (unsigned int)redDec, (unsigned int)greenDec, (unsigned int)blueDec];
+    
+    return returnString;
+    
+}
+
+
 + (UIColor *)colorForVariable:(NSString *)variable {
     return [[DYNManager sharedInstance] colorForVariableName:variable];
 }
@@ -71,6 +100,59 @@
     unsigned hexComponent;
     [[NSScanner scannerWithString:fullHex] scanHexInt:&hexComponent];
     return hexComponent / 255.0;
+}
+
+- (UIColor*)lighterColor
+{
+    CGFloat r, g, b, a;
+    if ([self getRed:&r green:&g blue:&b alpha:&a])
+        return [UIColor colorWithRed:MIN(r + 0.3, 1.0)
+                               green:MIN(g + 0.3, 1.0)
+                                blue:MIN(b + 0.3, 1.0)
+                               alpha:a];
+    return nil;
+
+}
+
+- (UIColor*)darkerColor
+{
+    CGFloat r, g, b, a;
+    if ([self getRed:&r green:&g blue:&b alpha:&a])
+        return [UIColor colorWithRed:MAX(r - 0.3, 0)
+                               green:MAX(g - 0.3, 0)
+                                blue:MAX(b - 0.3, 0)
+                               alpha:a];
+    return nil;
+    
+}
+
+- (UIColor*)lightestColor
+{
+    CGFloat r, g, b, a;
+    if ([self getRed:&r green:&g blue:&b alpha:&a]){
+        CGFloat max = MAX(b, MAX(r, g));
+        CGFloat diff = MAX(max,0.8) - max;
+        return [UIColor colorWithRed:MIN(r + diff, 1.0)
+                               green:MIN(g + diff, 1.0)
+                                blue:MIN(b + diff, 1.0)
+                               alpha:a];
+    }
+    return nil;
+    
+   
+}
+- (UIColor*)darkestColor
+{
+    CGFloat r, g, b, a;
+    if ([self getRed:&r green:&g blue:&b alpha:&a]){
+        CGFloat min = MIN(b, MIN(r, g));
+        CGFloat diff = MIN(min, 0.15);
+        return [UIColor colorWithRed:MAX(r - diff, 0)
+                               green:MAX(g - diff, 0)
+                                blue:MAX(b - diff, 0)
+                               alpha:a];
+    }
+    return nil;
 }
 
 @end

@@ -6,6 +6,7 @@
 //
 //
 
+#import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
 @interface UIColor (DynUI)
@@ -14,4 +15,11 @@
 + (UIColor *)colorForVariable:(NSString *)variable;
 + (UIColor *)colorFromCIString:(NSString *)string;
 + (CIColor *)uiColorToCIColor:(UIColor *)color;
+
+- (UIColor*)darkerColor;
+- (UIColor*)lighterColor;
+- (UIColor*)lightestColor;
+- (UIColor*)darkestColor;
+
++(NSString *)hexValuesFromUIColor:(UIColor *)color;
 @end

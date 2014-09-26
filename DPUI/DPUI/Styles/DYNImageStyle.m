@@ -19,11 +19,14 @@
 
 
 - (UIImage *)applyToImage:(UIImage *)image {
+    @autoreleasepool {
+        
+    
     DYNBackgroundStyle *background = self.background;
     
     
     CGImageRef mask = [UIImage createMaskFromAlphaChannel:image];
-    CGImageRef nonInvertedMask = [UIImage createMaskFromAlphaChannel:image inverted:NO];
+    CGImageRef nonInvertedMask = [UIImage newMaskFromAlphaChannel:image inverted:NO];
     
     UIImage *newImage = [UIImage imageWithSize:CGSizeMake(image.size.width, image.size.height) drawnWithBlock:^(CGContextRef context, CGRect rect) {
 		CGSize size = rect.size;
@@ -38,7 +41,7 @@
         DYNShadowStyle *innerShadow = self.innerShadow;
         
         if (innerShadow.opacity > 0) {
-            CGContextSetShadowWithColor(context, CGSizeMake(innerShadow.offset.width, oppositeSign(innerShadow.offset.height)), innerShadow.radius, [innerShadow.color colorWithAlphaComponent:innerShadow.opacity].CGColor);
+            CGContextSetShadowWithColor(context, CGSizeMake(innerShadow.offset.width, oppositeSign(innerShadow.offset.height)), innerShadow.radius, [innerShadow.color.color colorWithAlphaComponent:innerShadow.opacity].CGColor);
             
             CGContextDrawImage(context, CGRectMake(0, 0, size.width, size.height), nonInvertedMask);
         }
@@ -50,7 +53,7 @@
             CGRect insetRect = CGRectInset(path.bounds, self.strokeWidth, self.strokeWidth);
             
             UIImage *scaled = [image imageScaledToSize:insetRect.size cropTransparent:NO];
-            CGImageRef scaledNonInverted = [UIImage createMaskFromAlphaChannel:scaled inverted:NO];
+            CGImageRef scaledNonInverted = [UIImage newMaskFromAlphaChannel:scaled inverted:NO];
             
             CGContextClipToMask(context, path.bounds, scaledNonInverted);
             
@@ -65,6 +68,8 @@
             
             [color setFill];
             CGContextFillRect(context, path.bounds);
+            
+            CGImageRelease(scaledNonInverted);
         }
     }];
     
@@ -77,11 +82,14 @@
 			CGSize size = rect.size;
             CGContextTranslateCTM(context, 0.0f, size.height);
             CGContextScaleCTM(context, 1.0f, -1.0f);
-            CGContextSetShadowWithColor(context, outerShadow.offset, outerShadow.radius, [outerShadow.color colorWithAlphaComponent:outerShadow.opacity].CGColor);
+            CGContextSetShadowWithColor(context, outerShadow.offset, outerShadow.radius, [outerShadow.color.color colorWithAlphaComponent:outerShadow.opacity].CGColor);
             CGContextDrawImage(context, CGRectMake(floorf((size.width - newImage.size.width) / 2), floorf((size.height - newImage.size.height) / 2), newImage.size.width, newImage.size.height), newImage.CGImage);
         }];
     }
+        CGImageRelease(nonInvertedMask);
+        CGImageRelease(mask);
     return newImage;
+    }
 }
 
 @end

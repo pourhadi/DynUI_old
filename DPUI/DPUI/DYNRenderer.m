@@ -18,6 +18,7 @@
     NSOperationQueue *queue = objc_getAssociatedObject(self, kDYNDrawQueueKey);
     if (!queue) {
         queue = [[NSOperationQueue alloc] init];
+        queue.name = @"DYNRendererQueue";
         objc_setAssociatedObject(self, kDYNDrawQueueKey, queue, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     }
     return queue;
@@ -30,10 +31,21 @@
 	}
 }
 
++ (void)applyTintFromStyle:(DYNViewStyle*)style toView:(UIView*)view
+{
+	if (style.useCustomTintColor) {
+		if ([view respondsToSelector:@selector(setTintColor:)]) {
+            [view performSelector:@selector(setTintColor:) withObject:style.tintColor.color];
+			
+		}
+	}
+}
+
 + (void)renderView:(UIView *)view withStyleNamed:(NSString *)styleName {
 	DYNViewStyle *style = (DYNViewStyle *)[[DYNManager sharedInstance] styleForName:styleName];
 
 	[self applyCustomSettingsFromStyle:style toView:view];
+	[self applyTintFromStyle:style toView:view];
 	
     if ([view isKindOfClass:[UIButton class]]) {
         [self renderButton:(UIButton *)view withStyleNamed:styleName];
@@ -310,7 +322,7 @@
     
     UIImage *bgImage = [style imageForStyleWithSize:searchBar.frame.size withOuterShadow:NO flippedGradient:NO parameters:searchBar.styleParameters];
     
-    [searchBar setBackgroundImage:bgImage];
+    [searchBar setBackgroundImage:bgImage forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
     
     if (style.shadow) {
         [style.shadow addShadowToView:searchBar];
@@ -470,14 +482,20 @@
     DYNViewStyle *navStyle = (DYNViewStyle *)[[DYNManager sharedInstance] styleForName:styleName];
     
     UIImage *img = [navStyle imageForStyleWithSize:navigationBar.frame.size parameters:navigationBar.styleParameters];
-    [navigationBar setBackgroundImage:img forBarMetrics:UIBarMetricsDefault];
     
+    if (navStyle.drawBackground) {
+        if ([navigationBar respondsToSelector:@selector(setBackgroundImage:forBarPosition:barMetrics:)]) {
+            [navigationBar setBackgroundImage:img.dyn_resizableImage forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
+        } else {
+            [navigationBar setBackgroundImage:img forBarMetrics:UIBarMetricsDefault];
+        }
+    }
     if (navStyle.navBarTitleTextStyle) {
         [navigationBar setTitleTextAttributes:navStyle.navBarTitleTextStyle.titleTextAttributes];
     }
     
     if (navStyle.shadow) {
-        CIColor *color = [CIColor colorWithCGColor:navStyle.shadow.color.CGColor];
+        CIColor *color = [CIColor colorWithCGColor:navStyle.shadow.color.color.CGColor];
         if (!(CGSizeEqualToSize(navStyle.shadow.offset, CGSizeZero) && navStyle.shadow.radius == 0) && color.alpha != 0 && navStyle.shadow.opacity != 0) {
             UIImage *shadowImage = [navStyle.shadow getImageForWidth:navigationBar.frame.size.width];
             [navigationBar setShadowImage:shadowImage];

@@ -6,8 +6,10 @@
 //
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 #import <QuartzCore/QuartzCore.h>
+#import <UIKit/UIKit.h>
+
 @class DYNStyleParameters;
 typedef void (^DYNDrawImageBlock)(CGContextRef context, CGRect rect);
 
@@ -16,7 +18,10 @@ typedef void (^DYNDrawImageBlock)(CGContextRef context, CGRect rect);
 - (void)setValuesForStyleParameters:(NSDictionary *)valuesForParams;
 - (void)setValue:(id)value forStyleParameter:(NSString *)parameterName;
 
+@property (nonatomic) BOOL hasBeenRendered;
 @property (nonatomic, strong) DYNStyleParameters *styleParameters;
+
+@property (nonatomic, strong) NSURL *imageURL;
 
 + (UIImage*)iconImage:(NSString*)iconKey constrainedToSize:(CGSize)size withStyle:(NSString*)styleName;
 
@@ -30,6 +35,7 @@ typedef void (^DYNDrawImageBlock)(CGContextRef context, CGRect rect);
 
 + (UIImage *)imageNamed:(NSString *)name withStyle:(NSString *)style;
 
++ (UIImage *)imageWithSize:(CGSize)size opaque:(BOOL)opaque drawnWithBlock:(DYNDrawImageBlock)block;
 + (UIImage *)imageWithSize:(CGSize)size drawnWithBlock:(DYNDrawImageBlock)block;
 
 + (UIImage *)tintImage:(UIImage *)uiImage withColor:(CIColor *)color;
@@ -40,7 +46,7 @@ typedef void (^DYNDrawImageBlock)(CGContextRef context, CGRect rect);
 
 + (UIImage *)gradientImageWithTop:(id)topColor bottom:(id)bottomColor frame:(CGRect)frame;
 
-+ (CGImageRef)createMaskFromAlphaChannel:(UIImage *)image inverted:(BOOL)inverted;
++ (CGImageRef)newMaskFromAlphaChannel:(UIImage *)image inverted:(BOOL)inverted;
 
 + (CGImageRef)createMaskFromAlphaChannel:(UIImage *)image; // inverted
 
@@ -58,10 +64,14 @@ typedef void (^DYNDrawImageBlock)(CGContextRef context, CGRect rect);
 
 - (UIImage *)imageWithOpacity:(CGFloat)opacity;
 
+- (UIImage*)scaleToFill:(CGSize)size;
+
 - (UIImage *)imageWithBlackMasked;
 
 - (UIImage *)dyn_resizableImage;
 
 - (UIImage *)imageCroppedToRect:(CGRect)rect;
 
+- (UIImage*)imageRotatedBy:(CGFloat)degrees;
++ (UIImage*)iconImage:(NSString*)iconKey constrainedToSize:(CGSize)size withColor:(UIColor*)color;
 @end

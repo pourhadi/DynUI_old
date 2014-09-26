@@ -14,6 +14,42 @@
 
 #define ROUND_UP(N, S) ((((N) + (S)-1) / (S)) * (S))
 @implementation UIImage (DynUI)
+GET_AND_SET_BOOL(hasBeenRendered_val);
+
+- (void)setHasBeenRendered:(BOOL)rendered
+{
+    [self set_hasBeenRendered_val:rendered];
+}
+
+- (BOOL)hasBeenRendered
+{
+    return [self hasBeenRendered_val];
+}
+
+GET_AND_SET_ASSOCIATED_OBJ(imageURL_val, nil);
+
+- (void)setImageURL:(NSURL *)imageURL
+{
+    [self set_imageURL_val:imageURL];
+}
+
+- (NSURL*)imageURL
+{
+    return [self imageURL_val];
+}
+
++ (UIImage*)iconImage:(NSString*)iconKey constrainedToSize:(CGSize)size withColor:(UIColor*)color
+{
+    UIBezierPath *iconPath = [DYNIcons iconPathForKey:iconKey fitInSize:size];
+    UIImage *image = [UIImage imageWithSize:iconPath.bounds.size drawnWithBlock:^(CGContextRef context, CGRect rect) {
+		CGContextSetInterpolationQuality(context, kCGInterpolationHigh);
+        CGContextSetFlatness(context, iconPath.flatness);
+		[color setFill];
+		[iconPath fill];
+		
+	}];
+    return image;
+}
 
 + (UIImage*)iconImage:(NSString*)iconKey constrainedToSize:(CGSize)size withStyle:(NSString*)styleName
 {
@@ -35,24 +71,33 @@
 
 + (UIImage*)iconImage:(NSString*)iconKey forHeight:(CGFloat)height withStyle:(NSString*)styleName
 {
+    @autoreleasepool {
+        
+    
 	UIBezierPath *iconPath = [DYNIcons iconPathForKey:iconKey forHeight:height];
 	DYNImageStyle *style = [DYNImageStyle imageStyleForName:styleName];
 	UIImage *image = [style imageForStyleWithSize:iconPath.bounds.size path:iconPath withOuterShadow:YES flippedGradient:NO parameters:nil];
 	
 	return image;
+    }
 
 }
 
 + (UIImage*)iconImage:(NSString *)iconKey forHeight:(CGFloat)height color:(UIColor*)color
 {
+    @autoreleasepool {
+        
+    
 	UIBezierPath *iconPath = [DYNIcons iconPathForKey:iconKey forHeight:height];
 	UIImage *image = [UIImage imageWithSize:iconPath.bounds.size drawnWithBlock:^(CGContextRef context, CGRect rect) {
-		
+		CGContextSetInterpolationQuality(context, kCGInterpolationHigh);
+        CGContextSetFlatness(context, iconPath.flatness);
 		[color setFill];
 		[iconPath fill];
 		
 	}];
 	return image;
+    }
 }
 
 + (UIImage*)iconImage:(NSString *)iconKey forWidth:(CGFloat)width color:(UIColor*)color
@@ -68,8 +113,8 @@
 	return image;
 }
 
-+ (UIImage *)imageWithSize:(CGSize)size drawnWithBlock:(DYNDrawImageBlock)block {
-    UIGraphicsBeginImageContextWithOptions(size, NO, [[UIScreen mainScreen] scale]);
++ (UIImage *)imageWithSize:(CGSize)size opaque:(BOOL)opaque drawnWithBlock:(DYNDrawImageBlock)block {
+    UIGraphicsBeginImageContextWithOptions(size, opaque, [[UIScreen mainScreen] scale]);
     CGContextRef c = UIGraphicsGetCurrentContext();
     if (!c) {
         return nil;
@@ -81,6 +126,11 @@
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     return image;
+}
+
+
++ (UIImage *)imageWithSize:(CGSize)size drawnWithBlock:(DYNDrawImageBlock)block {
+    return [self imageWithSize:size opaque:NO drawnWithBlock:block];
 }
 
 + (UIImage *)tintImage:(UIImage *)uiImage withUIColor:(UIColor *)color {
@@ -112,7 +162,7 @@
     
     CIImage *outputImage = [compositingFilter valueForKey:@"outputImage"];
     CGImageRef outputRef = [context createCGImage:outputImage fromRect:[outputImage extent]];
-    
+    // CGImageRelease(outputRef);
     return [UIImage imageWithCGImage:outputRef];
 }
 
@@ -140,15 +190,23 @@
 }
 
 - (UIImage *)imageOverlayedWithColor:(UIColor *)color opacity:(CGFloat)opacity {
-    UIImage *image = [UIImage imageWithSize:self.size drawnWithBlock:^(CGContextRef context, CGRect rect) {
+    __weak __typeof(&*self) weakSelf = self;
+    UIImage *image = [UIImage imageWithSize:weakSelf.size drawnWithBlock:^(CGContextRef context, CGRect rect) {
+        
+
+        [weakSelf drawInRect:rect];
+        [[color colorWithAlphaComponent:opacity] setFill];
+        UIRectFillUsingBlendMode(rect, kCGBlendModeSourceAtop);
+        /*
 		CGSize size = rect.size;
         [color setFill];
         UIRectFill(CGRectMake(0, 0, size.width, size.height));
         
-        [self drawInRect:CGRectMake(0, 0, size.width, size.height) blendMode:kCGBlendModeDestinationIn alpha:1.0];
+        [weakSelf drawInRect:CGRectMake(0, 0, size.width, size.height) blendMode:kCGBlendModeDestinationIn alpha:1.0];
         if (opacity < 1) {
-            [self drawInRect:CGRectMake(0, 0, size.width, size.height) blendMode:kCGBlendModeSourceAtop alpha:1 - opacity];
+            [weakSelf drawInRect:CGRectMake(0, 0, size.width, size.height) blendMode:kCGBlendModeSourceAtop alpha:1 - opacity];
         }
+         */
     }];
     
     return image;
@@ -180,7 +238,8 @@
     
     image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
-    
+    CGColorSpaceRelease(myColorspace);
+    CGGradientRelease(myGradient);
     return image;
 }
 
@@ -209,7 +268,8 @@
     
     image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
-    
+    CGColorSpaceRelease(myColorspace);
+    CGGradientRelease(myGradient);
     return image;
 }
 
@@ -222,7 +282,7 @@
     return image;
 }
 
-+ (CGImageRef)createMaskFromAlphaChannel:(UIImage *)image inverted:(BOOL)inverted {
++ (CGImageRef)newMaskFromAlphaChannel:(UIImage *)image inverted:(BOOL)inverted {
     if (!image) {
         return nil;
     }
@@ -270,12 +330,13 @@
                                                   CGImageGetBitsPerPixel(alphaMaskImage),
                                                   CGImageGetBytesPerRow(alphaMaskImage),
                                                   CGImageGetDataProvider(alphaMaskImage), NULL, false);
+    
     CGImageRelease(alphaMaskImage);
     return finalMaskImage;
 }
 
 + (CGImageRef)createMaskFromAlphaChannel:(UIImage *)image {
-    return [self createMaskFromAlphaChannel:image inverted:YES];
+    return [self newMaskFromAlphaChannel:image inverted:YES];
 }
 
 + (UIImage *)cropTransparencyFromImage:(UIImage *)img {
@@ -352,6 +413,8 @@
                alpha:1.];
     UIImage *croppedImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
+    
+    CFRelease(m_DataRef);
     return croppedImage;
 }
 
@@ -369,8 +432,11 @@
     CIContext *context = [CIContext contextWithOptions:nil];
     CIImage *output = [filter valueForKey:kCIOutputImageKey];
     CGImageRef imageRef = [context createCGImage:output fromRect:output.extent];
+
+    UIImage *image =[UIImage imageWithCGImage:imageRef];
+    CFRelease(imageRef);
     
-    return [UIImage imageWithCGImage:imageRef];
+    return image;
 }
 
 - (UIImage *)dyn_resizableImage {
@@ -379,19 +445,28 @@
 }
 
 - (UIImage *)imageWithOpacity:(CGFloat)opacity {
+    __weak __typeof(&*self) weakSelf = self;
     UIImage *img = [UIImage imageWithSize:self.size drawnWithBlock:^(CGContextRef context, CGRect rect) {
 		CGSize size = rect.size;
-        [self drawInRect:CGRectMake(0, 0, size.width, size.height) blendMode:kCGBlendModeNormal alpha:opacity];
+        [weakSelf drawInRect:CGRectMake(0, 0, size.width, size.height) blendMode:kCGBlendModeNormal alpha:opacity];
     }];
     
     return img;
 }
 
 - (UIImage *)imageScaledToSize:(CGSize)scaledSized cropTransparent:(BOOL)crop {
+    
+    
+    
     CGSize imageSize = (crop ? scaledSized : self.size);
+    __weak __typeof(&*self) weakSelf = self;
+    
+  
     
     return [UIImage imageWithSize:imageSize drawnWithBlock:^(CGContextRef context, CGRect rect) {
-		CGSize size = rect.size;
+
+        CGSize size = rect.size;
+        
         CGContextTranslateCTM(context, 0.0f, size.height);
         CGContextScaleCTM(context, 1.0f, -1.0f);
         
@@ -402,19 +477,67 @@
         }
         
         CGContextSetInterpolationQuality(context, kCGInterpolationHigh);
-        CGContextDrawImage(context, resizedRect, self.CGImage);
+        CGContextDrawImage(context, resizedRect, weakSelf.CGImage);
+        
     }];
 }
 
 - (UIImage *)imageCroppedToRect:(CGRect)newRect
 {
+    __weak __typeof(&*self) weakSelf = self;
 	UIImage *new = [UIImage imageWithSize:newRect.size drawnWithBlock:^(CGContextRef context, CGRect rect) {
 		
-		CGRect drawRect = CGRectMake(-newRect.origin.x, -newRect.origin.y, self.size.width, self.size.height);
-		[self drawInRect:drawRect];
+		CGRect drawRect = CGRectMake(-newRect.origin.x, -newRect.origin.y, weakSelf.size.width, weakSelf.size.height);
+		[weakSelf drawInRect:drawRect];
 		
 	}];
 	return new;
+}
+
+- (UIImage*)scaleToFill:(CGSize)size
+{
+    if (!self) return nil;
+    if (CGSizeEqualToSize(size, CGSizeZero)) return nil;
+    UIImage *image = self;
+    CGSize finalImageSize = size;
+    CGImageRef sourceImageRef = image.CGImage;
+    CGFloat horizontalRatio = finalImageSize.width / CGImageGetWidth(sourceImageRef);
+    CGFloat verticalRatio = finalImageSize.height / CGImageGetHeight(sourceImageRef);
+    CGFloat ratio = MAX(horizontalRatio, verticalRatio); //AspectFill
+    CGSize aspectFillSize = CGSizeMake(CGImageGetWidth(sourceImageRef) * ratio, CGImageGetHeight(sourceImageRef) * ratio);
+    CGContextRef context = CGBitmapContextCreate(NULL,
+                                                 finalImageSize.width,
+                                                 finalImageSize.height,
+                                                 CGImageGetBitsPerComponent(sourceImageRef),
+                                                 0,
+                                                 CGImageGetColorSpace(sourceImageRef),
+                                                 CGImageGetBitmapInfo(sourceImageRef));
+    //Draw our image centered vertically and horizontally in our context.
+    CGContextDrawImage(context,
+                       CGRectMake((finalImageSize.width-aspectFillSize.width)/2,
+                                  (finalImageSize.height-aspectFillSize.height)/2,
+                                  aspectFillSize.width,
+                                  aspectFillSize.height),
+                       sourceImageRef);
+    //Start cleaning up..
+    // CGImageRelease(sourceImageRef);
+    CGImageRef finalImageRef = CGBitmapContextCreateImage(context);
+    UIImage *finalImage = [UIImage imageWithCGImage:finalImageRef];
+    CGContextRelease(context);
+    CGImageRelease(finalImageRef);
+    return finalImage;
+}
+
+- (UIImage*)imageRotatedBy:(CGFloat)degrees
+{
+    CIContext *context = [[DYNManager sharedInstance] sharedCIContext];
+    CIImage *ci_image = [CIImage imageWithCGImage:self.CGImage];
+    CGAffineTransform transform = CGAffineTransformMakeRotation(degrees);
+    ci_image = [ci_image imageByApplyingTransform:transform];
+    CGImageRef cg_image = [context createCGImage:ci_image fromRect:ci_image.extent];
+    UIImage *final = [UIImage imageWithCGImage:cg_image];
+    CFRelease(cg_image);
+    return final;
 }
 
 // style parameters
@@ -435,8 +558,9 @@
 }
 
 - (void)setValuesForStyleParameters:(NSDictionary *)valuesForParams {
+    __weak __typeof(&*self) weakSelf = self;
     [valuesForParams enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-        [self.styleParameters setValue:obj forStyleParameter:key];
+        [weakSelf.styleParameters setValue:obj forStyleParameter:key];
     }];
 }
 

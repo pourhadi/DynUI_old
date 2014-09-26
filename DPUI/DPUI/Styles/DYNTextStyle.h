@@ -5,7 +5,8 @@
 //  Created by Dan Pourhadi on 5/4/13.
 //
 //
-
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 #import "DYNStyle.h"
 @class DYNColor;
 
@@ -26,6 +27,9 @@ typedef NS_ENUM (NSUInteger, DYNFontSizeType) {
 @property (nonatomic) NSTextAlignment alignment;
 @property (nonatomic, strong) NSString *fontSizeString;
 @property (nonatomic) DYNFontSizeType fontSizeType;
+
+@property (nonatomic) BOOL inheritFontSize;
+@property (nonatomic) BOOL inheritAlignment;
 
 - (void)applyToLabel:(UILabel *)label;
 - (void)applyToTextField:(UITextField *)textField;

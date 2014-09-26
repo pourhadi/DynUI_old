@@ -6,11 +6,23 @@
 //
 //
 
+#import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 @class DYNManager;
 @class DYNStyleParameters;
 @class DYNPassThroughView;
 typedef void (^DYNAppearanceBlock)(DYNManager *styleManager, UIView *view);
+
+NS_INLINE CGRect CGRectCenteredInRect(CGRect rect, CGRect inRect) {
+    
+    CGRect centeredR;
+    centeredR.size.height = rect.size.height;
+    centeredR.size.width = rect.size.width;
+    centeredR.origin.x = (inRect.size.width - rect.size.width) / 2;
+    centeredR.origin.y = (inRect.size.height - rect.size.height) / 2;
+    return centeredR;
+    
+}
 
 @interface UIView (DynUI)
 @property (nonatomic, strong) NSString *dyn_style; // set this property to assign a style
@@ -32,5 +44,8 @@ typedef void (^DYNAppearanceBlock)(DYNManager *styleManager, UIView *view);
 - (void)dyn_frameChanged;
 
 - (void)dyn_dealloc;
+
+- (UIImage*)imageFromSnapshot;
+- (UIImage*)imageFromSnapshotInRect:(CGRect)rect;
 
 @end

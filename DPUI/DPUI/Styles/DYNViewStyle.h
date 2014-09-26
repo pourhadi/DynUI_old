@@ -5,8 +5,8 @@
 //  Created by Dan Pourhadi on 4/27/13.
 //
 //
-
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 #import "DYNStyle.h"
 @class DYNShadowStyle;
 @class DYNTextStyle;
@@ -14,6 +14,7 @@
 @class DYNColor;
 @class DYNControlStyle;
 @class DYNStyleParameters;
+@class DYNInsets;
 
 typedef NS_OPTIONS (NSUInteger, CornerRadiusType) {
     CornerRadiusTypeCustom,
@@ -30,7 +31,11 @@ typedef NS_OPTIONS (NSUInteger, CornerRadiusType) {
 ///---------------------------------------------------------------------------------------
 /// @name General Style Properties
 ///---------------------------------------------------------------------------------------
+@property (nonatomic) BOOL drawBackground;
 @property (nonatomic, strong) DYNBackgroundStyle *background;
+
+@property (nonatomic) BOOL useCustomTintColor;
+@property (nonatomic, strong) DYNColor *tintColor;
 
 /** NSArray of DYNInnerBorderStyle objects that specify the borders to draw on the top side of the view.
  
@@ -121,7 +126,7 @@ typedef NS_OPTIONS (NSUInteger, CornerRadiusType) {
 @property (nonatomic, strong) DYNTextStyle *textFieldTextStyle;
 
 ///---------------------------------------------------------------------------------------
-/// @name UISegmentControl Style Properties
+/// @name UISegmentedControl Style Properties
 ///---------------------------------------------------------------------------------------
 @property (nonatomic, strong) DYNControlStyle *segmentedControlStyle;
 @property (nonatomic) CGFloat segmentDividerWidth;

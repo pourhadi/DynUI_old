@@ -17,6 +17,7 @@
     self = [super init];
     if (self) {
         self.cornerRadii = CGSizeZero;
+        self.drawBackground = YES;
     }
     return self;
 }
@@ -171,6 +172,14 @@
 			
 			self.customSettings = tmpSettings;
 		}
+		
+		if ([dictionary objectForKey:kDYNUseCustomTintColorKey]) {
+			self.useCustomTintColor = [[dictionary objectForKey:kDYNUseCustomTintColorKey] boolValue];
+			if ([dictionary objectForKey:kDYNTintColorKey]) {
+				self.tintColor = [[DYNColor alloc] initWithDictionary:[dictionary objectForKey:kDYNTintColorKey]];
+			}
+		}
+		
     }
     return self;
 }
@@ -235,6 +244,9 @@
 }
 
 - (void)applyStyleToView:(UIView *)view {
+    @autoreleasepool {
+        
+    
     CGSize size = view.frame.size;
 	
     UIBezierPath *path = [self pathForStyleForRect:CGRectMake(0, 0, size.width, size.height)];
@@ -262,27 +274,31 @@
 
 		
     }
+    }
 }
 
 - (UIImage *)imageForStyleWithSize:(CGSize)size path:(UIBezierPath *)path withOuterShadow:(BOOL)withOuterShadow flippedGradient:(BOOL)flippedGradient parameters:(DYNStyleParameters *)parameters {
+    @autoreleasepool {
+        
+    __weak __typeof(&*self) weakSelf = self;
     UIImage *image = [UIImage imageWithSize:size drawnWithBlock:^(CGContextRef context, CGRect rect) {
 		CGSize size = rect.size;
         CGContextSetInterpolationQuality(context, kCGInterpolationHigh);
         path.miterLimit = -10;
 		
-        [self.canvasBackgroundColor setFill];
+        [weakSelf.canvasBackgroundColor setFill];
         UIRectFill(CGRectMake(0, 0, size.width, size.height));
 		
-        [self.background drawInFrame:CGRectMake(0, 0, size.width, size.height) clippedToPath:path parameters:parameters flippedGradient:flippedGradient];
+        [weakSelf.background drawInFrame:CGRectMake(0, 0, size.width, size.height) clippedToPath:path parameters:parameters flippedGradient:flippedGradient];
 		
-        if (self.innerShadow && self.innerShadow.opacity > 0) {
-            [self.innerShadow drawAsInnerShadowInPath:path context:context];
+        if (weakSelf.innerShadow && weakSelf.innerShadow.opacity > 0) {
+            [weakSelf.innerShadow drawAsInnerShadowInPath:path context:context];
         }
 		
 		
         CGFloat currentY = 0;
-        for (int x = 0; x < self.topInnerBorders.count; x++) {
-            DYNInnerBorderStyle *innerBorder = self.topInnerBorders[x];
+        for (int x = 0; x < weakSelf.topInnerBorders.count; x++) {
+            DYNInnerBorderStyle *innerBorder = weakSelf.topInnerBorders[x];
 			
             UIColor *shadow = innerBorder.color.color;
             if (innerBorder.color.definedAtRuntime) {
@@ -327,10 +343,10 @@
             currentY += innerBorder.height;
         }
 		
-        if (self.bottomInnerBorders.count > 0) {
+        if (weakSelf.bottomInnerBorders.count > 0) {
             currentY = size.height;
-            for (int x = 0; x < self.bottomInnerBorders.count; x++) {
-                DYNInnerBorderStyle *innerBorder = self.bottomInnerBorders[x];
+            for (int x = 0; x < weakSelf.bottomInnerBorders.count; x++) {
+                DYNInnerBorderStyle *innerBorder = weakSelf.bottomInnerBorders[x];
                 currentY -= innerBorder.height;
                 UIColor *shadow = innerBorder.color.color;
                 if (innerBorder.color.definedAtRuntime) {
@@ -374,10 +390,10 @@
             }
         }
 		
-        if (self.leftInnerBorders.count > 0) {
+        if (weakSelf.leftInnerBorders.count > 0) {
             currentY = size.height;
-            for (int x = 0; x < self.leftInnerBorders.count; x++) {
-                DYNInnerBorderStyle *innerBorder = self.leftInnerBorders[x];
+            for (int x = 0; x < weakSelf.leftInnerBorders.count; x++) {
+                DYNInnerBorderStyle *innerBorder = weakSelf.leftInnerBorders[x];
                 currentY -= innerBorder.height;
                 UIColor *shadow = innerBorder.color.color;
                 if (innerBorder.color.definedAtRuntime) {
@@ -421,10 +437,10 @@
             }
         }
 		
-        if (self.rightInnerBorders.count > 0) {
+        if (weakSelf.rightInnerBorders.count > 0) {
             currentY = size.height;
-            for (int x = 0; x < self.rightInnerBorders.count; x++) {
-                DYNInnerBorderStyle *innerBorder = self.rightInnerBorders[x];
+            for (int x = 0; x < weakSelf.rightInnerBorders.count; x++) {
+                DYNInnerBorderStyle *innerBorder = weakSelf.rightInnerBorders[x];
                 currentY -= innerBorder.height;
                 UIColor *shadow = innerBorder.color.color;
                 if (innerBorder.color.definedAtRuntime) {
@@ -471,20 +487,20 @@
         CGContextSaveGState(context);
         // [path addClip];
 		
-        if (self.strokeWidth > 0) {
-            UIColor *stroke = self.strokeColor.color;
-            if (self.strokeColor.definedAtRuntime) {
-                UIColor *paramColor = [parameters valueForStyleParameter:self.strokeColor.variableName];
+        if (weakSelf.strokeWidth > 0) {
+            UIColor *stroke = weakSelf.strokeColor.color;
+            if (weakSelf.strokeColor.definedAtRuntime) {
+                UIColor *paramColor = [parameters valueForStyleParameter:weakSelf.strokeColor.variableName];
                 if (paramColor) {
                     stroke = paramColor;
                 }
             }
 			
             //		UIBezierPath *strokePath = [self strokePathForStyleForRect:path.bounds];
-            UIBezierPath *strokePath = [self strokePathForPath:path];
+            UIBezierPath *strokePath = [weakSelf strokePathForPath:path];
 			strokePath = path;
 			[strokePath addClip];
-			            [strokePath setLineWidth:self.strokeWidth*2];
+			            [strokePath setLineWidth:weakSelf.strokeWidth*2];
             [stroke setStroke];
             [strokePath stroke];
             CGContextRestoreGState(context);
@@ -492,20 +508,21 @@
     }];
 	
 	
-    if (self.shadow && withOuterShadow && self.shadow.opacity > 0) {
-        DYNShadowStyle *outerShadow = self.shadow;
+    if (weakSelf.shadow && withOuterShadow && weakSelf.shadow.opacity > 0) {
+        DYNShadowStyle *outerShadow = weakSelf.shadow;
 		
         CGSize newSize = CGSizeMake(image.size.width + ((fabsf(outerShadow.radius) + fabsf(outerShadow.offset.width)) * 2), image.size.height + ((fabsf(outerShadow.radius) + fabsf(outerShadow.offset.height)) * 2));
         image = [UIImage imageWithSize:newSize drawnWithBlock:^(CGContextRef context, CGRect rect) {
 			CGSize size = rect.size;
             CGContextTranslateCTM(context, 0.0f, size.height);
             CGContextScaleCTM(context, 1.0f, -1.0f);
-            CGContextSetShadowWithColor(context, outerShadow.offset, outerShadow.radius, [outerShadow.color colorWithAlphaComponent:outerShadow.opacity].CGColor);
+            CGContextSetShadowWithColor(context, outerShadow.offset, outerShadow.radius, [outerShadow.color.color colorWithAlphaComponent:outerShadow.opacity].CGColor);
             CGContextDrawImage(context, CGRectMake(floorf((size.width - image.size.width) / 2), floorf((size.height - image.size.height) / 2), image.size.width, image.size.height), image.CGImage);
         }];
     }
 	
     return image;
+    }
 }
 
 - (UIImage *)imageForStyleWithSize:(CGSize)size path:(UIBezierPath *)path withOuterShadow:(BOOL)withOuterShadow parameters:(DYNStyleParameters *)parameters {
@@ -531,11 +548,11 @@
 
 	CGSize newSize = CGSizeMake(size.width - ((fabsf(outerShadow.radius) + fabsf(outerShadow.offset.width)) * 2), size.height - ((fabsf(outerShadow.radius) + fabsf(outerShadow.offset.height)) * 2));
 
-	
+	__weak __typeof(&*self) weakSelf = self;
 	UIImage *maskImage = [UIImage imageWithSize:size drawnWithBlock:^(CGContextRef context, CGRect rect) {
 		CGSize size = rect.size;
 		CGRect newRect = CGRectMake((size.width-newSize.width)/2, (size.height-newSize.height)/2, newSize.width, newSize.height);
-		UIBezierPath *path = [self pathForStyleForRect:newRect];
+		UIBezierPath *path = [weakSelf pathForStyleForRect:newRect];
 		[[UIColor blackColor] setFill];
 		[path fill];
 		
@@ -548,17 +565,20 @@
 }
 
 - (UIImage *)borderImageForSize:(CGSize)size parameters:(DYNStyleParameters *)parameters {
+    @autoreleasepool {
+        
+    __weak __typeof(&*self) weakSelf = self;
     UIBezierPath *path = [self pathForStyleForRect:CGRectMake(0, 0, size.width, size.height)];
     return [UIImage imageWithSize:size drawnWithBlock:^(CGContextRef context, CGRect rect) {
 		CGSize size = rect.size;
-        if (self.innerShadow && self.innerShadow.opacity > 0) {
-            [self.innerShadow drawAsInnerShadowInPath:path context:context];
+        if (weakSelf.innerShadow && weakSelf.innerShadow.opacity > 0) {
+            [weakSelf.innerShadow drawAsInnerShadowInPath:path context:context];
         }
 		
 		
         CGFloat currentY = 0;
-        for (int x = 0; x < self.topInnerBorders.count; x++) {
-            DYNInnerBorderStyle *innerBorder = self.topInnerBorders[x];
+        for (int x = 0; x < weakSelf.topInnerBorders.count; x++) {
+            DYNInnerBorderStyle *innerBorder = weakSelf.topInnerBorders[x];
 			
             UIColor *shadow = innerBorder.color.color;
             if (innerBorder.color.definedAtRuntime) {
@@ -603,10 +623,10 @@
             currentY += innerBorder.height;
         }
 		
-        if (self.bottomInnerBorders.count > 0) {
+        if (weakSelf.bottomInnerBorders.count > 0) {
             currentY = size.height;
-            for (int x = 0; x < self.bottomInnerBorders.count; x++) {
-                DYNInnerBorderStyle *innerBorder = self.bottomInnerBorders[x];
+            for (int x = 0; x < weakSelf.bottomInnerBorders.count; x++) {
+                DYNInnerBorderStyle *innerBorder = weakSelf.bottomInnerBorders[x];
                 currentY -= innerBorder.height;
                 UIColor *shadow = innerBorder.color.color;
                 if (innerBorder.color.definedAtRuntime) {
@@ -650,10 +670,10 @@
             }
         }
 		
-        if (self.leftInnerBorders.count > 0) {
+        if (weakSelf.leftInnerBorders.count > 0) {
             currentY = size.height;
-            for (int x = 0; x < self.leftInnerBorders.count; x++) {
-                DYNInnerBorderStyle *innerBorder = self.leftInnerBorders[x];
+            for (int x = 0; x < weakSelf.leftInnerBorders.count; x++) {
+                DYNInnerBorderStyle *innerBorder = weakSelf.leftInnerBorders[x];
                 currentY -= innerBorder.height;
                 UIColor *shadow = innerBorder.color.color;
                 if (innerBorder.color.definedAtRuntime) {
@@ -697,10 +717,10 @@
             }
         }
 		
-        if (self.rightInnerBorders.count > 0) {
+        if (weakSelf.rightInnerBorders.count > 0) {
             currentY = size.height;
-            for (int x = 0; x < self.rightInnerBorders.count; x++) {
-                DYNInnerBorderStyle *innerBorder = self.rightInnerBorders[x];
+            for (int x = 0; x < weakSelf.rightInnerBorders.count; x++) {
+                DYNInnerBorderStyle *innerBorder = weakSelf.rightInnerBorders[x];
                 currentY -= innerBorder.height;
                 UIColor *shadow = innerBorder.color.color;
                 if (innerBorder.color.definedAtRuntime) {
@@ -747,24 +767,25 @@
         CGContextSaveGState(context);
         // [path addClip];
 		
-        if (self.strokeWidth > 0) {
-            UIColor *stroke = self.strokeColor.color;
-            if (self.strokeColor.definedAtRuntime) {
-                UIColor *paramColor = [parameters valueForStyleParameter:self.strokeColor.variableName];
+        if (weakSelf.strokeWidth > 0) {
+            UIColor *stroke = weakSelf.strokeColor.color;
+            if (weakSelf.strokeColor.definedAtRuntime) {
+                UIColor *paramColor = [parameters valueForStyleParameter:weakSelf.strokeColor.variableName];
                 if (paramColor) {
                     stroke = paramColor;
                 }
             }
 			
             //		UIBezierPath *strokePath = [self strokePathForStyleForRect:path.bounds];
-            UIBezierPath *strokePath = [self strokePathForPath:path];
+            UIBezierPath *strokePath = [weakSelf strokePathForPath:path];
 			strokePath = path;
-            [strokePath setLineWidth:self.strokeWidth*2];
+            [strokePath setLineWidth:weakSelf.strokeWidth*2];
             [stroke setStroke];
             [strokePath stroke];
             CGContextRestoreGState(context);
         }
     }];
+    }
 }
 
 @end

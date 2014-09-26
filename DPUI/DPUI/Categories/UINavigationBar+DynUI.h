@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 Echo Daily. All rights reserved.
 //
 
+#import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
 @interface UINavigationBar (DynUI)
@@ -16,4 +17,6 @@
 @property (nonatomic, strong) Class dyn_metaClass;
 - (void)dyn_createMetaClass;
 
+- (void)setEffectBackgroundColor:(UIColor*)color;
+- (void)setBorderColor:(UIColor*)color;
 @end

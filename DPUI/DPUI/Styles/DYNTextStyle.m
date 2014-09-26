@@ -48,6 +48,9 @@
         }
         self.fontSizeString = [dict objectForKey:kDYNFontSizeStringKey];
         self.fontSizeType = [[dict objectForKey:kDYNFontSizeTypeKey] intValue];
+		
+		self.inheritFontSize = [[dict objectForKey:kDYNInheritFontSizeKey] boolValue];
+		self.inheritAlignment = [[dict objectForKey:kDYNInheritAlignmentKey] boolValue];
     }
 	
     return self;
@@ -59,7 +62,7 @@
     label.textColor = self.textColor.color;
 	
     CGFloat fontSize = self.font.pointSize;
-    if (self.fontSizeType == DYNFontSizeTypeRelative) {
+    if (self.fontSizeType == DYNFontSizeTypeRelative && !self.inheritFontSize) {
         if (self.fontSizeString) {
             if ([self.fontSizeString hasSuffix:@"%"]) {
                 NSRange range = [self.fontSizeString rangeOfString:@"%"];
@@ -69,12 +72,22 @@
                 fontSize = label.frame.size.height * percent;
             }
         }
-    }
+    } else if (self.inheritFontSize) {
+		fontSize = label.font.pointSize;
+	}
+	
+	NSTextAlignment alignment = self.alignment;
+	if (self.inheritAlignment) {
+		alignment = label.textAlignment;
+		if (alignment == NSTextAlignmentNatural || alignment == NSTextAlignmentJustified) {
+			alignment = self.alignment;
+		}
+	}
 	
     label.font = [UIFont fontWithName:self.font.fontName size:fontSize];
     label.shadowColor = self.shadowColor.color;
     label.shadowOffset = self.shadowOffset;
-    label.textAlignment = self.alignment;
+    label.textAlignment = alignment;
 }
 
 - (void)applyToTextField:(UITextField *)textField {
@@ -89,11 +102,22 @@
                 fontSize = textField.frame.size.height * percent;
             }
         }
-    }
+    } else if (self.inheritFontSize) {
+		fontSize = textField.font.pointSize;
+	}
+	
+	NSTextAlignment alignment = self.alignment;
+	if (self.inheritAlignment) {
+		alignment = textField.textAlignment;
+		if (alignment == NSTextAlignmentNatural || alignment == NSTextAlignmentJustified) {
+			alignment = self.alignment;
+		}
+	}
+	
 	
     textField.font = [UIFont fontWithName:self.font.fontName size:fontSize];
     textField.textColor = self.textColor.color;
-    textField.textAlignment = self.alignment;
+    textField.textAlignment = alignment;
 }
 
 - (NSDictionary *)titleTextAttributes {
@@ -117,7 +141,18 @@
                 fontSize = floorf(button.frame.size.height * percent);
             }
         }
-    }
+    } else if (self.inheritFontSize) {
+		fontSize = button.titleLabel.font.pointSize;
+	}
+	
+	NSTextAlignment alignment = self.alignment;
+	if (self.inheritAlignment) {
+		alignment = button.titleLabel.textAlignment;
+		if (alignment == NSTextAlignmentNatural || alignment == NSTextAlignmentJustified) {
+			alignment = self.alignment;
+		}
+	}
+	
 	
     UIFont *font = [UIFont fontWithName:self.font.fontName size:fontSize];
 	
@@ -138,7 +173,7 @@
     button.titleLabel.font = font;
     [button setTitleShadowColor:self.shadowColor.color forState:controlState];
     button.titleLabel.shadowOffset = self.shadowOffset;
-    button.titleLabel.textAlignment = self.alignment;
+    button.titleLabel.textAlignment = alignment;
 }
 
 @end

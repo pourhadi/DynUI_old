@@ -35,18 +35,25 @@
 - (NSDictionary*)iconDictionary
 {
 	if (!_iconDictionary) {
-		
+        @autoreleasepool {
+            
+        
 		NSData *data = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"icons" ofType:@"json"] options:0 error:nil];
 		if (data) {
 			_iconDictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
 		}
-	}
+        }
+     //   _iconDictionary = [self primitiveIconDictionary];
+    }
 	
 	return _iconDictionary;
 }
 
 + (UIBezierPath*)iconPathForKey:(NSString*)key fitInSize:(CGSize)size
 {
+    @autoreleasepool {
+        
+    
 	NSString *svgString = [[[DYNIcons sharedInstance] iconDictionary] objectForKey:key];
 	UIBezierPath *path = [UIBezierPath bezierPathWithSVGString:svgString];
 
@@ -83,10 +90,14 @@
 	[path centerInRect:CGRectMake(0, 0, size.width, size.height)];
 
 	return path;
+    }
 }
 
 + (UIBezierPath*)iconPathForKey:(NSString*)key forWidth:(CGFloat)width
 {
+    @autoreleasepool {
+        
+    
 	NSString *svgString = [[[DYNIcons sharedInstance] iconDictionary] objectForKey:key];
 	if (svgString) {
 		
@@ -106,10 +117,14 @@
 		return path;
 	}
 	return nil;
+    }
 }
 
 + (UIBezierPath*)iconPathForKey:(NSString*)key forHeight:(CGFloat)height
 {
+    @autoreleasepool {
+        
+        height = roundf(height);
 	NSString *svgString = [[[DYNIcons sharedInstance] iconDictionary] objectForKey:key];
 	if (svgString) {
 		
@@ -129,5 +144,7 @@
 		return path;
 	}
 	return nil;
+    }
 }
+
 @end

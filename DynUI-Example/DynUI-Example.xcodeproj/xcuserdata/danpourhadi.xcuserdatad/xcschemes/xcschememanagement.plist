@@ -9,9 +9,29 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>DynUI-Universal.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>DynUI.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>443BE60D1760465C00244333</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>443BE6A917604B5F00244333</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>44FADCC2173CE99700EB6BF4</key>
 		<dict>
 			<key>primary</key>

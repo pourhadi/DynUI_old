@@ -153,17 +153,26 @@
    // [tableView dyn_styleGroupedCell:cell forIndexPath:indexPath withStyle:@"GroupedTable"];
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+	if (cell == self.iconCell) {
+		DYNIconDemoViewController *vc = [[DYNIconDemoViewController alloc] initWithNibName:@"DYNIconDemoViewController" bundle:nil];
+		[self.navigationController pushViewController:vc animated:YES];
+	}
+}
+
 - (IBAction)segSelected:(id)sender
 {
 	if (self.segmentedControl.selectedSegmentIndex == 0) {
 		
-		[DYNManager loadStylesFromFile:@"Style.dpui" replaceExisting:YES];
+		[DYNManager loadStylesFromFile:@"Style.dyn" replaceExisting:YES];
 		
 	} else if (self.segmentedControl.selectedSegmentIndex == 1) {
-		[DYNManager loadStylesFromFile:@"Style_White.dpui" replaceExisting:YES];
+		[DYNManager loadStylesFromFile:@"Style_White.dyn" replaceExisting:YES];
 
 	} else if (self.segmentedControl.selectedSegmentIndex == 2) {
-		[DYNManager loadStylesFromFile:@"Style_Dark.dpui" replaceExisting:YES];
+		[DYNManager loadStylesFromFile:@"Style_Dark.dyn" replaceExisting:YES];
 	}
 }
 @end

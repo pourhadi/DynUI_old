@@ -1,0 +1,2882 @@
+{
+  "styles" : [
+    {
+      "leftInnerBorders" : [
+
+      ],
+      "canvasBackgroundType" : "Transparent",
+      "strokeColor" : {
+        "definedAtRuntime" : false,
+        "colorString" : "0.0814005 0.0813906 0.081397 1",
+        "colorVar" : "DemoBorder",
+        "colorName" : ""
+      },
+      "useCustomTintColor" : false,
+      "background" : {
+        "fillType" : 1,
+        "fillColor" : {
+          "definedAtRuntime" : false,
+          "colorString" : "0 0 0 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
+        "gradient" : {
+          "gradientVariableName" : "Red",
+          "gradientName" : "Gradient1",
+          "colors" : [
+            {
+              "definedAtRuntime" : false,
+              "colorString" : "1 0 0 1",
+              "colorVar" : "ButtonColor",
+              "colorName" : ""
+            },
+            {
+              "definedAtRuntime" : false,
+              "colorString" : "0.643597 0 0 1",
+              "colorVar" : "",
+              "colorName" : ""
+            }
+          ],
+          "gradientAngle" : 180,
+          "locations" : [
+            0,
+            1
+          ]
+        },
+        "fillInsets" : {
+          "right" : 0,
+          "top" : 0,
+          "left" : 0,
+          "bottom" : 0
+        }
+      },
+      "innerShadow" : {
+        "xOffset" : 0,
+        "color" : {
+          "definedAtRuntime" : false,
+          "colorString" : "1 1 1 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
+        "yOffset" : -1,
+        "opacity" : 1,
+        "radius" : 2
+      },
+      "shadow" : {
+        "xOffset" : 0,
+        "color" : {
+          "definedAtRuntime" : false,
+          "colorString" : "0 0 0 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
+        "yOffset" : 1,
+        "opacity" : 2.775557561562891e-17,
+        "radius" : 2
+      },
+      "strokeWidth" : 0.5,
+      "cornerRadius" : 12,
+      "canvasBackgroundColor" : "0 0 0 0",
+      "drawAsynchronously" : false,
+      "maskToCorners" : false,
+      "name" : "RedButton",
+      "tintColor" : {
+        "definedAtRuntime" : false,
+        "colorString" : "0 0 0 1",
+        "colorVar" : "",
+        "colorName" : ""
+      },
+      "topInnerBorders" : [
+        {
+          "height" : 0.5,
+          "color" : {
+            "definedAtRuntime" : false,
+            "colorString" : "1 1 1 0.3",
+            "colorVar" : "",
+            "colorName" : ""
+          },
+          "blendMode" : 3
+        }
+      ],
+      "bottomInnerBorders" : [
+
+      ],
+      "controlStyle" : {
+        "normalTextStyle" : "RedButtonText",
+        "disabledStyleName" : "Current - 50% Opacity",
+        "highlightedStyleName" : "Current - Flipped Gradient",
+        "selectedStyleName" : "Current - Flipped Gradient"
+      },
+      "rightInnerBorders" : [
+
+      ],
+      "isLeaf" : true,
+      "roundedCorners" : 15
+    },
+    {
+      "leftInnerBorders" : [
+
+      ],
+      "canvasBackgroundType" : "Transparent",
+      "strokeColor" : {
+        "definedAtRuntime" : false,
+        "colorString" : "0.0814005 0.0813906 0.081397 1",
+        "colorVar" : "DemoBorder",
+        "colorName" : ""
+      },
+      "cornerRadiusType" : 1,
+      "useCustomTintColor" : false,
+      "background" : {
+        "fillType" : 1,
+        "fillColor" : {
+          "definedAtRuntime" : false,
+          "colorString" : "0 0 0 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
+        "gradient" : {
+          "gradientVariableName" : "MainFlipped",
+          "gradientName" : "Gradient1",
+          "colors" : [
+            {
+              "definedAtRuntime" : false,
+              "colorString" : "0.199563 0.199557 0.19956 1",
+              "colorVar" : "DemoColor",
+              "colorName" : ""
+            },
+            {
+              "definedAtRuntime" : false,
+              "colorString" : "0.279545 0.279493 0.279526 1",
+              "colorVar" : "DemoNavTop",
+              "colorName" : ""
+            }
+          ],
+          "gradientAngle" : 180,
+          "locations" : [
+            0,
+            1
+          ]
+        },
+        "fillInsets" : {
+          "right" : 0,
+          "top" : 0,
+          "left" : 0,
+          "bottom" : 0
+        }
+      },
+      "innerShadow" : {
+        "xOffset" : 0,
+        "color" : {
+          "definedAtRuntime" : false,
+          "colorString" : "1 0.999974 0.999991 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
+        "yOffset" : -1,
+        "opacity" : 0.1000000014901161,
+        "radius" : 3
+      },
+      "shadow" : {
+        "xOffset" : 0,
+        "color" : {
+          "definedAtRuntime" : false,
+          "colorString" : "0 0 0 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
+        "yOffset" : 1,
+        "opacity" : 0.199999988079071,
+        "radius" : 1
+      },
+      "strokeWidth" : 0.5,
+      "cornerRadius" : 0,
+      "canvasBackgroundColor" : "0 0 0 0",
+      "drawAsynchronously" : false,
+      "maskToCorners" : false,
+      "name" : "Thumb",
+      "tintColor" : {
+        "definedAtRuntime" : false,
+        "colorString" : "0 0 0 1",
+        "colorVar" : "",
+        "colorName" : ""
+      },
+      "topInnerBorders" : [
+
+      ],
+      "bottomInnerBorders" : [
+
+      ],
+      "controlStyle" : {
+
+      },
+      "rightInnerBorders" : [
+
+      ],
+      "isLeaf" : true,
+      "roundedCorners" : 15
+    },
+    {
+      "leftInnerBorders" : [
+
+      ],
+      "canvasBackgroundType" : "Transparent",
+      "strokeColor" : {
+        "definedAtRuntime" : false,
+        "colorString" : "0.0814005 0.0813906 0.081397 1",
+        "colorVar" : "DemoBorder",
+        "colorName" : ""
+      },
+      "cornerRadiusType" : 1,
+      "useCustomTintColor" : false,
+      "background" : {
+        "fillType" : 1,
+        "fillColor" : {
+          "definedAtRuntime" : false,
+          "colorString" : "0 0 0 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
+        "gradient" : {
+          "gradientVariableName" : "MainFlipped",
+          "gradientName" : "Gradient1",
+          "colors" : [
+            {
+              "definedAtRuntime" : false,
+              "colorString" : "0.199563 0.199557 0.19956 1",
+              "colorVar" : "DemoColor",
+              "colorName" : ""
+            },
+            {
+              "definedAtRuntime" : false,
+              "colorString" : "0.279545 0.279493 0.279526 1",
+              "colorVar" : "DemoNavTop",
+              "colorName" : ""
+            }
+          ],
+          "gradientAngle" : 180,
+          "locations" : [
+            0,
+            1
+          ]
+        },
+        "fillInsets" : {
+          "right" : 0,
+          "top" : 0,
+          "left" : 0,
+          "bottom" : 0
+        }
+      },
+      "innerShadow" : {
+        "xOffset" : 0,
+        "color" : {
+          "definedAtRuntime" : false,
+          "colorString" : "0 0 0 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
+        "yOffset" : -1,
+        "opacity" : 0.300000011920929,
+        "radius" : 3
+      },
+      "shadow" : {
+        "xOffset" : 0,
+        "color" : {
+          "definedAtRuntime" : false,
+          "colorString" : "1 0.996078 1 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
+        "yOffset" : 1,
+        "opacity" : 0.1000000014901161,
+        "radius" : 0
+      },
+      "strokeWidth" : 1,
+      "cornerRadius" : 0,
+      "canvasBackgroundColor" : "0 0 0 0",
+      "drawAsynchronously" : false,
+      "maskToCorners" : false,
+      "name" : "SearchField",
+      "tintColor" : {
+        "definedAtRuntime" : false,
+        "colorString" : "0 0 0 1",
+        "colorVar" : "",
+        "colorName" : ""
+      },
+      "topInnerBorders" : [
+
+      ],
+      "bottomInnerBorders" : [
+
+      ],
+      "controlStyle" : {
+
+      },
+      "rightInnerBorders" : [
+
+      ],
+      "isLeaf" : true,
+      "roundedCorners" : 15
+    },
+    {
+      "leftInnerBorders" : [
+
+      ],
+      "canvasBackgroundType" : "Transparent",
+      "strokeColor" : {
+        "definedAtRuntime" : false,
+        "colorString" : "1 1 1 1",
+        "colorVar" : "",
+        "colorName" : ""
+      },
+      "cornerRadiusType" : 0,
+      "useCustomTintColor" : false,
+      "background" : {
+        "fillType" : 1,
+        "fillColor" : {
+          "definedAtRuntime" : false,
+          "colorString" : "0 0 0 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
+        "gradient" : {
+          "gradientName" : "Gradient1",
+          "colors" : [
+            {
+              "definedAtRuntime" : false,
+              "colorString" : "1 1 0 1",
+              "colorVar" : "StarTopColor",
+              "colorName" : ""
+            },
+            {
+              "definedAtRuntime" : false,
+              "colorString" : "1 0 0 1",
+              "colorVar" : "ButtonColor",
+              "colorName" : ""
+            }
+          ],
+          "gradientAngle" : 180,
+          "locations" : [
+            0,
+            1
+          ]
+        },
+        "fillInsets" : {
+          "right" : 0,
+          "top" : 0,
+          "left" : 0,
+          "bottom" : 0
+        }
+      },
+      "innerShadow" : {
+        "xOffset" : 0,
+        "color" : {
+          "definedAtRuntime" : false,
+          "colorString" : "1 1 1 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
+        "yOffset" : 0,
+        "opacity" : 1,
+        "radius" : 2
+      },
+      "shadow" : {
+        "xOffset" : 0,
+        "color" : {
+          "definedAtRuntime" : false,
+          "colorString" : "0 0 0 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
+        "yOffset" : 4,
+        "opacity" : 0.5,
+        "radius" : 8
+      },
+      "strokeWidth" : 0,
+      "cornerRadius" : 30,
+      "canvasBackgroundColor" : "0 0 0 0",
+      "drawAsynchronously" : false,
+      "maskToCorners" : false,
+      "name" : "Tooltip",
+      "tintColor" : {
+        "definedAtRuntime" : false,
+        "colorString" : "0 0 0 1",
+        "colorVar" : "",
+        "colorName" : ""
+      },
+      "topInnerBorders" : [
+
+      ],
+      "bottomInnerBorders" : [
+
+      ],
+      "controlStyle" : {
+
+      },
+      "rightInnerBorders" : [
+
+      ],
+      "isLeaf" : true,
+      "roundedCorners" : 15
+    },
+    {
+      "leftInnerBorders" : [
+        {
+          "height" : 20,
+          "color" : {
+            "definedAtRuntime" : false,
+            "colorString" : "0 0 0 1",
+            "colorVar" : "",
+            "colorName" : ""
+          },
+          "blendMode" : 0
+        }
+      ],
+      "canvasBackgroundType" : "Transparent",
+      "strokeColor" : {
+        "colorVar" : "NavBarTop",
+        "colorName" : "",
+        "definedAtRuntime" : false
+      },
+      "useCustomTintColor" : false,
+      "background" : {
+        "fillType" : 1,
+        "fillColor" : {
+          "definedAtRuntime" : false,
+          "colorString" : "0 0 0 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
+        "gradient" : {
+          "gradientName" : "Gradient1",
+          "colors" : [
+            {
+              "definedAtRuntime" : false,
+              "colorString" : "0.918083 0.918083 0.918083 1",
+              "colorVar" : "",
+              "colorName" : ""
+            }
+          ],
+          "gradientAngle" : 180,
+          "locations" : [
+            0
+          ]
+        },
+        "fillInsets" : {
+          "right" : 0,
+          "top" : 0,
+          "left" : 0,
+          "bottom" : 0
+        }
+      },
+      "innerShadow" : {
+        "xOffset" : 0,
+        "color" : {
+          "definedAtRuntime" : false,
+          "colorString" : "0 0 0 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
+        "yOffset" : -5,
+        "opacity" : 0.5,
+        "radius" : 16
+      },
+      "shadow" : {
+        "xOffset" : 0,
+        "color" : {
+          "definedAtRuntime" : false,
+          "colorString" : "0 0 0 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
+        "yOffset" : -1,
+        "opacity" : 0,
+        "radius" : 0
+      },
+      "strokeWidth" : 6,
+      "cornerRadius" : 10,
+      "canvasBackgroundColor" : "0 0 0 0",
+      "drawAsynchronously" : false,
+      "maskToCorners" : true,
+      "name" : "RoundContainer",
+      "tintColor" : {
+        "definedAtRuntime" : false,
+        "colorString" : "0 0 0 1",
+        "colorVar" : "",
+        "colorName" : ""
+      },
+      "topInnerBorders" : [
+
+      ],
+      "bottomInnerBorders" : [
+
+      ],
+      "controlStyle" : {
+
+      },
+      "rightInnerBorders" : [
+        {
+          "height" : 20,
+          "color" : {
+            "definedAtRuntime" : false,
+            "colorString" : "0 0 0 1",
+            "colorVar" : "",
+            "colorName" : ""
+          },
+          "blendMode" : 0
+        }
+      ],
+      "isLeaf" : true,
+      "roundedCorners" : 15
+    },
+    {
+      "name" : "GroupedTable",
+      "children" : [
+        {
+          "leftInnerBorders" : [
+
+          ],
+          "canvasBackgroundType" : "Transparent",
+          "strokeColor" : {
+            "definedAtRuntime" : false,
+            "colorString" : "0 0 0 1",
+            "colorVar" : "",
+            "colorName" : ""
+          },
+          "useCustomTintColor" : false,
+          "background" : {
+            "fillType" : 0,
+            "fillColor" : {
+              "definedAtRuntime" : false,
+              "colorString" : "0.199563 0.199557 0.19956 1",
+              "colorVar" : "DemoColor",
+              "colorName" : ""
+            },
+            "gradient" : {
+              "gradientName" : "Gradient1",
+              "colors" : [
+                {
+                  "definedAtRuntime" : false,
+                  "colorString" : "0.199563 0.199557 0.19956 1",
+                  "colorVar" : "DemoColor",
+                  "colorName" : ""
+                }
+              ],
+              "gradientAngle" : 180,
+              "locations" : [
+                0
+              ]
+            },
+            "fillInsets" : {
+              "right" : 0,
+              "top" : 0,
+              "left" : 0,
+              "bottom" : 0
+            }
+          },
+          "tableCellTitleTextStyle" : "CellText",
+          "innerShadow" : {
+            "xOffset" : 0,
+            "color" : {
+              "definedAtRuntime" : false,
+              "colorString" : "0 0 0 1",
+              "colorVar" : "",
+              "colorName" : ""
+            },
+            "yOffset" : -1,
+            "opacity" : 0,
+            "radius" : 0
+          },
+          "shadow" : {
+            "xOffset" : 0,
+            "color" : {
+              "definedAtRuntime" : false,
+              "colorString" : "0 0 0 1",
+              "colorVar" : "",
+              "colorName" : ""
+            },
+            "yOffset" : -1,
+            "opacity" : 0,
+            "radius" : 0
+          },
+          "strokeWidth" : 0,
+          "cornerRadius" : 0,
+          "canvasBackgroundColor" : "0 0 0 0",
+          "drawAsynchronously" : false,
+          "maskToCorners" : false,
+          "name" : "GroupedTable",
+          "groupedTableTopCell" : "TopCell",
+          "topInnerBorders" : [
+
+          ],
+          "tintColor" : {
+            "definedAtRuntime" : false,
+            "colorString" : "0 0 0 1",
+            "colorVar" : "",
+            "colorName" : ""
+          },
+          "bottomInnerBorders" : [
+
+          ],
+          "groupedTableSingleCell" : "SingleCell",
+          "groupedTableMiddleCell" : "MiddleCell",
+          "controlStyle" : {
+
+          },
+          "rightInnerBorders" : [
+
+          ],
+          "isLeaf" : true,
+          "groupedTableBottomCell" : "BottomCell",
+          "roundedCorners" : 0
+        },
+        {
+          "leftInnerBorders" : [
+            {
+              "height" : 1,
+              "color" : {
+                "definedAtRuntime" : false,
+                "colorString" : "0.0814005 0.0813906 0.081397 1",
+                "colorVar" : "DemoBorder",
+                "colorName" : ""
+              },
+              "blendMode" : 0
+            }
+          ],
+          "canvasBackgroundType" : "Transparent",
+          "strokeColor" : {
+            "definedAtRuntime" : false,
+            "colorString" : "0 0 0 1",
+            "colorVar" : "",
+            "colorName" : ""
+          },
+          "useCustomTintColor" : false,
+          "background" : {
+            "fillType" : 0,
+            "fillColor" : {
+              "definedAtRuntime" : false,
+              "colorString" : "0.199563 0.199557 0.19956 1",
+              "colorVar" : "DemoColor",
+              "colorName" : ""
+            },
+            "gradient" : {
+              "gradientName" : "Gradient1",
+              "colors" : [
+                {
+                  "definedAtRuntime" : false,
+                  "colorString" : "0.279545 0.279493 0.279526 1",
+                  "colorVar" : "DemoNavTop",
+                  "colorName" : ""
+                }
+              ],
+              "gradientAngle" : 180,
+              "locations" : [
+                0
+              ]
+            },
+            "fillInsets" : {
+              "right" : 0,
+              "top" : 0,
+              "left" : 0,
+              "bottom" : 0
+            }
+          },
+          "tableCellSelectedStyleName" : "Current - Make Darker",
+          "tableCellTitleTextStyle" : "GroupedCellText",
+          "innerShadow" : {
+            "xOffset" : 0,
+            "color" : {
+              "definedAtRuntime" : false,
+              "colorString" : "1 0.999974 0.999991 1",
+              "colorVar" : "",
+              "colorName" : ""
+            },
+            "yOffset" : -2,
+            "opacity" : 0.1000000014901161,
+            "radius" : 1
+          },
+          "shadow" : {
+            "xOffset" : 0,
+            "color" : {
+              "definedAtRuntime" : false,
+              "colorString" : "0 0 0 1",
+              "colorVar" : "",
+              "colorName" : ""
+            },
+            "yOffset" : 1,
+            "opacity" : 0,
+            "radius" : 2
+          },
+          "strokeWidth" : 0,
+          "cornerRadius" : 10,
+          "canvasBackgroundColor" : "0 0 0 0",
+          "drawAsynchronously" : false,
+          "maskToCorners" : true,
+          "name" : "BottomCell",
+          "tintColor" : {
+            "definedAtRuntime" : false,
+            "colorString" : "0 0 0 1",
+            "colorVar" : "",
+            "colorName" : ""
+          },
+          "topInnerBorders" : [
+            {
+              "height" : 1,
+              "color" : {
+                "definedAtRuntime" : false,
+                "colorString" : "0.0814005 0.0813906 0.081397 1",
+                "colorVar" : "DemoBorder",
+                "colorName" : ""
+              },
+              "blendMode" : 0
+            }
+          ],
+          "bottomInnerBorders" : [
+            {
+              "height" : 1,
+              "color" : {
+                "definedAtRuntime" : false,
+                "colorString" : "0.0814005 0.0813906 0.081397 1",
+                "colorVar" : "DemoBorder",
+                "colorName" : ""
+              },
+              "blendMode" : 0
+            }
+          ],
+          "controlStyle" : {
+
+          },
+          "rightInnerBorders" : [
+            {
+              "height" : 1,
+              "color" : {
+                "definedAtRuntime" : false,
+                "colorString" : "0.0814005 0.0813906 0.081397 1",
+                "colorVar" : "DemoBorder",
+                "colorName" : ""
+              },
+              "blendMode" : 0
+            }
+          ],
+          "isLeaf" : true,
+          "roundedCorners" : 12
+        },
+        {
+          "leftInnerBorders" : [
+            {
+              "height" : 1,
+              "color" : {
+                "definedAtRuntime" : false,
+                "colorString" : "0.0814005 0.0813906 0.081397 1",
+                "colorVar" : "DemoBorder",
+                "colorName" : ""
+              },
+              "blendMode" : 0
+            }
+          ],
+          "canvasBackgroundType" : "Transparent",
+          "strokeColor" : {
+            "definedAtRuntime" : false,
+            "colorString" : "0 0 0 1",
+            "colorVar" : "",
+            "colorName" : ""
+          },
+          "useCustomTintColor" : false,
+          "background" : {
+            "fillType" : 0,
+            "fillColor" : {
+              "definedAtRuntime" : false,
+              "colorString" : "0.199563 0.199557 0.19956 1",
+              "colorVar" : "DemoColor",
+              "colorName" : ""
+            },
+            "gradient" : {
+              "gradientName" : "Gradient1",
+              "colors" : [
+                {
+                  "definedAtRuntime" : false,
+                  "colorString" : "0.279545 0.279493 0.279526 1",
+                  "colorVar" : "DemoNavTop",
+                  "colorName" : ""
+                }
+              ],
+              "gradientAngle" : 180,
+              "locations" : [
+                0
+              ]
+            },
+            "fillInsets" : {
+              "right" : 0,
+              "top" : 0,
+              "left" : 0,
+              "bottom" : 0
+            }
+          },
+          "tableCellSelectedStyleName" : "Current - Make Darker",
+          "tableCellTitleTextStyle" : "GroupedCellText",
+          "innerShadow" : {
+            "xOffset" : 0,
+            "color" : {
+              "definedAtRuntime" : false,
+              "colorString" : "1 0.999974 0.999991 1",
+              "colorVar" : "",
+              "colorName" : ""
+            },
+            "yOffset" : -2,
+            "opacity" : 0.1000000014901161,
+            "radius" : 1
+          },
+          "shadow" : {
+            "xOffset" : 0,
+            "color" : {
+              "definedAtRuntime" : false,
+              "colorString" : "0 0 0 1",
+              "colorVar" : "",
+              "colorName" : ""
+            },
+            "yOffset" : 1,
+            "opacity" : 0,
+            "radius" : 2
+          },
+          "strokeWidth" : 0,
+          "cornerRadius" : 14,
+          "canvasBackgroundColor" : "0 0 0 0",
+          "drawAsynchronously" : false,
+          "maskToCorners" : true,
+          "name" : "MiddleCell",
+          "tintColor" : {
+            "definedAtRuntime" : false,
+            "colorString" : "0 0 0 1",
+            "colorVar" : "",
+            "colorName" : ""
+          },
+          "topInnerBorders" : [
+            {
+              "height" : 1,
+              "color" : {
+                "definedAtRuntime" : false,
+                "colorString" : "0.0814005 0.0813906 0.081397 1",
+                "colorVar" : "DemoBorder",
+                "colorName" : ""
+              },
+              "blendMode" : 0
+            }
+          ],
+          "bottomInnerBorders" : [
+
+          ],
+          "controlStyle" : {
+
+          },
+          "rightInnerBorders" : [
+            {
+              "height" : 1,
+              "color" : {
+                "definedAtRuntime" : false,
+                "colorString" : "0.0814005 0.0813906 0.081397 1",
+                "colorVar" : "DemoBorder",
+                "colorName" : ""
+              },
+              "blendMode" : 0
+            }
+          ],
+          "isLeaf" : true,
+          "roundedCorners" : 0
+        },
+        {
+          "leftInnerBorders" : [
+            {
+              "height" : 1,
+              "color" : {
+                "definedAtRuntime" : false,
+                "colorString" : "0.0814005 0.0813906 0.081397 1",
+                "colorVar" : "DemoBorder",
+                "colorName" : ""
+              },
+              "blendMode" : 0
+            }
+          ],
+          "canvasBackgroundType" : "Transparent",
+          "strokeColor" : {
+            "definedAtRuntime" : false,
+            "colorString" : "0 0 0 1",
+            "colorVar" : "",
+            "colorName" : ""
+          },
+          "useCustomTintColor" : false,
+          "background" : {
+            "fillType" : 0,
+            "fillColor" : {
+              "definedAtRuntime" : false,
+              "colorString" : "0.199563 0.199557 0.19956 1",
+              "colorVar" : "DemoColor",
+              "colorName" : ""
+            },
+            "gradient" : {
+              "gradientName" : "Gradient1",
+              "colors" : [
+                {
+                  "definedAtRuntime" : false,
+                  "colorString" : "0.279545 0.279493 0.279526 1",
+                  "colorVar" : "DemoNavTop",
+                  "colorName" : ""
+                }
+              ],
+              "gradientAngle" : 180,
+              "locations" : [
+                0
+              ]
+            },
+            "fillInsets" : {
+              "right" : 0,
+              "top" : 0,
+              "left" : 0,
+              "bottom" : 0
+            }
+          },
+          "tableCellSelectedStyleName" : "Current - Make Lighter",
+          "tableCellTitleTextStyle" : "GroupedCellText",
+          "innerShadow" : {
+            "xOffset" : 0,
+            "color" : {
+              "definedAtRuntime" : false,
+              "colorString" : "1 0.999974 0.999991 1",
+              "colorVar" : "",
+              "colorName" : ""
+            },
+            "yOffset" : -2,
+            "opacity" : 0.1000000014901161,
+            "radius" : 1
+          },
+          "shadow" : {
+            "xOffset" : 0,
+            "color" : {
+              "definedAtRuntime" : false,
+              "colorString" : "0 0 0 1",
+              "colorVar" : "",
+              "colorName" : ""
+            },
+            "yOffset" : 1,
+            "opacity" : 0,
+            "radius" : 2
+          },
+          "strokeWidth" : 0,
+          "cornerRadius" : 10,
+          "canvasBackgroundColor" : "0 0 0 0",
+          "drawAsynchronously" : false,
+          "maskToCorners" : true,
+          "name" : "TopCell",
+          "tintColor" : {
+            "definedAtRuntime" : false,
+            "colorString" : "0 0 0 1",
+            "colorVar" : "",
+            "colorName" : ""
+          },
+          "topInnerBorders" : [
+            {
+              "height" : 1,
+              "color" : {
+                "definedAtRuntime" : false,
+                "colorString" : "0.0814005 0.0813906 0.081397 1",
+                "colorVar" : "DemoBorder",
+                "colorName" : ""
+              },
+              "blendMode" : 0
+            }
+          ],
+          "bottomInnerBorders" : [
+
+          ],
+          "controlStyle" : {
+
+          },
+          "rightInnerBorders" : [
+            {
+              "height" : 1,
+              "color" : {
+                "definedAtRuntime" : false,
+                "colorString" : "0.0814005 0.0813906 0.081397 1",
+                "colorVar" : "DemoBorder",
+                "colorName" : ""
+              },
+              "blendMode" : 0
+            }
+          ],
+          "isLeaf" : true,
+          "roundedCorners" : 3
+        },
+        {
+          "leftInnerBorders" : [
+            {
+              "height" : 1,
+              "color" : {
+                "definedAtRuntime" : false,
+                "colorString" : "0.0814005 0.0813906 0.081397 1",
+                "colorVar" : "DemoBorder",
+                "colorName" : ""
+              },
+              "blendMode" : 0
+            }
+          ],
+          "canvasBackgroundType" : "Transparent",
+          "strokeColor" : {
+            "definedAtRuntime" : false,
+            "colorString" : "0 0 0 1",
+            "colorVar" : "",
+            "colorName" : ""
+          },
+          "useCustomTintColor" : false,
+          "background" : {
+            "fillType" : 0,
+            "fillColor" : {
+              "definedAtRuntime" : false,
+              "colorString" : "0.199563 0.199557 0.19956 1",
+              "colorVar" : "DemoColor",
+              "colorName" : ""
+            },
+            "gradient" : {
+              "gradientName" : "Gradient1",
+              "colors" : [
+                {
+                  "definedAtRuntime" : false,
+                  "colorString" : "0.279545 0.279493 0.279526 1",
+                  "colorVar" : "DemoNavTop",
+                  "colorName" : ""
+                }
+              ],
+              "gradientAngle" : 180,
+              "locations" : [
+                0
+              ]
+            },
+            "fillInsets" : {
+              "right" : 10,
+              "top" : 0,
+              "left" : 10,
+              "bottom" : 0
+            }
+          },
+          "tableCellSelectedStyleName" : "Current - Make Lighter",
+          "tableCellTitleTextStyle" : "GroupedCellText",
+          "innerShadow" : {
+            "xOffset" : 0,
+            "color" : {
+              "definedAtRuntime" : false,
+              "colorString" : "1 0.999974 0.999991 1",
+              "colorVar" : "",
+              "colorName" : ""
+            },
+            "yOffset" : -2,
+            "opacity" : 0.1000000014901161,
+            "radius" : 1
+          },
+          "shadow" : {
+            "xOffset" : 0,
+            "color" : {
+              "definedAtRuntime" : false,
+              "colorString" : "0 0 0 1",
+              "colorVar" : "",
+              "colorName" : ""
+            },
+            "yOffset" : 1,
+            "opacity" : 0,
+            "radius" : 1
+          },
+          "strokeWidth" : 0,
+          "cornerRadius" : 10,
+          "canvasBackgroundColor" : "0 0 0 0",
+          "drawAsynchronously" : false,
+          "maskToCorners" : true,
+          "name" : "SingleCell",
+          "tintColor" : {
+            "definedAtRuntime" : false,
+            "colorString" : "0 0 0 1",
+            "colorVar" : "",
+            "colorName" : ""
+          },
+          "topInnerBorders" : [
+            {
+              "height" : 1,
+              "color" : {
+                "definedAtRuntime" : false,
+                "colorString" : "0.0814005 0.0813906 0.081397 1",
+                "colorVar" : "DemoBorder",
+                "colorName" : ""
+              },
+              "blendMode" : 0
+            }
+          ],
+          "bottomInnerBorders" : [
+            {
+              "height" : 1,
+              "color" : {
+                "definedAtRuntime" : false,
+                "colorString" : "0.0814005 0.0813906 0.081397 1",
+                "colorVar" : "DemoBorder",
+                "colorName" : ""
+              },
+              "blendMode" : 0
+            }
+          ],
+          "controlStyle" : {
+
+          },
+          "rightInnerBorders" : [
+            {
+              "height" : 1,
+              "color" : {
+                "definedAtRuntime" : false,
+                "colorString" : "0.0814005 0.0813906 0.081397 1",
+                "colorVar" : "DemoBorder",
+                "colorName" : ""
+              },
+              "blendMode" : 0
+            }
+          ],
+          "isLeaf" : true,
+          "roundedCorners" : 15
+        }
+      ],
+      "isLeaf" : false
+    },
+    {
+      "name" : "CustomView",
+      "children" : [
+        {
+          "leftInnerBorders" : [
+
+          ],
+          "canvasBackgroundType" : "Transparent",
+          "strokeColor" : {
+            "definedAtRuntime" : false,
+            "colorString" : "0 0 0 1",
+            "colorVar" : "",
+            "colorName" : ""
+          },
+          "useCustomTintColor" : false,
+          "background" : {
+            "fillType" : 0,
+            "fillColor" : {
+              "definedAtRuntime" : false,
+              "colorString" : "0 0 0 1",
+              "colorVar" : "",
+              "colorName" : ""
+            },
+            "gradient" : {
+              "gradientName" : "Gradient1",
+              "colors" : [
+                {
+                  "colorVar" : "NavBarTop",
+                  "colorName" : "",
+                  "definedAtRuntime" : false
+                },
+                {
+                  "colorVar" : "NavBarBottom",
+                  "colorName" : "",
+                  "definedAtRuntime" : false
+                }
+              ],
+              "gradientAngle" : 180,
+              "locations" : [
+                0,
+                1
+              ]
+            },
+            "fillInsets" : {
+              "right" : 0,
+              "top" : 0,
+              "left" : 0,
+              "bottom" : 0
+            }
+          },
+          "innerShadow" : {
+            "xOffset" : 0,
+            "color" : {
+              "definedAtRuntime" : false,
+              "colorString" : "0 0 0 1",
+              "colorVar" : "",
+              "colorName" : ""
+            },
+            "yOffset" : -1,
+            "opacity" : 0,
+            "radius" : 0
+          },
+          "shadow" : {
+            "xOffset" : 0,
+            "color" : {
+              "definedAtRuntime" : false,
+              "colorString" : "0 0 0 1",
+              "colorVar" : "",
+              "colorName" : ""
+            },
+            "yOffset" : 1,
+            "opacity" : 0.2000000029802322,
+            "radius" : 4
+          },
+          "strokeWidth" : 0.5,
+          "cornerRadius" : 10,
+          "canvasBackgroundColor" : "0 0 0 0",
+          "drawAsynchronously" : false,
+          "maskToCorners" : false,
+          "name" : "CustomViewButton",
+          "tintColor" : {
+            "definedAtRuntime" : false,
+            "colorString" : "0 0 0 1",
+            "colorVar" : "",
+            "colorName" : ""
+          },
+          "topInnerBorders" : [
+            {
+              "height" : 1,
+              "color" : {
+                "definedAtRuntime" : false,
+                "colorString" : "1 1 1 1",
+                "colorVar" : "",
+                "colorName" : ""
+              },
+              "blendMode" : 0
+            }
+          ],
+          "bottomInnerBorders" : [
+
+          ],
+          "controlStyle" : {
+            "highlightedStyleName" : "Current - Flipped Gradient",
+            "normalTextStyle" : "ButtonText",
+            "selectedStyleName" : "Current - Flipped Gradient"
+          },
+          "rightInnerBorders" : [
+
+          ],
+          "isLeaf" : true,
+          "roundedCorners" : 15
+        },
+        {
+          "leftInnerBorders" : [
+
+          ],
+          "canvasBackgroundType" : "Transparent",
+          "strokeColor" : {
+            "definedAtRuntime" : false,
+            "colorString" : "0 0 0 1",
+            "colorVar" : "",
+            "colorName" : ""
+          },
+          "customSettings" : [
+            {
+              "keyPath" : "testButton",
+              "keyPathType" : "UIView",
+              "value" : "CustomViewButton"
+            },
+            {
+              "keyPath" : "testLabel",
+              "keyPathType" : "UILabel",
+              "value" : "CustomViewText"
+            }
+          ],
+          "useCustomTintColor" : false,
+          "background" : {
+            "fillType" : 0,
+            "fillColor" : {
+              "definedAtRuntime" : false,
+              "colorString" : "0 0 0 1",
+              "colorVar" : "",
+              "colorName" : ""
+            },
+            "gradient" : {
+              "gradientName" : "Gradient1",
+              "colors" : [
+                {
+                  "colorVar" : "NavBarTop",
+                  "colorName" : "",
+                  "definedAtRuntime" : false
+                }
+              ],
+              "gradientAngle" : 180,
+              "locations" : [
+                0
+              ]
+            },
+            "fillInsets" : {
+              "right" : 0,
+              "top" : 0,
+              "left" : 0,
+              "bottom" : 0
+            }
+          },
+          "innerShadow" : {
+            "xOffset" : 0,
+            "color" : {
+              "definedAtRuntime" : false,
+              "colorString" : "0 0 0 1",
+              "colorVar" : "",
+              "colorName" : ""
+            },
+            "yOffset" : -1,
+            "opacity" : 0,
+            "radius" : 0
+          },
+          "shadow" : {
+            "xOffset" : 0,
+            "color" : {
+              "definedAtRuntime" : false,
+              "colorString" : "0 0 0 1",
+              "colorVar" : "",
+              "colorName" : ""
+            },
+            "yOffset" : 1,
+            "opacity" : 0.4000000059604645,
+            "radius" : 3
+          },
+          "strokeWidth" : 0.5,
+          "cornerRadius" : 0,
+          "canvasBackgroundColor" : "0 0 0 0",
+          "drawAsynchronously" : false,
+          "maskToCorners" : false,
+          "name" : "CustomView",
+          "tintColor" : {
+            "definedAtRuntime" : false,
+            "colorString" : "0 0 0 1",
+            "colorVar" : "",
+            "colorName" : ""
+          },
+          "topInnerBorders" : [
+
+          ],
+          "bottomInnerBorders" : [
+
+          ],
+          "controlStyle" : {
+
+          },
+          "rightInnerBorders" : [
+
+          ],
+          "isLeaf" : true,
+          "roundedCorners" : 0
+        }
+      ],
+      "isLeaf" : false
+    },
+    {
+      "leftInnerBorders" : [
+
+      ],
+      "canvasBackgroundType" : "Transparent",
+      "strokeColor" : {
+        "definedAtRuntime" : false,
+        "colorString" : "0 0 0 1",
+        "colorVar" : "",
+        "colorName" : ""
+      },
+      "useCustomTintColor" : false,
+      "background" : {
+        "fillType" : 0,
+        "fillColor" : {
+          "definedAtRuntime" : false,
+          "colorString" : "0.199563 0.199557 0.19956 1",
+          "colorVar" : "DemoColor",
+          "colorName" : ""
+        },
+        "gradient" : {
+          "gradientName" : "Gradient1",
+          "colors" : [
+            {
+              "definedAtRuntime" : false,
+              "colorString" : "0.199563 0.199557 0.19956 1",
+              "colorVar" : "DemoColor",
+              "colorName" : ""
+            }
+          ],
+          "gradientAngle" : 180,
+          "locations" : [
+            0
+          ]
+        },
+        "fillInsets" : {
+          "right" : 0,
+          "top" : 0,
+          "left" : 0,
+          "bottom" : 0
+        }
+      },
+      "tableCellSelectedStyleName" : "Current - Make Darker",
+      "tableCellTitleTextStyle" : "CellText",
+      "innerShadow" : {
+        "xOffset" : 0,
+        "color" : {
+          "definedAtRuntime" : false,
+          "colorString" : "0 0 0 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
+        "yOffset" : -1,
+        "opacity" : 0,
+        "radius" : 0
+      },
+      "shadow" : {
+        "xOffset" : 0,
+        "color" : {
+          "definedAtRuntime" : false,
+          "colorString" : "0 0 0 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
+        "yOffset" : -1,
+        "opacity" : 0,
+        "radius" : 0
+      },
+      "strokeWidth" : 0,
+      "cornerRadius" : 0,
+      "canvasBackgroundColor" : "0 0 0 0",
+      "drawAsynchronously" : false,
+      "maskToCorners" : false,
+      "name" : "IconDemoCell",
+      "tintColor" : {
+        "definedAtRuntime" : false,
+        "colorString" : "0 0 0 1",
+        "colorVar" : "",
+        "colorName" : ""
+      },
+      "topInnerBorders" : [
+        {
+          "height" : 1,
+          "color" : {
+            "definedAtRuntime" : false,
+            "colorString" : "0.252482 0.252405 0.25246 1",
+            "colorVar" : "DemoHighlight",
+            "colorName" : ""
+          },
+          "blendMode" : 0
+        }
+      ],
+      "bottomInnerBorders" : [
+        {
+          "height" : 1,
+          "color" : {
+            "definedAtRuntime" : false,
+            "colorString" : "0.0814005 0.0813906 0.081397 1",
+            "colorVar" : "DemoBorder",
+            "colorName" : ""
+          },
+          "blendMode" : 0
+        }
+      ],
+      "controlStyle" : {
+
+      },
+      "rightInnerBorders" : [
+
+      ],
+      "isLeaf" : true,
+      "roundedCorners" : 0
+    },
+    {
+      "leftInnerBorders" : [
+
+      ],
+      "canvasBackgroundType" : "Transparent",
+      "barButtonItemStyleName" : "DemoNavBarButton",
+      "strokeColor" : {
+        "definedAtRuntime" : false,
+        "colorString" : "0 0 0 1",
+        "colorVar" : "",
+        "colorName" : ""
+      },
+      "useCustomTintColor" : false,
+      "background" : {
+        "fillType" : 1,
+        "fillColor" : {
+          "definedAtRuntime" : false,
+          "colorString" : "0 0 0 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
+        "gradient" : {
+          "gradientVariableName" : "MainGradient",
+          "gradientName" : "Gradient1",
+          "colors" : [
+            {
+              "definedAtRuntime" : false,
+              "colorString" : "0.279545 0.279493 0.279526 1",
+              "colorVar" : "DemoNavTop",
+              "colorName" : ""
+            },
+            {
+              "definedAtRuntime" : false,
+              "colorString" : "0.199563 0.199557 0.19956 1",
+              "colorVar" : "DemoColor",
+              "colorName" : ""
+            }
+          ],
+          "gradientAngle" : 180,
+          "locations" : [
+            0,
+            1
+          ]
+        },
+        "fillInsets" : {
+          "right" : 0,
+          "top" : 0,
+          "left" : 0,
+          "bottom" : 0
+        }
+      },
+      "innerShadow" : {
+        "xOffset" : 0,
+        "color" : {
+          "definedAtRuntime" : false,
+          "colorString" : "0 0 0 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
+        "yOffset" : -1,
+        "opacity" : 0,
+        "radius" : 0
+      },
+      "shadow" : {
+        "xOffset" : 0,
+        "color" : {
+          "definedAtRuntime" : false,
+          "colorString" : "0 0 0 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
+        "yOffset" : -1,
+        "opacity" : 0,
+        "radius" : 0
+      },
+      "strokeWidth" : 0,
+      "cornerRadius" : 0,
+      "canvasBackgroundColor" : "0 0 0 0",
+      "drawAsynchronously" : false,
+      "maskToCorners" : false,
+      "name" : "DemoNavBar",
+      "tintColor" : {
+        "definedAtRuntime" : false,
+        "colorString" : "0 0 0 1",
+        "colorVar" : "",
+        "colorName" : ""
+      },
+      "topInnerBorders" : [
+        {
+          "height" : 1,
+          "color" : {
+            "definedAtRuntime" : false,
+            "colorString" : "0.424674 0.424661 0.424669 1",
+            "colorVar" : "",
+            "colorName" : ""
+          },
+          "blendMode" : 0
+        }
+      ],
+      "bottomInnerBorders" : [
+        {
+          "height" : 1,
+          "color" : {
+            "definedAtRuntime" : false,
+            "colorString" : "0.0814005 0.0813906 0.081397 1",
+            "colorVar" : "DemoBorder",
+            "colorName" : ""
+          },
+          "blendMode" : 0
+        }
+      ],
+      "controlStyle" : {
+
+      },
+      "rightInnerBorders" : [
+
+      ],
+      "navBarTitleTextStyle" : "NavBarText",
+      "isLeaf" : true,
+      "roundedCorners" : 0
+    },
+    {
+      "leftInnerBorders" : [
+
+      ],
+      "canvasBackgroundType" : "Transparent",
+      "strokeColor" : {
+        "definedAtRuntime" : false,
+        "colorString" : "0.0814005 0.0813906 0.081397 1",
+        "colorVar" : "DemoBorder",
+        "colorName" : ""
+      },
+      "useCustomTintColor" : false,
+      "background" : {
+        "fillType" : 1,
+        "fillColor" : {
+          "definedAtRuntime" : false,
+          "colorString" : "0 0 0 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
+        "gradient" : {
+          "gradientVariableName" : "MainGradient",
+          "gradientName" : "Gradient1",
+          "colors" : [
+            {
+              "definedAtRuntime" : false,
+              "colorString" : "0.279545 0.279493 0.279526 1",
+              "colorVar" : "DemoNavTop",
+              "colorName" : ""
+            },
+            {
+              "definedAtRuntime" : false,
+              "colorString" : "0.199563 0.199557 0.19956 1",
+              "colorVar" : "DemoColor",
+              "colorName" : ""
+            }
+          ],
+          "gradientAngle" : 180,
+          "locations" : [
+            0,
+            1
+          ]
+        },
+        "fillInsets" : {
+          "right" : 0,
+          "top" : 0,
+          "left" : 0,
+          "bottom" : 0
+        }
+      },
+      "innerShadow" : {
+        "xOffset" : 0,
+        "color" : {
+          "definedAtRuntime" : false,
+          "colorString" : "1 1 1 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
+        "yOffset" : -2,
+        "opacity" : 0.1000000014901161,
+        "radius" : 0
+      },
+      "shadow" : {
+        "xOffset" : 0,
+        "color" : {
+          "definedAtRuntime" : false,
+          "colorString" : "1 1 1 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
+        "yOffset" : 1,
+        "opacity" : 0.1000000014901161,
+        "radius" : 0
+      },
+      "strokeWidth" : 1,
+      "cornerRadius" : 8,
+      "canvasBackgroundColor" : "0 0 0 0",
+      "drawAsynchronously" : false,
+      "maskToCorners" : true,
+      "name" : "DemoNavBarButton",
+      "tintColor" : {
+        "definedAtRuntime" : false,
+        "colorString" : "0 0 0 1",
+        "colorVar" : "",
+        "colorName" : ""
+      },
+      "topInnerBorders" : [
+        {
+          "height" : 1,
+          "color" : {
+            "definedAtRuntime" : false,
+            "colorString" : "0.252482 0.252405 0.25246 1",
+            "colorVar" : "DemoHighlight",
+            "colorName" : ""
+          },
+          "blendMode" : 0
+        }
+      ],
+      "bottomInnerBorders" : [
+
+      ],
+      "controlStyle" : {
+        "highlightedStyleName" : "Current - Flipped Gradient",
+        "normalTextStyle" : "BarButtonText",
+        "selectedStyleName" : "Current - Flipped Gradient"
+      },
+      "rightInnerBorders" : [
+
+      ],
+      "isLeaf" : true,
+      "roundedCorners" : 15
+    },
+    {
+      "leftInnerBorders" : [
+
+      ],
+      "canvasBackgroundType" : "Transparent",
+      "barButtonItemStyleName" : "DemoNavBarButton",
+      "strokeColor" : {
+        "definedAtRuntime" : false,
+        "colorString" : "0 0 0 1",
+        "colorVar" : "",
+        "colorName" : ""
+      },
+      "useCustomTintColor" : false,
+      "searchFieldStyleName" : "SearchField",
+      "background" : {
+        "fillType" : 1,
+        "fillColor" : {
+          "definedAtRuntime" : false,
+          "colorString" : "0 0 0 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
+        "gradient" : {
+          "gradientVariableName" : "MainGradient",
+          "gradientName" : "Gradient1",
+          "colors" : [
+            {
+              "definedAtRuntime" : false,
+              "colorString" : "0.279545 0.279493 0.279526 1",
+              "colorVar" : "DemoNavTop",
+              "colorName" : ""
+            },
+            {
+              "definedAtRuntime" : false,
+              "colorString" : "0.199563 0.199557 0.19956 1",
+              "colorVar" : "DemoColor",
+              "colorName" : ""
+            }
+          ],
+          "gradientAngle" : 180,
+          "locations" : [
+            0,
+            1
+          ]
+        },
+        "fillInsets" : {
+          "right" : 0,
+          "top" : 0,
+          "left" : 0,
+          "bottom" : 0
+        }
+      },
+      "innerShadow" : {
+        "xOffset" : 0,
+        "color" : {
+          "definedAtRuntime" : false,
+          "colorString" : "0 0 0 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
+        "yOffset" : -1,
+        "opacity" : 0,
+        "radius" : 0
+      },
+      "shadow" : {
+        "xOffset" : 0,
+        "color" : {
+          "definedAtRuntime" : false,
+          "colorString" : "0 0 0 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
+        "yOffset" : -1,
+        "opacity" : 0,
+        "radius" : 0
+      },
+      "strokeWidth" : 0,
+      "cornerRadius" : 0,
+      "canvasBackgroundColor" : "0 0 0 0",
+      "drawAsynchronously" : false,
+      "maskToCorners" : false,
+      "name" : "SearchBar",
+      "tintColor" : {
+        "definedAtRuntime" : false,
+        "colorString" : "0 0 0 1",
+        "colorVar" : "",
+        "colorName" : ""
+      },
+      "topInnerBorders" : [
+        {
+          "height" : 1,
+          "color" : {
+            "definedAtRuntime" : false,
+            "colorString" : "1 0.999792 0.999929 0.1",
+            "colorVar" : "",
+            "colorName" : ""
+          },
+          "blendMode" : 0
+        }
+      ],
+      "searchFieldTextStyleName" : "SearchText",
+      "bottomInnerBorders" : [
+        {
+          "height" : 1,
+          "color" : {
+            "definedAtRuntime" : false,
+            "colorString" : "0.0814005 0.0813906 0.081397 1",
+            "colorVar" : "DemoBorder",
+            "colorName" : ""
+          },
+          "blendMode" : 0
+        }
+      ],
+      "controlStyle" : {
+
+      },
+      "rightInnerBorders" : [
+
+      ],
+      "navBarTitleTextStyle" : "NavBarText",
+      "isLeaf" : true,
+      "roundedCorners" : 0
+    },
+    {
+      "name" : "Seg",
+      "children" : [
+        {
+          "leftInnerBorders" : [
+
+          ],
+          "canvasBackgroundType" : "Transparent",
+          "strokeColor" : {
+            "definedAtRuntime" : false,
+            "colorString" : "0.0814005 0.0813906 0.081397 1",
+            "colorVar" : "DemoBorder",
+            "colorName" : ""
+          },
+          "segmentDividerWidth" : 1,
+          "useCustomTintColor" : false,
+          "background" : {
+            "fillType" : 1,
+            "fillColor" : {
+              "definedAtRuntime" : false,
+              "colorString" : "0 0 0 1",
+              "colorVar" : "",
+              "colorName" : ""
+            },
+            "gradient" : {
+              "gradientVariableName" : "MainFlipped",
+              "gradientName" : "Gradient1",
+              "colors" : [
+                {
+                  "definedAtRuntime" : false,
+                  "colorString" : "0.199563 0.199557 0.19956 1",
+                  "colorVar" : "DemoColor",
+                  "colorName" : ""
+                },
+                {
+                  "definedAtRuntime" : false,
+                  "colorString" : "0.279545 0.279493 0.279526 1",
+                  "colorVar" : "DemoNavTop",
+                  "colorName" : ""
+                }
+              ],
+              "gradientAngle" : 180,
+              "locations" : [
+                0,
+                1
+              ]
+            },
+            "fillInsets" : {
+              "right" : 0,
+              "top" : 0,
+              "left" : 0,
+              "bottom" : 0
+            }
+          },
+          "innerShadow" : {
+            "xOffset" : 0,
+            "color" : {
+              "definedAtRuntime" : false,
+              "colorString" : "0 0 0 1",
+              "colorVar" : "",
+              "colorName" : ""
+            },
+            "yOffset" : -1,
+            "opacity" : 0.300000011920929,
+            "radius" : 2
+          },
+          "shadow" : {
+            "xOffset" : 0,
+            "color" : {
+              "definedAtRuntime" : false,
+              "colorString" : "0 0 0 1",
+              "colorVar" : "",
+              "colorName" : ""
+            },
+            "yOffset" : 0,
+            "opacity" : 0,
+            "radius" : 0
+          },
+          "strokeWidth" : 1,
+          "segmentedControlStyle" : {
+            "selectedTextStyle" : "ButtonText",
+            "normalTextStyle" : "SegUnselected",
+            "selectedStyleName" : "Current - Flipped Gradient"
+          },
+          "canvasBackgroundColor" : "0 0 0 0",
+          "drawAsynchronously" : false,
+          "maskToCorners" : true,
+          "cornerRadius" : 10,
+          "name" : "SegSelected",
+          "topInnerBorders" : [
+
+          ],
+          "tintColor" : {
+            "definedAtRuntime" : false,
+            "colorString" : "0 0 0 1",
+            "colorVar" : "",
+            "colorName" : ""
+          },
+          "segmentDividerColor" : {
+            "definedAtRuntime" : false,
+            "colorString" : "0.129412 0.180392 0.235294 1",
+            "colorVar" : "",
+            "colorName" : ""
+          },
+          "bottomInnerBorders" : [
+
+          ],
+          "controlStyle" : {
+
+          },
+          "rightInnerBorders" : [
+
+          ],
+          "isLeaf" : true,
+          "roundedCorners" : 15
+        },
+        {
+          "leftInnerBorders" : [
+
+          ],
+          "canvasBackgroundType" : "Transparent",
+          "strokeColor" : {
+            "definedAtRuntime" : false,
+            "colorString" : "0.0814005 0.0813906 0.081397 1",
+            "colorVar" : "DemoBorder",
+            "colorName" : ""
+          },
+          "segmentDividerWidth" : 1,
+          "useCustomTintColor" : false,
+          "background" : {
+            "fillType" : 1,
+            "fillColor" : {
+              "definedAtRuntime" : false,
+              "colorString" : "0 0 0 1",
+              "colorVar" : "",
+              "colorName" : ""
+            },
+            "gradient" : {
+              "gradientVariableName" : "MainGradient",
+              "gradientName" : "Gradient1",
+              "colors" : [
+                {
+                  "definedAtRuntime" : false,
+                  "colorString" : "0.279545 0.279493 0.279526 1",
+                  "colorVar" : "DemoNavTop",
+                  "colorName" : ""
+                },
+                {
+                  "definedAtRuntime" : false,
+                  "colorString" : "0.199563 0.199557 0.19956 1",
+                  "colorVar" : "DemoColor",
+                  "colorName" : ""
+                }
+              ],
+              "gradientAngle" : 180,
+              "locations" : [
+                0,
+                1
+              ]
+            },
+            "fillInsets" : {
+              "right" : 0,
+              "top" : 0,
+              "left" : 0,
+              "bottom" : 0
+            }
+          },
+          "innerShadow" : {
+            "xOffset" : 0,
+            "color" : {
+              "definedAtRuntime" : false,
+              "colorString" : "1 0.99994 0.99998 1",
+              "colorVar" : "",
+              "colorName" : ""
+            },
+            "yOffset" : -3,
+            "opacity" : 0,
+            "radius" : 0
+          },
+          "shadow" : {
+            "xOffset" : 0,
+            "color" : {
+              "definedAtRuntime" : false,
+              "colorString" : "1 0.999806 0.999933 1",
+              "colorVar" : "",
+              "colorName" : ""
+            },
+            "yOffset" : 3,
+            "opacity" : 0,
+            "radius" : 0
+          },
+          "strokeWidth" : 1,
+          "segmentedControlStyle" : {
+            "selectedTextStyle" : "SegSelected",
+            "normalTextStyle" : "SegUnselected",
+            "selectedStyleName" : "SegSelected"
+          },
+          "canvasBackgroundColor" : "0 0 0 0",
+          "drawAsynchronously" : false,
+          "maskToCorners" : true,
+          "cornerRadius" : 10,
+          "name" : "Seg",
+          "topInnerBorders" : [
+            {
+              "height" : 2,
+              "color" : {
+                "definedAtRuntime" : false,
+                "colorString" : "1 0.999872 0.999954 0.1",
+                "colorVar" : "",
+                "colorName" : ""
+              },
+              "blendMode" : 0
+            }
+          ],
+          "tintColor" : {
+            "definedAtRuntime" : false,
+            "colorString" : "0 0 0 1",
+            "colorVar" : "",
+            "colorName" : ""
+          },
+          "segmentDividerColor" : {
+            "definedAtRuntime" : false,
+            "colorString" : "0.107236 0.107214 0.107228 1",
+            "colorVar" : "",
+            "colorName" : ""
+          },
+          "bottomInnerBorders" : [
+
+          ],
+          "controlStyle" : {
+
+          },
+          "rightInnerBorders" : [
+
+          ],
+          "isLeaf" : true,
+          "roundedCorners" : 15
+        }
+      ],
+      "isLeaf" : false
+    },
+    {
+      "leftInnerBorders" : [
+
+      ],
+      "canvasBackgroundType" : "Transparent",
+      "strokeColor" : {
+        "definedAtRuntime" : false,
+        "colorString" : "0 0 0 1",
+        "colorVar" : "",
+        "colorName" : ""
+      },
+      "useCustomTintColor" : false,
+      "background" : {
+        "fillType" : 0,
+        "fillColor" : {
+          "definedAtRuntime" : false,
+          "colorString" : "0 0 0 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
+        "gradient" : {
+          "gradientName" : "Gradient1",
+          "colors" : [
+            {
+              "definedAtRuntime" : false,
+              "colorString" : "0.199563 0.199557 0.19956 1",
+              "colorVar" : "DemoColor",
+              "colorName" : ""
+            }
+          ],
+          "gradientAngle" : 180,
+          "locations" : [
+            0
+          ]
+        },
+        "fillInsets" : {
+          "right" : 0,
+          "top" : 0,
+          "left" : 0,
+          "bottom" : 0
+        }
+      },
+      "innerShadow" : {
+        "xOffset" : 0,
+        "color" : {
+          "definedAtRuntime" : false,
+          "colorString" : "0 0 0 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
+        "yOffset" : -1,
+        "opacity" : 0,
+        "radius" : 0
+      },
+      "shadow" : {
+        "xOffset" : 0,
+        "color" : {
+          "definedAtRuntime" : false,
+          "colorString" : "0 0 0 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
+        "yOffset" : -1,
+        "opacity" : 0,
+        "radius" : 0
+      },
+      "strokeWidth" : 0,
+      "cornerRadius" : 0,
+      "canvasBackgroundColor" : "0 0 0 0",
+      "drawAsynchronously" : false,
+      "maskToCorners" : false,
+      "name" : "Container",
+      "tintColor" : {
+        "definedAtRuntime" : false,
+        "colorString" : "0 0 0 1",
+        "colorVar" : "",
+        "colorName" : ""
+      },
+      "topInnerBorders" : [
+
+      ],
+      "bottomInnerBorders" : [
+
+      ],
+      "controlStyle" : {
+
+      },
+      "rightInnerBorders" : [
+
+      ],
+      "isLeaf" : true,
+      "roundedCorners" : 0
+    }
+  ],
+  "imageStyles" : [
+    {
+      "leftInnerBorders" : [
+
+      ],
+      "canvasBackgroundType" : "Transparent",
+      "strokeColor" : {
+        "definedAtRuntime" : false,
+        "colorString" : "0 0 0 1",
+        "colorVar" : "",
+        "colorName" : ""
+      },
+      "useCustomTintColor" : false,
+      "background" : {
+        "fillType" : 1,
+        "fillColor" : {
+          "definedAtRuntime" : false,
+          "colorString" : "0 0 0 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
+        "gradient" : {
+          "gradientName" : "Gradient1",
+          "colors" : [
+            {
+              "definedAtRuntime" : false,
+              "colorString" : "1 1 0 1",
+              "colorVar" : "StarTopColor",
+              "colorName" : ""
+            },
+            {
+              "definedAtRuntime" : false,
+              "colorString" : "1 0.501961 0 1",
+              "colorVar" : "StarBottomColor",
+              "colorName" : ""
+            }
+          ],
+          "gradientAngle" : 180,
+          "locations" : [
+            0,
+            1
+          ]
+        },
+        "fillInsets" : {
+          "right" : 0,
+          "top" : 0,
+          "left" : 0,
+          "bottom" : 0
+        }
+      },
+      "innerShadow" : {
+        "xOffset" : 0,
+        "color" : {
+          "definedAtRuntime" : false,
+          "colorString" : "1 1 1 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
+        "yOffset" : -5,
+        "opacity" : 1,
+        "radius" : 10
+      },
+      "shadow" : {
+        "xOffset" : 0,
+        "color" : {
+          "definedAtRuntime" : false,
+          "colorString" : "0 0 0 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
+        "yOffset" : 5,
+        "opacity" : 0.5,
+        "radius" : 10
+      },
+      "strokeWidth" : 0.5,
+      "cornerRadius" : 0,
+      "canvasBackgroundColor" : "0 0 0 0",
+      "drawAsynchronously" : false,
+      "maskToCorners" : false,
+      "name" : "StarStyle",
+      "tintColor" : {
+        "definedAtRuntime" : false,
+        "colorString" : "0 0 0 1",
+        "colorVar" : "",
+        "colorName" : ""
+      },
+      "topInnerBorders" : [
+
+      ],
+      "bottomInnerBorders" : [
+
+      ],
+      "controlStyle" : {
+
+      },
+      "rightInnerBorders" : [
+
+      ],
+      "isLeaf" : true,
+      "roundedCorners" : 0
+    },
+    {
+      "leftInnerBorders" : [
+
+      ],
+      "canvasBackgroundType" : "Transparent",
+      "strokeColor" : {
+        "definedAtRuntime" : false,
+        "colorString" : "0.0814005 0.0813906 0.081397 1",
+        "colorVar" : "DemoBorder",
+        "colorName" : ""
+      },
+      "useCustomTintColor" : false,
+      "background" : {
+        "fillType" : 1,
+        "fillColor" : {
+          "definedAtRuntime" : false,
+          "colorString" : "0 0 0 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
+        "gradient" : {
+          "gradientVariableName" : "IconGradient",
+          "gradientName" : "Gradient1",
+          "colors" : [
+            {
+              "definedAtRuntime" : false,
+              "colorString" : "0.87822 0.878194 0.878209 1",
+              "colorVar" : "",
+              "colorName" : ""
+            },
+            {
+              "definedAtRuntime" : false,
+              "colorString" : "0.635288 0.635269 0.63528 1",
+              "colorVar" : "",
+              "colorName" : ""
+            }
+          ],
+          "gradientAngle" : 180,
+          "locations" : [
+            0,
+            1
+          ]
+        },
+        "fillInsets" : {
+          "right" : 0,
+          "top" : 0,
+          "left" : 0,
+          "bottom" : 0
+        }
+      },
+      "innerShadow" : {
+        "xOffset" : 0,
+        "color" : {
+          "definedAtRuntime" : false,
+          "colorString" : "1 0.999974 0.999991 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
+        "yOffset" : -1,
+        "opacity" : 1,
+        "radius" : 2
+      },
+      "shadow" : {
+        "xOffset" : 0,
+        "color" : {
+          "definedAtRuntime" : false,
+          "colorString" : "0 0 0 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
+        "yOffset" : 1,
+        "opacity" : 0.2000000029802322,
+        "radius" : 3
+      },
+      "strokeWidth" : 0.5,
+      "cornerRadius" : 0,
+      "canvasBackgroundColor" : "0 0 0 0",
+      "drawAsynchronously" : false,
+      "maskToCorners" : false,
+      "name" : "Demo",
+      "tintColor" : {
+        "definedAtRuntime" : false,
+        "colorString" : "0 0 0 1",
+        "colorVar" : "",
+        "colorName" : ""
+      },
+      "topInnerBorders" : [
+
+      ],
+      "bottomInnerBorders" : [
+
+      ],
+      "controlStyle" : {
+
+      },
+      "rightInnerBorders" : [
+
+      ],
+      "isLeaf" : true,
+      "roundedCorners" : 0
+    }
+  ],
+  "colors" : [
+    {
+      "definedAtRuntime" : false,
+      "colorString" : "1 0.999974 0.999991 1",
+      "colorVar" : "",
+      "colorName" : "ButtonTextColor"
+    },
+    {
+      "definedAtRuntime" : false,
+      "colorString" : "1 0 0 1",
+      "colorVar" : "",
+      "colorName" : "ButtonColor"
+    },
+    {
+      "definedAtRuntime" : false,
+      "colorString" : "1 1 0 1",
+      "colorVar" : "",
+      "colorName" : "StarTopColor"
+    },
+    {
+      "definedAtRuntime" : false,
+      "colorString" : "1 0.501961 0 1",
+      "colorVar" : "",
+      "colorName" : "StarBottomColor"
+    },
+    {
+      "definedAtRuntime" : false,
+      "colorString" : "0.199563 0.199557 0.19956 1",
+      "colorVar" : "",
+      "colorName" : "DemoColor"
+    },
+    {
+      "definedAtRuntime" : false,
+      "colorString" : "0.252482 0.252405 0.25246 1",
+      "colorVar" : "",
+      "colorName" : "DemoHighlight"
+    },
+    {
+      "definedAtRuntime" : false,
+      "colorString" : "0.0814005 0.0813906 0.081397 1",
+      "colorVar" : "",
+      "colorName" : "DemoBorder"
+    },
+    {
+      "definedAtRuntime" : false,
+      "colorString" : "0.279545 0.279493 0.279526 1",
+      "colorVar" : "",
+      "colorName" : "DemoNavTop"
+    },
+    {
+      "definedAtRuntime" : false,
+      "colorString" : "0.755913 0.755868 0.755897 1",
+      "colorVar" : "",
+      "colorName" : "TextColor"
+    }
+  ],
+  "textStyles" : [
+    {
+      "styleName" : "ButtonText",
+      "inheritFontSize" : false,
+      "textColor" : {
+        "definedAtRuntime" : false,
+        "colorString" : "1 0.999974 0.999991 1",
+        "colorVar" : "ButtonTextColor",
+        "colorName" : ""
+      },
+      "shadowYOffset" : -1,
+      "inheritAlignment" : false,
+      "alignment" : 0,
+      "shadowColor" : {
+        "definedAtRuntime" : false,
+        "colorString" : "1 0.99994 0.99998 1",
+        "colorVar" : "",
+        "colorName" : ""
+      },
+      "fontSizeString" : "12",
+      "fontSize" : 12,
+      "fontName" : "Helvetica-Bold",
+      "shadowXOffset" : 0,
+      "fontSizeType" : 0
+    },
+    {
+      "styleName" : "SearchText",
+      "inheritFontSize" : false,
+      "textColor" : {
+        "definedAtRuntime" : false,
+        "colorString" : "0.755913 0.755868 0.755897 1",
+        "colorVar" : "TextColor",
+        "colorName" : ""
+      },
+      "shadowYOffset" : -1,
+      "inheritAlignment" : false,
+      "alignment" : 0,
+      "shadowColor" : {
+        "definedAtRuntime" : false,
+        "colorString" : "1 0.99994 0.99998 1",
+        "colorVar" : "",
+        "colorName" : ""
+      },
+      "fontSizeString" : "12",
+      "fontSize" : 12,
+      "fontName" : "Helvetica",
+      "shadowXOffset" : 0,
+      "fontSizeType" : 0
+    },
+    {
+      "styleName" : "NavBarText",
+      "inheritFontSize" : false,
+      "textColor" : {
+        "definedAtRuntime" : false,
+        "colorString" : "0.755913 0.755868 0.755897 1",
+        "colorVar" : "TextColor",
+        "colorName" : ""
+      },
+      "shadowYOffset" : 1,
+      "inheritAlignment" : false,
+      "alignment" : 0,
+      "shadowColor" : {
+        "definedAtRuntime" : false,
+        "colorString" : "0 0 0 1",
+        "colorVar" : "",
+        "colorName" : ""
+      },
+      "fontSizeString" : "18",
+      "fontSize" : 18,
+      "fontName" : "Helvetica-Bold",
+      "shadowXOffset" : 0,
+      "fontSizeType" : 0
+    },
+    {
+      "styleName" : "CustomViewText",
+      "inheritFontSize" : false,
+      "textColor" : {
+        "definedAtRuntime" : false,
+        "colorString" : "1 0.999974 0.999991 1",
+        "colorVar" : "ButtonTextColor",
+        "colorName" : ""
+      },
+      "shadowYOffset" : -1,
+      "inheritAlignment" : false,
+      "alignment" : 1,
+      "shadowColor" : {
+        "definedAtRuntime" : false,
+        "colorString" : "0 0 0 1",
+        "colorVar" : "",
+        "colorName" : ""
+      },
+      "fontSizeString" : "12",
+      "fontSize" : 12,
+      "fontName" : "Helvetica",
+      "shadowXOffset" : 0,
+      "fontSizeType" : 0
+    },
+    {
+      "styleName" : "ScrollLabelText",
+      "inheritFontSize" : false,
+      "textColor" : {
+        "definedAtRuntime" : false,
+        "colorString" : "0.755913 0.755868 0.755897 1",
+        "colorVar" : "TextColor",
+        "colorName" : ""
+      },
+      "shadowYOffset" : 1,
+      "inheritAlignment" : false,
+      "alignment" : 1,
+      "shadowColor" : {
+        "definedAtRuntime" : false,
+        "colorString" : "0 0 0 1",
+        "colorVar" : "",
+        "colorName" : ""
+      },
+      "fontSizeString" : "16",
+      "fontSize" : 16,
+      "fontName" : "Helvetica",
+      "shadowXOffset" : 0,
+      "fontSizeType" : 0
+    },
+    {
+      "styleName" : "CellText",
+      "inheritFontSize" : false,
+      "textColor" : {
+        "definedAtRuntime" : false,
+        "colorString" : "0.755913 0.755868 0.755897 1",
+        "colorVar" : "TextColor",
+        "colorName" : ""
+      },
+      "shadowYOffset" : 1,
+      "inheritAlignment" : false,
+      "alignment" : 0,
+      "shadowColor" : {
+        "definedAtRuntime" : false,
+        "colorString" : "0 0 0 1",
+        "colorVar" : "",
+        "colorName" : ""
+      },
+      "fontSizeString" : "20",
+      "fontSize" : 20,
+      "fontName" : "Helvetica-Bold",
+      "shadowXOffset" : 0,
+      "fontSizeType" : 0
+    },
+    {
+      "styleName" : "SegUnselected",
+      "inheritFontSize" : false,
+      "textColor" : {
+        "definedAtRuntime" : false,
+        "colorString" : "0.497739 0.497726 0.497735 1",
+        "colorVar" : "",
+        "colorName" : ""
+      },
+      "shadowYOffset" : 1,
+      "inheritAlignment" : false,
+      "alignment" : 0,
+      "shadowColor" : {
+        "definedAtRuntime" : false,
+        "colorString" : "0 0 0 1",
+        "colorVar" : "",
+        "colorName" : ""
+      },
+      "fontSizeString" : "12",
+      "fontSize" : 12,
+      "fontName" : "Helvetica-Bold",
+      "shadowXOffset" : 0,
+      "fontSizeType" : 0
+    },
+    {
+      "styleName" : "SegSelected",
+      "inheritFontSize" : false,
+      "textColor" : {
+        "definedAtRuntime" : false,
+        "colorString" : "0.755913 0.755868 0.755897 1",
+        "colorVar" : "TextColor",
+        "colorName" : ""
+      },
+      "shadowYOffset" : 1,
+      "inheritAlignment" : false,
+      "alignment" : 0,
+      "shadowColor" : {
+        "definedAtRuntime" : false,
+        "colorString" : "0 0 0 1",
+        "colorVar" : "",
+        "colorName" : ""
+      },
+      "fontSizeString" : "12",
+      "fontSize" : 12,
+      "fontName" : "Helvetica",
+      "shadowXOffset" : 0,
+      "fontSizeType" : 0
+    },
+    {
+      "styleName" : "BarButtonText",
+      "inheritFontSize" : false,
+      "textColor" : {
+        "definedAtRuntime" : false,
+        "colorString" : "0.755913 0.755868 0.755897 1",
+        "colorVar" : "TextColor",
+        "colorName" : ""
+      },
+      "shadowYOffset" : 1,
+      "inheritAlignment" : false,
+      "alignment" : 0,
+      "shadowColor" : {
+        "definedAtRuntime" : false,
+        "colorString" : "0 0 0 1",
+        "colorVar" : "",
+        "colorName" : ""
+      },
+      "fontSizeString" : "12",
+      "fontSize" : 12,
+      "fontName" : "Helvetica-Bold",
+      "shadowXOffset" : 0,
+      "fontSizeType" : 0
+    },
+    {
+      "styleName" : "RedButtonText",
+      "inheritFontSize" : false,
+      "textColor" : {
+        "definedAtRuntime" : false,
+        "colorString" : "1 0.999974 0.999991 1",
+        "colorVar" : "",
+        "colorName" : ""
+      },
+      "shadowYOffset" : 1,
+      "inheritAlignment" : false,
+      "alignment" : 0,
+      "shadowColor" : {
+        "definedAtRuntime" : false,
+        "colorString" : "0 0 0 1",
+        "colorVar" : "",
+        "colorName" : ""
+      },
+      "fontSizeString" : "12",
+      "fontSize" : 12,
+      "fontName" : "Helvetica-Bold",
+      "shadowXOffset" : 0,
+      "fontSizeType" : 0
+    },
+    {
+      "styleName" : "GroupedCellText",
+      "inheritFontSize" : false,
+      "textColor" : {
+        "definedAtRuntime" : false,
+        "colorString" : "0.755913 0.755868 0.755897 1",
+        "colorVar" : "TextColor",
+        "colorName" : ""
+      },
+      "shadowYOffset" : 1,
+      "inheritAlignment" : false,
+      "alignment" : 0,
+      "shadowColor" : {
+        "definedAtRuntime" : false,
+        "colorString" : "0 0 0 1",
+        "colorVar" : "",
+        "colorName" : ""
+      },
+      "fontSizeString" : "12",
+      "fontSize" : 12,
+      "fontName" : "Helvetica-Bold",
+      "shadowXOffset" : 0,
+      "fontSizeType" : 0
+    }
+  ],
+  "textExampleContainerBgColor" : "0.30286 0.302841 0.302853 1",
+  "exampleContainerBgColor" : "0.113725 0.113725 0.113725 1",
+  "sliderStyles" : [
+    {
+      "maxTrackBgColors" : [
+        {
+          "definedAtRuntime" : false,
+          "colorString" : "0.199563 0.199557 0.19956 1",
+          "colorVar" : "DemoColor",
+          "colorName" : ""
+        },
+        {
+          "definedAtRuntime" : false,
+          "colorString" : "0.279545 0.279493 0.279526 1",
+          "colorVar" : "DemoNavTop",
+          "colorName" : ""
+        }
+      ],
+      "thumbStyleName" : "Thumb",
+      "minTrackBgColors" : [
+        {
+          "definedAtRuntime" : false,
+          "colorString" : "0.279545 0.279493 0.279526 1",
+          "colorVar" : "DemoNavTop",
+          "colorName" : ""
+        },
+        {
+          "definedAtRuntime" : false,
+          "colorString" : "0.199563 0.199557 0.19956 1",
+          "colorVar" : "DemoColor",
+          "colorName" : ""
+        }
+      ],
+      "thumbHeight" : 1.5,
+      "outerShadow" : {
+        "xOffset" : 0,
+        "color" : {
+          "definedAtRuntime" : false,
+          "colorString" : "1 0.999974 0.999991 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
+        "yOffset" : -1,
+        "opacity" : 0.1000000014901161,
+        "radius" : 0
+      },
+      "minimumTrackInnerShadow" : {
+        "xOffset" : 0,
+        "color" : {
+          "definedAtRuntime" : false,
+          "colorString" : "1 0.999974 0.999991 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
+        "yOffset" : -2,
+        "opacity" : 0.1000000014901161,
+        "radius" : 1
+      },
+      "strokeColor" : {
+        "definedAtRuntime" : false,
+        "colorString" : "0.0814005 0.0813906 0.081397 1",
+        "colorVar" : "DemoBorder",
+        "colorName" : ""
+      },
+      "styleName" : "Slider",
+      "trackHeight" : 40,
+      "strokeWidth" : 1,
+      "maximumTrackInnerShadow" : {
+        "xOffset" : 0,
+        "color" : {
+          "definedAtRuntime" : false,
+          "colorString" : "1 0.99994 0.99998 0.2",
+          "colorVar" : "",
+          "colorName" : ""
+        },
+        "yOffset" : -1,
+        "opacity" : 0.1000000238418579,
+        "radius" : 1
+      }
+    }
+  ],
+  "gradients" : [
+    {
+      "gradientName" : "Gradient1",
+      "colors" : [
+        {
+          "definedAtRuntime" : false,
+          "colorString" : "1 1 0 1",
+          "colorVar" : "StarTopColor",
+          "colorName" : ""
+        },
+        {
+          "definedAtRuntime" : false,
+          "colorString" : "1 0 0 1",
+          "colorVar" : "ButtonColor",
+          "colorName" : ""
+        }
+      ],
+      "gradientAngle" : 180,
+      "locations" : [
+        0,
+        1
+      ]
+    },
+    {
+      "gradientName" : "MainGradient",
+      "colors" : [
+        {
+          "definedAtRuntime" : false,
+          "colorString" : "0.279545 0.279493 0.279526 1",
+          "colorVar" : "DemoNavTop",
+          "colorName" : ""
+        },
+        {
+          "definedAtRuntime" : false,
+          "colorString" : "0.199563 0.199557 0.19956 1",
+          "colorVar" : "DemoColor",
+          "colorName" : ""
+        }
+      ],
+      "gradientAngle" : 180,
+      "locations" : [
+        0,
+        1
+      ]
+    },
+    {
+      "gradientName" : "MainFlipped",
+      "colors" : [
+        {
+          "definedAtRuntime" : false,
+          "colorString" : "0.199563 0.199557 0.19956 1",
+          "colorVar" : "DemoColor",
+          "colorName" : ""
+        },
+        {
+          "definedAtRuntime" : false,
+          "colorString" : "0.279545 0.279493 0.279526 1",
+          "colorVar" : "DemoNavTop",
+          "colorName" : ""
+        }
+      ],
+      "gradientAngle" : 180,
+      "locations" : [
+        0,
+        1
+      ]
+    },
+    {
+      "gradientName" : "Red",
+      "colors" : [
+        {
+          "definedAtRuntime" : false,
+          "colorString" : "1 0 0 1",
+          "colorVar" : "ButtonColor",
+          "colorName" : ""
+        },
+        {
+          "definedAtRuntime" : false,
+          "colorString" : "0.643597 0 0 1",
+          "colorVar" : "",
+          "colorName" : ""
+        }
+      ],
+      "gradientAngle" : 180,
+      "locations" : [
+        0,
+        1
+      ]
+    },
+    {
+      "gradientName" : "IconGradient",
+      "colors" : [
+        {
+          "definedAtRuntime" : false,
+          "colorString" : "0.87822 0.878194 0.878209 1",
+          "colorVar" : "",
+          "colorName" : ""
+        },
+        {
+          "definedAtRuntime" : false,
+          "colorString" : "0.635288 0.635269 0.63528 1",
+          "colorVar" : "",
+          "colorName" : ""
+        }
+      ],
+      "gradientAngle" : 180,
+      "locations" : [
+        0,
+        1
+      ]
+    }
+  ]
+}

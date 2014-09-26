@@ -151,16 +151,18 @@ GET_AND_SET_CLASS_OBJ(swizzledDidAddSubview, @(NO));
     [self addSubview:dyn_overlayView];
     
     if (self.constraints) {
-        NSDictionary *vars = NSDictionaryOfVariableBindings(dyn_overlayView);
-        NSArray *constraints = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[dyn_overlayView]-0-|" options:0 metrics:nil views:vars];
-        constraints = [constraints arrayByAddingObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[dyn_overlayView]-0-|" options:0 metrics:nil views:vars]];
-        [self addConstraints:constraints];
+        dyn_overlayView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+
+//        NSDictionary *vars = NSDictionaryOfVariableBindings(dyn_overlayView);
+//        NSArray *constraints = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[dyn_overlayView]-0-|" options:0 metrics:nil views:vars];
+//        constraints = [constraints arrayByAddingObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[dyn_overlayView]-0-|" options:0 metrics:nil views:vars]];
+//        [self addConstraints:constraints];
     } else {
         dyn_overlayView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     }
     
     if (dyn_overlayView) {
-        if (![UIView swizzledDidAddSubview]) {
+        if (![[UIView swizzledDidAddSubview] boolValue]) {
             [UIView swizzleDidAddSubview];
         }
     }
@@ -289,6 +291,25 @@ GET_AND_SET_CLASS_OBJ(dyn_didMoveToSuperviewSwizzled, @(NO));
 - (void)setValue:(id)value forStyleParameter:(NSString *)parameterName {
     [self.styleParameters setValue:value forStyleParameter:parameterName];
     [self dyn_refreshStyle];
+}
+
+- (UIImage*)imageFromSnapshot
+{
+    return [UIImage imageWithSize:self.frame.size drawnWithBlock:^(CGContextRef context, CGRect rect) {
+        [self drawViewHierarchyInRect:rect afterScreenUpdates:NO];
+    }];
+}
+
+- (UIImage*)imageFromSnapshotInRect:(CGRect)innerRect
+{
+    return [UIImage imageWithSize:innerRect.size drawnWithBlock:^(CGContextRef context, CGRect rect) {
+       
+        CGRect convertRect = rect;
+        convertRect.origin.x = -innerRect.origin.x;
+        convertRect.origin.y = -innerRect.origin.y;
+        [self drawViewHierarchyInRect:convertRect afterScreenUpdates:NO];
+        
+    }];
 }
 
 @end

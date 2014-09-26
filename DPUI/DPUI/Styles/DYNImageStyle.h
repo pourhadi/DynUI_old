@@ -7,7 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 #import "DYNViewStyle.h"
+
 @class DYNShadowStyle;
 @class DYNBackgroundStyle;
 @interface DYNImageStyle : DYNViewStyle
